@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://githubhaohao.github.io/tags/article-title.html</loc>
+
     
-    <lastmod>2017-01-12T08:57:54.524Z</lastmod>
-    
-  </url>
-  
   <url>
     <loc>https://githubhaohao.github.io/2017/01/12/hello-world/</loc>
-    
     <lastmod>2017-01-12T08:47:18.174Z</lastmod>
-    
-  </url>
-  
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-01-12T08:31:23.971Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
 </urlset>
