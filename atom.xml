@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-01-14T02:19:58.216Z</updated>
+  <updated>2017-01-18T02:51:40.837Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -16,16 +16,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>分分钟接入Tinker</title>
+    <link href="https://githubhaohao.github.io/2017/01/18/%E5%88%86%E5%88%86%E9%92%9F%E6%8E%A5%E5%85%A5Tinker/"/>
+    <id>https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/</id>
+    <published>2017-01-18T01:23:38.000Z</published>
+    <updated>2017-01-18T02:51:40.837Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Tinker是什么"><a href="#Tinker是什么" class="headerlink" title="Tinker是什么"></a><a href="https://github.com/Tencent/tinker" target="_blank" rel="external">Tinker</a>是什么</h2><blockquote><p>Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。<br>它主要包括以下几个部分：</p>
+<ul>
+<li>1.gradle编译插件: tinker-patch-gradle-plugin</li>
+<li>2.核心sdk库: tinker-android-lib</li>
+<li>3.非gradle编译用户的命令行版本: tinker-patch-cli.jar</li>
+</ul>
+<footer><strong>Tencent</strong><cite>tinker</cite></footer></blockquote>
+<p><br><br><img src="https://github.com/Tencent/tinker/raw/master/assets/tinker.png" alt="Tinker"></p>
+<h2 id="引入依赖和插件"><a href="#引入依赖和插件" class="headerlink" title="引入依赖和插件"></a>引入依赖和插件</h2><p>在你项目根目录下的 <code>build.gradle</code> 文件中添加:</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> (<span class="string">'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.6'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在 <code>app/build.gradle</code> 文件中添加依赖和插件：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="comment">//optional, help to generate the final application </span></div><div class="line">    provided(<span class="string">'com.tencent.tinker:tinker-android-anno:1.7.6'</span>)</div><div class="line">    <span class="comment">//tinker's main Android lib</span></div><div class="line">    <span class="keyword">compile</span>(<span class="string">'com.tencent.tinker:tinker-android-lib:1.7.6'</span>) </div><div class="line">    <span class="keyword">compile</span> <span class="string">"com.android.support:multidex:1.0.1"</span></div><div class="line">&#125;</div><div class="line">...</div><div class="line"></div><div class="line">...</div><div class="line">apply plugin: <span class="string">'com.tencent.tinker.patch'</span></div></pre></td></tr></table></figure>
+<h2 id="添加task"><a href="#添加task" class="headerlink" title="添加task"></a>添加task</h2><p>添加task <code>tinkerPatch</code> 在 <code>app/build.gradle</code> 文件中,其中 <code>oldApk</code> 路径为出现BUG的APK路径（自定义），添加完之后Async Project。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">tinkerPatch &#123;</div><div class="line"></div><div class="line">    oldApk = <span class="string">"J://tinkerSample/app-debug.apk"</span></div><div class="line">    ignoreWarning = <span class="keyword">true</span></div><div class="line">    useSign = <span class="keyword">true</span></div><div class="line">    buildConfig &#123;</div><div class="line">        applyMapping = <span class="keyword">null</span></div><div class="line">        applyResourceMapping = <span class="keyword">null</span></div><div class="line">        tinkerId = <span class="string">"tinkerId"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    dex &#123;</div><div class="line">        dexMode = <span class="string">"jar"</span></div><div class="line">        usePreGeneratedPatchDex = <span class="keyword">false</span></div><div class="line">        pattern = [<span class="string">"classes*.dex"</span>,</div><div class="line">                   <span class="string">"assets/secondary-dex-?.jar"</span>]</div><div class="line">        loader = [<span class="string">"com.tencent.tinker.loader.*"</span>,</div><div class="line">                  <span class="string">"com.jc.tinkersample.SimpleApp"</span>,</div><div class="line">                  <span class="string">"com.jc.tinkersample.BaseBuildInfo"</span></div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    lib &#123;</div><div class="line">        pattern = [<span class="string">"lib/armeabi/*.so"</span>]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    res &#123;</div><div class="line">        pattern = [<span class="string">"res/*"</span>, <span class="string">"assets/*"</span>, <span class="string">"resources.arsc"</span>, <span class="string">"AndroidManifest.xml"</span>]</div><div class="line">        ignoreChange = [<span class="string">"assets/sample_meta.txt"</span>]</div><div class="line">        largeModSize = <span class="number">100</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    packageConfig &#123;</div><div class="line">        configField(<span class="string">"patchMessage"</span>, <span class="string">"tinker is sample to use"</span>)</div><div class="line">        configField(<span class="string">"platform"</span>, <span class="string">"all"</span>)</div><div class="line">        configField(<span class="string">"patchVersion"</span>, <span class="string">"1.0"</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sevenZip &#123;</div><div class="line">        zipArtifact = <span class="string">"com.tencent.mm:SevenZip:1.1.10"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="接入Tinker"><a href="#接入Tinker" class="headerlink" title="接入Tinker"></a>接入Tinker</h2><p>自定义Application继承 <code>DefaultApplicationLike</code> 类，也可以<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95" target="_blank" rel="external">自定义扩展</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@DefaultLifeCycle</span>(</div><div class="line">        application = <span class="string">"com.jc.tinkersample.SimpleApp"</span>,</div><div class="line">        flags = ShareConstants.TINKER_ENABLE_ALL,</div><div class="line">        loadVerifyFlag = <span class="keyword">false</span></div><div class="line">)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleAppLike</span> <span class="keyword">extends</span> <span class="title">DefaultApplicationLike</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleAppLike</span><span class="params">(Application application, <span class="keyword">int</span> tinkerFlags, <span class="keyword">boolean</span> tinkerLoadVerifyFlag, <span class="keyword">long</span> applicationStartElapsedTime, <span class="keyword">long</span> applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBaseContextAttached</span><span class="params">(Context base)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onBaseContextAttached(base);</div><div class="line">        MultiDex.install(base);</div><div class="line">        TinkerInstaller.install(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.ICE_CREAM_SANDWICH)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerActivityLifecycleCallbacks</span><span class="params">(Application.ActivityLifecycleCallbacks callback)</span> </span>&#123;</div><div class="line">        getApplication().registerActivityLifecycleCallbacks(callback);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行安装到你的手机里，然后把 <code>app-debug.apk</code> 放到 <code>oldApk</code> 对应的路径下，用于生成 <code>patch.apk</code>。</p>
+<p><img src="https://github.com/githubhaohao/TinkerSample/raw/master/image/app_debug.png" alt="app_debug"></p>
+<p>然后，修复你项目的bug（这里只是象征性地修改了一下Text），打开Android Studio 右侧的gradle project 运行 <code>tinkerPatchDebug</code> task生成<code>patch.apk</code>。</p>
+<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/terminal.png?raw=true" alt="command"></p>
+<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/tinker_task.png?raw=true" alt="tinker_task"></p>
+<p>找到<code>patch_signed_7zip.apk</code> 文件。</p>
+<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/signed_apk.png?raw=true" alt="new_apk"></p>
+<p>复制 <code>patch_signed_7zip.apk</code> 文件把它放到手机外部存储目录下 （这里为根目录）。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">String path = Environment.getExternalStorageDirectory().getAbsolutePath() + <span class="string">"/patch_signed_7zip.apk"</span>;</div><div class="line">File file = <span class="keyword">new</span> File(path);</div><div class="line"><span class="keyword">if</span> (file.exists())&#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"patch.apk is existing."</span>, Toast.LENGTH_SHORT).show();</div><div class="line">    TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>,<span class="string">"patch.apk is inexistent."</span>, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用Tinker API <code>TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);</code> 进行热修复，重启app热修复完成。</p>
+<p>详细代码<a href="https://github.com/githubhaohao/TinkerSample" target="_blank" rel="external">https://github.com/githubhaohao/TinkerSample</a></p>
+<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><ol>
+<li><a href="https://github.com/WeMobileDev/article/blob/master/%E5%BE%AE%E4%BF%A1Android%E7%83%AD%E8%A1%A5%E4%B8%81%E5%AE%9E%E8%B7%B5%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF.md" target="_blank" rel="external">微信Android热补丁实践演进之路</a></li>
+<li><a href="https://github.com/WeMobileDev/article/blob/master/Android_N%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AF%B9%E7%83%AD%E8%A1%A5%E4%B8%81%E5%BD%B1%E5%93%8D%E8%A7%A3%E6%9E%90.md" target="_blank" rel="external">Android N混合编译与对热补丁影响深度解析</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;mid=2649286384&amp;idx=1&amp;sn=f1aff31d6a567674759be476bcd12549&amp;scene=4#wechat_redirect" target="_blank" rel="external">微信Tinker的一切都在这里，包括源码</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Tinker是什么&quot;&gt;&lt;a href=&quot;#Tinker是什么&quot; class=&quot;headerlink&quot; title=&quot;Tinker是什么&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/Tencent/tinker&quot; target=&quot;_blank&quot;
+    
+    </summary>
+    
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
+    
+    
+      <category term="Tinker" scheme="https://githubhaohao.github.io/tags/Tinker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://githubhaohao.github.io/2017/01/12/cover/"/>
     <id>https://githubhaohao.github.io/2017/01/12/cover/</id>
     <published>2017-01-12T08:31:23.971Z</published>
-    <updated>2017-01-14T02:19:58.216Z</updated>
+    <updated>2017-01-18T01:30:29.106Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
 <p><strong>老子</strong> </p>
 </blockquote>
-<p><br></p>
 <p><div align="center"><br><img src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460" width="100" height="100" alt="logo"><br></div></p>
 <p align="center"><i>不忘初心，不惧未来。<i><br><br><b>haohao</b><br><br>2017/01/14<br></i></i></p>
 
@@ -36,11 +89,12 @@
       &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;老子&lt;/strong&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div al
+&lt;p&gt;&lt;div align=&quot;center&quot;
     
     </summary>
     
+    
+      <category term="hello world" scheme="https://githubhaohao.github.io/tags/hello-world/"/>
     
   </entry>
   
