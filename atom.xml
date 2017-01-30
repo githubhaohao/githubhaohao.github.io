@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-01-30T09:37:55.950Z</updated>
+  <updated>2017-01-30T09:52:18.135Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/01/25/ES6%E5%85%A5%E9%97%A8-%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
     <id>https://githubhaohao.github.io/2017/01/25/ES6入门-需要掌握的基本语法/</id>
     <published>2017-01-25T14:26:31.000Z</published>
-    <updated>2017-01-30T09:37:55.950Z</updated>
+    <updated>2017-01-30T09:52:18.135Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/es6.jpg?raw=true" alt=""></p>
 <h2 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h2><h3 id="1-ES-ECMAScript-和JavaScript的关系"><a href="#1-ES-ECMAScript-和JavaScript的关系" class="headerlink" title="1. ES (ECMAScript) 和JavaScript的关系"></a>1. ES (ECMAScript) 和JavaScript的关系</h3><blockquote><p>ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现（另外的ECMAScript方言还有Jscript和ActionScript）。日常场合，这两个词是可以互换的。</p>
@@ -91,7 +91,7 @@
       <category term="ES6" scheme="https://githubhaohao.github.io/categories/ES6/"/>
     
     
-      <category term="ES6基本语法" scheme="https://githubhaohao.github.io/tags/ES6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+      <category term="ES6入门" scheme="https://githubhaohao.github.io/tags/ES6%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
