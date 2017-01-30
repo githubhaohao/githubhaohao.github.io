@@ -1686,7 +1686,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffbfff;
+  background: #2affff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2747,7 +2747,7 @@ a.search-result {
   color: #555;
 }
 .sidebar a:hover {
-  color: #222;
+  color: #fc6423;
 }
 .links-of-author-item a:before {
   display: none;
