@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Tinker," />
+  <meta name="keywords" content="Android主题切换," />
 
 
 
@@ -88,34 +88,35 @@
 
 
 
-<meta name="description" content="Tinker是什么Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。它主要包括以下几个部分：
+<meta name="description" content="又是一个周末
 
-1.gradle编译插件: tinker-patch-gradle-plugin
-2.核心sdk库: tinker-android-lib
-3.非gradle编译用户的命令行">
+白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
+Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分分钟接入Tinker">
-<meta property="og:url" content="https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/index.html">
+<meta property="og:title" content="Android主题切换和多主题实现">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/index.html">
 <meta property="og:site_name" content="Haohao">
-<meta property="og:description" content="Tinker是什么Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。它主要包括以下几个部分：
+<meta property="og:description" content="又是一个周末
 
-1.gradle编译插件: tinker-patch-gradle-plugin
-2.核心sdk库: tinker-android-lib
-3.非gradle编译用户的命令行">
-<meta property="og:image" content="https://github.com/Tencent/tinker/raw/master/assets/tinker.png">
-<meta property="og:image" content="https://github.com/githubhaohao/TinkerSample/raw/master/image/app_debug.png">
-<meta property="og:image" content="https://github.com/githubhaohao/TinkerSample/blob/master/image/terminal.png?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/TinkerSample/blob/master/image/tinker_task.png?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/TinkerSample/blob/master/image/signed_apk.png?raw=true">
-<meta property="og:updated_time" content="2017-01-18T02:51:40.837Z">
+白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
+Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true">
+<meta property="og:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin_loader.gif?raw=true">
+<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin.png?raw=true">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/623504-0c8a0c72d3a173ed.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-02-17T13:48:53.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分分钟接入Tinker">
-<meta name="twitter:description" content="Tinker是什么Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。它主要包括以下几个部分：
+<meta name="twitter:title" content="Android主题切换和多主题实现">
+<meta name="twitter:description" content="又是一个周末
 
-1.gradle编译插件: tinker-patch-gradle-plugin
-2.核心sdk库: tinker-android-lib
-3.非gradle编译用户的命令行">
-<meta name="twitter:image" content="https://github.com/Tencent/tinker/raw/master/assets/tinker.png">
+白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
+Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
+<meta name="twitter:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true">
 
 
 
@@ -143,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/"/>
 
 
 
 
 
-  <title> 分分钟接入Tinker | Haohao </title>
+  <title> Android主题切换和多主题实现 | Haohao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Haohao">
@@ -319,7 +320,7 @@
             
             
               
-                分分钟接入Tinker
+                Android主题切换和多主题实现
               
             
           </h1>
@@ -334,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-18T09:23:38+08:00">
-                2017-01-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T14:13:42+08:00">
+                2017-02-17
               </time>
             
 
@@ -375,8 +376,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/18/分分钟接入Tinker/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/" itemprop="commentCount">0</span> comments
+                <a href="/2017/02/17/Android主题切换和多主题实现/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -386,7 +387,7 @@
 
           
           
-             <span id="/2017/01/18/分分钟接入Tinker/" class="leancloud_visitors" data-flag-title="分分钟接入Tinker">
+             <span id="/2017/02/17/Android主题切换和多主题实现/" class="leancloud_visitors" data-flag-title="Android主题切换和多主题实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,38 +419,66 @@
       
 
       
-        <h2 id="Tinker是什么"><a href="#Tinker是什么" class="headerlink" title="Tinker是什么"></a><a href="https://github.com/Tencent/tinker" target="_blank" rel="external">Tinker</a>是什么</h2><blockquote><p>Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。<br>它主要包括以下几个部分：</p>
+        <p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true" alt="Cover"></p>
+<p align="center">又是一个周末</p>
+
+<h2 id="白天和夜间模式"><a href="#白天和夜间模式" class="headerlink" title="白天和夜间模式"></a>白天和夜间模式</h2><p>Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。</p>
+<p>Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 ) 两种主题。这将大大提高了阅读类应用的用户体验 同时还支持 Material Design。</p>
+<p><strong>需要注意的是</strong>，这个特性只支持 API v14 及以上的 Android 设备，在 API v14 以下的设备则会默认使用亮色的主题。</p>
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true" alt="效果预览"></p>
+<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><h4 id="1-引入-support-v7-23-2-版本的依赖"><a href="#1-引入-support-v7-23-2-版本的依赖" class="headerlink" title="1. 引入 support-v7:23.2+ 版本的依赖"></a>1. 引入 support-v7:23.2+ 版本的依赖</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.1.1'</span></div></pre></td></tr></table></figure>
+<p>为保证主题风格的统一，所有的 Activity 类应继承 AppCompatActivity 。</p>
+<h4 id="2-自定义实现-DayNight-主题"><a href="#2-自定义实现-DayNight-主题" class="headerlink" title="2. 自定义实现 DayNight 主题"></a>2. 自定义实现 DayNight 主题</h4><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true" alt="res-night"></p>
+<p>res 目录下新建 values-night 文件，拷贝修改 colors.xml 和 styles.xml 文件到 values-night，为 Night Model 下系统加载的 color资源，同样地也可以指定 Night Model 下加载的 drawable 资源在 drawable-night 文件夹中，同理 layout mipmap 资源加载也是如此。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyApp.DayNight.NoActionBar.Theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>具体位置颜色设置看图：</p>
+<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true" alt="screen"></p>
+<p>在 AndroidManifest.xml 中声明，单个 Activity 的主题。 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>或者整个 App 的主题</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="3-设置-DayNight-主题"><a href="#3-设置-DayNight-主题" class="headerlink" title="3 设置 DayNight 主题"></a>3 设置 DayNight 主题</h4><p>初始化主题:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAppTheme</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (getThemeSharedPref().getBoolean(KEY_NIGHT_THEME, <span class="keyword">false</span>)) &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> SharedPreferences <span class="title">getThemeSharedPref</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getSharedPreferences(<span class="string">"APP_THEME"</span>, Context.MODE_PRIVATE);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>初始化主题应该在 <strong>super.onCreate() </strong> 之前执行，不然 Activity 会启动 2 次,下图为证：</p>
+<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true" alt="restart"></p>
+<p>切换主题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (id == R.id.set_day_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME,<span class="keyword">false</span>).apply();</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (id == R.id.set_night_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME, <span class="keyword">true</span>).apply();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>切换主题会重启 Activity。</strong></p>
+<p>DayNight Theme 有 4 种 Model ，分别是：</p>
 <ul>
-<li>1.gradle编译插件: tinker-patch-gradle-plugin</li>
-<li>2.核心sdk库: tinker-android-lib</li>
-<li>3.非gradle编译用户的命令行版本: tinker-patch-cli.jar</li>
+<li>MODE_NIGHT_NO. 使用 Day 主题</li>
+<li>MODE_NIGHT_YES. 使用暗色 Night 主题</li>
+<li>MODE_NIGHT_AUTO. 根据系统时间自动切换</li>
+<li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项). 设置为跟随系统</li>
 </ul>
-<footer><strong>Tencent</strong><cite>tinker</cite></footer></blockquote>
-<p><br><br><img src="https://github.com/Tencent/tinker/raw/master/assets/tinker.png" alt="Tinker"></p>
-<h2 id="引入依赖和插件"><a href="#引入依赖和插件" class="headerlink" title="引入依赖和插件"></a>引入依赖和插件</h2><p>在你项目根目录下的 <code>build.gradle</code> 文件中添加:</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> (<span class="string">'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.6'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在 <code>app/build.gradle</code> 文件中添加依赖和插件：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="comment">//optional, help to generate the final application </span></div><div class="line">    provided(<span class="string">'com.tencent.tinker:tinker-android-anno:1.7.6'</span>)</div><div class="line">    <span class="comment">//tinker's main Android lib</span></div><div class="line">    <span class="keyword">compile</span>(<span class="string">'com.tencent.tinker:tinker-android-lib:1.7.6'</span>) </div><div class="line">    <span class="keyword">compile</span> <span class="string">"com.android.support:multidex:1.0.1"</span></div><div class="line">&#125;</div><div class="line">...</div><div class="line"></div><div class="line">...</div><div class="line">apply plugin: <span class="string">'com.tencent.tinker.patch'</span></div></pre></td></tr></table></figure>
-<h2 id="添加task"><a href="#添加task" class="headerlink" title="添加task"></a>添加task</h2><p>添加task <code>tinkerPatch</code> 在 <code>app/build.gradle</code> 文件中,其中 <code>oldApk</code> 路径为出现BUG的APK路径（自定义），添加完之后Async Project。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">tinkerPatch &#123;</div><div class="line"></div><div class="line">    oldApk = <span class="string">"J://tinkerSample/app-debug.apk"</span></div><div class="line">    ignoreWarning = <span class="keyword">true</span></div><div class="line">    useSign = <span class="keyword">true</span></div><div class="line">    buildConfig &#123;</div><div class="line">        applyMapping = <span class="keyword">null</span></div><div class="line">        applyResourceMapping = <span class="keyword">null</span></div><div class="line">        tinkerId = <span class="string">"tinkerId"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    dex &#123;</div><div class="line">        dexMode = <span class="string">"jar"</span></div><div class="line">        usePreGeneratedPatchDex = <span class="keyword">false</span></div><div class="line">        pattern = [<span class="string">"classes*.dex"</span>,</div><div class="line">                   <span class="string">"assets/secondary-dex-?.jar"</span>]</div><div class="line">        loader = [<span class="string">"com.tencent.tinker.loader.*"</span>,</div><div class="line">                  <span class="string">"com.jc.tinkersample.SimpleApp"</span>,</div><div class="line">                  <span class="string">"com.jc.tinkersample.BaseBuildInfo"</span></div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    lib &#123;</div><div class="line">        pattern = [<span class="string">"lib/armeabi/*.so"</span>]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    res &#123;</div><div class="line">        pattern = [<span class="string">"res/*"</span>, <span class="string">"assets/*"</span>, <span class="string">"resources.arsc"</span>, <span class="string">"AndroidManifest.xml"</span>]</div><div class="line">        ignoreChange = [<span class="string">"assets/sample_meta.txt"</span>]</div><div class="line">        largeModSize = <span class="number">100</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    packageConfig &#123;</div><div class="line">        configField(<span class="string">"patchMessage"</span>, <span class="string">"tinker is sample to use"</span>)</div><div class="line">        configField(<span class="string">"platform"</span>, <span class="string">"all"</span>)</div><div class="line">        configField(<span class="string">"patchVersion"</span>, <span class="string">"1.0"</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sevenZip &#123;</div><div class="line">        zipArtifact = <span class="string">"com.tencent.mm:SevenZip:1.1.10"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="接入Tinker"><a href="#接入Tinker" class="headerlink" title="接入Tinker"></a>接入Tinker</h2><p>自定义Application继承 <code>DefaultApplicationLike</code> 类，也可以<a href="https://github.com/Tencent/tinker/wiki/Tinker-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%A9%E5%B1%95" target="_blank" rel="external">自定义扩展</a>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@DefaultLifeCycle</span>(</div><div class="line">        application = <span class="string">"com.jc.tinkersample.SimpleApp"</span>,</div><div class="line">        flags = ShareConstants.TINKER_ENABLE_ALL,</div><div class="line">        loadVerifyFlag = <span class="keyword">false</span></div><div class="line">)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleAppLike</span> <span class="keyword">extends</span> <span class="title">DefaultApplicationLike</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleAppLike</span><span class="params">(Application application, <span class="keyword">int</span> tinkerFlags, <span class="keyword">boolean</span> tinkerLoadVerifyFlag, <span class="keyword">long</span> applicationStartElapsedTime, <span class="keyword">long</span> applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBaseContextAttached</span><span class="params">(Context base)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onBaseContextAttached(base);</div><div class="line">        MultiDex.install(base);</div><div class="line">        TinkerInstaller.install(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.ICE_CREAM_SANDWICH)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerActivityLifecycleCallbacks</span><span class="params">(Application.ActivityLifecycleCallbacks callback)</span> </span>&#123;</div><div class="line">        getApplication().registerActivityLifecycleCallbacks(callback);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行安装到你的手机里，然后把 <code>app-debug.apk</code> 放到 <code>oldApk</code> 对应的路径下，用于生成 <code>patch.apk</code>。</p>
-<p><img src="https://github.com/githubhaohao/TinkerSample/raw/master/image/app_debug.png" alt="app_debug"></p>
-<p>然后，修复你项目的bug（这里只是象征性地修改了一下Text），打开Android Studio 右侧的gradle project 运行 <code>tinkerPatchDebug</code> task生成<code>patch.apk</code>。</p>
-<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/terminal.png?raw=true" alt="command"></p>
-<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/tinker_task.png?raw=true" alt="tinker_task"></p>
-<p>找到<code>patch_signed_7zip.apk</code> 文件。</p>
-<p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/signed_apk.png?raw=true" alt="new_apk"></p>
-<p>复制 <code>patch_signed_7zip.apk</code> 文件把它放到手机外部存储目录下 （这里为根目录）。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">String path = Environment.getExternalStorageDirectory().getAbsolutePath() + <span class="string">"/patch_signed_7zip.apk"</span>;</div><div class="line">File file = <span class="keyword">new</span> File(path);</div><div class="line"><span class="keyword">if</span> (file.exists())&#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"patch.apk is existing."</span>, Toast.LENGTH_SHORT).show();</div><div class="line">    TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>,<span class="string">"patch.apk is inexistent."</span>, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用Tinker API <code>TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), path);</code> 进行热修复，重启app热修复完成。</p>
-<p>详细代码<a href="https://github.com/githubhaohao/TinkerSample" target="_blank" rel="external">https://github.com/githubhaohao/TinkerSample</a></p>
-<h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><ol>
-<li><a href="https://github.com/WeMobileDev/article/blob/master/%E5%BE%AE%E4%BF%A1Android%E7%83%AD%E8%A1%A5%E4%B8%81%E5%AE%9E%E8%B7%B5%E6%BC%94%E8%BF%9B%E4%B9%8B%E8%B7%AF.md" target="_blank" rel="external">微信Android热补丁实践演进之路</a></li>
-<li><a href="https://github.com/WeMobileDev/article/blob/master/Android_N%E6%B7%B7%E5%90%88%E7%BC%96%E8%AF%91%E4%B8%8E%E5%AF%B9%E7%83%AD%E8%A1%A5%E4%B8%81%E5%BD%B1%E5%93%8D%E8%A7%A3%E6%9E%90.md" target="_blank" rel="external">Android N混合编译与对热补丁影响深度解析</a></li>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;mid=2649286384&amp;idx=1&amp;sn=f1aff31d6a567674759be476bcd12549&amp;scene=4#wechat_redirect" target="_blank" rel="external">微信Tinker的一切都在这里，包括源码</a></li>
-</ol>
+<h2 id="多主题实现"><a href="#多主题实现" class="headerlink" title="多主题实现"></a>多主题实现</h2><p>介绍几种换肤的第三方库。</p>
+<h3 id="MultipleTheme"><a href="#MultipleTheme" class="headerlink" title="MultipleTheme"></a><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></h3><blockquote><p>真正的支持无缝换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤（无需重启应用和当前页面）。</p>
+<p>该应用框架可以实现无缝换肤／切换夜间模式的需求，需要在换肤／切换夜间模式的界面只需要使用框架里的自封装控件，其他界面的控件使用原生android控件即可。</p>
+<footer><strong>MultipleTheme</strong></footer></blockquote>
+<p><br><br><strong>缺陷</strong>：各种控件都需要重定义。<br><strong>优势</strong>：扩展性强，无需重启 Activity。</p>
+<h3 id="Colorful-推荐"><a href="#Colorful-推荐" class="headerlink" title="Colorful [推荐]"></a><a href="https://github.com/garretyoder/Colorful" target="_blank" rel="external">Colorful</a> [推荐]</h3><blockquote><p>Colorful is a dynamic theme library allowing you to change your apps’ color schemes easily.</p>
+<footer><strong>MultipleTheme</strong></footer></blockquote>
+<p><br><br><strong>缺陷</strong>：主题颜色可定制性差，不支持 Material Design 风格。<br><strong>优势</strong>：使用方便。</p>
+<h3 id="Prism"><a href="#Prism" class="headerlink" title="Prism"></a><a href="https://github.com/StylingAndroid/Prism" target="_blank" rel="external">Prism</a></h3><p><img src="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg" alt="Prism"></p>
+<p>Prism 下含有三个库：</p>
+<ul>
+<li>prsim 库含有一些核心功能；</li>
+<li>prism-viewpager 库实现了核心库与 ViewPager 的对接；</li>
+<li>prism-palette 库实现了核心库与 Palette 的对接。</li>
+</ul>
+<p>分成三个库是为了区分依赖条件：核心库不依赖外部条件，它能够很容易地添加到你的工程之中；但是 prism-viewpager 和 prism-palette 需要依赖相应的support库。所以当你的程序不使用这些依赖库时，你可以只使用 prism 库来省去不必要的依赖条件。不过当你的程序中使用了 ViewPager 时，即已经对相关的support库有了依赖，那么添加 prism-viewpager 库就不需要额外的依赖条件。</p>
+<p><strong>但是，作者已停止更新。</strong></p>
+<h3 id="Android-Skin-Loader-推荐"><a href="#Android-Skin-Loader-推荐" class="headerlink" title="Android-Skin-Loader [推荐]"></a><a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader</a> [推荐]</h3><p>看效果</p>
+<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin_loader.gif?raw=true" alt="skin-loader"></p>
+<p>项目目录：</p>
+<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin.png?raw=true" alt="项目目录"></p>
+<p>Android-Skin-Loader<br>├── android-skin-loader-lib      // 皮肤加载库<br>├── android-skin-loader-sample   // 皮肤库应用实例<br>├── android-skin-loader-skin     // 皮肤包生成demo<br>└── skin-package                 // 皮肤包输出目录</p>
+<p>可以将皮肤文件打包分离，支持在线换肤，皮肤共享，不会重启 Activity 或 Fragment 。皮肤包（ 后缀名为.skin ）的本质是一个apk文件，该apk文件不包含代码，只包含资源文件。 </p>
+<p><strong>缺陷</strong>：每个换肤的 View 都要设置 <code>skin:enable=&quot;true&quot;</code> 繁琐 ( 反正我感觉挺烦的 )，不支持 Material Design 风格。</p>
+<p>不过，还好 <a href="https://github.com/burgessjp/ThemeSkinning" target="_blank" rel="external">ThemeSkinning</a> 进行了优化，支持 Material Design 和字体的切换。</p>
+<p>示例：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/623504-0c8a0c72d3a173ed.gif?imageMogr2/auto-orient/strip" alt="sample"></p>
+<hr>
 
       
     </div>
@@ -473,7 +502,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Tinker/" rel="tag"># Tinker</a>
+            <a href="/tags/Android主题切换/" rel="tag"># Android主题切换</a>
           
         </div>
       
@@ -482,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/12/cover/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/12/MVVM，RxJava和Retrofit的一次实践/" rel="next" title="MVVM，RxJava 和 Retrofit 的一次实践">
+                <i class="fa fa-chevron-left"></i> MVVM，RxJava 和 Retrofit 的一次实践
               </a>
             
           </div>
@@ -491,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/25/ES6入门-需要掌握的基本语法/" rel="prev" title="ES6入门: 需要掌握的基本语法">
-                ES6入门: 需要掌握的基本语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tinker是什么"><span class="nav-number">1.</span> <span class="nav-text">Tinker是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入依赖和插件"><span class="nav-number">2.</span> <span class="nav-text">引入依赖和插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加task"><span class="nav-number">3.</span> <span class="nav-text">添加task</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入Tinker"><span class="nav-number">4.</span> <span class="nav-text">接入Tinker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#白天和夜间模式"><span class="nav-number">1.</span> <span class="nav-text">白天和夜间模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果预览"><span class="nav-number">1.1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体过程"><span class="nav-number">1.2.</span> <span class="nav-text">具体过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入-support-v7-23-2-版本的依赖"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 引入 support-v7:23.2+ 版本的依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-自定义实现-DayNight-主题"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 自定义实现 DayNight 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置-DayNight-主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">3 设置 DayNight 主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多主题实现"><span class="nav-number">2.</span> <span class="nav-text">多主题实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MultipleTheme"><span class="nav-number">2.1.</span> <span class="nav-text">MultipleTheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colorful-推荐"><span class="nav-number">2.2.</span> <span class="nav-text">Colorful [推荐]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prism"><span class="nav-number">2.3.</span> <span class="nav-text">Prism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Skin-Loader-推荐"><span class="nav-number">2.4.</span> <span class="nav-text">Android-Skin-Loader [推荐]</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -847,9 +872,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = '2017/01/18/分分钟接入Tinker/';
+      var disqus_identifier = '2017/02/17/Android主题切换和多主题实现/';
 
-      var disqus_title = "分分钟接入Tinker";
+      var disqus_title = "Android主题切换和多主题实现";
 
 
       function run_disqus_script(disqus_script) {
