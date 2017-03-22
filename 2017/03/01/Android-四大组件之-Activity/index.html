@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android主题切换," />
+  <meta name="keywords" content="Activity," />
 
 
 
@@ -88,35 +88,34 @@
 
 
 
-<meta name="description" content="又是一个周末
+<meta name="description" content="唉！最近拖延症又犯了
 
-白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
-Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
+最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！
+
+Activity 生命周期
+12345678910111213public class Activity extends ApplicationContext &amp;#123;    protected void onCreate(Bun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android主题切换和多主题实现">
-<meta property="og:url" content="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/index.html">
+<meta property="og:title" content="Android 四大组件之 Activity">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/index.html">
 <meta property="og:site_name" content="Haohao">
-<meta property="og:description" content="又是一个周末
+<meta property="og:description" content="唉！最近拖延症又犯了
 
-白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
-Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true">
-<meta property="og:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin_loader.gif?raw=true">
-<meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin.png?raw=true">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/623504-0c8a0c72d3a173ed.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-02-17T13:48:53.485Z">
+最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！
+
+Activity 生命周期
+12345678910111213public class Activity extends ApplicationContext &amp;#123;    protected void onCreate(Bun">
+<meta property="og:image" content="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg">
+<meta property="og:image" content="https://developer.android.com/images/activity_lifecycle.png">
+<meta property="og:updated_time" content="2017-03-22T03:31:45.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android主题切换和多主题实现">
-<meta name="twitter:description" content="又是一个周末
+<meta name="twitter:title" content="Android 四大组件之 Activity">
+<meta name="twitter:description" content="唉！最近拖延症又犯了
 
-白天和夜间模式Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。
-Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 )">
-<meta name="twitter:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true">
+最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！
+
+Activity 生命周期
+12345678910111213public class Activity extends ApplicationContext &amp;#123;    protected void onCreate(Bun">
+<meta name="twitter:image" content="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg">
 
 
 
@@ -144,13 +143,13 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/"/>
 
 
 
 
 
-  <title> Android主题切换和多主题实现 | Haohao </title>
+  <title> Android 四大组件之 Activity | Haohao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -296,7 +295,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Haohao">
@@ -320,7 +319,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
             
             
               
-                Android主题切换和多主题实现
+                Android 四大组件之 Activity
               
             
           </h1>
@@ -335,8 +334,8 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T14:13:42+08:00">
-                2017-02-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T14:36:14+08:00">
+                2017-03-01
               </time>
             
 
@@ -376,8 +375,8 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/17/Android主题切换和多主题实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/" itemprop="commentCount">0</span> comments
+                <a href="/2017/03/01/Android-四大组件之-Activity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -387,7 +386,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
 
           
           
-             <span id="/2017/02/17/Android主题切换和多主题实现/" class="leancloud_visitors" data-flag-title="Android主题切换和多主题实现">
+             <span id="/2017/03/01/Android-四大组件之-Activity/" class="leancloud_visitors" data-flag-title="Android 四大组件之 Activity">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,66 +418,34 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
       
 
       
-        <p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true" alt="Cover"></p>
-<p align="center">又是一个周末</p>
+        <p><img src="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg" alt="Cover"></p>
+<p align="center">唉！最近拖延症又犯了</p>
 
-<h2 id="白天和夜间模式"><a href="#白天和夜间模式" class="headerlink" title="白天和夜间模式"></a>白天和夜间模式</h2><p>Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。</p>
-<p>Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 ) 两种主题。这将大大提高了阅读类应用的用户体验 同时还支持 Material Design。</p>
-<p><strong>需要注意的是</strong>，这个特性只支持 API v14 及以上的 Android 设备，在 API v14 以下的设备则会默认使用亮色的主题。</p>
-<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true" alt="效果预览"></p>
-<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><h4 id="1-引入-support-v7-23-2-版本的依赖"><a href="#1-引入-support-v7-23-2-版本的依赖" class="headerlink" title="1. 引入 support-v7:23.2+ 版本的依赖"></a>1. 引入 support-v7:23.2+ 版本的依赖</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.1.1'</span></div></pre></td></tr></table></figure>
-<p>为保证主题风格的统一，所有的 Activity 类应继承 AppCompatActivity 。</p>
-<h4 id="2-自定义实现-DayNight-主题"><a href="#2-自定义实现-DayNight-主题" class="headerlink" title="2. 自定义实现 DayNight 主题"></a>2. 自定义实现 DayNight 主题</h4><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true" alt="res-night"></p>
-<p>res 目录下新建 values-night 文件，拷贝修改 colors.xml 和 styles.xml 文件到 values-night，为 Night Model 下系统加载的 color资源，同样地也可以指定 Night Model 下加载的 drawable 资源在 drawable-night 文件夹中，同理 layout mipmap 资源加载也是如此。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyApp.DayNight.NoActionBar.Theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>具体位置颜色设置看图：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true" alt="screen"></p>
-<p>在 AndroidManifest.xml 中声明，单个 Activity 的主题。 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>或者整个 App 的主题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="3-设置-DayNight-主题"><a href="#3-设置-DayNight-主题" class="headerlink" title="3 设置 DayNight 主题"></a>3 设置 DayNight 主题</h4><p>初始化主题:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAppTheme</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (getThemeSharedPref().getBoolean(KEY_NIGHT_THEME, <span class="keyword">false</span>)) &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> SharedPreferences <span class="title">getThemeSharedPref</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getSharedPreferences(<span class="string">"APP_THEME"</span>, Context.MODE_PRIVATE);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>初始化主题应该在 <strong>super.onCreate() </strong> 之前执行，不然 Activity 会启动 2 次,下图为证：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true" alt="restart"></p>
-<p>切换主题：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (id == R.id.set_day_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME,<span class="keyword">false</span>).apply();</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (id == R.id.set_night_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME, <span class="keyword">true</span>).apply();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>切换主题会重启 Activity。</strong></p>
-<p>DayNight Theme 有 4 种 Model ，分别是：</p>
-<ul>
-<li>MODE_NIGHT_NO. 使用 Day 主题</li>
-<li>MODE_NIGHT_YES. 使用暗色 Night 主题</li>
-<li>MODE_NIGHT_AUTO. 根据系统时间自动切换</li>
-<li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项). 设置为跟随系统</li>
-</ul>
-<h2 id="多主题实现"><a href="#多主题实现" class="headerlink" title="多主题实现"></a>多主题实现</h2><p>介绍几种换肤的第三方库。</p>
-<h3 id="MultipleTheme"><a href="#MultipleTheme" class="headerlink" title="MultipleTheme"></a><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></h3><blockquote><p>真正的支持无缝换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤（无需重启应用和当前页面）。</p>
-<p>该应用框架可以实现无缝换肤／切换夜间模式的需求，需要在换肤／切换夜间模式的界面只需要使用框架里的自封装控件，其他界面的控件使用原生android控件即可。</p>
-<footer><strong>MultipleTheme</strong></footer></blockquote>
-<p><br><br><strong>缺陷</strong>：各种控件都需要重定义。<br><strong>优势</strong>：扩展性强，无需重启 Activity。</p>
-<h3 id="Colorful-推荐"><a href="#Colorful-推荐" class="headerlink" title="Colorful [推荐]"></a><a href="https://github.com/garretyoder/Colorful" target="_blank" rel="external">Colorful</a> [推荐]</h3><blockquote><p>Colorful is a dynamic theme library allowing you to change your apps’ color schemes easily.</p>
-<footer><strong>MultipleTheme</strong></footer></blockquote>
-<p><br><br><strong>缺陷</strong>：主题颜色可定制性差，不支持 Material Design 风格。<br><strong>优势</strong>：使用方便。</p>
-<h3 id="Prism"><a href="#Prism" class="headerlink" title="Prism"></a><a href="https://github.com/StylingAndroid/Prism" target="_blank" rel="external">Prism</a></h3><p><img src="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg" alt="Prism"></p>
-<p>Prism 下含有三个库：</p>
-<ul>
-<li>prsim 库含有一些核心功能；</li>
-<li>prism-viewpager 库实现了核心库与 ViewPager 的对接；</li>
-<li>prism-palette 库实现了核心库与 Palette 的对接。</li>
-</ul>
-<p>分成三个库是为了区分依赖条件：核心库不依赖外部条件，它能够很容易地添加到你的工程之中；但是 prism-viewpager 和 prism-palette 需要依赖相应的support库。所以当你的程序不使用这些依赖库时，你可以只使用 prism 库来省去不必要的依赖条件。不过当你的程序中使用了 ViewPager 时，即已经对相关的support库有了依赖，那么添加 prism-viewpager 库就不需要额外的依赖条件。</p>
-<p><strong>但是，作者已停止更新。</strong></p>
-<h3 id="Android-Skin-Loader-推荐"><a href="#Android-Skin-Loader-推荐" class="headerlink" title="Android-Skin-Loader [推荐]"></a><a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader</a> [推荐]</h3><p>看效果</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin_loader.gif?raw=true" alt="skin-loader"></p>
-<p>项目目录：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin.png?raw=true" alt="项目目录"></p>
-<p>Android-Skin-Loader<br>├── android-skin-loader-lib      // 皮肤加载库<br>├── android-skin-loader-sample   // 皮肤库应用实例<br>├── android-skin-loader-skin     // 皮肤包生成demo<br>└── skin-package                 // 皮肤包输出目录</p>
-<p>可以将皮肤文件打包分离，支持在线换肤，皮肤共享，不会重启 Activity 或 Fragment 。皮肤包（ 后缀名为.skin ）的本质是一个apk文件，该apk文件不包含代码，只包含资源文件。 </p>
-<p><strong>缺陷</strong>：每个换肤的 View 都要设置 <code>skin:enable=&quot;true&quot;</code> 繁琐 ( 反正我感觉挺烦的 )，不支持 Material Design 风格。</p>
-<p>不过，还好 <a href="https://github.com/burgessjp/ThemeSkinning" target="_blank" rel="external">ThemeSkinning</a> 进行了优化，支持 Material Design 和字体的切换。</p>
-<p>示例：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/623504-0c8a0c72d3a173ed.gif?imageMogr2/auto-orient/strip" alt="sample"></p>
-<hr>
+<blockquote><p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！</p>
+</blockquote>
+<h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="haohaochang.cn"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activity</span> <span class="keyword">extends</span> <span class="title">ApplicationContext</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p><strong>跳转 SecondActivity</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">SecondActivity onCreate</div><div class="line">SecondActivity onStart</div><div class="line">SecondActivity onResume</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>Back 返回 MainActivity</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SecondActivity onPause</div><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div><div class="line">SecondActivity onStop</div><div class="line">SecondActivity onDestroy</div></pre></td></tr></table></figure></p>
+<p><strong>Home 回退桌面</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>桌面返回可见</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure></p>
+<p><strong>锁屏</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>解锁</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure></p>
+<h2 id="Activity-数据传递"><a href="#Activity-数据传递" class="headerlink" title="Activity 数据传递"></a>Activity 数据传递</h2><p>Activity 传递数据一般有以下几种方式：<br><strong>Intent 传递数据</strong><br>MainActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent intent=<span class="keyword">new</span> Intent();  </div><div class="line">intent.setClass(MainActivity.<span class="keyword">this</span>, OtherActivity.class);  </div><div class="line">Bundle bundle = <span class="keyword">new</span> Bundle();  </div><div class="line">bundle.putString(KEY, VALUE);</div><div class="line">intent.putExtras(bundle);  </div><div class="line">startActivity（intent）;</div></pre></td></tr></table></figure></p>
+<p>OtherActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();  </div><div class="line">Bundle bundle = intent.getEtras();  </div><div class="line">String value = bundle.getString(KEY);</div></pre></td></tr></table></figure></p>
+<p>利用 Intent 对象在 Activity 之间传递数据是 Android 开发最常用的方式。<br>利用 Intent 对象可以传递基本数据类型，以及一些可序列化的对象。</p>
+<p><strong>public 型的静态变量</strong><br>public 型的静态变量，在类被加载的时候，就被创建在静态存储区，不依赖于对象。</p>
+<p><strong>Application 对象</strong><br>在整个应用程序中就一个Application单例，它的生命周期贯穿整个程序，堆内存中只存在一个对象实例，所以程序内所有它的引用指向的是同一块堆内存，所以可以在不同activity对application实例变量进行值的存取。<br><em>不推荐</em>。</p>
+<p><strong>Clipboard 剪切板</strong><br>ClipboardManager：该类是系统剪切板服务的接口，用来放入或取出全局剪切板中的文本。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line"></div><div class="line">clipboardManager.setText(DATA.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  </div><div class="line">String data = clipboardManager.getText().toString();</div></pre></td></tr></table></figure>
+<p>Clipboard 也可以传递可序列化对象。</p>
+<p><strong>文件传值</strong><br>通过向本地文件写入和读取来传递数据。<br>常用的如 SharedPrefrences 对象。</p>
+<h2 id="Activity-启动模式"><a href="#Activity-启动模式" class="headerlink" title="Activity 启动模式"></a>Activity 启动模式</h2><p>启动模式,简单地说就是 Activity 启动时的策略，在AndroidManifest.xml 中的标签的 android:launchMode 属性设置；<br>启动模式有4种，分别为 <strong>standard、singleTop、singleTask、singleInstance；</strong></p>
+<h3 id="standard-模式"><a href="#standard-模式" class="headerlink" title="standard 模式"></a>standard 模式</h3><p>每次 startActivity 时，都创建 Activity 实例，并放入任务栈，该任务栈中，可以有多个同类 Activity 的实例。<br><strong>应用场景</strong>：Your idea。</p>
+<h3 id="singleTop-模式"><a href="#singleTop-模式" class="headerlink" title="singleTop 模式"></a>singleTop 模式</h3><p>栈顶不是该类型的 Activity，则创建一个新的 Activity。否则，回调该  Activity 实例的 onNewIntent 方法。<br><strong>应用场景</strong>：接收通知消息启动的页面。<br>例如，对于推送比较频繁的应用，如果收到多个推送，每次都打开一个页面显示内容是不妥的。</p>
+<h3 id="singleTask-模式"><a href="#singleTask-模式" class="headerlink" title="singleTask 模式"></a>singleTask 模式</h3><p>任务栈中不存在启动 Activity 的实例，则创建 Activity 放入任务栈。<br>否则，回调该 Activity 的 onNewIntent 方法，并将该 Activity 置于栈顶，其以上的 Activity 都被弹出 (pop)。<strong>[onNewIntent + clearTop]</strong><br><strong>应用场景</strong>：作为应用的入口点。<br>例如，对于浏览器的主界面，不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走 onNewIntent ，并且会清空主界面上面的其他页面。</p>
+<h3 id="singleInstance-模式"><a href="#singleInstance-模式" class="headerlink" title="singleInstance 模式"></a>singleInstance 模式</h3><p>回退栈中，只有这一个Activity，没有其他Activity。<br><strong>应用场景</strong>：闹铃的响铃界面。正在进行 QQ 聊天室时，闹铃响了，弹出一个对话形式的（以 SingleInstance 加载模式打开的）AlarmActivity，按了返回键之后回到 QQ 聊天界面，这是因为 Alarm Activity 所在的任务栈只有它一个元素， 因此退出之后这个任务栈空了。如果是以 SingleTask 打开 AlarmActivity，那么当闹铃响了的时候，按返回键应该进入闹铃设置界面。</p>
 
       
     </div>
@@ -502,7 +469,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
       
         <div class="post-tags">
           
-            <a href="/tags/Android主题切换/" rel="tag"># Android主题切换</a>
+            <a href="/tags/Activity/" rel="tag"># Activity</a>
           
         </div>
       
@@ -511,8 +478,8 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/12/MVVM，RxJava和Retrofit的一次实践/" rel="next" title="MVVM，RxJava 和 Retrofit 的一次实践">
-                <i class="fa fa-chevron-left"></i> MVVM，RxJava 和 Retrofit 的一次实践
+              <a href="/2017/02/17/Android主题切换和多主题实现/" rel="next" title="Android主题切换和多主题实现">
+                <i class="fa fa-chevron-left"></i> Android主题切换和多主题实现
               </a>
             
           </div>
@@ -520,10 +487,6 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/01/Android-四大组件之-Activity/" rel="prev" title="Android 四大组件之 Activity">
-                Android 四大组件之 Activity <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,7 +666,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#白天和夜间模式"><span class="nav-number">1.</span> <span class="nav-text">白天和夜间模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果预览"><span class="nav-number">1.1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体过程"><span class="nav-number">1.2.</span> <span class="nav-text">具体过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入-support-v7-23-2-版本的依赖"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 引入 support-v7:23.2+ 版本的依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-自定义实现-DayNight-主题"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 自定义实现 DayNight 主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置-DayNight-主题"><span class="nav-number">1.2.3.</span> <span class="nav-text">3 设置 DayNight 主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多主题实现"><span class="nav-number">2.</span> <span class="nav-text">多主题实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MultipleTheme"><span class="nav-number">2.1.</span> <span class="nav-text">MultipleTheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colorful-推荐"><span class="nav-number">2.2.</span> <span class="nav-text">Colorful [推荐]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prism"><span class="nav-number">2.3.</span> <span class="nav-text">Prism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Skin-Loader-推荐"><span class="nav-number">2.4.</span> <span class="nav-text">Android-Skin-Loader [推荐]</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-生命周期"><span class="nav-number">1.</span> <span class="nav-text">Activity 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#场景"><span class="nav-number">1.1.</span> <span class="nav-text">场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-数据传递"><span class="nav-number">2.</span> <span class="nav-text">Activity 数据传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-启动模式"><span class="nav-number">3.</span> <span class="nav-text">Activity 启动模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#standard-模式"><span class="nav-number">3.1.</span> <span class="nav-text">standard 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#singleTop-模式"><span class="nav-number">3.2.</span> <span class="nav-text">singleTop 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#singleTask-模式"><span class="nav-number">3.3.</span> <span class="nav-text">singleTask 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#singleInstance-模式"><span class="nav-number">3.4.</span> <span class="nav-text">singleInstance 模式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -840,9 +803,9 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = '2017/02/17/Android主题切换和多主题实现/';
+      var disqus_identifier = '2017/03/01/Android-四大组件之-Activity/';
 
-      var disqus_title = "Android主题切换和多主题实现";
+      var disqus_title = "Android 四大组件之 Activity";
 
 
       function run_disqus_script(disqus_script) {

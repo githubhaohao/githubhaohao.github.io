@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-02-17T13:48:53.485Z</updated>
+  <updated>2017-03-22T03:31:45.753Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 四大组件之 Activity</title>
+    <link href="https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/"/>
+    <id>https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/</id>
+    <published>2017-03-01T06:36:14.000Z</published>
+    <updated>2017-03-22T03:31:45.753Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg" alt="Cover"></p>
+<p align="center">唉！最近拖延症又犯了</p>
+
+<blockquote><p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！</p>
+</blockquote>
+<h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="haohaochang.cn"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activity</span> <span class="keyword">extends</span> <span class="title">ApplicationContext</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p><strong>跳转 SecondActivity</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">SecondActivity onCreate</div><div class="line">SecondActivity onStart</div><div class="line">SecondActivity onResume</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>Back 返回 MainActivity</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SecondActivity onPause</div><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div><div class="line">SecondActivity onStop</div><div class="line">SecondActivity onDestroy</div></pre></td></tr></table></figure></p>
+<p><strong>Home 回退桌面</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>桌面返回可见</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure></p>
+<p><strong>锁屏</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure></p>
+<p><strong>解锁</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure></p>
+<h2 id="Activity-数据传递"><a href="#Activity-数据传递" class="headerlink" title="Activity 数据传递"></a>Activity 数据传递</h2><p>Activity 传递数据一般有以下几种方式：<br><strong>Intent 传递数据</strong><br>MainActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent intent=<span class="keyword">new</span> Intent();  </div><div class="line">intent.setClass(MainActivity.<span class="keyword">this</span>, OtherActivity.class);  </div><div class="line">Bundle bundle = <span class="keyword">new</span> Bundle();  </div><div class="line">bundle.putString(KEY, VALUE);</div><div class="line">intent.putExtras(bundle);  </div><div class="line">startActivity（intent）;</div></pre></td></tr></table></figure></p>
+<p>OtherActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();  </div><div class="line">Bundle bundle = intent.getEtras();  </div><div class="line">String value = bundle.getString(KEY);</div></pre></td></tr></table></figure></p>
+<p>利用 Intent 对象在 Activity 之间传递数据是 Android 开发最常用的方式。<br>利用 Intent 对象可以传递基本数据类型，以及一些可序列化的对象。</p>
+<p><strong>public 型的静态变量</strong><br>public 型的静态变量，在类被加载的时候，就被创建在静态存储区，不依赖于对象。</p>
+<p><strong>Application 对象</strong><br>在整个应用程序中就一个Application单例，它的生命周期贯穿整个程序，堆内存中只存在一个对象实例，所以程序内所有它的引用指向的是同一块堆内存，所以可以在不同activity对application实例变量进行值的存取。<br><em>不推荐</em>。</p>
+<p><strong>Clipboard 剪切板</strong><br>ClipboardManager：该类是系统剪切板服务的接口，用来放入或取出全局剪切板中的文本。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line"></div><div class="line">clipboardManager.setText(DATA.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  </div><div class="line">String data = clipboardManager.getText().toString();</div></pre></td></tr></table></figure>
+<p>Clipboard 也可以传递可序列化对象。</p>
+<p><strong>文件传值</strong><br>通过向本地文件写入和读取来传递数据。<br>常用的如 SharedPrefrences 对象。</p>
+<h2 id="Activity-启动模式"><a href="#Activity-启动模式" class="headerlink" title="Activity 启动模式"></a>Activity 启动模式</h2><p>启动模式,简单地说就是 Activity 启动时的策略，在AndroidManifest.xml 中的标签的 android:launchMode 属性设置；<br>启动模式有4种，分别为 <strong>standard、singleTop、singleTask、singleInstance；</strong></p>
+<h3 id="standard-模式"><a href="#standard-模式" class="headerlink" title="standard 模式"></a>standard 模式</h3><p>每次 startActivity 时，都创建 Activity 实例，并放入任务栈，该任务栈中，可以有多个同类 Activity 的实例。<br><strong>应用场景</strong>：Your idea。</p>
+<h3 id="singleTop-模式"><a href="#singleTop-模式" class="headerlink" title="singleTop 模式"></a>singleTop 模式</h3><p>栈顶不是该类型的 Activity，则创建一个新的 Activity。否则，回调该  Activity 实例的 onNewIntent 方法。<br><strong>应用场景</strong>：接收通知消息启动的页面。<br>例如，对于推送比较频繁的应用，如果收到多个推送，每次都打开一个页面显示内容是不妥的。</p>
+<h3 id="singleTask-模式"><a href="#singleTask-模式" class="headerlink" title="singleTask 模式"></a>singleTask 模式</h3><p>任务栈中不存在启动 Activity 的实例，则创建 Activity 放入任务栈。<br>否则，回调该 Activity 的 onNewIntent 方法，并将该 Activity 置于栈顶，其以上的 Activity 都被弹出 (pop)。<strong>[onNewIntent + clearTop]</strong><br><strong>应用场景</strong>：作为应用的入口点。<br>例如，对于浏览器的主界面，不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走 onNewIntent ，并且会清空主界面上面的其他页面。</p>
+<h3 id="singleInstance-模式"><a href="#singleInstance-模式" class="headerlink" title="singleInstance 模式"></a>singleInstance 模式</h3><p>回退栈中，只有这一个Activity，没有其他Activity。<br><strong>应用场景</strong>：闹铃的响铃界面。正在进行 QQ 聊天室时，闹铃响了，弹出一个对话形式的（以 SingleInstance 加载模式打开的）AlarmActivity，按了返回键之后回到 QQ 聊天界面，这是因为 Alarm Activity 所在的任务栈只有它一个元素， 因此退出之后这个任务栈空了。如果是以 SingleTask 打开 AlarmActivity，那么当闹铃响了的时候，按返回键应该进入闹铃设置界面。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;唉！最近拖延症又犯了&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;最近真的是越来越懒了，总
+    
+    </summary>
+    
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
+    
+    
+      <category term="Activity" scheme="https://githubhaohao.github.io/tags/Activity/"/>
+    
+  </entry>
   
   <entry>
     <title>Android主题切换和多主题实现</title>
