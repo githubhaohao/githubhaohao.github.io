@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-03-22T03:31:45.753Z</updated>
+  <updated>2017-04-01T05:47:14.234Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android jar 与 aar</title>
+    <link href="https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/"/>
+    <id>https://githubhaohao.github.io/2017/04/01/Android-jar-与-aar/</id>
+    <published>2017-04-01T04:43:26.000Z</published>
+    <updated>2017-04-01T05:47:14.234Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/588795/1372239da58c943a.jpg" alt="Cover"></p>
+<p align="center">愚人节不愚人</p>
+
+<blockquote><p>最近开始搞机器学习，同时项目也不停的维护着！嘿嘿，明天就是小长假了。</p>
+</blockquote>
+<h2 id="Android-jar-与-aar"><a href="#Android-jar-与-aar" class="headerlink" title="Android jar 与 aar"></a>Android jar 与 aar</h2><p>jar (<strong>Java Application Resource</strong>) 是一种归档文件，以 ZIP 格式构建，以 .jar 为文件扩展名。用户可以使用JDK自带的 jar 命令创建或提取 JAR 文件。<strong>jar 文件只包含 class 文件和 配置文件。</strong></p>
+<p>aar (<strong>Android Application Resource</strong>) 是 android 中特有的归档文件，<strong>既包含 class 文件也包含 android 的 res 资源文件</strong>。</p>
+<h2 id="Android-Studio-生成-jar-和-aar-文件"><a href="#Android-Studio-生成-jar-和-aar-文件" class="headerlink" title="Android Studio 生成 jar 和 aar 文件"></a>Android Studio 生成 jar 和 aar 文件</h2><h3 id="新建一个-Module"><a href="#新建一个-Module" class="headerlink" title="新建一个 Module"></a>新建一个 Module</h3><p>Android studio 菜单<strong> File -&gt; New -&gt; New Module -&gt; Android Module</strong> 。<br><img src="http://i4.buimg.com/588795/339c66823e3c881b.png" alt="new module"> </p>
+<p>创建名为 mylibrary 的 module。</p>
+<p><img src="http://i2.muimg.com/588795/afacc81c2031edea.png" alt="module"></p>
+<p>在 mylibrary 下新建一个类 <strong>Person</strong> ,等会在 app module 下访问它。</p>
+<p><img src="http://i4.buimg.com/588795/71501892d1d08bd4.png" alt="person"></p>
+<h3 id="生成-jar-和-aar-文件"><a href="#生成-jar-和-aar-文件" class="headerlink" title="生成 jar 和 aar 文件"></a>生成 jar 和 aar 文件</h3><p>直接 Rebuild 或者运行 mylibrary task 如下图：<br><img src="http://i4.buimg.com/588795/88c5a8a24aca2790.png" alt="task"></p>
+<p>Build Successful 之后可在下图的目录下找到 jar 和 arr 文件。<br><img src="http://i2.muimg.com/588795/76e1e131b84d17ec.png" alt="file"></p>
+<p><img src="http://i2.muimg.com/588795/951d7279602acaad.png" alt="aar"></p>
+<h3 id="引入-jar"><a href="#引入-jar" class="headerlink" title="引入 jar"></a>引入 jar</h3><ul>
+<li>将 jar 文件拷贝到 app 的 lib 文件夹下；</li>
+<li>右击 jar 文件，选择 <strong>Add As Library</strong> ，添加到 app module 下，然后 Android Studio 会自动编译。</li>
+</ul>
+<h3 id="引入-aar"><a href="#引入-aar" class="headerlink" title="引入 aar"></a>引入 aar</h3><ul>
+<li>将 aar 文件拷贝到 app 的 lib 文件夹下 (可以修改 aar 文件名字，本例中修改为 mylibrary )；</li>
+<li>修改 build.gradle 配置文件：<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  ......</div><div class="line">  <span class="keyword">repositories</span> &#123;</div><div class="line">     <span class="keyword">flatDir</span> &#123;</div><div class="line">         dirs <span class="string">'libs'</span></div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    ......</div><div class="line">    <span class="keyword">compile</span>(name: <span class="string">'mylibrary'</span>, ext: <span class="string">'aar'</span>)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Async Project 大工告成。</p>
+<p>同样，你也可以在其他工程中引入 jar 或 aar 文件。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://i4.buimg.com/588795/1372239da58c943a.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;愚人节不愚人&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;最近开始搞机器学习，同时项目也不
+    
+    </summary>
+    
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
+    
+    
+      <category term="jar aar" scheme="https://githubhaohao.github.io/tags/jar-aar/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 四大组件之 Activity</title>
