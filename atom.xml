@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-04-13T11:10:03.371Z</updated>
+  <updated>2017-04-13T11:18:12.690Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>https://githubhaohao.github.io/2017/04/13/RecyclerView-加载与刷新功能实现/</id>
     <published>2017-04-13T10:30:00.000Z</published>
-    <updated>2017-04-13T11:10:03.371Z</updated>
+    <updated>2017-04-13T11:18:12.690Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/588795/9485f3b972f5ed01.jpg" alt="Cover"></p>
 <p align="center">坚持就是进步</p>
@@ -28,7 +28,7 @@
 <blockquote><p>最近 Kotlin Android 开发貌似要火起来，Kotlin 具有脚本语言风格，能与 Java 无缝兼容，并且有 Google 有意栽培。</p>
 </blockquote>
 <h2 id="RecyclerView-加载与刷新功能实现"><a href="#RecyclerView-加载与刷新功能实现" class="headerlink" title="RecyclerView 加载与刷新功能实现"></a>RecyclerView 加载与刷新功能实现</h2><p>RecyclerView 功能及灵活性强大到令人发指。在开发中，完全可以用它代替 ListView 和 GridView ，并且还具有瀑布流展示功能。</p>
-<p>本人主要对 RecyclerView 进行简单的封装，来实现加载、刷新以及异常状态展示多种功能，实现及其简单，代码量很少。</p>
+<p>本文主要对 RecyclerView 进行简单的封装，来实现加载、刷新以及异常状态展示多种功能，实现及其简单，代码量很少。</p>
 <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p><img src="http://i1.piimg.com/588795/ddbeb1bc164791d2.gif" alt="jc-a"><br><img src="http://i1.piimg.com/588795/a8ccce06b8991393.gif" alt="jc-b"></p>
 <p><a href="https://github.com/githubhaohao/JCRecyclerView/blob/master/demo.apk" target="_blank" rel="external">Demo 下载</a></p>
 <blockquote><p><a href="https://github.com/githubhaohao/JCRecyclerView" target="_blank" rel="external">源码地址: https://github.com/githubhaohao/JCRecyclerView</a></p>
