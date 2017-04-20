@@ -90,9 +90,10 @@
     <link href="https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>https://githubhaohao.github.io/2017/04/13/RecyclerView-加载与刷新功能实现/</id>
     <published>2017-04-13T10:30:00.000Z</published>
-    <updated>2017-04-13T11:18:12.690Z</updated>
+    <updated>2017-04-20T14:02:06.756Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/588795/9485f3b972f5ed01.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/9485f3b972f5ed01.jpg" alt="Cover"></p>
+
 <p align="center">坚持就是进步</p>
 
 <blockquote><p>最近 Kotlin Android 开发貌似要火起来，Kotlin 具有脚本语言风格，能与 Java 无缝兼容，并且有 Google 有意栽培。</p>
@@ -114,10 +115,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i2.muimg.com/588795/9485f3b972f5ed01.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.muimg.com/588795/9485f3b972f5ed01.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+
 &lt;p align=&quot;center&quot;&gt;坚持就是进步&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;最近 Kotlin Androi
+&lt;blockquote&gt;&lt;p&gt;
     
     </summary>
     
@@ -133,9 +135,10 @@
     <link href="https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/"/>
     <id>https://githubhaohao.github.io/2017/04/01/Android-jar-与-aar/</id>
     <published>2017-04-01T04:43:26.000Z</published>
-    <updated>2017-04-01T05:53:30.887Z</updated>
+    <updated>2017-04-20T14:00:14.883Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/588795/1372239da58c943a.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/1372239da58c943a.jpg" alt="Cover"></p>
+
 <p align="center">愚人节不愚人</p>
 
 <blockquote><p>最近开始搞机器学习，同时项目也不停的维护着！嘿嘿，明天就是小长假了。</p>
@@ -165,10 +168,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i4.buimg.com/588795/1372239da58c943a.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.buimg.com/588795/1372239da58c943a.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+
 &lt;p align=&quot;center&quot;&gt;愚人节不愚人&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;最近开始搞机器学习，同时项目也不
+&lt;blockquote&gt;&lt;p&gt;
     
     </summary>
     
@@ -184,9 +188,10 @@
     <link href="https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/"/>
     <id>https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/</id>
     <published>2017-03-01T06:36:14.000Z</published>
-    <updated>2017-04-17T01:17:54.401Z</updated>
+    <updated>2017-04-20T14:01:46.646Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg" alt="Cover"></p>
+
 <p align="center">唉！最近拖延症又犯了</p>
 
 <blockquote><p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！<br>虽然关于 Activity 已经被写烂了，但是从本篇文章里，你一定会发现不同的东西。</p>
@@ -246,10 +251,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+
 &lt;p align=&quot;center&quot;&gt;唉！最近拖延症又犯了&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;最近真的是越来越懒了，总
+&lt;blockquote
     
     </summary>
     
