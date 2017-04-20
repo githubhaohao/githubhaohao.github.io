@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Haohao</title>
+  <title>haohao</title>
   <subtitle>不忘初心</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>https://githubhaohao.github.io/</id>
   
   <author>
-    <name>Haohao</name>
+    <name>haohao</name>
     
   </author>
   
