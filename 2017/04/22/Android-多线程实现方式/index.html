@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hello world," />
+  <meta name="keywords" content="多线程," />
 
 
 
@@ -88,30 +88,51 @@
 
 
 
-<meta name="description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
-老子 
+<meta name="description" content="只为初心
+
+一个优秀的程序员，必须具备两种能力：
+
+学习能力
+时间管理能力
 
 
-不忘初心，不惧未来。haohao2017/01/14">
+Android 多线程实现方式通常来说，一个应用至少有一个进程，而一个进程至少有一个线程。
+线程是 CPU 调度的基本单位，进程是系统资源分配的基本单位。
+进程独享内存资源，一个进程可以看作一个 JVM ，一个进程崩溃后，在保护模式下一般不会对其它进程产生影响。
+同一个进程中的线程共享内存资源，一个线程死掉就导致整">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://githubhaohao.github.io/2017/01/12/cover/index.html">
+<meta property="og:title" content="Android 多线程实现方式">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/index.html">
 <meta property="og:site_name" content="haohao">
-<meta property="og:description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
-老子 
+<meta property="og:description" content="只为初心
+
+一个优秀的程序员，必须具备两种能力：
+
+学习能力
+时间管理能力
 
 
-不忘初心，不惧未来。haohao2017/01/14">
-<meta property="og:image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
-<meta property="og:updated_time" content="2017-01-18T01:30:29.106Z">
+Android 多线程实现方式通常来说，一个应用至少有一个进程，而一个进程至少有一个线程。
+线程是 CPU 调度的基本单位，进程是系统资源分配的基本单位。
+进程独享内存资源，一个进程可以看作一个 JVM ，一个进程崩溃后，在保护模式下一般不会对其它进程产生影响。
+同一个进程中的线程共享内存资源，一个线程死掉就导致整">
+<meta property="og:image" content="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg">
+<meta property="og:updated_time" content="2017-04-22T14:03:36.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
-老子 
+<meta name="twitter:title" content="Android 多线程实现方式">
+<meta name="twitter:description" content="只为初心
+
+一个优秀的程序员，必须具备两种能力：
+
+学习能力
+时间管理能力
 
 
-不忘初心，不惧未来。haohao2017/01/14">
-<meta name="twitter:image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+Android 多线程实现方式通常来说，一个应用至少有一个进程，而一个进程至少有一个线程。
+线程是 CPU 调度的基本单位，进程是系统资源分配的基本单位。
+进程独享内存资源，一个进程可以看作一个 JVM ，一个进程崩溃后，在保护模式下一般不会对其它进程产生影响。
+同一个进程中的线程共享内存资源，一个线程死掉就导致整">
+<meta name="twitter:image" content="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg">
 
 
 
@@ -139,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/2017/01/12/cover/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/"/>
 
 
 
 
 
-  <title> Hello World | haohao </title>
+  <title> Android 多线程实现方式 | haohao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -301,7 +322,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/01/12/cover/">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="haohao">
@@ -325,7 +346,7 @@
             
             
               
-                Hello World
+                Android 多线程实现方式
               
             
           </h1>
@@ -340,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-12T16:31:23+08:00">
-                2017-01-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-22T16:04:55+08:00">
+                2017-04-22
               </time>
             
 
@@ -351,6 +372,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -359,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/12/cover/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/01/12/cover/" itemprop="commentCount">0</span> comments
+                <a href="/2017/04/22/Android-多线程实现方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -370,7 +413,7 @@
 
           
           
-             <span id="/2017/01/12/cover/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2017/04/22/Android-多线程实现方式/" class="leancloud_visitors" data-flag-title="Android 多线程实现方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,13 +445,51 @@
       
 
       
-        <blockquote class="blockquote-center"><p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
-<p><strong>老子</strong> </p>
+        <p align="center"><img src="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg" alt="Markdown"></p>
+
+<p align="center">只为初心</p>
+
+<blockquote><p>一个优秀的程序员，必须具备两种能力：</p>
+<ul>
+<li>学习能力</li>
+<li>时间管理能力</li>
+</ul>
 </blockquote>
-<p><div align="center"><br><img src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460" width="100" height="100" alt="logo"><br></div></p>
-<p align="center"><i>不忘初心，不惧未来。<i><br><br><b>haohao</b><br><br>2017/01/14<br></i></i></p>
-
-
+<h2 id="Android-多线程实现方式"><a href="#Android-多线程实现方式" class="headerlink" title="Android 多线程实现方式"></a>Android 多线程实现方式</h2><p>通常来说，一个应用至少有一个进程，而一个进程至少有一个线程。</p>
+<p>线程是 CPU 调度的基本单位，进程是系统资源分配的基本单位。</p>
+<p>进程独享内存资源，一个进程可以看作一个 JVM ，一个进程崩溃后，在保护模式下一般不会对其它进程产生影响。</p>
+<p>同一个进程中的线程共享内存资源，一个线程死掉就导致整个进程死掉。</p>
+<p>行了，进程和线程就扯嫩忙多。</p>
+<p>Android 提供了四种常用的多线程实现方式：</p>
+<ul>
+<li><strong>AsyncTask</strong></li>
+<li><strong>Handler &amp; Thread</strong></li>
+<li><strong>IntentService</strong></li>
+<li><strong>ThreadPoolExcutor</strong></li>
+</ul>
+<h3 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h3><p>我们的老朋友 AsyncTask 类，它是封装好的线程池，操作 UI 线程极其方便。</p>
+<p>瞅一眼，AsyncTask 的三个泛型参数：</p>
+<p><code>public abstract class AsyncTask&lt;Params, Progress, Result&gt;</code></p>
+<ul>
+<li><code>params</code> ，<strong>传入参数类型</strong>，即 <code>doInBackground()</code> 方法中的参数类型;</li>
+<li><code>Progress</code> ，异步任务执行过程中返回的<strong>下载进度类型</strong>，即 <code>publishProgress()</code> 和<code>onProgressUpdate()</code> 方法中传入的参数类型；</li>
+<li><code>Result</code> ，异步任务执行完<strong>返回的结果类型</strong>，即 <code>doInBackground()</code> 方法中返回值的类型。</li>
+</ul>
+<p>四个回调方法：</p>
+<ul>
+<li><code>onPreExecute()</code>，在主线程执行，做一些准备工作。</li>
+<li><code>doInBackground()</code>，在线程池中执行，该方法是抽象方法，在此方法中可以调用 <code>publishProgress()</code> 更新任务进度。</li>
+<li><code>onProgressUpdate()</code>，在主线程中执行，在 <code>publishProgress()</code> 调用之后被回调，展示任务进度。</li>
+<li><code>onPostExecute()</code>，在主线程中执行，异步任务结束后，回调此方法，处理返回结果。</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>当 AsyncTask 任务被取消时，回调 <code>onCanceled()</code> ，此时 <code>onPostExecute()</code>，不会被调用，AsyncTask 中的 <code>cancel()</code> 方法并不是真正去取消任务，只是设置这个任务为取消状态，需要在 <code>doInBackground()</code> 中通过 <code>isCancelled()</code> 判断终止任务。</li>
+<li>AsyncTask 必须在主线程中创建实例，<code>execute()</code> 方法也必须在主线程中调用。</li>
+<li>每个 AsyncTask 实例只能执行一次 <code>execute()</code> ，多次执行会报错，如需执行多次，则需创建多个实例。</li>
+<li>AsyncTask 用的是线程池机制，容量是 128 ，全局线程池只有 5 个工作线程，如果运用 AsyncTask 对象来执行多个异步任务，那么同一时间最多只能有 5 个线程同时运行，其他线程将被阻塞。</li>
+</ul>
+<h3 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h3>
       
     </div>
 
@@ -431,7 +512,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hello-world/" rel="tag"># hello world</a>
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
           
         </div>
       
@@ -440,15 +521,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/15/Android-Clean-架构浅析/" rel="next" title="Android Clean 架构浅析">
+                <i class="fa fa-chevron-left"></i> Android Clean 架构浅析
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/18/分分钟接入Tinker/" rel="prev" title="分分钟接入Tinker">
-                分分钟接入Tinker <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,8 +606,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
@@ -609,6 +699,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-多线程实现方式"><span class="nav-number">1.</span> <span class="nav-text">Android 多线程实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AsyncTask"><span class="nav-number">1.1.</span> <span class="nav-text">AsyncTask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未完待续。。。"><span class="nav-number">1.2.</span> <span class="nav-text">未完待续。。。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -733,9 +839,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = '2017/01/12/cover/';
+      var disqus_identifier = '2017/04/22/Android-多线程实现方式/';
 
-      var disqus_title = "Hello World";
+      var disqus_title = "Android 多线程实现方式";
 
 
       function run_disqus_script(disqus_script) {
