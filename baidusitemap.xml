@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2017-04-28T13:38:58.089Z</lastmod>
+    <data>
+        <display>
+        <title>Android 多线程实现方式</title>
+        <pubTime>2017-04-22T08:04:55.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2017-04-28T01:15:32.666Z</lastmod>
     <data>
@@ -32,26 +52,6 @@
         <pubTime>2017-04-27T11:05:29.000Z</pubTime>
         
         <tag>IPC</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2017-04-26T01:12:07.417Z</lastmod>
-    <data>
-        <display>
-        <title>Android 多线程实现方式</title>
-        <pubTime>2017-04-22T08:04:55.000Z</pubTime>
-        
-        <tag>多线程</tag>
          
          
            
