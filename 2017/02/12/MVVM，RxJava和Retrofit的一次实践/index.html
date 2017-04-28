@@ -94,6 +94,7 @@
 
 
 效果预览
+Demo 下载
 准备知识MVC
 
 视图层（View）：用户界面。
@@ -103,8 +104,7 @@
 
 
 View 层传送指令到 Controller 层
-Controller 层完成业务逻辑后，要求 Model 层改变状态
-M">
+Controller 层完成业务逻辑后，要求 Model">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVVM，RxJava 和 Retrofit 的一次实践">
 <meta property="og:url" content="https://githubhaohao.github.io/2017/02/12/MVVM，RxJava和Retrofit的一次实践/index.html">
@@ -115,6 +115,7 @@ M">
 
 
 效果预览
+Demo 下载
 准备知识MVC
 
 视图层（View）：用户界面。
@@ -124,8 +125,7 @@ M">
 
 
 View 层传送指令到 Controller 层
-Controller 层完成业务逻辑后，要求 Model 层改变状态
-M">
+Controller 层完成业务逻辑后，要求 Model">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/country-1295915__340.png?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/mvc.PNG?raw=true">
@@ -135,7 +135,7 @@ M">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/android-libs-retrofit-1-638.jpg?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/data_binding.png?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true">
-<meta property="og:updated_time" content="2017-04-28T00:57:50.740Z">
+<meta property="og:updated_time" content="2017-04-28T01:15:32.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM，RxJava 和 Retrofit 的一次实践">
 <meta name="twitter:description" content="春节后的第一篇博客
@@ -144,6 +144,7 @@ M">
 
 
 效果预览
+Demo 下载
 准备知识MVC
 
 视图层（View）：用户界面。
@@ -153,8 +154,7 @@ M">
 
 
 View 层传送指令到 Controller 层
-Controller 层完成业务逻辑后，要求 Model 层改变状态
-M">
+Controller 层完成业务逻辑后，要求 Model">
 <meta name="twitter:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/country-1295915__340.png?raw=true">
 
 
@@ -475,6 +475,7 @@ M">
 </blockquote>
 <hr>
 <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true" alt="result"></p>
+<p><a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/demo.apk" target="_blank" rel="external">Demo 下载</a></p>
 <h2 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/mvc.PNG?raw=true" alt="mvc"></p>
 <ul>
 <li><strong>视图层（View）</strong>：用户界面。</li>
@@ -522,6 +523,8 @@ M">
 </blockquote>
 <h3 id="引入DataBinding"><a href="#引入DataBinding" class="headerlink" title="引入DataBinding"></a>引入DataBinding</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ......</div><div class="line"></div><div class="line">    dataBinding &#123;</div><div class="line">        enabled = <span class="keyword">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true" alt="目录"></p>
+<blockquote><p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
+</blockquote>
 <h3 id="MVVM-之-View"><a href="#MVVM-之-View" class="headerlink" title="MVVM 之 View"></a>MVVM 之 View</h3><p><strong>MainActivity.java</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getFragmentManager().beginTransaction().add(R.id.movie_fragment, MovieFragment.getInstance()).commit();</div></pre></td></tr></table></figure>
 <p><strong>MovieFragment.java</strong></p>

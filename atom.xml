@@ -546,7 +546,7 @@
     <link href="https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/"/>
     <id>https://githubhaohao.github.io/2017/02/12/MVVM，RxJava和Retrofit的一次实践/</id>
     <published>2017-02-12T06:21:25.000Z</published>
-    <updated>2017-04-28T00:57:50.740Z</updated>
+    <updated>2017-04-28T01:15:32.666Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/country-1295915__340.png?raw=true" alt="Cover"></p>
 <p align="center">春节后的第一篇博客</p>
@@ -555,6 +555,7 @@
 </blockquote>
 <hr>
 <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true" alt="result"></p>
+<p><a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/demo.apk" target="_blank" rel="external">Demo 下载</a></p>
 <h2 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/mvc.PNG?raw=true" alt="mvc"></p>
 <ul>
 <li><strong>视图层（View）</strong>：用户界面。</li>
@@ -602,6 +603,8 @@
 </blockquote>
 <h3 id="引入DataBinding"><a href="#引入DataBinding" class="headerlink" title="引入DataBinding"></a>引入DataBinding</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ......</div><div class="line"></div><div class="line">    dataBinding &#123;</div><div class="line">        enabled = <span class="keyword">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true" alt="目录"></p>
+<blockquote><p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
+</blockquote>
 <h3 id="MVVM-之-View"><a href="#MVVM-之-View" class="headerlink" title="MVVM 之 View"></a>MVVM 之 View</h3><p><strong>MainActivity.java</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getFragmentManager().beginTransaction().add(R.id.movie_fragment, MovieFragment.getInstance()).commit();</div></pre></td></tr></table></figure>
 <p><strong>MovieFragment.java</strong></p>
