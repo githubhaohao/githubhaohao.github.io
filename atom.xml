@@ -128,7 +128,7 @@
     <link href="https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/</id>
     <published>2017-04-22T08:04:55.000Z</published>
-    <updated>2017-04-28T13:46:49.166Z</updated>
+    <updated>2017-05-04T13:19:14.968Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg" alt="Markdown"></p>
 
@@ -168,8 +168,13 @@
 <li>当 AsyncTask 任务被取消时，回调 onCanceled(obj) ，此时 onPostExecute()，不会被调用，AsyncTask 中的 cancel() 方法并不是真正去取消任务，只是设置这个任务为取消状态，需要在 doInBackground() 中通过 isCancelled() 判断终止任务。</li>
 <li>AsyncTask 必须在主线程中创建实例，execute() 方法也必须在主线程中调用。</li>
 <li>每个 AsyncTask 实例只能执行一次 execute() ，多次执行会报错，如需执行多次，则需创建多个实例。</li>
-<li>AsyncTask 用的是线程池机制，容量是 128 ，全局线程池只有 5 个工作线程，如果运用 AsyncTask 对象来执行多个异步任务，那么同一时间最多只能有 5 个线程同时运行，其他线程将被阻塞。</li>
+<li><ul>
+<li>Android 3.0 之后， AsyncTask 对象默认执行多任务是串行执行，即 mAsyncTask.execute() ，并发执行的话需要使用 executeOnExecutor() 。</li>
 </ul>
+</li>
+<li>AsyncTask 用的是线程池机制（基于 ThreadPoolExecutor ）。Android 2.3 以前，AsyncTask 线程池容量是 128 ，全局线程池只有 5 个工作线程，如果运用 AsyncTask 对象来执行多个并发异步任务，那么同一时间最多只能有 5 个线程同时运行，其他线程将被阻塞。Android 3.0 之后 Google 又进行了调整，新增接口 executeOnExecutor() ，允许自定义线程池，并提供了 SERIAL_EXECUTOR 和 THREAD_POOL_EXECUTOR 预定义线程池。后来 Google 又做了一些调整（任何事物都不完美），将线程池的容量与 CPU 的核心数联系起来，如目前 SDK 25 版本中，核心线程数量最少有 2 个，最多 4 个，线程池容量范围 5 ~ 9 。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CPU_COUNT = Runtime.getRuntime().availableProcessors();</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CORE_POOL_SIZE = Math.max(<span class="number">2</span>, Math.min(CPU_COUNT - <span class="number">1</span>, <span class="number">4</span>));</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAXIMUM_POOL_SIZE = CPU_COUNT * <span class="number">2</span> + <span class="number">1</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> KEEP_ALIVE_SECONDS = <span class="number">30</span>;</div></pre></td></tr></table></figure>
 <h3 id="异步消息机制"><a href="#异步消息机制" class="headerlink" title="异步消息机制"></a>异步消息机制</h3><p>异步消息机制的三大主角： Handler ，Message 和 Looper 。<br>Looper 负责创建 MessageQueue 消息对列，然后进入一个无限 for 循环中，不断地从消息队列中取消息，如果消息队列为空，当前线程阻塞，Handler 负责向消息队列中发送消息。</p>
 <h4 id="Looper"><a href="#Looper" class="headerlink" title="Looper"></a>Looper</h4><p>Looper 有两个重要的方法： prepare() 和 loop()。</p>
 <ul>
@@ -202,6 +207,14 @@
 <li>多次启动 IntentService ，任务会被一次串行执行，执行结束后，服务停止；</li>
 <li>多次启动 IntentService ，在所有任务执行结束之前，停止 IntentService ，服务停止，除了当前执行的任务外，后续的任务不会被执行；</li>
 </ul>
+<h3 id="ThreadPoolExcutor"><a href="#ThreadPoolExcutor" class="headerlink" title="ThreadPoolExcutor"></a>ThreadPoolExcutor</h3><p align="center"><img src="http://tutorials.jenkov.com/images/java-concurrency-utils/thread-pool-executor.png" alt="Markdown"></p>
+
+<p align="center">图片来自 Jakob Jenkov 博客</p>
+
+
+
+
+
 ]]></content>
     
     <summary type="html">
