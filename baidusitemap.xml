@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
+    <lastmod>2017-05-05T01:26:52.274Z</lastmod>
+    <data>
+        <display>
+        <title>Android Clean 架构浅析</title>
+        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
+        
+        <tag>Clean 架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android 架构" url="https://githubhaohao.github.io/categories/Android-%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
     <lastmod>2017-05-04T13:22:13.821Z</lastmod>
     <data>
@@ -132,26 +152,6 @@
         <pubTime>2017-04-01T04:43:26.000Z</pubTime>
         
         <tag>jar aar</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
-    <lastmod>2017-04-20T13:58:54.717Z</lastmod>
-    <data>
-        <display>
-        <title>Android Clean 架构浅析</title>
-        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
-        
-        <tag>Clean 架构</tag>
          
          
            
