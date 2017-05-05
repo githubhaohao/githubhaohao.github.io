@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-04-27T11:24:53.418Z</updated>
+  <updated>2017-05-05T02:46:14.635Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/04/27/Android-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/04/27/Android-进程间通信方式/</id>
     <published>2017-04-27T11:05:29.000Z</published>
-    <updated>2017-04-27T11:24:53.418Z</updated>
+    <updated>2017-05-05T02:46:14.635Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/ecd70e1824f1dc35.jpg" alt="Markdown"></p>
 
@@ -87,11 +87,11 @@
 <p>常用的 Socket 类型有两种：流式 Socket（SOCK_STREAM）和数据报式 Socket（SOCK_DGRAM）。流式是一种面向连接的 Socket，针对于面向连接的 TCP 服务应用；数据报式 Socket 是一种无连接的 Socket ，对应于无连接的 UDP 服务应用。</p>
 </blockquote>
 <p>Socket 本身可以传输任意字节流。</p>
-<p>谈到Socket，就必须要说一说五层网络模型：</p>
+<p>谈到Socket，就必须要说一说 TCP/IP 五层网络模型：</p>
 <ul>
-<li>应用层：规定应用程序的数据格式，主要的协议 HTTP，FTP，WebSocket；</li>
+<li>应用层：规定应用程序的数据格式，主要的协议 HTTP，FTP，WebSocket，POP3 等；</li>
 <li>传输层：建立“端口到端口” 的通信，主要的协议：TCP，UDP；</li>
-<li>网络层：建立”主机到主机”的通信，主要的协议：IP，ARP 。IP 协议的主要作用：一个是为每一台计算机分配 IP 地址，另一个是确定哪些地址在同一个子网络；</li>
+<li>网络层：建立”主机到主机”的通信，主要的协议：IP，ARP ，IP 协议的主要作用：一个是为每一台计算机分配 IP 地址，另一个是确定哪些地址在同一子网；</li>
 <li>数据链路层：确定电信号的分组方式，主要的协议：以太网协议；</li>
 <li>物理层：负责电信号的传输。</li>
 </ul>
@@ -237,7 +237,7 @@
     <link href="https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/"/>
     <id>https://githubhaohao.github.io/2017/04/15/Android-Clean-架构浅析/</id>
     <published>2017-04-15T13:07:34.000Z</published>
-    <updated>2017-05-05T01:26:52.274Z</updated>
+    <updated>2017-05-05T05:58:03.572Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/f96da96df4251851.jpg" alt="Cover"></p>
 
@@ -295,7 +295,7 @@
     
     </summary>
     
-      <category term="Android 架构" scheme="https://githubhaohao.github.io/categories/Android-%E6%9E%B6%E6%9E%84/"/>
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
     
     
       <category term="Clean 架构" scheme="https://githubhaohao.github.io/tags/Clean-%E6%9E%B6%E6%9E%84/"/>
@@ -571,12 +571,12 @@
     <link href="https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/"/>
     <id>https://githubhaohao.github.io/2017/02/12/MVVM，RxJava和Retrofit的一次实践/</id>
     <published>2017-02-12T06:21:25.000Z</published>
-    <updated>2017-04-28T01:15:32.666Z</updated>
+    <updated>2017-05-05T05:54:44.608Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/country-1295915__340.png?raw=true" alt="Cover"></p>
 <p align="center">春节后的第一篇博客</p>
 
-<blockquote><p>一次简单的实践作为对 MVVM 架构模式认识的总结。<br>原创文章，转载请注明出处:<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">haohaochang.cn</a></p>
+<blockquote><p>本文已授权微信公众号：鸿洋（hongyangAndroid）原创首发。<br>原创文章，转载请注明出处:<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">haohaochang.cn</a></p>
 </blockquote>
 <hr>
 <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true" alt="result"></p>
@@ -667,6 +667,14 @@
     
     
       <category term="MVVM" scheme="https://githubhaohao.github.io/tags/MVVM/"/>
+    
+      <category term="MVP" scheme="https://githubhaohao.github.io/tags/MVP/"/>
+    
+      <category term="MVC" scheme="https://githubhaohao.github.io/tags/MVC/"/>
+    
+      <category term="RxJava" scheme="https://githubhaohao.github.io/tags/RxJava/"/>
+    
+      <category term="Retrofit" scheme="https://githubhaohao.github.io/tags/Retrofit/"/>
     
   </entry>
   
@@ -809,7 +817,7 @@
     <link href="https://githubhaohao.github.io/2017/01/12/cover/"/>
     <id>https://githubhaohao.github.io/2017/01/12/cover/</id>
     <published>2017-01-12T08:31:23.971Z</published>
-    <updated>2017-01-18T01:30:29.106Z</updated>
+    <updated>2017-05-05T05:56:39.501Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
 <p><strong>老子</strong> </p>
@@ -828,8 +836,6 @@
     
     </summary>
     
-    
-      <category term="hello world" scheme="https://githubhaohao.github.io/tags/hello-world/"/>
     
   </entry>
   
