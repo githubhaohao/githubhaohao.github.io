@@ -19,7 +19,7 @@
     <header>
   <a id='go-back-home' href='/'><img src='/images/ic_middle.png' alt='Home' width='96' height='96'></a>
   <p>haohao</p>
-  <p>不忘初心</p>
+  <p>不忘初心，不惧未来</p>
 </header>
 
     <div id='container'>
@@ -982,8 +982,14 @@ public class TCPClientActivity extends AppCompatActivity implements View.OnClick
 	<script type="text/javascript">
 	  $(window).load(function(){
          $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
-      prettyPrint();
+         prettyPrint();
       })
+	  
+	  $(".block .main").hover(function() {
+          $(this).css({"background-color" : "#eee"});
+        },function() {
+          $(this).css({"background-color" : "white"});
+		});	
 	</script>
   </body>
 </html>
