@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-05-08T02:42:51.169Z</lastmod>
+    <data>
+        <display>
+        <title>Android 设计模式之单例模式</title>
+        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
+        
+        <tag>单例模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/</loc>
     <lastmod>2017-05-06T09:14:59.928Z</lastmod>
     <data>
@@ -135,29 +158,6 @@
           
              
               <breadCrumb title="主题" url="https://githubhaohao.github.io/categories/Android/%E4%B8%BB%E9%A2%98/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-05-06T09:05:39.960Z</lastmod>
-    <data>
-        <display>
-        <title>Android 设计模式之单例模式</title>
-        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
-        
-        <tag>单例模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
