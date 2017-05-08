@@ -113,8 +113,8 @@ footer {
       zoom: 1;
       *display: inline;
       *vertical-align: auto;
-      padding: 6px 6px;
-      margin-right: 12px;
+      padding: 10px 10px;
+      margin-right: 8px;
       margin-bottom: 6px; }
       #container .block a.main:last-of-type {
         margin-right: 0; }
@@ -230,8 +230,8 @@ ul.posts, ul.posts li {
   list-style: none; }
 ul.posts li {
   font-size: 16px;
-  padding: 6px;  
-  margin-bottom: 20px; }
+  padding: 12px;  
+  margin-bottom: 6px; }
 ul.posts .datetime {
   display: inline-block;
   vertical-align: baseline;

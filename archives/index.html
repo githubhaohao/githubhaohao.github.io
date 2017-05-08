@@ -104,13 +104,17 @@
     <script type="text/javascript">
       $(window).load(function(){
         $(".posts li").hover(function() {
-          $(this).css({"background-color" : "#eee"});
+          $(this).css({"background-color" : "#ddd"});
         },function() {
           $(this).css({"background-color" : "white"});
 		});
+		
+		$(".posts li").click(function() {
+		  window.location.href = $(this).children("a").attr("href");
+		});
 
 		$(".block .main").hover(function() {
-          $(this).css({"background-color" : "#eee"});
+          $(this).css({"background-color" : "#ddd"});
         },function() {
           $(this).css({"background-color" : "white"});
 		});	
