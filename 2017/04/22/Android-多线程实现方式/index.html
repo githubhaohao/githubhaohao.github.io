@@ -114,7 +114,7 @@ Android 多线程实现方式通常来说，一个应用至少有一个进程，
 Android 多线程实现方式通常来说，一个应用至少有一个进程，而一个进程至少有一个线程。线程是 CPU 调度的基本单位，进程是系统资源分配的基本单位。进程独享内存资源，一个进程可以看作一个 JVM ，一个进程崩溃后，在保护模式下一般不会对其它进程产生影响。同一个进程中的线程共享内存资源，一个线程死掉就导致整个进">
 <meta property="og:image" content="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg">
 <meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency-utils/thread-pool-executor.png">
-<meta property="og:updated_time" content="2017-05-06T09:13:51.233Z">
+<meta property="og:updated_time" content="2017-05-08T08:12:34.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 多线程实现方式">
 <meta name="twitter:description" content="只为初心
@@ -492,32 +492,221 @@ Android 多线程实现方式通常来说，一个应用至少有一个进程，
 <li>Android 3.0 之后， AsyncTask 对象默认执行多任务是串行执行，即 mAsyncTask.execute() ，并发执行的话需要使用 executeOnExecutor() 。</li>
 <li>AsyncTask 用的是线程池机制（基于 ThreadPoolExecutor ）。Android 2.3 以前，AsyncTask 线程池容量是 128 ，全局线程池只有 5 个工作线程，如果运用 AsyncTask 对象来执行多个并发异步任务，那么同一时间最多只能有 5 个线程同时运行，其他线程将被阻塞。Android 3.0 之后 Google 又进行了调整，新增接口 executeOnExecutor() ，允许自定义线程池，并提供了 SERIAL_EXECUTOR 和 THREAD_POOL_EXECUTOR 预定义线程池。后来 Google 又做了一些调整（任何事物都不完美），将线程池的容量与 CPU 的核心数联系起来，如目前 SDK 25 版本中，核心线程数量最少有 2 个，最多 4 个，线程池容量范围 5 ~ 9 。改动如下：</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CPU_COUNT = Runtime.getRuntime().availableProcessors();</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CORE_POOL_SIZE = Math.max(<span class="number">2</span>, Math.min(CPU_COUNT - <span class="number">1</span>, <span class="number">4</span>));</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAXIMUM_POOL_SIZE = CPU_COUNT * <span class="number">2</span> + <span class="number">1</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> KEEP_ALIVE_SECONDS = <span class="number">30</span>;</div></pre></td></tr></table></figure>
+<pre><code class="java">    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
+    private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
+    private static final int KEEP_ALIVE_SECONDS = 30;
+</code></pre>
 <h3 id="异步消息机制"><a href="#异步消息机制" class="headerlink" title="异步消息机制"></a>异步消息机制</h3><p>异步消息机制的三大主角： Handler ，Message 和 Looper 。<br>Looper 负责创建 MessageQueue 消息对列，然后进入一个无限 for 循环中，不断地从消息队列中取消息，如果消息队列为空，当前线程阻塞，Handler 负责向消息队列中发送消息。</p>
 <h4 id="Looper"><a href="#Looper" class="headerlink" title="Looper"></a>Looper</h4><p>Looper 有两个重要的方法： prepare() 和 loop()。</p>
 <ul>
 <li>prepare() ， Looper 与当前线程绑定，一个线程只能有一个 Looper 实例和一个 MessageQueue 实例。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (sThreadLocal.get() != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Only one Looper may be created per thread"</span>);</div><div class="line">        &#125;</div><div class="line">        sThreadLocal.set(<span class="keyword">new</span> Looper(<span class="keyword">true</span>)); <span class="comment">// 保证 Looper 对象在当前线程唯一</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Looper 的构造方法</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="title">Looper</span><span class="params">(<span class="keyword">boolean</span> quitAllowed)</span> </span>&#123;</div><div class="line">        mQueue = <span class="keyword">new</span> MessageQueue(quitAllowed);</div><div class="line">        mRun = <span class="keyword">true</span>;</div><div class="line">        mThread = Thread.currentThread();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">public static final void prepare() {
+        if (sThreadLocal.get() != null) {
+            throw new RuntimeException(&quot;Only one Looper may be created per thread&quot;);
+        }
+        sThreadLocal.set(new Looper(true)); 保证 Looper 对象在当前线程唯一
+}
+
+#// Looper 的构造方法
+private Looper(boolean quitAllowed) {
+        mQueue = new MessageQueue(quitAllowed);
+        mRun = true;
+        mThread = Thread.currentThread();
+}
+</code></pre>
 <ul>
 <li>loop ，进入一个无限 for 循环体中，不断地从消息队列中取消息，然后交给消息的 target 属性的 dispatchMessage 方法去处理。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Looper me = myLooper();</div><div class="line">        <span class="keyword">if</span> (me == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"No Looper; Looper.prepare() wasn't called on this thread."</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">final</span> MessageQueue queue = me.mQueue;</div><div class="line"></div><div class="line">        <span class="comment">// Make sure the identity of this thread is that of the local process,</span></div><div class="line">        <span class="comment">// and keep track of what that identity token actually is.</span></div><div class="line">        Binder.clearCallingIdentity();</div><div class="line">        <span class="keyword">final</span> <span class="keyword">long</span> ident = Binder.clearCallingIdentity();</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// 无限循环体，有没有想过在 UI 线程里，有这样一个死循环，为什么界面没卡死？？</span></div><div class="line">        <span class="comment">// 答案最后揭晓。</span></div><div class="line">        <span class="keyword">for</span> (;;) &#123; </div><div class="line">            Message msg = queue.next(); <span class="comment">// might block</span></div><div class="line">            <span class="keyword">if</span> (msg == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">// No message indicates that the message queue is quitting.</span></div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            msg.target.dispatchMessage(msg);</div><div class="line"></div><div class="line">            msg.recycle();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">public static void loop() {
+        final Looper me = myLooper();
+        if (me == null) {
+            throw new RuntimeException(&quot;No Looper; Looper.prepare() wasn&#39;t called on this thread.&quot;);
+        }
+        final MessageQueue queue = me.mQueue;
+
+        // Make sure the identity of this thread is that of the local process,
+        // and keep track of what that identity token actually is.
+        Binder.clearCallingIdentity();
+        final long ident = Binder.clearCallingIdentity();
+
+
+        // 无限循环体，有没有想过在 UI 线程里，有这样一个死循环，为什么界面没卡死？？
+        // 答案最后揭晓。
+        for (;;) { 
+            Message msg = queue.next(); // might block
+            if (msg == null) {
+                // No message indicates that the message queue is quitting.
+                return;
+            }
+
+            msg.target.dispatchMessage(msg);
+
+            msg.recycle();
+        }
+}
+</code></pre>
 <h4 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h4><p>Handler 负责向消息队列中发送消息。<br>在 Activity 中我们直接可以 new Handler ，那是因为在 Activity 的启动代码中，已经在当前 UI 线程中调用了 Looper.prepare() 和 Looper.loop() 方法。</p>
 <p>在子线程中 new Handler 必须要在当前线程（子线程）中创建好 Looper 对象和消息队列，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在子线程中</span></div><div class="line"></div><div class="line">Looper.prepare();</div><div class="line"></div><div class="line">handler = <span class="keyword">new</span> Handler() &#123;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">  <span class="comment">//处理消息</span></div><div class="line"> &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Looper.loop();</div></pre></td></tr></table></figure>
+<pre><code class="java">    //在子线程中
+
+    Looper.prepare();
+
+    handler = new Handler() {
+
+        public void handleMessage(Message msg) {
+            //处理消息
+        };
+    };
+
+    Looper.loop();
+</code></pre>
 <p>之后，你拿着这个 Handler 对象就可以在其他线程中，往这个子线程的消息队列中发消息了。</p>
 <h4 id="HandlerThread"><a href="#HandlerThread" class="headerlink" title="HandlerThread"></a>HandlerThread</h4><p>HandlerThread 可以看作在子线程中创建一个异步消息处理机制的简化版，HandlerThread 对象自动帮我们在工作线程里创建 Looper 对象和消息队列。</p>
 <p>使用方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mHandlerThread = <span class="keyword">new</span> HandlerThread(<span class="string">"MyHandlerThread"</span>);</div><div class="line">mHandlerThread.start();</div><div class="line"></div><div class="line">mHandler = <span class="keyword">new</span> Handler(mHandlerThread.getLooper())&#123;</div><div class="line">   </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">        <span class="comment">//处理消息</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="java">mHandlerThread = new HandlerThread(&quot;MyHandlerThread&quot;);
+mHandlerThread.start();
+
+mHandler = new Handler(mHandlerThread.getLooper()){
+
+    @Override
+    public void handleMessage(Message msg) {
+        //处理消息
+    }
+};
+</code></pre>
 <p>之后你就可以使用 Handler 对象往工作线程中的消息队列中发消息了。</p>
 <p>看一下源码片段：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> mPriority;</div><div class="line">    <span class="keyword">int</span> mTid = -<span class="number">1</span>;</div><div class="line">    Looper mLooper;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HandlerThread</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(name);</div><div class="line">        mPriority = Process.THREAD_PRIORITY_DEFAULT;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLooperPrepared</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        mTid = Process.myTid();</div><div class="line">        Looper.prepare();</div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            mLooper = Looper.myLooper();</div><div class="line">            notifyAll();</div><div class="line">        &#125;</div><div class="line">        Process.setThreadPriority(mPriority);</div><div class="line">        onLooperPrepared();</div><div class="line">        Looper.loop();</div><div class="line">        mTid = -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Looper <span class="title">getLooper</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!isAlive()) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// If the thread has been started, wait until the looper has been created.</span></div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            <span class="keyword">while</span> (isAlive() &amp;&amp; mLooper == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    wait();</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mLooper;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">public class HandlerThread extends Thread {
+    int mPriority;
+    int mTid = -1;
+    Looper mLooper;
+
+    public HandlerThread(String name) {
+        super(name);
+        mPriority = Process.THREAD_PRIORITY_DEFAULT;
+    }
+
+    protected void onLooperPrepared() {
+    }
+
+    @Override
+    public void run() {
+        mTid = Process.myTid();
+        Looper.prepare();
+        synchronized (this) {
+            mLooper = Looper.myLooper();
+            notifyAll();
+        }
+        Process.setThreadPriority(mPriority);
+        onLooperPrepared();
+        Looper.loop();
+        mTid = -1;
+    }
+
+    public Looper getLooper() {
+        if (!isAlive()) {
+            return null;
+        }
+
+        // If the thread has been started, wait until the looper has been created.
+        synchronized (this) {
+            while (isAlive() &amp;&amp; mLooper == null) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+        return mLooper;
+    }
+}
+</code></pre>
 <p><strong>注意</strong>：handler 在 UI 线程中初始化的，looper 在一个子线程中执行，我们必须等 mLooper 创建完成之后，才能调用 getLooper ，源码中是通过 wait 和 notify 解决两个线程的同步问题。</p>
 <h3 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h3><p>IntentService 可以看成是 Service 和 HandlerThread 的合体。它继承自 Service ，并可以处理异步请求，其内部有一个 WorkerThread 来处理异步任务，当任务执行完毕后，IntentService 自动停止。</p>
 <p>如果多次启动 IntentService 呢？ 看到 HandlerThread ，你就应该想到多次启动 IntentService ,就是将多个异步任务放到任务队列里面，然后在 onHandlerIntent 回调方法中串行执行，执行完毕后自动结束。</p>
 <p>下面对源码进行简单的解析，IntentService 源码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">IntentService</span> <span class="keyword">extends</span> <span class="title">Service</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> Looper mServiceLooper;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> ServiceHandler mServiceHandler;</div><div class="line">    <span class="keyword">private</span> String mName;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mRedelivery;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ServiceHandler</span><span class="params">(Looper looper)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(looper);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            <span class="comment">//onHandleIntent 方法在工作线程中执行，执行完调用 stopSelf() 结束服务。</span></div><div class="line">            onHandleIntent((Intent)msg.obj);</div><div class="line">            stopSelf(msg.arg1);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Creates an IntentService.  Invoked by your subclass's constructor.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> name Used to name the worker thread, important only for debugging.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IntentService</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>();</div><div class="line">        mName = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * enabled == true 时，如果任务没有执行完，当前进程就死掉了，那么系统就会令当前进程重启。</div><div class="line">     * 任务会被重新执行。</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIntentRedelivery</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</div><div class="line">        mRedelivery = enabled;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate();</div><div class="line"></div><div class="line">        <span class="comment">// 上面已经讲过，HandlerThread 对象 start 之后，会在工作线程里创建消息队列 和 Looper 对象。</span></div><div class="line">        HandlerThread thread = <span class="keyword">new</span> HandlerThread(<span class="string">"IntentService["</span> + mName + <span class="string">"]"</span>);</div><div class="line">        thread.start();</div><div class="line">			</div><div class="line">        mServiceLooper = thread.getLooper();</div><div class="line">        <span class="comment">// 获得 Looper 对象初始化 Handler 对象。</span></div><div class="line">        mServiceHandler = <span class="keyword">new</span> ServiceHandler(mServiceLooper);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">(@Nullable Intent intent, <span class="keyword">int</span> startId)</span> </span>&#123;</div><div class="line">        <span class="comment">// IntentService 每次启动都会往工作线程消息队列中添加消息，不会创建新的线程。</span></div><div class="line">        Message msg = mServiceHandler.obtainMessage();</div><div class="line">        msg.arg1 = startId;</div><div class="line">        msg.obj = intent;</div><div class="line">        mServiceHandler.sendMessage(msg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 官方建议 IntentService onStartCommand 方法不应该被重写，注意该方法会调用 onStart 。</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(@Nullable Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</div><div class="line">        onStart(intent, startId);</div><div class="line">        <span class="keyword">return</span> mRedelivery ? START_REDELIVER_INTENT : START_NOT_STICKY;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="comment">//服务停止会清除消息队列中的消息，除了当前执行的任务外，后续的任务不会被执行。</span></div><div class="line">        mServiceLooper.quit();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 不建议通过 bind 启动 IntentService ，如果通过 bind 启动 IntentService ，那么 onHandlerIntent 方法不会被回调。Activity 与 IntentService 之间的通信一般采用广播的方式。</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="meta">@Nullable</span></div><div class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 子类必须要实现，执行具体的异步任务逻辑，由 IntentService 自动回调。</div><div class="line">     */</div><div class="line">    <span class="meta">@WorkerThread</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(@Nullable Intent intent)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">public abstract class IntentService extends Service {
+    private volatile Looper mServiceLooper;
+    private volatile ServiceHandler mServiceHandler;
+    private String mName;
+    private boolean mRedelivery;
+    private final class ServiceHandler extends Handler {
+        public ServiceHandler(Looper looper) {
+            super(looper);
+        }
+        @Override
+        public void handleMessage(Message msg) {
+            //onHandleIntent 方法在工作线程中执行，执行完调用 stopSelf() 结束服务。
+            onHandleIntent((Intent)msg.obj);
+            stopSelf(msg.arg1);
+        }
+    }
+    /**
+     * Creates an IntentService.  Invoked by your subclass&#39;s constructor.
+     *
+     * @param name Used to name the worker thread, important only for debugging.
+     */
+    public IntentService(String name) {
+        super();
+        mName = name;
+    }
+
+    /**
+     * enabled == true 时，如果任务没有执行完，当前进程就死掉了，那么系统就会令当前进程重启。
+     * 任务会被重新执行。
+     */
+    public void setIntentRedelivery(boolean enabled) {
+        mRedelivery = enabled;
+    }
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        // 上面已经讲过，HandlerThread 对象 start 之后，会在工作线程里创建消息队列 和 Looper 对象。
+        HandlerThread thread = new HandlerThread(&quot;IntentService[&quot; + mName + &quot;]&quot;);
+        thread.start();
+
+        mServiceLooper = thread.getLooper();
+        // 获得 Looper 对象初始化 Handler 对象。
+        mServiceHandler = new ServiceHandler(mServiceLooper);
+    }
+    @Override
+    public void onStart(@Nullable Intent intent, int startId) {
+        // IntentService 每次启动都会往工作线程消息队列中添加消息，不会创建新的线程。
+        Message msg = mServiceHandler.obtainMessage();
+        msg.arg1 = startId;
+        msg.obj = intent;
+        mServiceHandler.sendMessage(msg);
+    }
+
+    // 官方建议 IntentService onStartCommand 方法不应该被重写，注意该方法会调用 onStart 。
+    @Override
+    public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
+        onStart(intent, startId);
+        return mRedelivery ? START_REDELIVER_INTENT : START_NOT_STICKY;
+    }
+    @Override
+    public void onDestroy() {  
+        //服务停止会清除消息队列中的消息，除了当前执行的任务外，后续的任务不会被执行。
+        mServiceLooper.quit();
+    }
+    /**
+     * 不建议通过 bind 启动 IntentService ，如果通过 bind 启动 IntentService ，那么 onHandlerIntent 方法不会被回调。Activity 与 IntentService 之间的通信一般采用广播的方式。
+     */
+    @Override
+    @Nullable
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+    /**
+     * 子类必须要实现，执行具体的异步任务逻辑，由 IntentService 自动回调。
+     */
+    @WorkerThread
+    protected abstract void onHandleIntent(@Nullable Intent intent);
+}
+</code></pre>
 <p>IntentService 源码很容易理解，你也可以就自己的应用场景封装自己的 IntentService 。</p>
 <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><ul>
 <li>正常情况下，启动 IntentService ，任务完成，服务停止；</li>
@@ -695,7 +884,7 @@ Android 多线程实现方式通常来说，一个应用至少有一个进程，
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -68,7 +68,7 @@ blockquote {
 
 header {
   text-align: center; 
-  font-size: 18px;}
+  font-size: 20px;}
 
 footer {
   width: 100%;
@@ -107,6 +107,7 @@ footer {
     #container .block:last-child {
       border-bottom: 0; }
     #container .block a.main {
+	  font-size: 18px;	
       display: inline-block;
       vertical-align: baseline;
       zoom: 1;
@@ -228,6 +229,7 @@ ul.posts, ul.posts li {
   padding: 0;
   list-style: none; }
 ul.posts li {
+  font-size: 16px;	
   margin-bottom: 20px; }
 ul.posts .datetime {
   display: inline-block;
@@ -239,7 +241,7 @@ ul.posts .datetime {
   text-transform: uppercase;
   float: right;
   color: #999;
-  font-size: 12px;
+  font-size: 14px;
   text-align: right; }
 
 section.post {
@@ -278,6 +280,7 @@ section.post {
 
 pre {
   word-wrap: break-word;
+  word-break: break-all;
   color: #eee;
   background: #29281e;
   padding: 1em;

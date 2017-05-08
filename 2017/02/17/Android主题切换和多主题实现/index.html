@@ -447,23 +447,84 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
 <p>Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 ) 两种主题。这将大大提高了阅读类应用的用户体验 同时还支持 Material Design。</p>
 <p><strong>需要注意的是</strong>，这个特性只支持 API v14 及以上的 Android 设备，在 API v14 以下的设备则会默认使用亮色的主题。</p>
 <h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true" alt="效果预览"></p>
-<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><h4 id="1-引入-support-v7-23-2-版本的依赖"><a href="#1-引入-support-v7-23-2-版本的依赖" class="headerlink" title="1. 引入 support-v7:23.2+ 版本的依赖"></a>1. 引入 support-v7:23.2+ 版本的依赖</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.1.1'</span></div></pre></td></tr></table></figure>
+<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><h4 id="1-引入-support-v7-23-2-版本的依赖"><a href="#1-引入-support-v7-23-2-版本的依赖" class="headerlink" title="1. 引入 support-v7:23.2+ 版本的依赖"></a>1. 引入 support-v7:23.2+ 版本的依赖</h4><pre><code class="gradle">compile &#39;com.android.support:appcompat-v7:25.1.1&#39;
+</code></pre>
 <p>为保证主题风格的统一，所有的 Activity 类应继承 AppCompatActivity 。</p>
 <h4 id="2-自定义实现-DayNight-主题"><a href="#2-自定义实现-DayNight-主题" class="headerlink" title="2. 自定义实现 DayNight 主题"></a>2. 自定义实现 DayNight 主题</h4><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true" alt="res-night"></p>
 <p>res 目录下新建 values-night 文件，拷贝修改 colors.xml 和 styles.xml 文件到 values-night，为 Night Model 下系统加载的 color资源，同样地也可以指定 Night Model 下加载的 drawable 资源在 drawable-night 文件夹中，同理 layout mipmap 资源加载也是如此。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyApp.DayNight.NoActionBar.Theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="xml">    &lt;style name=&quot;MyApp.DayNight.NoActionBar.Theme&quot; parent=&quot;Theme.AppCompat.DayNight.NoActionBar&quot;&gt;
+        &lt;item name=&quot;colorPrimary&quot;&gt;@color/colorPrimary&lt;/item&gt;
+        &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/colorPrimaryDark&lt;/item&gt;
+        &lt;item name=&quot;colorAccent&quot;&gt;@color/colorAccent&lt;/item&gt;
+        &lt;item name=&quot;android:textColorPrimary&quot;&gt;@color/colorAccent&lt;/item&gt;
+    &lt;/style&gt;
+</code></pre>
 <p>具体位置颜色设置看图：</p>
 <p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true" alt="screen"></p>
 <p>在 AndroidManifest.xml 中声明，单个 Activity 的主题。 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="xml">    &lt;application
+        android:name=&quot;.MyApplication&quot;
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:supportsRtl=&quot;true&quot;&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:label=&quot;@string/app_name&quot;
+            android:theme=&quot;@style/MyApp.DayNight.NoActionBar.Theme&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+</code></pre>
 <p>或者整个 App 的主题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="xml">
+    &lt;application
+        android:name=&quot;.MyApplication&quot;
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/MyApp.DayNight.NoActionBar.Theme&quot;&gt;
+        &lt;activity
+            android:name=&quot;.MainActivity&quot;
+            android:label=&quot;@string/app_name&quot;
+            &gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+</code></pre>
 <h4 id="3-设置-DayNight-主题"><a href="#3-设置-DayNight-主题" class="headerlink" title="3 设置 DayNight 主题"></a>3 设置 DayNight 主题</h4><p>初始化主题:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAppTheme</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (getThemeSharedPref().getBoolean(KEY_NIGHT_THEME, <span class="keyword">false</span>)) &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> SharedPreferences <span class="title">getThemeSharedPref</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getSharedPreferences(<span class="string">"APP_THEME"</span>, Context.MODE_PRIVATE);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">    private void initAppTheme() {
+        if (getThemeSharedPref().getBoolean(KEY_NIGHT_THEME, false)) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
+    private SharedPreferences getThemeSharedPref() {
+        return getSharedPreferences(&quot;APP_THEME&quot;, Context.MODE_PRIVATE);
+    }
+</code></pre>
 <p>初始化主题应该在 <strong>super.onCreate() </strong> 之前执行，不然 Activity 会启动 2 次,下图为证：</p>
 <p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true" alt="restart"></p>
 <p>切换主题：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (id == R.id.set_day_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME,<span class="keyword">false</span>).apply();</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (id == R.id.set_night_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME, <span class="keyword">true</span>).apply();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="java">        if (id == R.id.set_day_theme) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME,false).apply();
+        } else if (id == R.id.set_night_theme) {
+            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME, true).apply();
+        }
+</code></pre>
 <p><strong>切换主题会重启 Activity。</strong></p>
 <p>DayNight Theme 有 4 种 Model ，分别是：</p>
 <ul>
@@ -662,7 +723,7 @@ Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

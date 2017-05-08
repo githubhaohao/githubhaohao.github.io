@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2017-05-08T08:12:34.138Z</lastmod>
+    <data>
+        <display>
+        <title>Android 多线程实现方式</title>
+        <pubTime>2017-04-22T08:04:55.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2017-05-08T02:42:51.169Z</lastmod>
     <data>
@@ -66,29 +89,6 @@
           
              
               <breadCrumb title="RecyclerView" url="https://githubhaohao.github.io/categories/Android/RecyclerView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2017-05-06T09:13:51.233Z</lastmod>
-    <data>
-        <display>
-        <title>Android 多线程实现方式</title>
-        <pubTime>2017-04-22T08:04:55.000Z</pubTime>
-        
-        <tag>多线程</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>
