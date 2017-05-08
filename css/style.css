@@ -68,7 +68,7 @@ blockquote {
 
 header {
   text-align: center; 
-  font-size: 20px;}
+  font-size: 18px;}
 
 footer {
   width: 100%;
@@ -113,7 +113,7 @@ footer {
       zoom: 1;
       *display: inline;
       *vertical-align: auto;
-      padding: 2px 2px;
+      padding: 6px 6px;
       margin-right: 12px;
       margin-bottom: 6px; }
       #container .block a.main:last-of-type {
@@ -229,7 +229,8 @@ ul.posts, ul.posts li {
   padding: 0;
   list-style: none; }
 ul.posts li {
-  font-size: 16px;	
+  font-size: 16px;
+  padding: 6px;  
   margin-bottom: 20px; }
 ul.posts .datetime {
   display: inline-block;
