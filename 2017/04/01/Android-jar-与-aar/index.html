@@ -80,11 +80,10 @@
 </ul>
 <h3 id="引入-aar"><a href="#引入-aar" class="headerlink" title="引入 aar"></a>引入 aar</h3><ul>
 <li>将 aar 文件拷贝到 app 的 lib 文件夹下 (可以修改 aar 文件名字，本例中修改为 mylibrary )；</li>
-<li>修改 build.gradle 配置文件：<br>```gradle<br>android {<br>……<br>repositories {<br>   flatDir {<pre><code>   dirs &#39;libs&#39;
-</code></pre>   }<br>}<br>}</li>
+<li>修改 build.gradle 配置文件：<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  ......</div><div class="line">  <span class="keyword">repositories</span> &#123;</div><div class="line">     <span class="keyword">flatDir</span> &#123;</div><div class="line">         dirs <span class="string">'libs'</span></div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    ......</div><div class="line">    <span class="keyword">compile</span>(name: <span class="string">'mylibrary'</span>, ext: <span class="string">'aar'</span>)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>dependencies {<br>    ……<br>    compile(name: ‘mylibrary’, ext: ‘aar’)<br> } </p>
-<p>```<br>Async Project 大工告成。</p>
+<p>Async Project 大工告成。</p>
 <p>同样，你也可以在其他工程中引入 jar 或 aar 文件。</p>
 
           <br>

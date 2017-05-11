@@ -65,20 +65,7 @@
 <blockquote><p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！<br>虽然关于 Activity 已经被写烂了，但是从本篇文章里，你一定会发现不同的东西。</p>
 </blockquote>
 <h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><h3 id="一般情况下"><a href="#一般情况下" class="headerlink" title="一般情况下"></a>一般情况下</h3><p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="haohaochang.cn"></p>
-<pre><code class="java"> public class Activity extends ApplicationContext {
-     protected void onCreate(Bundle savedInstanceState);
-
-     protected void onStart();
-
-     protected void onResume();
-
-     protected void onPause();
-
-     protected void onStop();
-
-     protected void onDestroy();
- }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activity</span> <span class="keyword">extends</span> <span class="title">ApplicationContext</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="异常情况下"><a href="#异常情况下" class="headerlink" title="异常情况下"></a>异常情况下</h3><h4 id="系统配置变化导致Activity销毁重建"><a href="#系统配置变化导致Activity销毁重建" class="headerlink" title="系统配置变化导致Activity销毁重建"></a>系统配置变化导致Activity销毁重建</h4><ol>
 <li>旋转屏幕，Activity 销毁并重新创建，在异常情况下系统会在 onStop 之前调用 onSaveInstanceState 来保存状态。Activity 重新创建后，会在 onStart 之后调用 onRestoreInstanceState 恢复之前保存的数据。</li>
 <li>系统只在 Activity 异常终止的时候才会调用 onSaveInstanceState 和 onRestoreInstanceState 方法。其他情况不会触发。</li>
@@ -93,58 +80,26 @@
 </ul>
 </li>
 </ol>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h4 id="首次启动-Activity"><a href="#首次启动-Activity" class="headerlink" title="首次启动 Activity"></a>首次启动 Activity</h4><pre><code>MainActivity onCreate
-MainActivity onStart
-MainActivity onResume
-</code></pre><h4 id="跳转到-SecondActivity"><a href="#跳转到-SecondActivity" class="headerlink" title="跳转到 SecondActivity"></a>跳转到 SecondActivity</h4><pre><code>MainActivity onPause
-SecondActivity onCreate
-SecondActivity onStart
-SecondActivity onResume
-MainActivity onStop
-</code></pre><h4 id="Back-返回-MainActivity"><a href="#Back-返回-MainActivity" class="headerlink" title="Back 返回 MainActivity"></a>Back 返回 MainActivity</h4><pre><code>SecondActivity onPause
-MainActivity onRestart
-MainActivity onStart
-MainActivity onResume
-SecondActivity onStop
-SecondActivity onDestroy
-</code></pre><h4 id="Home-回退桌面"><a href="#Home-回退桌面" class="headerlink" title="Home 回退桌面"></a>Home 回退桌面</h4><pre><code>MainActivity onPause
-MainActivity onStop
-</code></pre><h4 id="桌面返回可见"><a href="#桌面返回可见" class="headerlink" title="桌面返回可见"></a>桌面返回可见</h4><pre><code>MainActivity onRestart
-MainActivity onStart
-MainActivity onResume
-</code></pre><h4 id="锁屏"><a href="#锁屏" class="headerlink" title="锁屏"></a>锁屏</h4><pre><code>MainActivity onPause
-MainActivity onStop
-</code></pre><h4 id="解锁屏"><a href="#解锁屏" class="headerlink" title="解锁屏"></a>解锁屏</h4><pre><code>MainActivity onRestart
-MainActivity onStart
-MainActivity onResume
-</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote><p>onStart 开始到 onStop 之前， Activity 可见。<br>onResume 开始到 onPause 之前， Activity 可接受用户交互。<br>在新Activity启动之前，栈顶的Activity需要先onPause后，新Activity才能启动。所以不能在onPause执行耗时操作。</p>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h4 id="首次启动-Activity"><a href="#首次启动-Activity" class="headerlink" title="首次启动 Activity"></a>首次启动 Activity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onCreate</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
+<h4 id="跳转到-SecondActivity"><a href="#跳转到-SecondActivity" class="headerlink" title="跳转到 SecondActivity"></a>跳转到 SecondActivity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">SecondActivity onCreate</div><div class="line">SecondActivity onStart</div><div class="line">SecondActivity onResume</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="Back-返回-MainActivity"><a href="#Back-返回-MainActivity" class="headerlink" title="Back 返回 MainActivity"></a>Back 返回 MainActivity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SecondActivity onPause</div><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div><div class="line">SecondActivity onStop</div><div class="line">SecondActivity onDestroy</div></pre></td></tr></table></figure>
+<h4 id="Home-回退桌面"><a href="#Home-回退桌面" class="headerlink" title="Home 回退桌面"></a>Home 回退桌面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="桌面返回可见"><a href="#桌面返回可见" class="headerlink" title="桌面返回可见"></a>桌面返回可见</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
+<h4 id="锁屏"><a href="#锁屏" class="headerlink" title="锁屏"></a>锁屏</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="解锁屏"><a href="#解锁屏" class="headerlink" title="解锁屏"></a>解锁屏</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote><p>onStart 开始到 onStop 之前， Activity 可见。<br>onResume 开始到 onPause 之前， Activity 可接受用户交互。<br>在新Activity启动之前，栈顶的Activity需要先onPause后，新Activity才能启动。所以不能在onPause执行耗时操作。</p>
 </blockquote>
 <h2 id="Activity-数据传递"><a href="#Activity-数据传递" class="headerlink" title="Activity 数据传递"></a>Activity 数据传递</h2><p>Activity 传递数据一般有以下几种方式：</p>
 <h3 id="Intent-传递数据"><a href="#Intent-传递数据" class="headerlink" title="Intent 传递数据"></a>Intent 传递数据</h3><p>MainActivity</p>
-<pre><code class="java">Intent intent=new Intent();  
-intent.setClass(MainActivity.this, OtherActivity.class);  
-Bundle bundle = new Bundle();  
-bundle.putString(KEY, VALUE);
-intent.putExtras(bundle);  
-startActivity（intent）;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent intent=<span class="keyword">new</span> Intent();  </div><div class="line">intent.setClass(MainActivity.<span class="keyword">this</span>, OtherActivity.class);  </div><div class="line">Bundle bundle = <span class="keyword">new</span> Bundle();  </div><div class="line">bundle.putString(KEY, VALUE);</div><div class="line">intent.putExtras(bundle);  </div><div class="line">startActivity（intent）;</div></pre></td></tr></table></figure>
 <p>OtherActivity</p>
-<pre><code class="java">Intent intent = getIntent();  
-Bundle bundle = intent.getEtras();  
-String value = bundle.getString(KEY);
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();  </div><div class="line">Bundle bundle = intent.getEtras();  </div><div class="line">String value = bundle.getString(KEY);</div></pre></td></tr></table></figure>
 <p>利用 Intent 对象在 Activity 之间传递数据是 Android 开发最常用的方式。<br>利用 Intent 对象可以传递基本数据类型，以及一些可序列化的对象。</p>
 <h3 id="public-型的静态变量"><a href="#public-型的静态变量" class="headerlink" title="public 型的静态变量"></a>public 型的静态变量</h3><p>public 型的静态变量，在类被加载的时候，就被创建在静态存储区，不依赖于对象。</p>
 <h3 id="Application-对象"><a href="#Application-对象" class="headerlink" title="Application 对象"></a>Application 对象</h3><p>在整个应用程序中就一个Application单例，它的生命周期贯穿整个程序，堆内存中只存在一个对象实例，所以程序内所有它的引用指向的是同一块堆内存，所以可以在不同activity对application实例变量进行值的存取。<br><em>不推荐</em>。</p>
 <h3 id="Clipboard-剪切板"><a href="#Clipboard-剪切板" class="headerlink" title="Clipboard 剪切板"></a>Clipboard 剪切板</h3><p>ClipboardManager：该类是系统剪切板服务的接口，用来放入或取出全局剪切板中的文本。</p>
-<pre><code class="java">ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
-
-clipboardManager.setText(DATA.toString());
-}
-</code></pre>
-<pre><code class="java">ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  
-String data = clipboardManager.getText().toString();
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line"></div><div class="line">clipboardManager.setText(DATA.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);  </div><div class="line">String data = clipboardManager.getText().toString();</div></pre></td></tr></table></figure>
 <p>Clipboard 也可以传递可序列化对象。</p>
 <h3 id="文件传值"><a href="#文件传值" class="headerlink" title="文件传值"></a>文件传值</h3><p>通过向本地文件写入和读取来传递数据。<br>常用的如 SharedPrefrences 对象等。</p>
 <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>你自己想吧！</p>
