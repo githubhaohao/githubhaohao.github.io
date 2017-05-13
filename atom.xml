@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-05-13T08:00:49.468Z</updated>
+  <updated>2017-05-13T08:31:19.709Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="https://githubhaohao.github.io/2017/05/13/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B-Builder-%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/13/Android-设计模式之-Builder-模式/</id>
     <published>2017-05-13T05:28:00.000Z</published>
-    <updated>2017-05-13T08:00:49.468Z</updated>
+    <updated>2017-05-13T08:31:19.709Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/9d67959bff9222b9.jpg" alt="Markdown"></p>
 
 <p align="center">时刻尝试走出舒适区</p>
 
-<blockquote><p>最近在研究 Clean 和 Unidirectional （ Android Flux ）架构，回头放一个大招。<br>本文是 Android 设计模式的第二篇，接下来会陆续推出整个常用的设计模式系列。</p>
+<blockquote>
+<p>最近在研究 Clean 和 Unidirectional （ Android Flux ）架构，回头放一个大招。<br>本文是 Android 设计模式的第二篇，接下来会陆续推出整个常用的设计模式系列。</p>
 </blockquote>
 <h2 id="Builder-模式"><a href="#Builder-模式" class="headerlink" title="Builder 模式"></a>Builder 模式</h2><p>Builder 又名生成器模式，或建造（者）模式。它是一种对象构建模式，用于抽象复杂对象的构建过程，构造过程的不同实现方法可以构建出具有不同表示的对象。</p>
 <blockquote>
@@ -42,8 +43,9 @@
 
 <h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><p>我们以生产手机为例，当我们拿到一个手机产品通常比较关注它的品牌 (Brand) ，CPU 核心数目 (CPU Core)，运行内存 (RAM) 以及操作系统 (OS)。</p>
 <h4 id="Product"><a href="#Product" class="headerlink" title="Product"></a>Product</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mCPUCore = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mRam = <span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> String mOS = <span class="string">"Android"</span>;</div><div class="line">    <span class="keyword">private</span> String mBrand = <span class="string">"Google"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCPUCore</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mCPUCore;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRAM</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mRam;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getOS</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mOS;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getBrand</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mBrand;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCPUCore</span><span class="params">(<span class="keyword">int</span> mCPUCore)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mCPUCore = mCPUCore;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRAM</span><span class="params">(<span class="keyword">int</span> mRam)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mRam = mRam;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOS</span><span class="params">(String mOS)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mOS = mOS;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBrand</span><span class="params">(String mBrand)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mBrand = mBrand;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Brand : "</span> + getBrand() +<span class="string">", CPUCore : "</span> + getCPUCore() +</div><div class="line">                <span class="string">", RAM : "</span> + getRAM() + <span class="string">", OS : "</span> + getOS();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Builder-抽象类"><a href="#Builder-抽象类" class="headerlink" title="Builder 抽象类"></a>Builder 抽象类</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">public abstract class PhoneBuilder &#123;</div><div class="line">    protected Phone mPhone;</div><div class="line">    public void createPhone() &#123;</div><div class="line">        mPhone = new Phone();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Phone getPhone() &#123;</div><div class="line">        return mPhone;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public abstract void buildPhoneCpu();</div><div class="line"></div><div class="line">    public abstract void buildPhoneRam();</div><div class="line"></div><div class="line">    public abstract void buildPhoneOS();</div><div class="line"></div><div class="line">&#125;</div><div class="line">``` </div><div class="line">#### ConcreteBuilder</div><div class="line">XiaoMiPhoneBuilder</div><div class="line">```java</div><div class="line">public class XiaoMiPhoneBuilder extends PhoneBuilder &#123;</div><div class="line"></div><div class="line">    public XiaoMiPhoneBuilder() &#123;</div><div class="line">        createPhone();</div><div class="line">        mPhone.setBrand("XiaoMi");</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneCpu() &#123;</div><div class="line">        mPhone.setCPUCore(4);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneRam() &#123;</div><div class="line">        mPhone.setRAM(4);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneOS() &#123;</div><div class="line">        mPhone.setOS("MIUI Android");</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>GooglePhoneBuilder<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GooglePhoneBuilder</span> <span class="keyword">extends</span> <span class="title">PhoneBuilder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GooglePhoneBuilder</span><span class="params">()</span> </span>&#123;</div><div class="line">        createPhone();</div><div class="line">        mPhone.setBrand(<span class="string">"Google"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneCpu</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setCPUCore(<span class="number">8</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneRam</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setRAM(<span class="number">6</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneOS</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setOS(<span class="string">"Android"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="Builder-抽象类"><a href="#Builder-抽象类" class="headerlink" title="Builder 抽象类"></a>Builder 抽象类</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public abstract class PhoneBuilder &#123;</div><div class="line">    protected Phone mPhone;</div><div class="line">    public void createPhone() &#123;</div><div class="line">        mPhone = new Phone();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public Phone getPhone() &#123;</div><div class="line">        return mPhone;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public abstract void buildPhoneCpu();</div><div class="line"></div><div class="line">    public abstract void buildPhoneRam();</div><div class="line"></div><div class="line">    public abstract void buildPhoneOS();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">#### ConcreteBuilder</div><div class="line"></div><div class="line">XiaoMiPhoneBuilder</div><div class="line"></div><div class="line">```java</div><div class="line">public class XiaoMiPhoneBuilder extends PhoneBuilder &#123;</div><div class="line"></div><div class="line">    public XiaoMiPhoneBuilder() &#123;</div><div class="line">        createPhone();</div><div class="line">        mPhone.setBrand("XiaoMi");</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneCpu() &#123;</div><div class="line">        mPhone.setCPUCore(4);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneRam() &#123;</div><div class="line">        mPhone.setRAM(4);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void buildPhoneOS() &#123;</div><div class="line">        mPhone.setOS("MIUI Android");</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>GooglePhoneBuilder</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GooglePhoneBuilder</span> <span class="keyword">extends</span> <span class="title">PhoneBuilder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GooglePhoneBuilder</span><span class="params">()</span> </span>&#123;</div><div class="line">        createPhone();</div><div class="line">        mPhone.setBrand(<span class="string">"Google"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneCpu</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setCPUCore(<span class="number">8</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneRam</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setRAM(<span class="number">6</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildPhoneOS</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhone.setOS(<span class="string">"Android"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="Director"><a href="#Director" class="headerlink" title="Director"></a>Director</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhoneDirector</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> PhoneBuilder mPhoneBuilder;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> PhoneDirector <span class="title">setPhoneBuilder</span><span class="params">(PhoneBuilder phoneBuilder)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mPhoneBuilder = phoneBuilder;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">getPhone</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPhoneBuilder.getPhone();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> PhoneDirector <span class="title">constructPhone</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPhoneBuilder.buildPhoneCpu();</div><div class="line">        mPhoneBuilder.buildPhoneOS();</div><div class="line">        mPhoneBuilder.buildPhoneRam();</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BuilderSample</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        PhoneDirector phoneDirector = <span class="keyword">new</span> PhoneDirector();</div><div class="line"></div><div class="line">        PhoneBuilder xiaomiphoneBuilder = <span class="keyword">new</span> XiaoMiPhoneBuilder();</div><div class="line">        PhoneBuilder googlePhoneBuilder = <span class="keyword">new</span> GooglePhoneBuilder();</div><div class="line"></div><div class="line"></div><div class="line">        Phone xiaoMiPhone = phoneDirector.setPhoneBuilder(xiaomiphoneBuilder)</div><div class="line">                .constructPhone()</div><div class="line">                .getPhone();</div><div class="line"></div><div class="line">        Phone googlePhone = phoneDirector.setPhoneBuilder(googlePhoneBuilder)</div><div class="line">                .constructPhone()</div><div class="line">                .getPhone();</div><div class="line">        System.out.println(xiaoMiPhone + <span class="string">"\n"</span> + googlePhone);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Running</p>
@@ -89,13 +91,15 @@
     <link href="https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/06/Android-设计模式之单例模式/</id>
     <published>2017-05-06T05:53:52.000Z</published>
-    <updated>2017-05-10T01:28:41.198Z</updated>
+    <updated>2017-05-13T08:09:15.382Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/9d67959bff9222b9.jpg" alt="Markdown"></p>
 
 <p align="center">时刻尝试走出舒适区</p>
 
-<blockquote><p>最近在培养自己的广泛阅读习惯，感觉阅读中最重要的是动脑思考，阅读是接受讯息，思考是消化讯息。<br>本文是 Android 设计模式的开篇，接下来会陆续推出整个常用的设计模式系列。</p>
+
+<blockquote>
+<p>最近在培养自己的广泛阅读习惯，感觉阅读中最重要的是动脑思考，阅读是接受讯息，思考是消化讯息。<br>本文是 Android 设计模式的开篇，接下来会陆续推出整个常用的设计模式系列。</p>
 </blockquote>
 <h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>设计模式简而言之就是优秀的代码设计经验的总结。设计模式的产生是为了提高代码的可复用性，可扩展性，可靠性以及可读性。</p>
 <h2 id="设计模式原则"><a href="#设计模式原则" class="headerlink" title="设计模式原则"></a>设计模式原则</h2><ul>
@@ -135,7 +139,8 @@
 
 &lt;p align=&quot;center&quot;&gt;时刻尝试走出舒适区&lt;/p&gt;
 
-&lt;blockquo
+
+&lt;blockqu
     
     </summary>
     
@@ -382,13 +387,14 @@
     <link href="https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/"/>
     <id>https://githubhaohao.github.io/2017/04/15/Android-Clean-架构浅析/</id>
     <published>2017-04-15T13:07:34.000Z</published>
-    <updated>2017-05-06T09:12:59.429Z</updated>
+    <updated>2017-05-13T08:10:52.547Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/f96da96df4251851.jpg" alt="Cover"></p>
 
 <p align="center">死磕 Android 架构也是一种娱乐</p>
 
-<blockquote><p>Android 常用的架构主要有 MVC，MVP，MVVM 以及 Clean 。以上架构设计模式没有绝对的优劣之分，关键要看具体的应用场景。更多关于 MVC，MVP 以及 MVVM 介绍可以参考<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">MVC,MVP &amp; MVVM</a></p>
+<blockquote>
+<p>Android 常用的架构主要有 MVC，MVP，MVVM 以及 Clean 。以上架构设计模式没有绝对的优劣之分，关键要看具体的应用场景。更多关于 MVC，MVP 以及 MVVM 介绍可以参考<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">MVC,MVP &amp; MVVM</a></p>
 </blockquote>
 <h2 id="什么是-Clean-架构？"><a href="#什么是-Clean-架构？" class="headerlink" title="什么是 Clean 架构？"></a>什么是 Clean 架构？</h2><p align="center"><img src="http://www.elapsetech.com/media/107552/Close-Up-Robert-C-Martin.jpg" alt="author"></p>
 
@@ -454,13 +460,14 @@
     <link href="https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>https://githubhaohao.github.io/2017/04/13/RecyclerView-加载与刷新功能实现/</id>
     <published>2017-04-13T10:30:00.000Z</published>
-    <updated>2017-05-06T09:14:19.011Z</updated>
+    <updated>2017-05-13T08:13:56.687Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/9485f3b972f5ed01.jpg" alt="Cover"></p>
 
 <p align="center">坚持就是进步</p>
 
-<blockquote><p>最近 Kotlin Android 开发貌似要火起来，Kotlin 具有脚本语言风格，能与 Java 无缝兼容，并且有 Google 有意栽培。</p>
+<blockquote>
+<p>最近 Kotlin Android 开发貌似要火起来，Kotlin 具有脚本语言风格，能与 Java 无缝兼容，并且有 Google 有意栽培。</p>
 </blockquote>
 <h2 id="RecyclerView-加载与刷新功能实现"><a href="#RecyclerView-加载与刷新功能实现" class="headerlink" title="RecyclerView 加载与刷新功能实现"></a>RecyclerView 加载与刷新功能实现</h2><p>RecyclerView 功能及灵活性强大到令人发指。在开发中，完全可以用它代替 ListView 和 GridView ，并且还具有瀑布流展示功能。</p>
 <p>本文主要对 RecyclerView 进行简单的封装，来实现加载、刷新以及异常状态展示多种功能，实现及其简单，代码量很少。</p>
@@ -483,7 +490,8 @@
 
 &lt;p align=&quot;center&quot;&gt;坚持就是进步&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;
+&lt;blockquote&gt;
+&lt;p
     
     </summary>
     
@@ -501,13 +509,14 @@
     <link href="https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/"/>
     <id>https://githubhaohao.github.io/2017/04/01/Android-jar-与-aar/</id>
     <published>2017-04-01T04:43:26.000Z</published>
-    <updated>2017-04-20T14:00:14.883Z</updated>
+    <updated>2017-05-13T08:10:16.571Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/1372239da58c943a.jpg" alt="Cover"></p>
 
 <p align="center">愚人节不愚人</p>
 
-<blockquote><p>最近开始搞机器学习，同时项目也不停的维护着！嘿嘿，明天就是小长假了。</p>
+<blockquote>
+<p>最近开始搞机器学习，同时项目也不停的维护着！嘿嘿，明天就是小长假了。</p>
 </blockquote>
 <h2 id="Android-jar-与-aar"><a href="#Android-jar-与-aar" class="headerlink" title="Android jar 与 aar"></a>Android jar 与 aar</h2><p><strong>jar</strong> (<strong>Java Application Resource</strong>) 是一种归档文件，以 ZIP 格式构建，以 .jar 为文件扩展名。用户可以使用JDK自带的 jar 命令创建或提取 JAR 文件。<strong>jar 文件只包含 class 文件和 配置文件。</strong></p>
 <p><strong>aar</strong> (<strong>Android Application Resource</strong>) 是 android 中特有的归档文件，<strong>既包含 class 文件也包含 android 的 res 资源文件</strong>。</p>
@@ -538,7 +547,8 @@
 
 &lt;p align=&quot;center&quot;&gt;愚人节不愚人&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;
+&lt;blockquote&gt;
+&lt;p
     
     </summary>
     
@@ -554,13 +564,14 @@
     <link href="https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/"/>
     <id>https://githubhaohao.github.io/2017/03/01/Android-四大组件之-Activity/</id>
     <published>2017-03-01T06:36:14.000Z</published>
-    <updated>2017-05-06T09:14:59.928Z</updated>
+    <updated>2017-05-13T08:11:37.470Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i2.buimg.com/588795/f44c5bdc30a8cc26.jpg" alt="Cover"></p>
 
 <p align="center">唉！最近拖延症又犯了</p>
 
-<blockquote><p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！<br>虽然关于 Activity 已经被写烂了，但是从本篇文章里，你一定会发现不同的东西。</p>
+<blockquote>
+<p>最近真的是越来越懒了，总是找各种理由不写博客。虽然最近各种事，又搞论文，又搞项目的，再拖下去实在是对不住 “不忘初心” 这一句话。惭愧！<br>虽然关于 Activity 已经被写烂了，但是从本篇文章里，你一定会发现不同的东西。</p>
 </blockquote>
 <h2 id="Activity-生命周期"><a href="#Activity-生命周期" class="headerlink" title="Activity 生命周期"></a>Activity 生命周期</h2><h3 id="一般情况下"><a href="#一般情况下" class="headerlink" title="一般情况下"></a>一般情况下</h3><p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="haohaochang.cn"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Activity</span> <span class="keyword">extends</span> <span class="title">ApplicationContext</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -578,13 +589,13 @@
 </ul>
 </li>
 </ol>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h4 id="首次启动-Activity"><a href="#首次启动-Activity" class="headerlink" title="首次启动 Activity"></a>首次启动 Activity</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Create</div><div class="line">MainActivity <span class="literal">on</span>Start</div><div class="line">MainActivity <span class="literal">on</span>Resume</div></pre></td></tr></table></figure>
-<h4 id="跳转到-SecondActivity"><a href="#跳转到-SecondActivity" class="headerlink" title="跳转到 SecondActivity"></a>跳转到 SecondActivity</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Pause</div><div class="line">SecondActivity <span class="literal">on</span>Create</div><div class="line">SecondActivity <span class="literal">on</span>Start</div><div class="line">SecondActivity <span class="literal">on</span>Resume</div><div class="line">MainActivity <span class="literal">on</span>Stop</div></pre></td></tr></table></figure>
-<h4 id="Back-返回-MainActivity"><a href="#Back-返回-MainActivity" class="headerlink" title="Back 返回 MainActivity"></a>Back 返回 MainActivity</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">SecondActivity</span> <span class="literal">on</span>Pause</div><div class="line">MainActivity <span class="literal">on</span>Restart</div><div class="line">MainActivity <span class="literal">on</span>Start</div><div class="line">MainActivity <span class="literal">on</span>Resume</div><div class="line">SecondActivity <span class="literal">on</span>Stop</div><div class="line">SecondActivity <span class="literal">on</span>Destroy</div></pre></td></tr></table></figure>
-<h4 id="Home-回退桌面"><a href="#Home-回退桌面" class="headerlink" title="Home 回退桌面"></a>Home 回退桌面</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Pause</div><div class="line">MainActivity <span class="literal">on</span>Stop</div></pre></td></tr></table></figure>
-<h4 id="桌面返回可见"><a href="#桌面返回可见" class="headerlink" title="桌面返回可见"></a>桌面返回可见</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Restart</div><div class="line">MainActivity <span class="literal">on</span>Start</div><div class="line">MainActivity <span class="literal">on</span>Resume</div></pre></td></tr></table></figure>
-<h4 id="锁屏"><a href="#锁屏" class="headerlink" title="锁屏"></a>锁屏</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Pause</div><div class="line">MainActivity <span class="literal">on</span>Stop</div></pre></td></tr></table></figure>
-<h4 id="解锁屏"><a href="#解锁屏" class="headerlink" title="解锁屏"></a>解锁屏</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">MainActivity</span> <span class="literal">on</span>Restart</div><div class="line">MainActivity <span class="literal">on</span>Start</div><div class="line">MainActivity <span class="literal">on</span>Resume</div></pre></td></tr></table></figure>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><h4 id="首次启动-Activity"><a href="#首次启动-Activity" class="headerlink" title="首次启动 Activity"></a>首次启动 Activity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onCreate</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
+<h4 id="跳转到-SecondActivity"><a href="#跳转到-SecondActivity" class="headerlink" title="跳转到 SecondActivity"></a>跳转到 SecondActivity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">SecondActivity onCreate</div><div class="line">SecondActivity onStart</div><div class="line">SecondActivity onResume</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="Back-返回-MainActivity"><a href="#Back-返回-MainActivity" class="headerlink" title="Back 返回 MainActivity"></a>Back 返回 MainActivity</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SecondActivity onPause</div><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div><div class="line">SecondActivity onStop</div><div class="line">SecondActivity onDestroy</div></pre></td></tr></table></figure>
+<h4 id="Home-回退桌面"><a href="#Home-回退桌面" class="headerlink" title="Home 回退桌面"></a>Home 回退桌面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="桌面返回可见"><a href="#桌面返回可见" class="headerlink" title="桌面返回可见"></a>桌面返回可见</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
+<h4 id="锁屏"><a href="#锁屏" class="headerlink" title="锁屏"></a>锁屏</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MainActivity onPause</div><div class="line">MainActivity onStop</div></pre></td></tr></table></figure>
+<h4 id="解锁屏"><a href="#解锁屏" class="headerlink" title="解锁屏"></a>解锁屏</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MainActivity onRestart</div><div class="line">MainActivity onStart</div><div class="line">MainActivity onResume</div></pre></td></tr></table></figure>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><blockquote><p>onStart 开始到 onStop 之前， Activity 可见。<br>onResume 开始到 onPause 之前， Activity 可接受用户交互。<br>在新Activity启动之前，栈顶的Activity需要先onPause后，新Activity才能启动。所以不能在onPause执行耗时操作。</p>
 </blockquote>
 <h2 id="Activity-数据传递"><a href="#Activity-数据传递" class="headerlink" title="Activity 数据传递"></a>Activity 数据传递</h2><p>Activity 传递数据一般有以下几种方式：</p>
@@ -639,7 +650,7 @@
     <link href="https://githubhaohao.github.io/2017/02/17/Android%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E5%92%8C%E5%A4%9A%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0/"/>
     <id>https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/</id>
     <published>2017-02-17T06:13:42.000Z</published>
-    <updated>2017-05-06T09:12:26.825Z</updated>
+    <updated>2017-05-13T08:19:35.108Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true" alt="Cover"></p>
 <p align="center">又是一个周末</p>
@@ -674,13 +685,15 @@
 <li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项). 设置为跟随系统</li>
 </ul>
 <h2 id="多主题实现"><a href="#多主题实现" class="headerlink" title="多主题实现"></a>多主题实现</h2><p>介绍几种换肤的第三方库。</p>
-<h3 id="MultipleTheme"><a href="#MultipleTheme" class="headerlink" title="MultipleTheme"></a><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></h3><blockquote><p>真正的支持无缝换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤（无需重启应用和当前页面）。</p>
+<h3 id="MultipleTheme"><a href="#MultipleTheme" class="headerlink" title="MultipleTheme"></a><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></h3><blockquote>
+<p>真正的支持无缝换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤（无需重启应用和当前页面）。</p>
 <p>该应用框架可以实现无缝换肤／切换夜间模式的需求，需要在换肤／切换夜间模式的界面只需要使用框架里的自封装控件，其他界面的控件使用原生android控件即可。</p>
-<footer><strong>MultipleTheme</strong></footer></blockquote>
-<p><br><br><strong>缺陷</strong>：各种控件都需要重定义。<br><strong>优势</strong>：扩展性强，无需重启 Activity。</p>
-<h3 id="Colorful-推荐"><a href="#Colorful-推荐" class="headerlink" title="Colorful [推荐]"></a><a href="https://github.com/garretyoder/Colorful" target="_blank" rel="external">Colorful</a> [推荐]</h3><blockquote><p>Colorful is a dynamic theme library allowing you to change your apps’ color schemes easily.</p>
-<footer><strong>MultipleTheme</strong></footer></blockquote>
-<p><br><br><strong>缺陷</strong>：主题颜色可定制性差，不支持 Material Design 风格。<br><strong>优势</strong>：使用方便。</p>
+</blockquote>
+<p><strong>缺陷</strong>：各种控件都需要重定义。<br><strong>优势</strong>：扩展性强，无需重启 Activity。</p>
+<h3 id="Colorful-推荐"><a href="#Colorful-推荐" class="headerlink" title="Colorful [推荐]"></a><a href="https://github.com/garretyoder/Colorful" target="_blank" rel="external">Colorful</a> [推荐]</h3><blockquote>
+<p>Colorful is a dynamic theme library allowing you to change your apps’ color schemes easily.</p>
+</blockquote>
+<p><strong>缺陷</strong>：主题颜色可定制性差，不支持 Material Design 风格。<br><strong>优势</strong>：使用方便。</p>
 <h3 id="Prism"><a href="#Prism" class="headerlink" title="Prism"></a><a href="https://github.com/StylingAndroid/Prism" target="_blank" rel="external">Prism</a></h3><p><img src="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg" alt="Prism"></p>
 <p>Prism 下含有三个库：</p>
 <ul>
@@ -724,12 +737,13 @@
     <link href="https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/"/>
     <id>https://githubhaohao.github.io/2017/02/12/MVVM，RxJava和Retrofit的一次实践/</id>
     <published>2017-02-12T06:21:25.000Z</published>
-    <updated>2017-05-05T05:54:44.608Z</updated>
+    <updated>2017-05-13T08:20:15.060Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/country-1295915__340.png?raw=true" alt="Cover"></p>
 <p align="center">春节后的第一篇博客</p>
 
-<blockquote><p>本文已授权微信公众号：鸿洋（hongyangAndroid）原创首发。<br>原创文章，转载请注明出处:<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">haohaochang.cn</a></p>
+<blockquote>
+<p>本文已授权微信公众号：鸿洋（hongyangAndroid）原创首发。<br>原创文章，转载请注明出处:<a href="http://haohaochang.cn/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/" target="_blank" rel="external">haohaochang.cn</a></p>
 </blockquote>
 <hr>
 <h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample/blob/master/image/sample.gif?raw=true" alt="result"></p>
@@ -759,29 +773,34 @@
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/mvvp.PNG?raw=true" alt="MVVM"></p>
 <p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。<br><strong>区别在于</strong>: View 层与 ViewModel 层通过 DataBinding 相互绑定，View 层的变动，自动反映在 ViewModel 层，反之亦然。</p>
 <h3 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">RxJava</a></h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/kotlin-android-rxjava.png?raw=true" alt="RxJava"></p>
-<blockquote><p>Rx 是微软 .Net 的一个响应式扩展，Rx 借助可观测的序列提供一种简单的方式来创建异步的，基于事件驱动的程序。2012 年 Netflix 为了应对不断增长的业务需求开始将 .NET Rx 迁移到 JVM 上面。并于 13 年二月份正式向外展示了 RxJava 。</p>
+<blockquote>
+<p>Rx 是微软 .Net 的一个响应式扩展，Rx 借助可观测的序列提供一种简单的方式来创建异步的，基于事件驱动的程序。2012 年 Netflix 为了应对不断增长的业务需求开始将 .NET Rx 迁移到 JVM 上面。并于 13 年二月份正式向外展示了 RxJava 。</p>
 <p>从语义的角度来看， RxJava 就是 .NET Rx 。从语法的角度来看， Netflix 考虑到了对应每个 Rx 方法,保留了 Java 代码规范和基本的模式。</p>
 </blockquote>
 <p>RxJava 在 GitHub 主页的介绍是：</p>
-<blockquote><p>RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.</p>
-<footer><strong>RxJava</strong></footer></blockquote>
+<blockquote>
+<p>RxJava is a Java VM implementation of Reactive Extensions: a library for composing asynchronous and event-based programs by using observable sequences.</p>
+</blockquote>
 <p>一个在 Java VM 上使用可观测的序列来组成异步的、基于事件程序的库。</p>
 <p>RxJava 本质上是一个异步操作库，是一个能让你用极其简洁的逻辑去处理繁琐复杂任务的异步事件库。</p>
 <p>简而言之，RxJava 可以用几个关键字概括：<strong>简洁，队列化，异步</strong>。</p>
 <h3 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a><a href="https://github.com/square/retrofit" target="_blank" rel="external">Retrofit</a></h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/android-libs-retrofit-1-638.jpg?raw=true" alt="retrofit"></p>
 <p>一个 Android 和 Java 上 HTTP 库（利用注解和 OKHttp 来实现和服务器的数据交互）。</p>
 <p>Retrofit 基于 OKHttp 并引入注解，使用简单，易扩展，易维护。</p>
-<blockquote><p><a href="http://square.github.io/retrofit/" target="_blank" rel="external"><strong>Retrofit 官方文档:http://square.github.io/retrofit/</strong></a></p>
+<blockquote>
+<p><a href="http://square.github.io/retrofit/" target="_blank" rel="external"><strong>Retrofit 官方文档:http://square.github.io/retrofit/</strong></a></p>
 </blockquote>
 <h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a><a href="https://developer.android.com/topic/libraries/data-binding/index.html" target="_blank" rel="external">DataBinding</a></h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/data_binding.png?raw=true" alt="data-binding"></p>
 <p>在Google IO 2015 中，Google 在 support-v7 中新增了 Data Binding，使用 Data Binding可以直接在布局的 xml 中绑定布局与数据，从而简化代码，Android Data Binding是Android 的 MVVM 框架。因为 Data Binding 是包含在 support-v7 包里面的，所以可以向下兼容到最低 Android 2.1 (API level 7+).</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>直接上代码。</p>
 <h3 id="依赖的第三方类库"><a href="#依赖的第三方类库" class="headerlink" title="依赖的第三方类库"></a>依赖的第三方类库</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxjava:1.1.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxandroid:1.1.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:converter-gson:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><blockquote><p><code>https://api.douban.com/v2/movie/top250?start=0&amp;count=20</code></p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><blockquote>
+<p><code>https://api.douban.com/v2/movie/top250?start=0&amp;count=20</code></p>
 </blockquote>
 <h3 id="引入DataBinding"><a href="#引入DataBinding" class="headerlink" title="引入DataBinding"></a>引入DataBinding</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ......</div><div class="line"></div><div class="line">    dataBinding &#123;</div><div class="line">        enabled = <span class="keyword">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true" alt="目录"></p>
-<blockquote><p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
+<blockquote>
+<p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
 </blockquote>
 <h3 id="MVVM-之-View"><a href="#MVVM-之-View" class="headerlink" title="MVVM 之 View"></a>MVVM 之 View</h3><p><strong>MainActivity.java</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getFragmentManager().beginTransaction().add(R.id.movie_fragment, MovieFragment.getInstance()).commit();</div></pre></td></tr></table></figure>
@@ -805,7 +824,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DouBanMovieService</span> </span>&#123;</div><div class="line">    String BASE_URL = <span class="string">"https://api.douban.com/v2/movie/"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"top250"</span>)</div><div class="line">    Observable&lt;Response&lt;List&lt;Movie&gt;&gt;&gt; getMovies(<span class="meta">@Query</span>(<span class="string">"start"</span>) <span class="keyword">int</span> start, <span class="meta">@Query</span>(<span class="string">"count"</span>) <span class="keyword">int</span> count);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>RetrofitHelper.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RetrofitHelper</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_TIMEOUT = <span class="number">10</span>;</div><div class="line">    <span class="keyword">private</span> Retrofit retrofit;</div><div class="line">    <span class="keyword">private</span> DouBanMovieService movieService;</div><div class="line">    OkHttpClient.Builder builder;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取RetrofitHelper对象的单例</div><div class="line">     * */</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> RetrofitHelper INSTANCE = <span class="keyword">new</span> RetrofitHelper();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RetrofitHelper <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Singleton.INSTANCE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RetrofitHelper</span><span class="params">()</span> </span>&#123;</div><div class="line">        builder = <span class="keyword">new</span> OkHttpClient.Builder();</div><div class="line">        builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);</div><div class="line"></div><div class="line">        retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                .client(builder.build())</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">                .baseUrl(DouBanMovieService.BASE_URL)</div><div class="line">                .build();</div><div class="line">        movieService = retrofit.create(DouBanMovieService.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getMovies</span><span class="params">(Subscriber&lt;Movie&gt; subscriber, <span class="keyword">int</span> start, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">        movieService.getMovies(start, count)</div><div class="line">                .map(<span class="keyword">new</span> Func1&lt;Response&lt;List&lt;Movie&gt;&gt;, List&lt;Movie&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> List&lt;Movie&gt; <span class="title">call</span><span class="params">(Response&lt;List&lt;Movie&gt;&gt; listResponse)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> listResponse.getSubjects();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .flatMap(<span class="keyword">new</span> Func1&lt;List&lt;Movie&gt;, Observable&lt;Movie&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Observable&lt;Movie&gt; <span class="title">call</span><span class="params">(List&lt;Movie&gt; movies)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> Observable.from(movies);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .subscribe(subscriber);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>还有 entity 类，这里就不贴出来了。</p>
-<blockquote><p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
+<blockquote>
+<p>详细源码：<a href="https://github.com/githubhaohao/MVVMRxJavaRetrofitSample" target="_blank" rel="external">https://github.com/githubhaohao/MVVMRxJavaRetrofitSample</a></p>
 </blockquote>
 ]]></content>
     
@@ -836,11 +856,12 @@
     <link href="https://githubhaohao.github.io/2017/01/25/ES6%E5%85%A5%E9%97%A8-%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
     <id>https://githubhaohao.github.io/2017/01/25/ES6入门-需要掌握的基本语法/</id>
     <published>2017-01-25T14:26:31.000Z</published>
-    <updated>2017-04-21T02:07:00.879Z</updated>
+    <updated>2017-05-13T08:14:36.658Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/es6.jpg?raw=true" alt="cover"></p>
-<h2 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h2><h3 id="1-ES-ECMAScript-和JavaScript的关系"><a href="#1-ES-ECMAScript-和JavaScript的关系" class="headerlink" title="1. ES (ECMAScript) 和JavaScript的关系"></a>1. ES (ECMAScript) 和JavaScript的关系</h3><blockquote><p>ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现（另外的ECMAScript方言还有Jscript和ActionScript）。日常场合，这两个词是可以互换的。</p>
-<footer><strong>阮一峰</strong><cite>ECMAScript</cite></footer></blockquote>
+<h2 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h2><h3 id="1-ES-ECMAScript-和JavaScript的关系"><a href="#1-ES-ECMAScript-和JavaScript的关系" class="headerlink" title="1. ES (ECMAScript) 和JavaScript的关系"></a>1. ES (ECMAScript) 和JavaScript的关系</h3><blockquote>
+<p>ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现（另外的ECMAScript方言还有Jscript和ActionScript）。日常场合，这两个词是可以互换的。</p>
+</blockquote>
 <h3 id="2-ES6和ECMAScript-2015的关系"><a href="#2-ES6和ECMAScript-2015的关系" class="headerlink" title="2. ES6和ECMAScript 2015的关系"></a>2. ES6和ECMAScript 2015的关系</h3><p>ES6，一般是指ECMAScript 2015标准，但有时也表示一种泛指，是指JavaScript语言的下一代标准。涵盖了ECMAScript 2015，2016，2017等版本，而ECMAScript 2015则是正式名称，特指该年发布的正式版本的语言标准。</p>
 <h2 id="Babel转码器"><a href="#Babel转码器" class="headerlink" title="Babel转码器"></a><a href="http://babeljs.io/docs/setup/" target="_blank" rel="external">Babel转码器</a></h2><p><img src="https://github.com/githubhaohao/TinkerSample/blob/master/image/babel.png?raw=true" alt=""></p>
 <p>Babel是一个广泛使用的ES6转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。去<a href="http://babeljs.io/docs/setup/" target="_blank" rel="external">官网</a>选择自己习惯的工具来使用使用Babel吧！</p>
@@ -916,15 +937,19 @@
     <link href="https://githubhaohao.github.io/2017/01/18/%E5%88%86%E5%88%86%E9%92%9F%E6%8E%A5%E5%85%A5Tinker/"/>
     <id>https://githubhaohao.github.io/2017/01/18/分分钟接入Tinker/</id>
     <published>2017-01-18T01:23:38.000Z</published>
-    <updated>2017-01-18T02:51:40.837Z</updated>
+    <updated>2017-05-13T08:13:43.771Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Tinker是什么"><a href="#Tinker是什么" class="headerlink" title="Tinker是什么"></a><a href="https://github.com/Tencent/tinker" target="_blank" rel="external">Tinker</a>是什么</h2><blockquote><p>Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。<br>它主要包括以下几个部分：</p>
+    <content type="html"><![CDATA[<h2 id="Tinker是什么"><a href="#Tinker是什么" class="headerlink" title="Tinker是什么"></a><a href="https://github.com/Tencent/tinker" target="_blank" rel="external">Tinker</a>是什么</h2><blockquote>
+<p>Tinker是微信官方的Android热补丁解决方案，它支持动态下发代码、So库以及资源，让应用能够在不需要重新安装的情况下实现更新。当然，你也可以使用Tinker来更新你的插件。<br>它主要包括以下几个部分：</p>
 <ul>
-<li>1.gradle编译插件: tinker-patch-gradle-plugin</li>
-<li>2.核心sdk库: tinker-android-lib</li>
-<li>3.非gradle编译用户的命令行版本: tinker-patch-cli.jar</li>
+<li><p>1.gradle编译插件: tinker-patch-gradle-plugin</p>
+</li>
+<li><p>2.核心sdk库: tinker-android-lib</p>
+</li>
+<li><p>3.非gradle编译用户的命令行版本: tinker-patch-cli.jar</p>
+</li>
 </ul>
-<footer><strong>Tencent</strong><cite>tinker</cite></footer></blockquote>
+</blockquote>
 <p><br><br><img src="https://github.com/Tencent/tinker/raw/master/assets/tinker.png" alt="Tinker"></p>
 <h2 id="引入依赖和插件"><a href="#引入依赖和插件" class="headerlink" title="引入依赖和插件"></a>引入依赖和插件</h2><p>在你项目根目录下的 <code>build.gradle</code> 文件中添加:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> (<span class="string">'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.6'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -970,10 +995,10 @@
     <link href="https://githubhaohao.github.io/2017/01/12/cover/"/>
     <id>https://githubhaohao.github.io/2017/01/12/cover/</id>
     <published>2017-01-12T08:31:23.971Z</published>
-    <updated>2017-05-05T05:56:39.501Z</updated>
+    <updated>2017-05-13T08:12:39.171Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
-<p><strong>老子</strong> </p>
+    <content type="html"><![CDATA[<blockquote>
+<p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
 </blockquote>
 <p><div align="center"><br><img src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460" width="100" height="100" alt="logo"><br></div></p>
 <p align="center"><i>不忘初心，不惧未来。<i><br><br><b>haohao</b><br><br>2017/01/14<br></i></i></p>
@@ -982,10 +1007,10 @@
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;老子&lt;/strong&gt; &lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com
     
     </summary>
     

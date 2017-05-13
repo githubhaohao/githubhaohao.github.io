@@ -5,13 +5,231 @@
     
   <url>
     <loc>https://githubhaohao.github.io/2017/05/13/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B-Builder-%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-05-13T08:00:49.468Z</lastmod>
+    <lastmod>2017-05-13T08:31:19.709Z</lastmod>
     <data>
         <display>
         <title>Android 设计模式之 Builder 模式</title>
         <pubTime>2017-05-13T05:28:00.000Z</pubTime>
         
         <tag>Builder 模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2017-05-13T08:20:15.060Z</lastmod>
+    <data>
+        <display>
+        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
+        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
+        
+        <tag>MVVM</tag>
+         
+        <tag>MVP</tag>
+         
+        <tag>MVC</tag>
+         
+        <tag>RxJava</tag>
+         
+        <tag>Retrofit</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/02/17/Android%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E5%92%8C%E5%A4%9A%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-05-13T08:19:35.108Z</lastmod>
+    <data>
+        <display>
+        <title>Android 主题切换和多主题实现</title>
+        <pubTime>2017-02-17T06:13:42.000Z</pubTime>
+        
+        <tag>Android 主题切换</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="主题" url="https://githubhaohao.github.io/categories/Android/%E4%B8%BB%E9%A2%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/01/25/ES6%E5%85%A5%E9%97%A8-%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2017-05-13T08:14:36.658Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门: 需要掌握的基本语法</title>
+        <pubTime>2017-01-25T14:26:31.000Z</pubTime>
+        
+        <tag>ES6入门</tag>
+         
+         
+           
+             
+              <breadCrumb title="ES6" url="https://githubhaohao.github.io/categories/ES6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-05-13T08:13:56.687Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView 加载与刷新功能实现</title>
+        <pubTime>2017-04-13T10:30:00.000Z</pubTime>
+        
+        <tag>RecyclerView 加载与刷新</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="RecyclerView" url="https://githubhaohao.github.io/categories/Android/RecyclerView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/01/18/%E5%88%86%E5%88%86%E9%92%9F%E6%8E%A5%E5%85%A5Tinker/</loc>
+    <lastmod>2017-05-13T08:13:43.771Z</lastmod>
+    <data>
+        <display>
+        <title>分分钟接入Tinker</title>
+        <pubTime>2017-01-18T01:23:38.000Z</pubTime>
+        
+        <tag>Tinker</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/01/12/cover/</loc>
+    <lastmod>2017-05-13T08:12:39.171Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-01-12T08:31:23.971Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/</loc>
+    <lastmod>2017-05-13T08:11:37.470Z</lastmod>
+    <data>
+        <display>
+        <title>Android 四大组件之 Activity</title>
+        <pubTime>2017-03-01T06:36:14.000Z</pubTime>
+        
+        <tag>Activity</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="四大组件" url="https://githubhaohao.github.io/categories/Android/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
+    <lastmod>2017-05-13T08:10:52.547Z</lastmod>
+    <data>
+        <display>
+        <title>Android Clean 架构浅析</title>
+        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
+        
+        <tag>Clean 架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="架构" url="https://githubhaohao.github.io/categories/Android/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/</loc>
+    <lastmod>2017-05-13T08:10:16.571Z</lastmod>
+    <data>
+        <display>
+        <title>Android jar 与 aar</title>
+        <pubTime>2017-04-01T04:43:26.000Z</pubTime>
+        
+        <tag>jar aar</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-05-13T08:09:15.382Z</lastmod>
+    <data>
+        <display>
+        <title>Android 设计模式之单例模式</title>
+        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
+        
+        <tag>单例模式</tag>
          
          
            
@@ -50,75 +268,6 @@
 
     
   <url>
-    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-05-10T01:28:41.198Z</lastmod>
-    <data>
-        <display>
-        <title>Android 设计模式之单例模式</title>
-        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
-        
-        <tag>单例模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/</loc>
-    <lastmod>2017-05-06T09:14:59.928Z</lastmod>
-    <data>
-        <display>
-        <title>Android 四大组件之 Activity</title>
-        <pubTime>2017-03-01T06:36:14.000Z</pubTime>
-        
-        <tag>Activity</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="四大组件" url="https://githubhaohao.github.io/categories/Android/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2017-05-06T09:14:19.011Z</lastmod>
-    <data>
-        <display>
-        <title>RecyclerView 加载与刷新功能实现</title>
-        <pubTime>2017-04-13T10:30:00.000Z</pubTime>
-        
-        <tag>RecyclerView 加载与刷新</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="RecyclerView" url="https://githubhaohao.github.io/categories/Android/RecyclerView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://githubhaohao.github.io/2017/04/27/Android-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/</loc>
     <lastmod>2017-05-06T09:13:23.781Z</lastmod>
     <data>
@@ -141,156 +290,7 @@
     </url>
 
     
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
-    <lastmod>2017-05-06T09:12:59.429Z</lastmod>
-    <data>
-        <display>
-        <title>Android Clean 架构浅析</title>
-        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
-        
-        <tag>Clean 架构</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="架构" url="https://githubhaohao.github.io/categories/Android/%E6%9E%B6%E6%9E%84/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
-  <url>
-    <loc>https://githubhaohao.github.io/2017/02/17/Android%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E5%92%8C%E5%A4%9A%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2017-05-06T09:12:26.825Z</lastmod>
-    <data>
-        <display>
-        <title>Android 主题切换和多主题实现</title>
-        <pubTime>2017-02-17T06:13:42.000Z</pubTime>
-        
-        <tag>Android 主题切换</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="主题" url="https://githubhaohao.github.io/categories/Android/%E4%B8%BB%E9%A2%98/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/01/12/cover/</loc>
-    <lastmod>2017-05-05T05:56:39.501Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-01-12T08:31:23.971Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2017-05-05T05:54:44.608Z</lastmod>
-    <data>
-        <display>
-        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
-        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
-        
-        <tag>MVVM</tag>
-         
-        <tag>MVP</tag>
-         
-        <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
-         
-        <tag>Retrofit</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/01/25/ES6%E5%85%A5%E9%97%A8-%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
-    <lastmod>2017-04-21T02:07:00.879Z</lastmod>
-    <data>
-        <display>
-        <title>ES6入门: 需要掌握的基本语法</title>
-        <pubTime>2017-01-25T14:26:31.000Z</pubTime>
-        
-        <tag>ES6入门</tag>
-         
-         
-           
-             
-              <breadCrumb title="ES6" url="https://githubhaohao.github.io/categories/ES6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/</loc>
-    <lastmod>2017-04-20T14:00:14.883Z</lastmod>
-    <data>
-        <display>
-        <title>Android jar 与 aar</title>
-        <pubTime>2017-04-01T04:43:26.000Z</pubTime>
-        
-        <tag>jar aar</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/01/18/%E5%88%86%E5%88%86%E9%92%9F%E6%8E%A5%E5%85%A5Tinker/</loc>
-    <lastmod>2017-01-18T02:51:40.837Z</lastmod>
-    <data>
-        <display>
-        <title>分分钟接入Tinker</title>
-        <pubTime>2017-01-18T01:23:38.000Z</pubTime>
-        
-        <tag>Tinker</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
     
