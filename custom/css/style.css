@@ -58,6 +58,7 @@ p {
 .about p {
   padding-bottom: 20px;
   text-align: justify;
+  font-style: bold;
 }
 
 footer p {
