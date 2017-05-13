@@ -260,15 +260,15 @@ builder.create().show();
 </code></pre>
 <p>我们看一下简化后的 AlertDialog 源码：</p>
 <pre><code class="java">public class AlertDialog extends Dialog implements DialogInterface {
-    Controller, 接受 Builder 成员变量P中的各个参数
+    // Controller, 接受 Builder 成员变量P中的各个参数
     private AlertController mAlert;
 
-    构造函数
+    // 构造函数
     protected AlertDialog(Context context, int theme) {
         this(context, theme, true);
     }
 
-    构造 AlertDialog
+    // 构造 AlertDialog
     AlertDialog(Context context, int theme, boolean createContextWrapper) {
         super(context, resolveDialogTheme(context, theme), createContextWrapper);
         mWindow.alwaysReadCloseOnTouchAttr();
@@ -291,9 +291,9 @@ builder.create().show();
 
 
 
-    Builder内部类
+   // Builder内部类
     public static class Builder {
-        存储 AlertDialog 的各个参数, 例如 title ， message ， icon 等.
+        // 存储 AlertDialog 的各个参数, 例如 title ， message ， icon 等.
         private final AlertController.AlertParams P;
 
         public Builder(Context context) {
@@ -338,7 +338,7 @@ builder.create().show();
             return this;
         }
 
-        构建 AlertDialog, 传递参数
+        // 构建 AlertDialog, 传递参数
         public AlertDialog create() {
 
             final AlertDialog dialog = new AlertDialog(P.mContext, mTheme, false);

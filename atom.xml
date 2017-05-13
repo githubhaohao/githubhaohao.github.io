@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-05-13T08:47:00.922Z</updated>
+  <updated>2017-05-13T08:56:06.815Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/05/13/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B-Builder-%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/13/Android-设计模式之-Builder-模式/</id>
     <published>2017-05-13T05:28:00.000Z</published>
-    <updated>2017-05-13T08:47:00.922Z</updated>
+    <updated>2017-05-13T08:56:06.815Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/85663beb3ea340b0.jpg" alt="Markdown"></p>
 
@@ -230,15 +230,15 @@ builder.create().show();
 </code></pre>
 <p>我们看一下简化后的 AlertDialog 源码：</p>
 <pre><code class="java">public class AlertDialog extends Dialog implements DialogInterface {
-    Controller, 接受 Builder 成员变量P中的各个参数
+    // Controller, 接受 Builder 成员变量P中的各个参数
     private AlertController mAlert;
 
-    构造函数
+    // 构造函数
     protected AlertDialog(Context context, int theme) {
         this(context, theme, true);
     }
 
-    构造 AlertDialog
+    // 构造 AlertDialog
     AlertDialog(Context context, int theme, boolean createContextWrapper) {
         super(context, resolveDialogTheme(context, theme), createContextWrapper);
         mWindow.alwaysReadCloseOnTouchAttr();
@@ -261,9 +261,9 @@ builder.create().show();
 
 
 
-    Builder内部类
+   // Builder内部类
     public static class Builder {
-        存储 AlertDialog 的各个参数, 例如 title ， message ， icon 等.
+        // 存储 AlertDialog 的各个参数, 例如 title ， message ， icon 等.
         private final AlertController.AlertParams P;
 
         public Builder(Context context) {
@@ -308,7 +308,7 @@ builder.create().show();
             return this;
         }
 
-        构建 AlertDialog, 传递参数
+        // 构建 AlertDialog, 传递参数
         public AlertDialog create() {
 
             final AlertDialog dialog = new AlertDialog(P.mContext, mTheme, false);
