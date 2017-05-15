@@ -1,0 +1,284 @@
+<html>
+  <head>
+    <title>Android 设计模式之外观模式 - haohao</title>
+    <link href='/images/ic_small.png' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+
+	<script src="/prettify/prettify.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/themes/tomorrow-night-eighties.css" type="text/css">
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img src='/images/ic_middle.png' alt='Home' width='96' height='96'></a>
+  <p>haohao</p>
+  <p>不忘初心，不惧未来</p>
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Home</a>
+  
+    <a class='main' href='/custom'>About</a>
+  
+    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+  
+    <a class='main' href='https://github.com/githubhaohao'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+  
+    <div class='right'>
+      <a href='/2017/05/13/Android-设计模式之-Builder-模式/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <div class='date'>2017-05-15</div>
+            Android 设计模式之外观模式
+          </h1>
+          <p align="center"><img src="http://i1.piimg.com/588795/f87081d597c610a1.jpg" alt="Markdown"></p>
+
+<p align="center">打造个人品牌是现代职业规划的趋势</p>
+
+<blockquote>
+<p>在当下互联网革命的时代，有这样一种说法，如果一个人到三十岁以后还是只有工资收入，那么它的职业规划是失败的。<br>本文是 Android 设计模式的第三篇，接下来会陆续推出整个常用的设计模式系列。</p>
+</blockquote>
+<h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><p>外观模式 (Facade Pattern) ，又名门面模式，归类为对象结构型模式，外部对象与一个子系统通信必须通过一个统一的外观对象进行。</p>
+<h3 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h3><ul>
+<li>Client 外部对象</li>
+<li>Facade 外观对象</li>
+<li>SubSystem 子系统对象</li>
+</ul>
+<p align="center"><img src="https://github.com/simple-android-framework/android_design_patterns_analysis/raw/master/facade/elsdnwn/images/facade.png" alt="Markdown"></p><br><p align="center">盗图</p>
+
+<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><blockquote>
+<p>电视遥控器是现实生活中一个比较好的外观模式的运用，遥控器可以控制电源 (Power) 的电源、声音 (Voice) 的调整、频道 (Channel) 的切换等。这个遥控器就是我们这里说的外观或者门面，而电源、声音、频道切换系统就是我们的子系统。</p>
+</blockquote>
+<h4 id="PowerSystem"><a href="#PowerSystem" class="headerlink" title="PowerSystem"></a>PowerSystem</h4><pre><code class="java">public class PowerSystem {
+    public void powerOn() {
+        System.out.println(&quot;power on&quot;);
+    }
+
+    public void powerOff() {
+        System.out.println(&quot;power off&quot;);
+    }
+}
+</code></pre>
+<h4 id="VoiceSystem"><a href="#VoiceSystem" class="headerlink" title="VoiceSystem"></a>VoiceSystem</h4><pre><code class="java">public class VoiceSystem {
+    public void turnUp() {
+        System.out.println(&quot;voice increasing&quot;);
+    }
+
+    public void turnDown() {
+        System.out.println(&quot;voice reducing&quot;);
+    }
+}
+</code></pre>
+<h4 id="ChannelSystem"><a href="#ChannelSystem" class="headerlink" title="ChannelSystem"></a>ChannelSystem</h4><pre><code class="java">public class ChannelSystem {
+    public void next() {
+        System.out.println(&quot;next channel&quot;);
+    }
+
+    public void prev() {
+        System.out.println(&quot;prev channel&quot;);
+    }
+}
+</code></pre>
+<h4 id="Facade"><a href="#Facade" class="headerlink" title="Facade"></a>Facade</h4><pre><code class="java">public class Facade {
+    private PowerSystem mPowerSystem = new PowerSystem();
+    private VoiceSystem mVoiceSystem = new VoiceSystem();
+    private ChannelSystem mChannelSystem = new ChannelSystem();
+
+    public void powerOn() {
+        mPowerSystem.powerOn();
+    }
+
+    public void powerOff() {
+        mPowerSystem.powerOff();
+    }
+
+    public void turnUp() {
+        mVoiceSystem.turnUp();
+    }
+
+    public void turnDown() {
+        mVoiceSystem.turnDown();
+    }
+
+    public void nextChannel() {
+        mChannelSystem.next();
+    }
+
+    public void prevChannel() {
+        mChannelSystem.prev();
+    }
+}
+</code></pre>
+<h4 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h4><pre><code class="java">public static void main (String[] args) {
+    Facade facade = new Facade();
+    facade.powerOn();
+    facade.turnUp();
+    facade.nextChannel();
+}
+</code></pre>
+<h4 id="Running"><a href="#Running" class="headerlink" title="Running"></a>Running</h4><blockquote>
+<p>power on</p>
+<p>voice increasing</p>
+<p>next channel</p>
+</blockquote>
+<h3 id="Android-中的实现"><a href="#Android-中的实现" class="headerlink" title="Android 中的实现"></a>Android 中的实现</h3><p>在 Activity 中可以进行很多重要的操作，如 startService() ，startActivity() ，sendBroadcast() ，bindService() 以及获取 System Service 。Activity 就可以简单地看作一个门面，但是这些工作实际上并不是 Activity 来实现的，而是委托 Activity 父类 ContextThemeWrapper 中的 mBase 对象，mBase 对象的实现类是 ContextImpl 。</p>
+<p>看一下源码：</p>
+<pre><code class="java">class ContextImpl extends Context {
+    private final static String TAG = &quot;ApplicationContext&quot;;
+    private final static boolean DEBUG = false;
+    private final static boolean DEBUG_ICONS = false;
+
+    private static final Object sSync = new Object();
+    private static AlarmManager sAlarmManager;
+    private static PowerManager sPowerManager;
+    private static ConnectivityManager sConnectivityManager;
+    private AudioManager mAudioManager;
+    LoadedApk mPackageInfo;
+    private Resources mResources;
+    private PackageManager mPackageManager;
+    private NotificationManager mNotificationManager = null;
+    private ActivityManager mActivityManager = null;
+
+    ...
+
+    @Override
+    public boolean bindService(Intent service, ServiceConnection conn,
+            int flags) {
+        warnIfCallingFromSystemProcess();
+        return bindServiceCommon(service, conn, flags, mMainThread.getHandler(),
+                Process.myUserHandle());
+    }
+
+    @Override
+    public Object getSystemService(String name) {
+        return SystemServiceRegistry.getSystemService(this, name);
+    }
+
+    @Override
+    public String getSystemServiceName(Class&lt;?&gt; serviceClass) {
+        return SystemServiceRegistry.getSystemServiceName(serviceClass);
+    }
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
+        try {
+            ActivityManagerNative.getDefault().broadcastIntent(
+                mMainThread.getApplicationThread(), intent, resolvedType, null,
+                Activity.RESULT_OK, null, null, null, false, false);
+        } catch (RemoteException e) {
+        }
+    }
+
+
+    @Override
+    public void startActivity(Intent intent) {
+        if ((intent.getFlags()&amp;Intent.FLAG_ACTIVITY_NEW_TASK) == 0) {
+            throw new AndroidRuntimeException(
+                    &quot;Calling startActivity() from outside of an Activity &quot;
+                    + &quot; context requires the FLAG_ACTIVITY_NEW_TASK flag.&quot;
+                    + &quot; Is this really what you want?&quot;);
+        }
+        mMainThread.getInstrumentation().execStartActivity(
+            getOuterContext(), mMainThread.getApplicationThread(), null, null, intent, -1);
+    }
+
+
+    @Override
+    public ComponentName startService(Intent service) {
+        try {
+            ComponentName cn = ActivityManagerNative.getDefault().startService(
+                mMainThread.getApplicationThread(), service,
+                service.resolveTypeIfNeeded(getContentResolver()));
+            if (cn != null &amp;&amp; cn.getPackageName().equals(&quot;!&quot;)) {
+                throw new SecurityException(
+                        &quot;Not allowed to start service &quot; + service
+                        + &quot; without permission &quot; + cn.getClassName());
+            }
+            return cn;
+        } catch (RemoteException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public String getPackageName() {
+        if (mPackageInfo != null) {
+            return mPackageInfo.getPackageName();
+        }
+        throw new RuntimeException(&quot;Not supported in system context&quot;);
+    }
+
+    ...
+}
+</code></pre>
+<p>ContextImpl 内部有很多 Manager 类的对象，也就是也就是子系统对象。 ContextImpl 内部封装了一些系统级别的操作以及提供了一些访问系统的接口，我们在开发过程中可以很方便地利用其访问子系统。</p>
+<h3 id="外观模式的优点与缺点"><a href="#外观模式的优点与缺点" class="headerlink" title="外观模式的优点与缺点"></a>外观模式的优点与缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>屏蔽了子系统内部细节，使子系统的使用更见便利</li>
+<li>减少客户端所持对象的数目，降低了客户端与子系统的耦合度<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4></li>
+<li>增加新的子系统可能需要修改外观类，违背了“开闭原则”</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://github.com/simple-android-framework/android_design_patterns_analysis/tree/master/facade/elsdnwn" target="_blank" rel="external">https://github.com/simple-android-framework/android_design_patterns_analysis/tree/master/facade/elsdnwn</a></li>
+</ul>
+
+          <br>
+<p align="center">haohao</p>
+<div class='date' align="center">2017-05-15</div>
+
+        </section>
+      </div>
+      <div class='block'>
+  
+    <a class='main' href='/'>Home</a>
+  
+    <a class='main' href='/custom'>About</a>
+  
+    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+  
+    <a class='main' href='https://github.com/githubhaohao'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <span class='muted'>&copy; 2017 Powered by haohao</span><br>
+  <br>
+
+</footer>
+
+	<script type="text/javascript">
+	  $(window).load(function(){
+         $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+         prettyPrint();
+      })
+	  
+	  $(".block .main").hover(function() {
+          $(this).css({"background-color" : "#ddd"});
+        },function() {
+          $(this).css({"background-color" : "white"});
+		});	
+	</script>
+  </body>
+</html>
