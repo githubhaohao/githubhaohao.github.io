@@ -23,7 +23,7 @@ Author URI: http://littlethunder.co
 
 /* Typography */
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
   color: #444;
    -webkit-font-smoothing: antialiased;
