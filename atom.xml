@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-05-25T12:28:46.397Z</updated>
+  <updated>2017-05-25T12:52:35.222Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-%E8%AF%AD%E6%B3%95%E6%B8%85%E5%8D%95/"/>
     <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-语法清单/</id>
     <published>2017-05-25T07:25:36.000Z</published>
-    <updated>2017-05-25T12:28:46.397Z</updated>
+    <updated>2017-05-25T12:52:35.222Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
 
@@ -29,9 +29,9 @@
 <blockquote>
 <p>Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。</p>
 </blockquote>
-<h2 id="Kotlin-简介"><a href="#Kotlin-简介" class="headerlink" title="Kotlin 简介"></a>Kotlin 简介</h2><p>Kotlin 来自于捷克一家牛逼软件研发公司 JetBrains ，很多优秀的 IDE，如 IntelliJ IDEA、Pycharm、WebStorm等都是它的杰作，包括 Google 官方的 Android 开发 IDE – Android Studio ，也是 IntelliJ IDEA 的插件版。</p>
+<h2 id="Kotlin-简介"><a href="#Kotlin-简介" class="headerlink" title="Kotlin 简介"></a>Kotlin 简介</h2><p>Kotlin 来自于捷克一家牛逼软件研发公司 JetBrains ，很多优秀的 IDE，如 IntelliJ IDEA、Pycharm、WebStorm 等都是它的杰作，包括 Google 官方的 Android 开发 IDE – Android Studio ，也是 IntelliJ IDEA 的插件版。</p>
 <p>Kotlin 源于 JetBrains 的圣彼得堡团队，名称取自圣彼得堡附近的一个小岛 ( Kotlin Island ) 。JetBrains 在 2010 年首次推出 Kotlin 编程语言，并在次年将之开源。</p>
-<h2 id="Kotlin-的特点"><a href="#Kotlin-的特点" class="headerlink" title="Kotlin 的特点"></a>Kotlin 的特点</h2><p>Kotlin 是一个基于 JVM 的编程语言，与 Java 有很深的渊源。它能与 Java 100% 互通，具备诸多Java尚不支持的新特性。Kotlin 可以编译成 Java 字节码，也可以编译成 JavaScript ，方便在没有 JVM 的设备上运行，可用于移动端以及 Web 开发，是一种全栈式开发语言。</p>
+<h2 id="Kotlin-的特点"><a href="#Kotlin-的特点" class="headerlink" title="Kotlin 的特点"></a>Kotlin 的特点</h2><p>Kotlin 是一个基于 JVM 的编程语言，与 Java 有很深的渊源。它能与 Java 100% 互通，具备诸多 Java 尚不支持的新特性。Kotlin 可以编译成 Java 字节码，也可以编译成 JavaScript ，方便在没有 JVM 的设备上运行，可用于移动端以及 Web 开发，是一种全栈式开发语言。</p>
 <h2 id="Java-to-Kotlin"><a href="#Java-to-Kotlin" class="headerlink" title="Java to Kotlin"></a>Java to Kotlin</h2><p>下面是这几天整理出来的 Java to Kotlin 主要语法，以便于你快速认识 Kotlin 这门语言。</p>
 <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>Java</strong></p>
 <pre><code class="java">String lan = &quot;Hello Kotlin&quot;;
