@@ -1,0 +1,651 @@
+<html>
+  <head>
+    <title>Java to Kotlin 语法清单 - haohao</title>
+    <link href='/images/ic_small.png' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+
+	<script src="/prettify/prettify.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/themes/tomorrow-night-eighties.css" type="text/css">
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img src='/images/ic_middle.png' alt='Home' width='96' height='96'></a>
+  <p>haohao</p>
+  <p>不忘初心，不惧未来</p>
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Home</a>
+  
+    <a class='main' href='/me'>About</a>
+  
+    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+  
+    <a class='main' href='https://github.com/githubhaohao'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+  
+    <div class='right'>
+      <a href='/2017/05/15/Android-设计模式之外观模式/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <div class='date'>2017-05-25</div>
+            Java to Kotlin 语法清单
+          </h1>
+          <p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
+
+<p align="center">Today, at the Google I/O keynote, the Android team announced first-class support for Kotlin.</p>
+
+<blockquote>
+<p>Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。</p>
+</blockquote>
+<h2 id="Kotlin-简介"><a href="#Kotlin-简介" class="headerlink" title="Kotlin 简介"></a>Kotlin 简介</h2><p>Kotlin 来自于捷克一家牛逼软件研发公司 JetBrains ，很多优秀的 IDE，如 IntelliJ IDEA、Pycharm、WebStorm等都是它的杰作，包括 Google 官方的 Android 开发 IDE – Android Studio ，也是 IntelliJ IDEA 的插件版。</p>
+<p>Kotlin 源于 JetBrains 的圣彼得堡团队，名称取自圣彼得堡附近的一个小岛 ( Kotlin Island ) 。JetBrains 在 2010 年首次推出 Kotlin 编程语言，并在次年将之开源。</p>
+<h2 id="Kotlin-的特点"><a href="#Kotlin-的特点" class="headerlink" title="Kotlin 的特点"></a>Kotlin 的特点</h2><p>Kotlin 是一个基于 JVM 的编程语言，与 Java 有很深的渊源。它能与 Java 100% 互通，具备诸多Java尚不支持的新特性。Kotlin 可以编译成 Java 字节码，也可以编译成 JavaScript ，方便在没有 JVM 的设备上运行，可用于移动端以及 Web 开发，是一种全栈式开发语言。</p>
+<h2 id="Java-to-Kotlin"><a href="#Java-to-Kotlin" class="headerlink" title="Java to Kotlin"></a>Java to Kotlin</h2><p>下面是这几天整理出来的 Java to Kotlin 主要语法，以便于你快速认识 Kotlin 这门语言。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>Java</strong></p>
+<pre><code class="java">String lan = &quot;Hello Kotlin&quot;;
+
+final String lan = &quot;Hello Kotlin&quot;;
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var lan = &quot;Hello Kotlin&quot;
+
+val lan = &quot;Hello Kotlin&quot;
+</code></pre>
+<h3 id="打印字符串"><a href="#打印字符串" class="headerlink" title="打印字符串"></a>打印字符串</h3><p><strong>Java</strong></p>
+<pre><code class="java">System.out.print(&quot;Hello Kotlin&quot;);
+
+System.out.println(&quot;Hello Kotlin&quot;);
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">print(&quot;Hello Kotlin&quot;);
+
+println(&quot;Hello Kotlin&quot;);
+</code></pre>
+<h3 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h3><p><strong>Java</strong></p>
+<pre><code class="java">String name = &quot;haohao&quot;;
+
+int age = 25;
+
+String msg = &quot;I am &quot; + name + &quot;, &quot; + age + &quot; years old.&quot;;
+
+String text = &quot;Hello Kotlin\n&quot; +
+              &quot;Hello Android\n&quot; +
+              &quot;Hello TensorFlow&quot;;
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var name = &quot;haohao&quot;;
+
+var age = 25;
+
+var msg = &quot;I am $name , $age years old.&quot;;
+
+var text = &quot;&quot;&quot;
+    |Hello Kotlin    
+    |Hello Android
+    |Hello TensorFlow
+    &quot;&quot;&quot;.trimMargin()
+// trimMargin() 去除连接符 `|`
+</code></pre>
+<h3 id="空声明"><a href="#空声明" class="headerlink" title="空声明"></a>空声明</h3><p><strong>Java</strong></p>
+<pre><code class="java">String name = null;
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var name: String? = null // `?` 声明变量可为 null
+</code></pre>
+<h3 id="判空"><a href="#判空" class="headerlink" title="判空"></a>判空</h3><p><strong>Java</strong></p>
+<pre><code class="java">if (name != null) {
+
+    int len = name.length;
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">name?.let{
+
+    val len = name.length
+}
+</code></pre>
+<h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3><p><strong>Java</strong></p>
+<pre><code class="java">String y = x &gt; 6 ? &quot;x &gt; 6&quot; : &quot;x &lt;= 6&quot;;
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var y = if (x &gt; 6)
+            &quot;x &gt; 6&quot;
+        else &quot;x &lt;= 6&quot;
+</code></pre>
+<h3 id="类型判断及转换"><a href="#类型判断及转换" class="headerlink" title="类型判断及转换"></a>类型判断及转换</h3><p><strong>Java</strong></p>
+<pre><code class="java">if (obj instanceof Person) {
+
+    Person p = (Person) obj;
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">if (obj is Person) {
+
+    var p = obj //智能转换
+}
+</code></pre>
+<h3 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h3><p><strong>Java</strong></p>
+<pre><code class="java">if (value &gt;= 0 &amp;&amp; value &lt;= 100) {
+}
+
+for (int i = 1; i &lt;= 100 ; i++) {}
+
+for (int i = 1; i &lt; 100 ; i++) {}
+
+for (int i = 100; i &gt;= 0 ; i--) {}
+
+for (int i = 1; i &lt;= 100 ; i+=2) {}
+
+for (int i = 100; i &gt;= 0 ; i-=2) {}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">if (value is 0..100) {
+}
+
+for (i in 1..100 ) {}
+
+for (i in 1 until 100) {} // 半开区间：不包含 100
+
+for (i in 100 downTo 0) {}
+
+for (i in 1..100 step 2) {}
+
+for (i in 100 donwTo 1 step 2) {}
+</code></pre>
+<h3 id="list-和-map-针对-Java-8-之前版本"><a href="#list-和-map-针对-Java-8-之前版本" class="headerlink" title="list 和 map ( 针对 Java 8 之前版本 )"></a>list 和 map ( 针对 Java 8 之前版本 )</h3><p><strong>Java</strong></p>
+<pre><code class="java">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4);
+
+for(Integer value : list) {
+
+   System.out.println(value);
+}
+
+Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
+
+map.put(1, &quot;Java&quot;);
+
+map.put(2, &quot;Kotlin&quot;);
+
+map.put(3, &quot;iOS&quot;);
+
+map.put(4, &quot;React Native&quot;);
+
+
+Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; iterator = map.entrySet().iterator();
+
+while (iterator.hasNext()) {
+
+    Map.Entry&lt;Integer, String&gt; entry = iterator.next();
+
+    System.out.println(entry.getKey() + &quot; , &quot; + entry.getValue());
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var list = listOf(1, 2, 3, 4);
+
+list.forEach {
+
+   println(it)
+}
+
+var map = mapOf(&quot;a&quot; to 1, &quot;b&quot; to 2, &quot;c&quot; to 3)
+
+map.forEach { key, value -&gt;
+
+    println(&quot;$t, $u&quot;)
+}
+
+// 或者
+
+for ((key, value) in map) {
+
+    println(&quot;$key, $value&quot;)
+}
+</code></pre>
+<h3 id="开关语句"><a href="#开关语句" class="headerlink" title="开关语句"></a>开关语句</h3><p><strong>Java</strong></p>
+<pre><code class="java">int score = // some score;
+String result;
+switch (score) {
+    case 10:
+    case 9:
+        grade = &quot;Excellent&quot;;
+        break;
+    case 8:
+    case 7:
+    case 6:
+        grade = &quot;Good&quot;;
+        break;
+    case 5:
+    case 4:
+        grade = &quot;Ok&quot;;
+        break;
+    case 3:
+    case 2:
+    case 1:
+        grade = &quot;Fail&quot;;
+        break;
+    default:
+        grade = &quot;Fail&quot;;                
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var score = // some score
+var grade = when (score) {
+
+    9, 10 -&gt; &quot;Excellent&quot; 
+
+    in 6..8 -&gt; &quot;Good&quot;
+
+    4, 5 -&gt; &quot;Ok&quot;
+
+    in 1..3 -&gt; &quot;Fail&quot;
+
+    else -&gt; &quot;Fail&quot;
+}
+</code></pre>
+<h3 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h3><p><strong>Java</strong></p>
+<pre><code class="java">List&lt;String&gt; list = Arrays.asList(&quot;java&quot;, &quot;c++&quot;, &quot;Android&quot;, &quot;Kotlin&quot;, &quot;iOS&quot;);
+
+for(int i = 0; i &lt; list.size(); i++ ) {
+
+    list.set(i, &quot;Hello &quot; + list.get(i));
+
+    if (!list.get(i).contains(&quot;c&quot;)) {
+
+        System.out.println(list.get(i));
+    }
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var list = arrayOf(&quot;java&quot;, &quot;c++&quot;, &quot;Android&quot;, &quot;Kotlin&quot;, &quot;iOS&quot;)
+
+list.map {
+
+    &quot;Hello $it&quot;
+
+}.filter {
+
+    !it.contains(&quot;c&quot;)
+
+}.forEach {
+
+    println(it)
+
+}
+</code></pre>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><strong>Java</strong></p>
+<pre><code class="java">public final void func() {}
+
+public final int func(int value) {
+
+    return 1 * value;
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">fun func() {}
+
+fun func(value: Int): Int {
+
+    return 1 * value
+}
+
+// 或者
+
+fun func(value: Int): Int = 1 * value
+</code></pre>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p><strong>Java</strong></p>
+<pre><code class="java">public final class Person {
+
+    private String name = null;
+
+    private int age = 25;
+
+    private Person() {
+    }
+
+    public Person(String name, int age) {
+
+        this.name = name;
+        this.age = age;
+    }
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">class Person private constructor() {
+
+    private var name: String? = null
+
+    private var age: Int = 25
+
+    constructor (name: String, age: Int): this() {
+
+        this.name = name
+        this.age = age
+    }
+}
+</code></pre>
+<h3 id="静态方法（-伴生对象-）"><a href="#静态方法（-伴生对象-）" class="headerlink" title="静态方法（ 伴生对象 ）"></a>静态方法（ 伴生对象 ）</h3><p><strong>Java</strong></p>
+<pre><code class="java">public final class Manager {
+
+    private Manager() {}
+
+    public static Manager getInstance () {
+
+        return new Manager();
+    }
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">class Manager private constructor() {
+
+    companion object {
+
+        fun getInstance(): Manager = Manager()
+    }
+}
+</code></pre>
+<h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><p><strong>Java</strong></p>
+<pre><code class="java">public class Person {
+
+    public String name;
+
+    public age;
+
+    public Person(String name, int age) {
+
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        return name != null ? name.equals(person.name) : person.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + age;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Person{&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &#39;}&#39;;
+    }
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">data class Person(var name: String, var age: Int)
+</code></pre>
+<h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3><p><strong>Java</strong></p>
+<pre><code class="java">Person p = new Person(&quot;haohao&quot;, 35);
+
+String name = p.getName();
+
+String age = p.getAge();
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">var p = Person(&quot;name&quot;, 25)
+
+var (name, age) = p
+</code></pre>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p><strong>Java</strong></p>
+<pre><code class="java">interface Readable {
+
+    String getContent();
+}
+</code></pre>
+<pre><code class="java">public final class Book implements Readable {
+
+    @override
+    public String getContent() {
+
+        return &quot;Hello&quot;;
+    }
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">
+// Kotlin 接口中可以设置抽象和非抽象方法,可以有属性但必须声明为抽象或提供访问器实现。
+interface Readable {
+
+   fun getContent(): String
+
+   fun getVersion(): Int = 0 
+
+}
+</code></pre>
+<pre><code class="kotlin">class Book(): Readable {
+
+   override fun getContent(): String = &quot;Hello&quot;
+
+   override fun getVersion(): Int {
+
+       return super.getVersion()
+   }
+}
+</code></pre>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><strong>Java</strong></p>
+<pre><code class="java">public class Person {
+
+    private String name = null;
+
+    public Person(String name) {
+        this.name = name;
+
+    }
+
+    public void sayHello() {
+        System.out.println(&quot;Hello&quot;);
+    }
+
+    public final void sayGood() {
+        System.out.println(&quot;Good&quot;);
+    }
+
+}
+</code></pre>
+<pre><code class="java">public final class Student extends Person {
+
+    private String school = null;
+
+    public Student(String name, String school) {
+        this.school = school;
+        super(name);
+    }
+
+    @override
+    public void sayHello() {
+        super.sayHello();
+        System.out.println(&quot;Hello Student&quot;);
+    }
+
+
+}
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">open class Person(private var name: String? = null) {
+
+    open fun sayHello() = println(&quot;Hello&quot;)
+
+    fun sayGood() = println(&quot;Good&quot;)
+
+}
+</code></pre>
+<pre><code class="kotlin">class Student(private var school: String? = null, name: String): Person(name) {
+
+   override fun sayHello() {
+       super.sayHello()
+       println(&quot;Hello Student&quot;)
+   }
+
+}
+</code></pre>
+<h3 id="静态与非静态内部类"><a href="#静态与非静态内部类" class="headerlink" title="静态与非静态内部类"></a>静态与非静态内部类</h3><p><strong>Java</strong></p>
+<pre><code class="java">public final class Outer {
+
+    private int bar = 100;
+
+    public static class Nester {
+
+        public final String foo() {
+            return &quot;Hello Kotlin!&quot;;
+        }
+    }
+
+    public final class Inner {
+
+        public final int foo() {
+            return bar; // 可以访问外部类成员
+        }
+
+    }
+
+}
+
+
+System.out.println(new Outer.Nester().foo()); 
+
+// System.out.println(new Outer().Inner().foo()); 不能在其他类中实例化非静态内部类
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">class Outer {
+    private var bar: Int = 100
+
+    // 嵌套类
+    class Nester {
+        // 不能访问外部类成员
+        fun foo() = &quot;Hello Kotlin!&quot;
+    }
+
+    // 内部类
+    inner class Inner {
+        // 可以访问外部类成员
+        fun foo() = bar
+    }
+}
+
+
+
+println(Outer.Nested().foo())
+
+println(Outer().Inner().foo())
+</code></pre>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p><strong>Java</strong></p>
+<pre><code class="java">view.setOnClickListener(new OnClickListener() {
+
+    @override
+    onClick(View view){
+        // to do something.
+    }
+
+});
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">interface OnClickListener {
+    fun onClick()
+}
+
+class View(){
+    var listener: OnClickListener? = null
+
+    fun setOnClickListener(listener: OnClickListener) {
+        this.listener = listener
+    }
+}
+
+view.setOnClickListener(object : OnClickListener{
+    override fun onClick() {
+        TODO(&quot;not implemented&quot;)
+    }
+})
+</code></pre>
+<h2 id="持续更新中。。。"><a href="#持续更新中。。。" class="headerlink" title="持续更新中。。。"></a>持续更新中。。。</h2>
+          <br>
+<p align="center">haohao</p>
+<div class='date' align="center">2017-05-25</div>
+
+        </section>
+      </div>
+      <div class='block'>
+  
+    <a class='main' href='/'>Home</a>
+  
+    <a class='main' href='/me'>About</a>
+  
+    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+  
+    <a class='main' href='https://github.com/githubhaohao'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <span class='muted'>&copy; 2017 Powered by haohao</span><br>
+  <br>
+
+</footer>
+
+	<script type="text/javascript">
+	  $(window).load(function(){
+         $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+         prettyPrint();
+      })
+	  
+	  $(".block .main").hover(function() {
+          $(this).css({"background-color" : "#ddd"});
+        },function() {
+          $(this).css({"background-color" : "white"});
+		});	
+	</script>
+  </body>
+</html>
