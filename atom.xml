@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-05-25T12:52:35.222Z</updated>
+  <updated>2017-05-25T13:34:14.979Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-%E8%AF%AD%E6%B3%95%E6%B8%85%E5%8D%95/"/>
     <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-语法清单/</id>
     <published>2017-05-25T07:25:36.000Z</published>
-    <updated>2017-05-25T12:52:35.222Z</updated>
+    <updated>2017-05-25T13:34:14.979Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
 
-<p align="center">Today, at the Google I/O keynote, the Android team announced first-class support for Kotlin.</p>
+<p align="center">时刻对新事物保持好奇心</p>
 
 <blockquote>
 <p>Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。</p>
@@ -585,7 +585,9 @@ view.setOnClickListener(object : OnClickListener{
     
       &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.piimg.com/588795/9c8514f7c56bb889.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;Today, at the Google I/O
+&lt;p align=&quot;center&quot;&gt;时刻对新事物保持好奇心&lt;/p&gt;
+
+&lt;blockq
     
     </summary>
     
