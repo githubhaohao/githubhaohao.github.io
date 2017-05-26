@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-05-25T13:42:42.671Z</updated>
+  <updated>2017-05-26T11:06:28.524Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/"/>
     <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</id>
     <published>2017-05-25T07:25:36.000Z</published>
-    <updated>2017-05-25T13:42:42.671Z</updated>
+    <updated>2017-05-26T11:06:28.524Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
 
@@ -579,6 +579,39 @@ view.setOnClickListener(object : OnClickListener{
         TODO(&quot;not implemented&quot;)
     }
 })
+</code></pre>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p><strong>Java</strong></p>
+<pre><code class="java">// Java 类不能直接进行扩展
+</code></pre>
+<p><strong>Kotlin</strong></p>
+<pre><code class="kotlin">// 一般扩展
+class MyClass {
+   fun foo() = println(&quot;member&quot;)
+}
+
+fun MyClass.bar() = println(&quot;extension&quot;)
+
+MyClass().bar()
+
+//输出： extension
+</code></pre>
+<pre><code class="kotlin">// 扩展函数与成员函数相同
+class MyClass {
+
+   fun foo() = println(&quot;member&quot;)
+}
+
+fun MyClass.foo() = println(&quot;extension&quot;) // 扩展函数与成员函数相同时, 成员函数优先
+
+fun MyClass.foo(para: Int) = println(&quot;extension&quot;)
+
+MyClass().foo()
+
+MyClass().foo(0)
+
+//输出： 
+//     member
+//     extension
 </code></pre>
 <h2 id="持续更新中。。。"><a href="#持续更新中。。。" class="headerlink" title="持续更新中。。。"></a>持续更新中。。。</h2>]]></content>
     
