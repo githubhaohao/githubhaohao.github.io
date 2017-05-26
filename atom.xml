@@ -17,8 +17,8 @@
   
   <entry>
     <title>Java to Kotlin 语法清单</title>
-    <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-%E8%AF%AD%E6%B3%95%E6%B8%85%E5%8D%95/"/>
-    <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-语法清单/</id>
+    <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/"/>
+    <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</id>
     <published>2017-05-25T07:25:36.000Z</published>
     <updated>2017-05-25T13:42:42.671Z</updated>
     
@@ -4429,8 +4429,8 @@ public class SimpleAppLike extends DefaultApplicationLike {
   
   <entry>
     <title>Hello World</title>
-    <link href="https://githubhaohao.github.io/2017/01/12/cover/"/>
-    <id>https://githubhaohao.github.io/2017/01/12/cover/</id>
+    <link href="https://githubhaohao.github.io/2017/01/12/Hello-World/"/>
+    <id>https://githubhaohao.github.io/2017/01/12/Hello-World/</id>
     <published>2017-01-12T08:31:23.971Z</published>
     <updated>2017-05-13T08:12:39.171Z</updated>
     
