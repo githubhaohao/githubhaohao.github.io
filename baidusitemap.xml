@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/</loc>
+    <lastmod>2017-06-04T06:54:39.053Z</lastmod>
+    <data>
+        <display>
+        <title>Android 设计模式之观察者模式</title>
+        <pubTime>2017-06-04T03:17:28.000Z</pubTime>
+        
+        <tag>观察者模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</loc>
     <lastmod>2017-05-26T11:06:28.524Z</lastmod>
     <data>

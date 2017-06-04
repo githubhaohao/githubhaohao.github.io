@@ -1,58 +1,421 @@
-<html>
-  <head>
-    <title>Java to Kotlin 语法清单 - haohao</title>
-    <link href='/images/ic_small.png' rel='shortcut icon'>
-<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/highlight.css">
-<link rel="stylesheet" href="/css/responsive.css">
-<script src="/js/jquery.js"></script>
-<script src="/js/basics.js"></script>
-<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
-<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+<!doctype html>
 
 
-	<script src="/prettify/prettify.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="/themes/tomorrow-night-eighties.css" type="text/css">
-  </head>
-  <body>
-    <header>
-  <a id='go-back-home' href='/'><img src='/images/ic_middle.png' alt='Home' width='96' height='96'></a>
-  <p>haohao</p>
-  <p>不忘初心，不惧未来</p>
-</header>
 
-    <div id='container'>
-      <div class='block'>
   
-    <a class='main' href='/'>Home</a>
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+
+
+
+
+
+
+
+
+
+
   
-    <a class='main' href='/me'>About</a>
   
-    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
   
-    <a class='main' href='https://github.com/githubhaohao'>Github</a>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java to Kotlin," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="haohao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="时刻对新事物保持好奇心
+
+
+Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。
+
+Kot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java to Kotlin 语法清单">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/index.html">
+<meta property="og:site_name" content="haohao">
+<meta property="og:description" content="时刻对新事物保持好奇心
+
+
+Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。
+
+Kot">
+<meta property="og:image" content="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg">
+<meta property="og:updated_time" content="2017-05-26T11:06:28.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java to Kotlin 语法清单">
+<meta name="twitter:description" content="时刻对新事物保持好奇心
+
+
+Google IO 2017 宣布在 Android Studio 3.0 将默认支持 Kotlin 用于 Android . 请注意 Google 只是宣布 Kotlin 作为 Android 开发的一级语言，并没有说要用其取代 Java ，这里很多无脑媒体进行了过度解读。作为一名合格的程序员，首先要理性看待技术迭代更新，同时要对新事物保持强烈的好奇心。
+
+Kot">
+<meta name="twitter:image" content="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/"/>
+
+
+
+
+
+  <title> Java to Kotlin 语法清单 | haohao </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">haohao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">不忘初心</p>
+    
 </div>
 
-      <section class='paging'>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
   
+
   
-    <div class='right'>
-      <a href='/2017/05/15/Android-设计模式之外观模式/'>
-        ›
-      </a>
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/githubhaohao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
     </div>
   
-</section>
+</nav>
 
-      <div class='content'>
-        <section class='post'>
-          <h1>
-            <div class='date'>2017-05-25</div>
-            Java to Kotlin 语法清单
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java to Kotlin 语法清单
+              
+            
           </h1>
-          <p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T15:25:36+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+
+          
+          
+             <span id="/2017/05/25/Java-to-Kotlin-Grammar-List/" class="leancloud_visitors" data-flag-title="Java to Kotlin 语法清单">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
 
 <p align="center">时刻对新事物保持好奇心</p>
 
@@ -63,623 +426,671 @@
 <p>Kotlin 源于 JetBrains 的圣彼得堡团队，名称取自圣彼得堡附近的一个小岛 ( Kotlin Island ) 。JetBrains 在 2010 年首次推出 Kotlin 编程语言，并在次年将之开源。</p>
 <h2 id="Kotlin-的特点"><a href="#Kotlin-的特点" class="headerlink" title="Kotlin 的特点"></a>Kotlin 的特点</h2><p>Kotlin 是一个基于 JVM 的编程语言，与 Java 有很深的渊源。它能与 Java 100% 互通，具备诸多 Java 尚不支持的新特性。Kotlin 可以编译成 Java 字节码，也可以编译成 JavaScript ，方便在没有 JVM 的设备上运行，可用于移动端以及 Web 开发，是一种全栈式开发语言。</p>
 <h2 id="Java-to-Kotlin"><a href="#Java-to-Kotlin" class="headerlink" title="Java to Kotlin"></a>Java to Kotlin</h2><p>下面是这几天整理出来的 Java to Kotlin 主要语法，以便于你快速认识 Kotlin 这门语言。</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>Java</strong></p>
-<pre><code class="java">String lan = &quot;Hello Kotlin&quot;;
-
-final String lan = &quot;Hello Kotlin&quot;;
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var lan = &quot;Hello Kotlin&quot;
-
-val lan = &quot;Hello Kotlin&quot;
-</code></pre>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String lan = <span class="string">"Hello Kotlin"</span>;</div><div class="line"></div><div class="line"><span class="keyword">final</span> String lan = <span class="string">"Hello Kotlin"</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lan = <span class="string">"Hello Kotlin"</span></div><div class="line"></div><div class="line"><span class="keyword">val</span> lan = <span class="string">"Hello Kotlin"</span></div></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="打印字符串"><a href="#打印字符串" class="headerlink" title="打印字符串"></a>打印字符串</h3><p><strong>Java</strong></p>
-<pre><code class="java">System.out.print(&quot;Hello Kotlin&quot;);
-
-System.out.println(&quot;Hello Kotlin&quot;);
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">print(&quot;Hello Kotlin&quot;);
-
-println(&quot;Hello Kotlin&quot;);
-</code></pre>
-<h3 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h3><p><strong>Java</strong></p>
-<pre><code class="java">String name = &quot;haohao&quot;;
-
-int age = 25;
-
-String msg = &quot;I am &quot; + name + &quot;, &quot; + age + &quot; years old.&quot;;
-
-String text = &quot;Hello Kotlin\n&quot; +
-              &quot;Hello Android\n&quot; +
-              &quot;Hello TensorFlow&quot;;
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var name = &quot;haohao&quot;;
-
-var age = 25;
-
-var msg = &quot;I am $name , $age years old.&quot;;
-
-var text = &quot;&quot;&quot;
-    |Hello Kotlin    
-    |Hello Android
-    |Hello TensorFlow
-    &quot;&quot;&quot;.trimMargin()
-// trimMargin() 去除连接符 `|`
-</code></pre>
-<h3 id="空声明"><a href="#空声明" class="headerlink" title="空声明"></a>空声明</h3><p><strong>Java</strong></p>
-<pre><code class="java">String name = null;
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var name: String? = null // `?` 声明变量可为 null
-</code></pre>
-<h3 id="判空"><a href="#判空" class="headerlink" title="判空"></a>判空</h3><p><strong>Java</strong></p>
-<pre><code class="java">if (name != null) {
-
-    int len = name.length;
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">name?.let{
-
-    val len = name.length
-}
-</code></pre>
-<h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3><p><strong>Java</strong></p>
-<pre><code class="java">String y = x &gt; 6 ? &quot;x &gt; 6&quot; : &quot;x &lt;= 6&quot;;
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var y = if (x &gt; 6)
-            &quot;x &gt; 6&quot;
-        else &quot;x &lt;= 6&quot;
-</code></pre>
-<h3 id="类型判断及转换"><a href="#类型判断及转换" class="headerlink" title="类型判断及转换"></a>类型判断及转换</h3><p><strong>Java</strong></p>
-<pre><code class="java">if (obj instanceof Person) {
-
-    Person p = (Person) obj;
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">if (obj is Person) {
-
-    var p = obj //智能转换
-}
-</code></pre>
-<h3 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h3><p><strong>Java</strong></p>
-<pre><code class="java">if (value &gt;= 0 &amp;&amp; value &lt;= 100) {
-}
-
-for (int i = 1; i &lt;= 100 ; i++) {}
-
-for (int i = 1; i &lt; 100 ; i++) {}
-
-for (int i = 100; i &gt;= 0 ; i--) {}
-
-for (int i = 1; i &lt;= 100 ; i+=2) {}
-
-for (int i = 100; i &gt;= 0 ; i-=2) {}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">if (value is 0..100) {
-}
-
-for (i in 1..100 ) {}
-
-for (i in 1 until 100) {} // 半开区间：不包含 100
-
-for (i in 100 downTo 0) {}
-
-for (i in 1..100 step 2) {}
-
-for (i in 100 donwTo 1 step 2) {}
-</code></pre>
-<h3 id="list-和-map-针对-Java-8-之前版本"><a href="#list-和-map-针对-Java-8-之前版本" class="headerlink" title="list 和 map ( 针对 Java 8 之前版本 )"></a>list 和 map ( 针对 Java 8 之前版本 )</h3><p><strong>Java</strong></p>
-<pre><code class="java">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4);
-
-for(Integer value : list) {
-
-   System.out.println(value);
-}
-
-Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
-
-map.put(1, &quot;Java&quot;);
-
-map.put(2, &quot;Kotlin&quot;);
-
-map.put(3, &quot;iOS&quot;);
-
-map.put(4, &quot;React Native&quot;);
-
-
-Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; iterator = map.entrySet().iterator();
-
-while (iterator.hasNext()) {
-
-    Map.Entry&lt;Integer, String&gt; entry = iterator.next();
-
-    System.out.println(entry.getKey() + &quot; , &quot; + entry.getValue());
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var list = listOf(1, 2, 3, 4);
-
-list.forEach {
-
-   println(it)
-}
-
-var map = mapOf(&quot;a&quot; to 1, &quot;b&quot; to 2, &quot;c&quot; to 3)
-
-map.forEach { key, value -&gt;
-
-    println(&quot;$key, $value&quot;)
-}
-
-// 或者
-
-for ((key, value) in map) {
-
-    println(&quot;$key, $value&quot;)
-}
-</code></pre>
-<h3 id="开关语句"><a href="#开关语句" class="headerlink" title="开关语句"></a>开关语句</h3><p><strong>Java</strong></p>
-<pre><code class="java">int score = // some score;
-String result;
-switch (score) {
-    case 10:
-    case 9:
-        grade = &quot;Excellent&quot;;
-        break;
-    case 8:
-    case 7:
-    case 6:
-        grade = &quot;Good&quot;;
-        break;
-    case 5:
-    case 4:
-        grade = &quot;Ok&quot;;
-        break;
-    case 3:
-    case 2:
-    case 1:
-        grade = &quot;Fail&quot;;
-        break;
-    default:
-        grade = &quot;Fail&quot;;                
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var score = // some score
-var grade = when (score) {
-
-    9, 10 -&gt; &quot;Excellent&quot; 
-
-    in 6..8 -&gt; &quot;Good&quot;
-
-    4, 5 -&gt; &quot;Ok&quot;
-
-    in 1..3 -&gt; &quot;Fail&quot;
-
-    else -&gt; &quot;Fail&quot;
-}
-</code></pre>
-<h3 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h3><p><strong>Java</strong></p>
-<pre><code class="java">List&lt;String&gt; list = Arrays.asList(&quot;java&quot;, &quot;c++&quot;, &quot;Android&quot;, &quot;Kotlin&quot;, &quot;iOS&quot;);
-
-for(int i = 0; i &lt; list.size(); i++ ) {
-
-    list.set(i, &quot;Hello &quot; + list.get(i));
-
-    if (!list.get(i).contains(&quot;c&quot;)) {
-
-        System.out.println(list.get(i));
-    }
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var list = arrayOf(&quot;java&quot;, &quot;c++&quot;, &quot;Android&quot;, &quot;Kotlin&quot;, &quot;iOS&quot;)
-
-list.map {
-
-    &quot;Hello $it&quot;
-
-}.filter {
-
-    !it.contains(&quot;c&quot;)
-
-}.forEach {
-
-    println(it)
-
-}
-</code></pre>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><strong>Java</strong></p>
-<pre><code class="java">public final void func() {}
-
-public final int func(int value) {
-
-    return 1 * value;
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">fun func() {}
-
-fun func(value: Int): Int {
-
-    return 1 * value
-}
-
-// 或者
-
-fun func(value: Int): Int = 1 * value
-</code></pre>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p><strong>Java</strong></p>
-<pre><code class="java">public final class Person {
-
-    private String name = null;
-
-    private int age = 25;
-
-    private Person() {
-    }
-
-    public Person(String name, int age) {
-
-        this.name = name;
-        this.age = age;
-    }
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">class Person private constructor() {
-
-    private var name: String? = null
-
-    private var age: Int = 25
-
-    constructor (name: String, age: Int): this() {
-
-        this.name = name
-        this.age = age
-    }
-}
-</code></pre>
-<h3 id="静态方法（-伴生对象-）"><a href="#静态方法（-伴生对象-）" class="headerlink" title="静态方法（ 伴生对象 ）"></a>静态方法（ 伴生对象 ）</h3><p><strong>Java</strong></p>
-<pre><code class="java">public final class Manager {
-
-    private Manager() {}
-
-    public static Manager getInstance () {
-
-        return new Manager();
-    }
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">class Manager private constructor() {
-
-    companion object {
-
-        fun getInstance(): Manager = Manager()
-    }
-}
-</code></pre>
-<h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><p><strong>Java</strong></p>
-<pre><code class="java">public class Person {
-
-    public String name;
-
-    public age;
-
-    public Person(String name, int age) {
-
-        this.name = name;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Person person = (Person) o;
-
-        if (age != person.age) return false;
-        return name != null ? name.equals(person.name) : person.name == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + age;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return &quot;Person{&quot; +
-                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
-                &quot;, age=&quot; + age +
-                &#39;}&#39;;
-    }
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">data class Person(var name: String, var age: Int)
-</code></pre>
-<h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3><p><strong>Java</strong></p>
-<pre><code class="java">Person p = new Person(&quot;haohao&quot;, 35);
-
-String name = p.getName();
-
-String age = p.getAge();
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">var p = Person(&quot;name&quot;, 25)
-
-var (name, age) = p
-</code></pre>
+<h3 id="打印字符串"><a href="#打印字符串" class="headerlink" title="打印字符串"></a>打印字符串</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.print(<span class="string">"Hello Kotlin"</span>);</div><div class="line"></div><div class="line">System.out.println(<span class="string">"Hello Kotlin"</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">"Hello Kotlin"</span>);</div><div class="line"></div><div class="line">println(<span class="string">"Hello Kotlin"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String name = <span class="string">"haohao"</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> age = <span class="number">25</span>;</div><div class="line"></div><div class="line">String msg = <span class="string">"I am "</span> + name + <span class="string">", "</span> + age + <span class="string">" years old."</span>;</div><div class="line"></div><div class="line">String text = <span class="string">"Hello Kotlin\n"</span> +</div><div class="line">              <span class="string">"Hello Android\n"</span> +</div><div class="line">              <span class="string">"Hello TensorFlow"</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"haohao"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> age = <span class="number">25</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> msg = <span class="string">"I am <span class="subst">$name</span> , <span class="subst">$age</span> years old."</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> text = <span class="string">"""</span></div><div class="line">    |Hello Kotlin    </div><div class="line">    |Hello Android</div><div class="line">    |Hello TensorFlow</div><div class="line">    """.trimMargin()</div><div class="line"><span class="comment">// trimMargin() 去除连接符 `|`</span></div></pre></td></tr></table></figure></p>
+<h3 id="空声明"><a href="#空声明" class="headerlink" title="空声明"></a>空声明</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String name = <span class="keyword">null</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name: String? = <span class="literal">null</span> <span class="comment">// `?` 声明变量可为 null</span></div></pre></td></tr></table></figure></p>
+<h3 id="判空"><a href="#判空" class="headerlink" title="判空"></a>判空</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (name != <span class="keyword">null</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> len = name.length;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name?.let&#123;</div><div class="line"></div><div class="line">    <span class="keyword">val</span> len = name.length</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String y = x &gt; <span class="number">6</span> ? <span class="string">"x &gt; 6"</span> : <span class="string">"x &lt;= 6"</span>;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> y = <span class="keyword">if</span> (x &gt; <span class="number">6</span>)</div><div class="line">            <span class="string">"x &gt; 6"</span></div><div class="line">        <span class="keyword">else</span> <span class="string">"x &lt;= 6"</span></div></pre></td></tr></table></figure></p>
+<h3 id="类型判断及转换"><a href="#类型判断及转换" class="headerlink" title="类型判断及转换"></a>类型判断及转换</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Person) &#123;</div><div class="line"></div><div class="line">    Person p = (Person) obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (obj <span class="keyword">is</span> Person) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p = obj <span class="comment">//智能转换</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (value &gt;= <span class="number">0</span> &amp;&amp; value &lt;= <span class="number">100</span>) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span> ; i++) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span> ; i++) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= <span class="number">0</span> ; i--) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span> ; i+=<span class="number">2</span>) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= <span class="number">0</span> ; i-=<span class="number">2</span>) &#123;&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (value <span class="keyword">is</span> <span class="number">0.</span><span class="number">.100</span>) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span> ) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">100</span>) &#123;&#125; <span class="comment">// 半开区间：不包含 100</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">100</span> downTo <span class="number">0</span>) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span> step <span class="number">2</span>) &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">100</span> donwTo <span class="number">1</span> step <span class="number">2</span>) &#123;&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="list-和-map-针对-Java-8-之前版本"><a href="#list-和-map-针对-Java-8-之前版本" class="headerlink" title="list 和 map ( 针对 Java 8 之前版本 )"></a>list 和 map ( 针对 Java 8 之前版本 )</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(Integer value : list) &#123;</div><div class="line"></div><div class="line">   System.out.println(value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Map&lt;Integer, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">map.put(<span class="number">1</span>, <span class="string">"Java"</span>);</div><div class="line"></div><div class="line">map.put(<span class="number">2</span>, <span class="string">"Kotlin"</span>);</div><div class="line"></div><div class="line">map.put(<span class="number">3</span>, <span class="string">"iOS"</span>);</div><div class="line"></div><div class="line">map.put(<span class="number">4</span>, <span class="string">"React Native"</span>);</div><div class="line"></div><div class="line"></div><div class="line">Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; iterator = map.entrySet().iterator();</div><div class="line"></div><div class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</div><div class="line"></div><div class="line">    Map.Entry&lt;Integer, String&gt; entry = iterator.next();</div><div class="line"></div><div class="line">    System.out.println(entry.getKey() + <span class="string">" , "</span> + entry.getValue());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</div><div class="line"></div><div class="line">list.forEach &#123;</div><div class="line"></div><div class="line">   println(it)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> map = mapOf(<span class="string">"a"</span> to <span class="number">1</span>, <span class="string">"b"</span> to <span class="number">2</span>, <span class="string">"c"</span> to <span class="number">3</span>)</div><div class="line"></div><div class="line">map.forEach &#123; key, value -&gt;</div><div class="line"></div><div class="line">    println(<span class="string">"<span class="subst">$key</span>, <span class="subst">$value</span>"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 或者</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> ((key, value) <span class="keyword">in</span> map) &#123;</div><div class="line"></div><div class="line">    println(<span class="string">"<span class="subst">$key</span>, <span class="subst">$value</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="开关语句"><a href="#开关语句" class="headerlink" title="开关语句"></a>开关语句</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> score = <span class="comment">// some score;</span></div><div class="line">String result;</div><div class="line"><span class="keyword">switch</span> (score) &#123;</div><div class="line">	<span class="keyword">case</span> <span class="number">10</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">9</span>:</div><div class="line">		grade = <span class="string">"Excellent"</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">8</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">7</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">6</span>:</div><div class="line">		grade = <span class="string">"Good"</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">4</span>:</div><div class="line">		grade = <span class="string">"Ok"</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">	<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">		grade = <span class="string">"Fail"</span>;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">	    grade = <span class="string">"Fail"</span>;				</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> score = <span class="comment">// some score</span></div><div class="line"><span class="keyword">var</span> grade = <span class="keyword">when</span> (score) &#123;</div><div class="line"></div><div class="line">	<span class="number">9</span>, <span class="number">10</span> -&gt; <span class="string">"Excellent"</span> </div><div class="line"></div><div class="line">	<span class="keyword">in</span> <span class="number">6.</span><span class="number">.8</span> -&gt; <span class="string">"Good"</span></div><div class="line"></div><div class="line">	<span class="number">4</span>, <span class="number">5</span> -&gt; <span class="string">"Ok"</span></div><div class="line"></div><div class="line">	<span class="keyword">in</span> <span class="number">1.</span><span class="number">.3</span> -&gt; <span class="string">"Fail"</span></div><div class="line"></div><div class="line">	<span class="keyword">else</span> -&gt; <span class="string">"Fail"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = Arrays.asList(<span class="string">"java"</span>, <span class="string">"c++"</span>, <span class="string">"Android"</span>, <span class="string">"Kotlin"</span>, <span class="string">"iOS"</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++ ) &#123;</div><div class="line"></div><div class="line">    list.set(i, <span class="string">"Hello "</span> + list.get(i));</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!list.get(i).contains(<span class="string">"c"</span>)) &#123;</div><div class="line"></div><div class="line">        System.out.println(list.get(i));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = arrayOf(<span class="string">"java"</span>, <span class="string">"c++"</span>, <span class="string">"Android"</span>, <span class="string">"Kotlin"</span>, <span class="string">"iOS"</span>)</div><div class="line"></div><div class="line">list.map &#123;</div><div class="line"></div><div class="line">    <span class="string">"Hello <span class="subst">$it</span>"</span></div><div class="line"></div><div class="line">&#125;.filter &#123;</div><div class="line"></div><div class="line">    !it.contains(<span class="string">"c"</span>)</div><div class="line"></div><div class="line">&#125;.forEach &#123;</div><div class="line"></div><div class="line">    println(it)</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> * value;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">func</span><span class="params">()</span></span> &#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">func</span><span class="params">(value: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span> * value</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 或者</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">func</span><span class="params">(value: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = <span class="number">1</span> * value</div></pre></td></tr></table></figure></p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String name = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age = <span class="number">25</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>() &#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> name: String? = <span class="literal">null</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> age: <span class="built_in">Int</span> = <span class="number">25</span></div><div class="line">    </div><div class="line">    <span class="keyword">constructor</span> (name: String, age: <span class="built_in">Int</span>): <span class="keyword">this</span>() &#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.name = name</div><div class="line">        <span class="keyword">this</span>.age = age</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="静态方法（-伴生对象-）"><a href="#静态方法（-伴生对象-）" class="headerlink" title="静态方法（ 伴生对象 ）"></a>静态方法（ 伴生对象 ）</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Manager</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Manager <span class="title">getInstance</span> <span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Manager();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>() &#123;</div><div class="line"></div><div class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">getInstance</span><span class="params">()</span></span>: Manager = Manager()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> age;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        Person person = (Person) o;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (age != person.age) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">return</span> name != <span class="keyword">null</span> ? name.equals(person.name) : person.name == <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = name != <span class="keyword">null</span> ? name.hashCode() : <span class="number">0</span>;</div><div class="line">        result = <span class="number">31</span> * result + age;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Person&#123;"</span> +</div><div class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</div><div class="line">                <span class="string">", age="</span> + age +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">var</span> name: String, <span class="keyword">var</span> age: <span class="built_in">Int</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Person p = <span class="keyword">new</span> Person(<span class="string">"haohao"</span>, <span class="number">35</span>);</div><div class="line"></div><div class="line">String name = p.getName();</div><div class="line"></div><div class="line">String age = p.getAge();</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = Person(<span class="string">"name"</span>, <span class="number">25</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> (name, age) = p</div></pre></td></tr></table></figure></p>
 <h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p><strong>Java</strong></p>
-<pre><code class="java">interface Readable {
-
-    String getContent();
-}
-</code></pre>
-<pre><code class="java">public final class Book implements Readable {
-
-    @override
-    public String getContent() {
-
-        return &quot;Hello&quot;;
-    }
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">
-// Kotlin 接口中可以设置抽象和非抽象方法,可以有属性但必须声明为抽象或提供访问器实现。
-interface Readable {
-
-   fun getContent(): String
-
-   fun getVersion(): Int = 0 
-
-}
-</code></pre>
-<pre><code class="kotlin">class Book(): Readable {
-
-   override fun getContent(): String = &quot;Hello&quot;
-
-   override fun getVersion(): Int {
-
-       return super.getVersion()
-   }
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Readable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function">String <span class="title">getContent</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> <span class="keyword">implements</span> <span class="title">Readable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContent</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// Kotlin 接口中可以设置抽象和非抽象方法,可以有属性但必须声明为抽象或提供访问器实现。</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Readable</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">getVersion</span><span class="params">()</span></span>: <span class="built_in">Int</span> = <span class="number">0</span> </div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(): Readable &#123;</div><div class="line"></div><div class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"Hello"</span></div><div class="line">   </div><div class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getVersion</span><span class="params">()</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> <span class="keyword">super</span>.getVersion()</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><strong>Java</strong></p>
-<pre><code class="java">public class Person {
-
-    private String name = null;
-
-    public Person(String name) {
-        this.name = name;
-
-    }
-
-    public void sayHello() {
-        System.out.println(&quot;Hello&quot;);
-    }
-
-    public final void sayGood() {
-        System.out.println(&quot;Good&quot;);
-    }
-
-}
-</code></pre>
-<pre><code class="java">public final class Student extends Person {
-
-    private String school = null;
-
-    public Student(String name, String school) {
-        this.school = school;
-        super(name);
-    }
-
-    @override
-    public void sayHello() {
-        super.sayHello();
-        System.out.println(&quot;Hello Student&quot;);
-    }
-
-
-}
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">open class Person(private var name: String? = null) {
-
-    open fun sayHello() = println(&quot;Hello&quot;)
-
-    fun sayGood() = println(&quot;Good&quot;)
-
-}
-</code></pre>
-<pre><code class="kotlin">class Student(private var school: String? = null, name: String): Person(name) {
-
-   override fun sayHello() {
-       super.sayHello()
-       println(&quot;Hello Student&quot;)
-   }
-
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">private</span> String name = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">       </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Hello"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sayGood</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Good"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String school = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String school)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.school = school;</div><div class="line">        <span class="keyword">super</span>(name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.sayHello();</div><div class="line">        System.out.println(<span class="string">"Hello Student"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">private</span> <span class="keyword">var</span> name: String? = <span class="literal">null</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">open</span> <span class="function"><span class="keyword">fun</span> <span class="title">sayHello</span><span class="params">()</span></span> = println(<span class="string">"Hello"</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayGood</span><span class="params">()</span></span> = println(<span class="string">"Good"</span>)</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">private</span> <span class="keyword">var</span> school: String? = <span class="literal">null</span>, name: String): Person(name) &#123;</div><div class="line">    </div><div class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</div><div class="line">       <span class="keyword">super</span>.sayHello()</div><div class="line">       println(<span class="string">"Hello Student"</span>)</div><div class="line">   &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="静态与非静态内部类"><a href="#静态与非静态内部类" class="headerlink" title="静态与非静态内部类"></a>静态与非静态内部类</h3><p><strong>Java</strong></p>
-<pre><code class="java">public final class Outer {
-
-    private int bar = 100;
-
-    public static class Nester {
-
-        public final String foo() {
-            return &quot;Hello Kotlin!&quot;;
-        }
-    }
-
-    public final class Inner {
-
-        public final int foo() {
-            return bar; // 可以访问外部类成员
-        }
-
-    }
-
-}
-
-
-System.out.println(new Outer.Nester().foo()); 
-
-// System.out.println(new Outer().Inner().foo()); 不能在其他类中实例化非静态内部类
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> bar = <span class="number">100</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Nester</span> </span>&#123;</div><div class="line">         </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">foo</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"Hello Kotlin!"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</div><div class="line">    </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> bar; <span class="comment">// 可以访问外部类成员</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">System.out.println(<span class="keyword">new</span> Outer.Nester().foo()); </div><div class="line"></div><div class="line"><span class="comment">// System.out.println(new Outer().Inner().foo()); 不能在其他类中实例化非静态内部类</span></div></pre></td></tr></table></figure>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> bar: <span class="built_in">Int</span> = <span class="number">100</span></div><div class="line"></div><div class="line">    <span class="comment">// 嵌套类</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Nester</span> </span>&#123;</div><div class="line">        <span class="comment">// 不能访问外部类成员</span></div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = <span class="string">"Hello Kotlin!"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 内部类</span></div><div class="line">    inner <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</div><div class="line">        <span class="comment">// 可以访问外部类成员</span></div><div class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = bar</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">println(Outer.Nested().foo())</div><div class="line"></div><div class="line">println(Outer().Inner().foo())</div></pre></td></tr></table></figure></p>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">view.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">   </div><div class="line">    <span class="meta">@override</span></div><div class="line">    onClick(View view)&#123;</div><div class="line">        <span class="comment">// to do something.</span></div><div class="line">    &#125;</div><div class="line"> </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>Kotlin</strong><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OnClickListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">View</span></span>()&#123;</div><div class="line">    <span class="keyword">var</span> listener: OnClickListener? = <span class="literal">null</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setOnClickListener</span><span class="params">(listener: <span class="type">OnClickListener</span>)</span></span> &#123;</div><div class="line">        <span class="keyword">this</span>.listener = listener</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">view.setOnClickListener(<span class="keyword">object</span> : OnClickListener&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span> &#123;</div><div class="line">        TODO(<span class="string">"not implemented"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p><strong>Java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Java 类不能直接进行扩展</span></div></pre></td></tr></table></figure></p>
 <p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">class Outer {
-    private var bar: Int = 100
-
-    // 嵌套类
-    class Nester {
-        // 不能访问外部类成员
-        fun foo() = &quot;Hello Kotlin!&quot;
-    }
-
-    // 内部类
-    inner class Inner {
-        // 可以访问外部类成员
-        fun foo() = bar
-    }
-}
-
-
-
-println(Outer.Nested().foo())
-
-println(Outer().Inner().foo())
-</code></pre>
-<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p><strong>Java</strong></p>
-<pre><code class="java">view.setOnClickListener(new OnClickListener() {
-
-    @override
-    onClick(View view){
-        // to do something.
-    }
-
-});
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">interface OnClickListener {
-    fun onClick()
-}
-
-class View(){
-    var listener: OnClickListener? = null
-
-    fun setOnClickListener(listener: OnClickListener) {
-        this.listener = listener
-    }
-}
-
-view.setOnClickListener(object : OnClickListener{
-    override fun onClick() {
-        TODO(&quot;not implemented&quot;)
-    }
-})
-</code></pre>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p><strong>Java</strong></p>
-<pre><code class="java">// Java 类不能直接进行扩展
-</code></pre>
-<p><strong>Kotlin</strong></p>
-<pre><code class="kotlin">// 一般扩展
-class MyClass {
-   fun foo() = println(&quot;member&quot;)
-}
-
-fun MyClass.bar() = println(&quot;extension&quot;)
-
-MyClass().bar()
-
-//输出： extension
-</code></pre>
-<pre><code class="kotlin">// 扩展函数与成员函数相同
-class MyClass {
-
-   fun foo() = println(&quot;member&quot;)
-}
-
-fun MyClass.foo() = println(&quot;extension&quot;) // 扩展函数与成员函数相同时, 成员函数优先
-
-fun MyClass.foo(para: Int) = println(&quot;extension&quot;)
-
-MyClass().foo()
-
-MyClass().foo(0)
-
-//输出： 
-//     member
-//     extension
-</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一般扩展</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"member"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">bar</span><span class="params">()</span></span> = println(<span class="string">"extension"</span>)</div><div class="line"></div><div class="line">MyClass().bar()</div><div class="line"></div><div class="line"><span class="comment">//输出： extension</span></div></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 扩展函数与成员函数相同</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"member"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"extension"</span>) <span class="comment">// 扩展函数与成员函数相同时, 成员函数优先</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">foo</span><span class="params">(para: <span class="type">Int</span>)</span></span> = println(<span class="string">"extension"</span>)</div><div class="line"></div><div class="line">MyClass().foo()</div><div class="line"></div><div class="line">MyClass().foo(<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment">//输出： </span></div><div class="line"><span class="comment">//     member</span></div><div class="line"><span class="comment">//     extension</span></div></pre></td></tr></table></figure>
 <h2 id="持续更新中。。。"><a href="#持续更新中。。。" class="headerlink" title="持续更新中。。。"></a>持续更新中。。。</h2>
-          <br>
-<p align="center">haohao</p>
-<div class='date' align="center">2017-05-25</div>
+      
+    </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java-to-Kotlin/" rel="tag"># Java to Kotlin</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/15/Android-设计模式之外观模式/" rel="next" title="Android 设计模式之外观模式">
+                <i class="fa fa-chevron-left"></i> Android 设计模式之外观模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/04/Android-design-pattern-observer-pattern/" rel="prev" title="Android 设计模式之观察者模式">
+                Android 设计模式之观察者模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
+               alt="haohao" />
+          <p class="site-author-name" itemprop="name">haohao</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/githubhaohao" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chang-hao-93-61" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kotlin-简介"><span class="nav-number">1.</span> <span class="nav-text">Kotlin 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kotlin-的特点"><span class="nav-number">2.</span> <span class="nav-text">Kotlin 的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-to-Kotlin"><span class="nav-number">3.</span> <span class="nav-text">Java to Kotlin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">3.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印字符串"><span class="nav-number">3.2.</span> <span class="nav-text">打印字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串模板"><span class="nav-number">3.3.</span> <span class="nav-text">字符串模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空声明"><span class="nav-number">3.4.</span> <span class="nav-text">空声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判空"><span class="nav-number">3.5.</span> <span class="nav-text">判空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑表达式"><span class="nav-number">3.6.</span> <span class="nav-text">逻辑表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型判断及转换"><span class="nav-number">3.7.</span> <span class="nav-text">类型判断及转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间"><span class="nav-number">3.8.</span> <span class="nav-text">区间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-和-map-针对-Java-8-之前版本"><span class="nav-number">3.9.</span> <span class="nav-text">list 和 map ( 针对 Java 8 之前版本 )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开关语句"><span class="nav-number">3.10.</span> <span class="nav-text">开关语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流水线"><span class="nav-number">3.11.</span> <span class="nav-text">流水线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">3.12.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">3.13.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态方法（-伴生对象-）"><span class="nav-number">3.14.</span> <span class="nav-text">静态方法（ 伴生对象 ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体类"><span class="nav-number">3.15.</span> <span class="nav-text">实体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构"><span class="nav-number">3.16.</span> <span class="nav-text">解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">3.17.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.18.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态与非静态内部类"><span class="nav-number">3.19.</span> <span class="nav-text">静态与非静态内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类"><span class="nav-number">3.20.</span> <span class="nav-text">匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展"><span class="nav-number">3.21.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续更新中。。。"><span class="nav-number">4.</span> <span class="nav-text">持续更新中。。。</span></a></li></ol></div>
+            
+
+          </div>
         </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
       </div>
-      <div class='block'>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-    <a class='main' href='/'>Home</a>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    Powered by
+  </span>
+  <a class="theme-link" href="http://haohaochang.cn/">
+    haohao
+  </a>
+</div>
+
+        
+
+<div class="theme-info" align="center">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
   
-    <a class='main' href='/me'>About</a>
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
   
-    <a class='main' href='mailto:haohaochang86@gmail.com'>Email</a>
+
   
-    <a class='main' href='https://github.com/githubhaohao'>Github</a>
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
   
 </div>
 
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
-    <footer>
-  <span class='muted'>&copy; 2017 Powered by haohao</span><br>
-  <br>
+  </div>
 
-</footer>
+  
 
-	<script type="text/javascript">
-	  $(window).load(function(){
-         $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
-         prettyPrint();
-      })
-	  
-	  $(".block .main").hover(function() {
-          $(this).css({"background-color" : "#ddd"});
-        },function() {
-          $(this).css({"background-color" : "white"});
-		});	
-	</script>
-  </body>
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'githubhaohao-github-io';
+      var disqus_identifier = '2017/05/25/Java-to-Kotlin-Grammar-List/';
+
+      var disqus_title = "Java to Kotlin 语法清单";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("p6dxCQ5K1YJq8tmDcWCGbodE-gzGzoHsz", "HWiui0v5fOotru1XABNOYgVt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
 </html>
