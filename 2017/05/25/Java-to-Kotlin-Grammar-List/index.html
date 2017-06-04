@@ -479,6 +479,12 @@ Kot">
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一般扩展</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"member"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">bar</span><span class="params">()</span></span> = println(<span class="string">"extension"</span>)</div><div class="line"></div><div class="line">MyClass().bar()</div><div class="line"></div><div class="line"><span class="comment">//输出： extension</span></div></pre></td></tr></table></figure>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 扩展函数与成员函数相同</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"member"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">foo</span><span class="params">()</span></span> = println(<span class="string">"extension"</span>) <span class="comment">// 扩展函数与成员函数相同时, 成员函数优先</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> MyClass.<span class="title">foo</span><span class="params">(para: <span class="type">Int</span>)</span></span> = println(<span class="string">"extension"</span>)</div><div class="line"></div><div class="line">MyClass().foo()</div><div class="line"></div><div class="line">MyClass().foo(<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment">//输出： </span></div><div class="line"><span class="comment">//     member</span></div><div class="line"><span class="comment">//     extension</span></div></pre></td></tr></table></figure>
 <h2 id="持续更新中。。。"><a href="#持续更新中。。。" class="headerlink" title="持续更新中。。。"></a>持续更新中。。。</h2>
+		﻿<div> 
+<h1><b>联系我</b></h1>
+1、Android技术交流剩者为王④群：331553260。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+
+</div>  
       
     </div>
 
@@ -555,12 +561,6 @@ Kot">
   </article>
 
 
-	﻿<div> 
-<h1><b>联系我</b></h1>
-1、Android技术交流剩者为王④群：331553260。
-< img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
-
-</div>
     <div class="post-spread">
       
         <!-- JiaThis Button BEGIN -->
