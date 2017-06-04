@@ -144,9 +144,23 @@ ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者
 
 
   <title> ES6入门: 需要掌握的基本语法 | haohao </title>
+  <style type="text/css">
+  .div_left_bottom {
+  width: 200px;
+  top: 50%;
+  left: 0px;
+  position: fixed;
+  margin-top: -100px;  
+  _position: absolute; 
+  }
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <div class="div_left_bottom" align="center">
+  <img src="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong"/>
+  微信号 
+  </div>
 
   
 
@@ -487,11 +501,6 @@ ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者
     <div>
       
         
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/images/wechat_collect_qrcode.png" alt="haohao wechat" style="width: 200px; max-width: 100%;"/>
-    <div>生活不止眼前的苟且,还有诗与远方</div>
-</div>
-
 
       
     </div>
@@ -499,6 +508,27 @@ ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗与远方</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -541,7 +571,7 @@ ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者
   </article>
 
 
-
+	
     <div class="post-spread">
       
         <!-- JiaThis Button BEGIN -->
