@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</loc>
+    <lastmod>2017-06-08T01:18:46.045Z</lastmod>
+    <data>
+        <display>
+        <title>Java to Kotlin 语法清单</title>
+        <pubTime>2017-05-25T07:25:36.000Z</pubTime>
+        
+        <tag>Java to Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="Kotlin" url="https://githubhaohao.github.io/categories/Kotlin/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/</loc>
     <lastmod>2017-06-04T11:35:36.292Z</lastmod>
     <data>
@@ -20,26 +40,6 @@
           
              
               <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</loc>
-    <lastmod>2017-05-26T11:06:28.524Z</lastmod>
-    <data>
-        <display>
-        <title>Java to Kotlin 语法清单</title>
-        <pubTime>2017-05-25T07:25:36.000Z</pubTime>
-        
-        <tag>Java to Kotlin</tag>
-         
-         
-           
-             
-              <breadCrumb title="Kotlin" url="https://githubhaohao.github.io/categories/Kotlin/"/>
           
         </display>
     </data>
