@@ -105,7 +105,7 @@ RxJava 简介Rx 是 Reactive Extensions 的缩写，最初是 LINQ （语言集�
 
 RxJava 简介Rx 是 Reactive Extensions 的缩写，最初是 LINQ （语言集成查询）的一个扩展，由微软的架构师 Erik M">
 <meta property="og:image" content="http://i2.muimg.com/588795/0840277c471983b5.jpg">
-<meta property="og:updated_time" content="2017-06-13T03:30:18.955Z">
+<meta property="og:updated_time" content="2017-06-13T03:33:47.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RxJava for Kotlin 实践（一）">
 <meta name="twitter:description" content="从 RxJava 开始拆轮子
@@ -463,18 +463,18 @@ RxJava 简介Rx 是 Reactive Extensions 的缩写，最初是 LINQ （语言集�
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxjava:1.3.0'</span></div></pre></td></tr></table></figure>
 <p>Observable 有以下创建方式：</p>
 <ul>
-<li>just( ) — 将一个或多个对象转换成发射这个或这些对象的一个 Observable ；</li>
-<li>from( ) — 将一个 Iterable ，一个Future ，或者一个数组转换成一个 Observable ；</li>
-<li>repeat( ) — 创建一个重复发射指定数据或数据序列的 Observable ；</li>
-<li>create( ) — 使用一个函数从头创建一个 Observable ；</li>
-<li>repeatWhen( ) — 创建一个重复发射指定数据或数据序列的 Observable ，它依赖于另一个 Observable 发射的数据；</li>
-<li>defer( ) — 只有当订阅者订阅才创建 Observable ，为每个订阅创建一个新的 Observable ；</li>
-<li>range( ) — 创建一个发射指定范围的整数序列的 Observable ；</li>
-<li>interval( ) — 创建一个按照给定的时间间隔发射整数序列的 Observable ；</li>
-<li>timer( ) — 创建一个在给定的延时之后发射单个数据的 Observable ；</li>
-<li>empty( ) — 创建一个什么都不做直接通知完成的 Observable ；</li>
-<li>error( ) — 创建一个什么都不做直接通知错误的 Observable ；</li>
-<li>never( ) — 创建一个不发射任何数据的 Observable ；</li>
+<li><strong>just()</strong> ： 将一个或多个对象转换成发射这个或这些对象的一个 Observable ；</li>
+<li><strong>from()</strong> ： 将一个 Iterable ，一个Future ，或者一个数组转换成一个 Observable ；</li>
+<li><strong>repeat()</strong> ： 创建一个重复发射指定数据或数据序列的 Observable ；</li>
+<li><strong>create()</strong> ： 使用一个函数从头创建一个 Observable ；</li>
+<li><strong>repeatWhen()</strong> ： 创建一个重复发射指定数据或数据序列的 Observable ，它依赖于另一个 Observable 发射的数据；</li>
+<li><strong>defer()</strong> ： 只有当订阅者订阅才创建 Observable ，为每个订阅创建一个新的 Observable ；</li>
+<li><strong>range()</strong> ： 创建一个发射指定范围的整数序列的 Observable ；</li>
+<li><strong>interval()</strong> ： 创建一个按照给定的时间间隔发射整数序列的 Observable ；</li>
+<li><strong>timer()</strong> ： 创建一个在给定的延时之后发射单个数据的 Observable ；</li>
+<li><strong>empty()</strong> ： 创建一个什么都不做直接通知完成的 Observable ；</li>
+<li><strong>error()</strong> ： 创建一个什么都不做直接通知错误的 Observable ；</li>
+<li><strong>never()</strong> ： 创建一个不发射任何数据的 Observable ；</li>
 </ul>
 <p>接下来只介绍几种常用的方式。</p>
 <h3 id="just"><a href="#just" class="headerlink" title="just"></a>just</h3><p>just 将一个或多个对象转换成发射这个或这些对象的一个 Observable ,它接受一至九个参数，返回一个按参数列表顺序发射这些数据的 Observable 。 just 类似于from ，但是 from 会将数组或 Iterable 的数据取出然后逐个发射，而 just 只是简单的原样发射，将数组或 Iterable 当做单个数据。</p>
