@@ -4,6 +4,43 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/</loc>
+    <lastmod>2017-06-13T03:30:18.955Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava for Kotlin 实践（一）</title>
+        <pubTime>2017-06-13T01:34:03.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="RxJava" url="https://githubhaohao.github.io/categories/RxJava/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/06/12/Design-Pattern-flyweight-pattern/</loc>
+    <lastmod>2017-06-12T00:55:12.344Z</lastmod>
+    <data>
+        <display>
+        <title>Design Pattern - flyweight pattern</title>
+        <pubTime>2017-06-12T00:55:12.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</loc>
     <lastmod>2017-06-08T01:18:46.045Z</lastmod>
     <data>
@@ -101,13 +138,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
+        <tag>RxJava</tag>
+         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          
