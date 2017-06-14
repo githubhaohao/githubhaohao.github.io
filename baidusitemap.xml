@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</loc>
+    <lastmod>2017-06-14T12:04:00.442Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava for Kotlin 实践（二）</title>
+        <pubTime>2017-06-17T10:45:44.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="RxJava" url="https://githubhaohao.github.io/categories/RxJava/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/</loc>
     <lastmod>2017-06-13T03:33:47.571Z</lastmod>
     <data>
