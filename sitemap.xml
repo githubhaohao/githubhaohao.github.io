@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
+    
+    <lastmod>2017-06-24T08:49:30.463Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</loc>
     
-    <lastmod>2017-06-14T12:04:00.442Z</lastmod>
+    <lastmod>2017-06-24T06:29:33.154Z</lastmod>
     
   </url>
   
