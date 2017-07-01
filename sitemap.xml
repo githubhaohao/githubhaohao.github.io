@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
+    <loc>https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/</loc>
     
-    <lastmod>2017-07-01T12:11:55.261Z</lastmod>
+    <lastmod>2017-07-01T13:40:43.899Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</loc>
     
-    <lastmod>2017-06-24T06:29:33.154Z</lastmod>
+    <lastmod>2017-07-01T12:45:38.537Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
+    
+    <lastmod>2017-07-01T12:11:55.261Z</lastmod>
     
   </url>
   

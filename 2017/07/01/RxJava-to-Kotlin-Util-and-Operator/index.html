@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="观察者模式," />
+  <meta name="keywords" content="RxJava,Kotlin," />
 
 
 
@@ -91,34 +91,36 @@
 
 
 
-<meta name="description" content="2017 下半年，决定虐自己一把！
+<meta name="description" content="我们很少想我们已经拥有的，而总是想我们所没有的
 
 
-本篇开始将使用 Kotlin 代替 Java 来完成设计模式的示例，达到既学习了 Kotlin 语法，由复习了面向对象语言的设计模式。本文是 Android 设计模式的第四篇，接下来会陆续推出整个常用的设计模式系列。
+本篇是 RxJava for Kotlin 系列的第三篇，本系列从可观察系列的创建、组合变换以及监听的实践入手，最后一直到 RxJava 的实现原理分析。
+上一篇主要介绍了 RxJava 可观察序列常用的组合和变换方式，本篇主要简单介绍可观察序列在生产和消费时线程的转换方式以及如何自定义 RxJava 操作符。
 
-观察者模式观察者模式 (Observer Pattern) ， 顾名思义，定义了对象间的一种一对多的关系，当被观察者对象发生改变，与其依">
+RxJava 线程转换RxJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 设计模式之观察者模式">
-<meta property="og:url" content="https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/index.html">
+<meta property="og:title" content="RxJava for Kotlin 实践（三）">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/index.html">
 <meta property="og:site_name" content="haohao">
-<meta property="og:description" content="2017 下半年，决定虐自己一把！
+<meta property="og:description" content="我们很少想我们已经拥有的，而总是想我们所没有的
 
 
-本篇开始将使用 Kotlin 代替 Java 来完成设计模式的示例，达到既学习了 Kotlin 语法，由复习了面向对象语言的设计模式。本文是 Android 设计模式的第四篇，接下来会陆续推出整个常用的设计模式系列。
+本篇是 RxJava for Kotlin 系列的第三篇，本系列从可观察系列的创建、组合变换以及监听的实践入手，最后一直到 RxJava 的实现原理分析。
+上一篇主要介绍了 RxJava 可观察序列常用的组合和变换方式，本篇主要简单介绍可观察序列在生产和消费时线程的转换方式以及如何自定义 RxJava 操作符。
 
-观察者模式观察者模式 (Observer Pattern) ， 顾名思义，定义了对象间的一种一对多的关系，当被观察者对象发生改变，与其依">
-<meta property="og:image" content="http://i4.buimg.com/588795/256f9a0144b8b3e7.jpg">
-<meta property="og:image" content="http://design-patterns.readthedocs.io/zh_CN/latest/_images/Obeserver.jpg">
-<meta property="og:updated_time" content="2017-06-04T11:35:36.292Z">
+RxJava 线程转换RxJ">
+<meta property="og:image" content="http://i2.kiimg.com/588795/b6f9215228073a9a.jpg">
+<meta property="og:updated_time" content="2017-07-01T13:40:43.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 设计模式之观察者模式">
-<meta name="twitter:description" content="2017 下半年，决定虐自己一把！
+<meta name="twitter:title" content="RxJava for Kotlin 实践（三）">
+<meta name="twitter:description" content="我们很少想我们已经拥有的，而总是想我们所没有的
 
 
-本篇开始将使用 Kotlin 代替 Java 来完成设计模式的示例，达到既学习了 Kotlin 语法，由复习了面向对象语言的设计模式。本文是 Android 设计模式的第四篇，接下来会陆续推出整个常用的设计模式系列。
+本篇是 RxJava for Kotlin 系列的第三篇，本系列从可观察系列的创建、组合变换以及监听的实践入手，最后一直到 RxJava 的实现原理分析。
+上一篇主要介绍了 RxJava 可观察序列常用的组合和变换方式，本篇主要简单介绍可观察序列在生产和消费时线程的转换方式以及如何自定义 RxJava 操作符。
 
-观察者模式观察者模式 (Observer Pattern) ， 顾名思义，定义了对象间的一种一对多的关系，当被观察者对象发生改变，与其依">
-<meta name="twitter:image" content="http://i4.buimg.com/588795/256f9a0144b8b3e7.jpg">
+RxJava 线程转换RxJ">
+<meta name="twitter:image" content="http://i2.kiimg.com/588795/b6f9215228073a9a.jpg">
 
 
 
@@ -146,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/"/>
 
 
 
 
 
-  <title> Android 设计模式之观察者模式 | haohao </title>
+  <title> RxJava for Kotlin 实践（三） | haohao </title>
   <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
 </head>
 
@@ -309,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="haohao">
@@ -333,7 +335,7 @@
             
             
               
-                Android 设计模式之观察者模式
+                RxJava for Kotlin 实践（三）
               
             
           </h1>
@@ -348,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-04T11:17:28+08:00">
-                2017-06-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-01T20:43:50+08:00">
+                2017-07-01
               </time>
             
 
@@ -371,19 +373,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/RxJava/" itemprop="url" rel="index">
+                    <span itemprop="name">RxJava</span>
                   </a>
                 </span>
 
@@ -394,12 +385,24 @@
           
 
           
-
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
+
           
-             <span id="/2017/06/04/Android-design-pattern-observer-pattern/" class="leancloud_visitors" data-flag-title="Android 设计模式之观察者模式">
+          
+             <span id="/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/" class="leancloud_visitors" data-flag-title="RxJava for Kotlin 实践（三）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,44 +434,28 @@
       
 
       
-        <p align="center"><img src="http://i4.buimg.com/588795/256f9a0144b8b3e7.jpg" alt="Markdown"></p>
+        <p align="center"><img src="http://i2.kiimg.com/588795/b6f9215228073a9a.jpg" alt="Markdown"></p>
 
-<p align="center">2017 下半年，决定虐自己一把！</p>
+<p align="center">我们很少想我们已经拥有的，而总是想我们所没有的</p>
 
 <blockquote>
-<p>本篇开始将使用 Kotlin 代替 Java 来完成设计模式的示例，达到既学习了 Kotlin 语法，由复习了面向对象语言的设计模式。<br>本文是 Android 设计模式的第四篇，接下来会陆续推出整个常用的设计模式系列。</p>
+<p>本篇是 RxJava for Kotlin 系列的第三篇，本系列从可观察系列的创建、组合变换以及监听的实践入手，最后一直到 RxJava 的实现原理分析。</p>
+<p><a href="http://haohaochang.cn/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/" target="_blank" rel="external">上一篇主要介绍了 RxJava 可观察序列常用的组合和变换方式，</a>本篇主要简单介绍可观察序列在生产和消费时线程的转换方式以及如何自定义 RxJava 操作符。</p>
 </blockquote>
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>观察者模式 (Observer Pattern) ， 顾名思义，定义了对象间的一种一对多的关系，当被观察者对象发生改变，与其依赖的观察者对象都会得到通知，因此又叫做发布-订阅模式 (Publish/Subscribe) 模式。</p>
-<p>需要注意的是观察者模式是一种对象行为模式。</p>
-<h3 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h3><ul>
-<li>Subject： 目标（被观察者）</li>
-<li>ConcreteSubject： 具体目标（具体被观察者）</li>
-<li>Observer：观察者</li>
-<li>ConcreteObserver：具体观察者</li>
+<h1 id="RxJava-线程转换"><a href="#RxJava-线程转换" class="headerlink" title="RxJava 线程转换"></a>RxJava 线程转换</h1><p>RxJava 的精髓在于它的异步处理，可以轻松实现线程切换。</p>
+<p>RxJava 常用线程切换操作符： <code>subscribeOn</code> ，<code>observeOn</code> 。</p>
+<ul>
+<li><code>subscribeOn</code> : 指定 Observable 自身在哪个调度器上执行，即<strong>指定生产者所在的线程</strong>。</li>
+<li><code>observeOn</code> : 指定一个观察者在哪个调度器上观察这个 Observable 即<strong>指定消费者所在的线程</strong>.</li>
 </ul>
-<p align="center"><img src="http://design-patterns.readthedocs.io/zh_CN/latest/_images/Obeserver.jpg" alt=""><br></p><br><p align="center">盗图</p> 
-
-<h3 id="模式实现"><a href="#模式实现" class="headerlink" title="模式实现"></a>模式实现</h3><p>接下来在实例中我们以常见警匪电影中的坏蛋 (BadGuy) 作为 Observable ，以卧底警察 （Undercover）和普通警察 （PoliceMan）作为 Observer 。</p>
-<h4 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h4><p>Java 开发包中的 Observable 类，基本实现就是用一个 Vector 来接受所有的观察者，当被观察者的状态发生改变的时候，遍历 Vector 容器，通知每一个观察者。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Observable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> changed = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">private</span> Vector&lt;Observer&gt; obs;</div><div class="line"></div><div class="line">    <span class="comment">/** Construct an Observable with zero Observers. */</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Observable</span><span class="params">()</span> </span>&#123;</div><div class="line">        obs = <span class="keyword">new</span> Vector&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">if</span> (!obs.contains(o)) &#123;</div><div class="line">            obs.addElement(o);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</div><div class="line">        obs.removeElement(o);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</div><div class="line">        notifyObservers(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">(Object arg)</span> </span>&#123;</div><div class="line"></div><div class="line">        Object[] arrLocal;</div><div class="line"></div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">           </div><div class="line">            <span class="keyword">if</span> (!changed)</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            arrLocal = obs.toArray();</div><div class="line">            clearChanged();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = arrLocal.length-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--)</div><div class="line">            ((Observer)arrLocal[i]).update(<span class="keyword">this</span>, arg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">deleteObservers</span><span class="params">()</span> </span>&#123;</div><div class="line">        obs.removeAllElements();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">setChanged</span><span class="params">()</span> </span>&#123;</div><div class="line">        changed = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">clearChanged</span><span class="params">()</span> </span>&#123;</div><div class="line">        changed = <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">hasChanged</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> changed;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">countObservers</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> obs.size();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="ConcreteSubject"><a href="#ConcreteSubject" class="headerlink" title="ConcreteSubject"></a>ConcreteSubject</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BadGuy</span> : <span class="type">Observable</span></span>() &#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">haveBreakfast</span><span class="params">()</span></span> &#123;</div><div class="line">        println(<span class="string">"BadGuy: 开始吃饭了。。"</span>)</div><div class="line">        <span class="keyword">super</span>.setChanged()</div><div class="line">        <span class="keyword">super</span>.notifyObservers(<span class="string">"坏蛋在吃饭"</span>)</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">commitCrime</span><span class="params">()</span></span> &#123;</div><div class="line">        println(<span class="string">"BadGuy: 开始犯罪了。。"</span>)</div><div class="line">        <span class="keyword">super</span>.setChanged()</div><div class="line">        <span class="keyword">super</span>.notifyObservers(<span class="string">"坏蛋在犯罪，建议立即采取行动"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="ConcreteObserver"><a href="#ConcreteObserver" class="headerlink" title="ConcreteObserver"></a>ConcreteObserver</h4><p>Undercover.kt 卧底警察</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnderCover</span> : <span class="type">Observer&#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(o: <span class="type">Observable</span>?, arg: <span class="type">Any</span>?)</span></span> &#123;</div><div class="line">        println(<span class="string">"卧底警察: 观察到疑犯活动了，赶紧报告队长！"</span>)</div><div class="line">        reportLeader(arg.toString())</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">reportLeader</span><span class="params">(message: <span class="type">String</span>?)</span></span> &#123;</div><div class="line">        println(<span class="string">"报告队长: <span class="subst">$message</span> \n"</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>PoliceMan.kt<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PoliceMan</span> : <span class="type">Observer&#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(o: <span class="type">Observable</span>?, arg: <span class="type">Any</span>?)</span></span> &#123;</div><div class="line">        println(<span class="string">"警察: 观察到疑犯活动了，赶紧报告队长！"</span>)</div><div class="line">        reportLeader(arg.toString())</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">reportLeader</span><span class="params">(message: <span class="type">String</span>?)</span></span> &#123;</div><div class="line">        println(<span class="string">"报告队长: <span class="subst">$message</span> \n"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> badGuy = BadGuy()</div><div class="line"></div><div class="line">    <span class="keyword">val</span> policeMan = PoliceMan()</div><div class="line">    <span class="keyword">val</span> underCover = UnderCover()</div><div class="line"></div><div class="line">    badGuy.addObserver(policeMan)</div><div class="line">    badGuy.addObserver(underCover)</div><div class="line"></div><div class="line">    badGuy.haveBreakfast()</div><div class="line">    badGuy.commitCrime()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Running</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">BadGuy: 开始吃饭了。。</div><div class="line">卧底警察: 观察到疑犯活动了，赶紧报告队长！</div><div class="line">报告队长: 坏蛋在吃饭 </div><div class="line"></div><div class="line">警察: 观察到疑犯活动了，赶紧报告队长！</div><div class="line">报告队长: 坏蛋在吃饭 </div><div class="line"></div><div class="line">BadGuy: 开始犯罪了。。</div><div class="line">卧底警察: 观察到疑犯活动了，赶紧报告队长！</div><div class="line">报告队长: 坏蛋在犯罪，建议立即采取行动 </div><div class="line"></div><div class="line">警察: 观察到疑犯活动了，赶紧报告队长！</div><div class="line">报告队长: 坏蛋在犯罪，建议立即采取行动</div></pre></td></tr></table></figure>
-<p>观察者模式在面向对象语言编程中应用十分广泛，如著的 Reactive Extensions (RX) 函数库，其中 RxJava ， RxAndroid 都是基于观察者模式。</p>
-<p>在 Android 开发中，观察者模式也会被经常使用，如四大组件之一的 BroadcastReceiver 也是基于观察者模式。</p>
-<h3 id="观察者模式的优点和缺点"><a href="#观察者模式的优点和缺点" class="headerlink" title="观察者模式的优点和缺点"></a>观察者模式的优点和缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>符合开闭原则</li>
-<li>可以实现表示层与数据逻辑层的分离</li>
-<li>观察者与被观察者之间的耦合是抽象的</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>若一个目标对象有很多观察者，遍历通知每一观察将会变得耗时太长</li>
-<li>若目标对象与观察者对象存在循环依赖，可能会导致系统崩溃</li>
-</ul>
+<p>另外还有一个常用的操作符 <code>doOnNext</code> ，事件序列被消费之前，注册一个回调，接收 Observable 发射的每一项数据，但是不消费事件。通常在事件被消费之前做一些保存操作，例如，在进行网络请求时，对响应数据做一下缓存操作。</p>
+<p>一个简单的线程切换例子：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    * observeOn 指定一个观察者在哪个调度器上观察这个 Observable 即指定消费者所在的线程。</div><div class="line">    *</div><div class="line">    * subscribeOn 指定 Observable 自身在哪个调度器上执行，即指定生产者所在的线程。</div><div class="line">    *</div><div class="line">    * doOnNext 事件序列被消费之前，注册一个回调，接收 Observable 发射的每一项数据，但是不消费事件。</div><div class="line">    * */</div><div class="line">    Observable.from(arrayOf(<span class="string">"Hello Kotlin"</span>, <span class="string">"Hello RxJava"</span>, <span class="string">"Hello Android"</span>))</div><div class="line">            .doOnNext &#123; println(<span class="string">"<span class="subst">$&#123;Thread.currentThread().name&#125;</span> : <span class="subst">$it</span>"</span>) &#125;</div><div class="line">            .subscribeOn(Schedulers.io())</div><div class="line">            .observeOn(Schedulers.newThread())</div><div class="line">            .subscribe&#123; p -&gt;</div><div class="line">                println(<span class="string">"<span class="subst">$&#123;Thread.currentThread().name&#125;</span> : <span class="subst">$p</span>"</span>)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">RxIoScheduler-<span class="number">2</span> : Hello Kotlin</div><div class="line">RxIoScheduler-<span class="number">2</span> : Hello RxJava</div><div class="line">RxIoScheduler-<span class="number">2</span> : Hello Android</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello Kotlin</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello RxJava</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello Android</div></pre></td></tr></table></figure></p>
+<h1 id="自定义操作符"><a href="#自定义操作符" class="headerlink" title="自定义操作符"></a>自定义操作符</h1><p>RxJava 提供了接口 Operator 和 Transformer 接口用于轻松实现自定义操作符。</p>
+<h2 id="自定义序列操作符"><a href="#自定义序列操作符" class="headerlink" title="自定义序列操作符"></a>自定义序列操作符</h2><p>这里需要说一下 <code>lift</code> 操作符，它可以将我们自定义的操作符和其它的操作符一起做链式调用。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//序列操作符</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyOperator</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> name: String) : Observable.Operator&lt;String, String&gt; &#123;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">call</span><span class="params">(p0: <span class="type">Subscriber</span>&lt;<span class="type">in</span> <span class="type">String</span>&gt;)</span></span>: Subscriber&lt;<span class="keyword">in</span> String&gt; &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">object</span> : Subscriber&lt;String&gt;(p0) &#123;</div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onError</span><span class="params">(t: <span class="type">Throwable</span>?)</span></span> &#123;</div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    p0.onError(t)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCompleted</span><span class="params">()</span></span> &#123;</div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    p0.onCompleted()</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onNext</span><span class="params">(t: <span class="type">String</span>?)</span></span> &#123;</div><div class="line">                <span class="comment">// 对每一项进行简单的标记打印操作</span></div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    println(<span class="string">"<span class="subst">$name</span> : <span class="subst">$t</span>"</span>)</div><div class="line">                    p0.onNext(t)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    Observable.from(arrayOf(<span class="string">"Hello Kotlin"</span>, <span class="string">"Hello RxJava"</span>, <span class="string">"Hello Android"</span>))</div><div class="line">            .lift(MyOperator(<span class="string">"Opt-1"</span>))</div><div class="line">            .lift(MyOperator(<span class="string">"Opt-2"</span>))</div><div class="line">            .subscribe&#123;</div><div class="line">                println(it)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">MyOperator : Hello Kotlin</div><div class="line">Hello Kotlin</div><div class="line">MyOperator : Hello RxJava</div><div class="line">Hello RxJava</div><div class="line">MyOperator : Hello Android</div><div class="line">Hello Android</div></pre></td></tr></table></figure></p>
+<h2 id="自定义变换操作符"><a href="#自定义变换操作符" class="headerlink" title="自定义变换操作符"></a>自定义变换操作符</h2><p>这里需要说一下 <code>compose</code> 操作符，它同 <code>lift</code> 操作符类似，可以将自定义操作符与标准的 RxJava 操作符一起使用。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 变换操作符</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTransformer</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> name: String) : Observable.Transformer&lt;<span class="built_in">Int</span>, String&gt; &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">call</span><span class="params">(p0: <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;)</span></span>: Observable&lt;String&gt;  = p0.map &#123;</div><div class="line">        <span class="string">"<span class="subst">$name</span> : <span class="subst">$it</span>"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    Observable.from(arrayOf(<span class="number">123</span>, <span class="number">456</span>, <span class="number">789</span>))</div><div class="line">            .compose(MyTransformer(<span class="string">"Transformer-1"</span>))</div><div class="line">            .subscribe&#123;</div><div class="line">                println(it)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Transformer-<span class="number">1</span> : <span class="number">123</span></div><div class="line">Transformer-<span class="number">1</span> : <span class="number">456</span></div><div class="line">Transformer-<span class="number">1</span> : <span class="number">789</span></div></pre></td></tr></table></figure></p>
 
 		﻿<div> 
 <h1><b>联系我</b></h1>
@@ -522,7 +509,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/观察者模式/" rel="tag"># 观察者模式</a>
+            <a href="/tags/RxJava/" rel="tag"># RxJava</a>
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
           
         </div>
       
@@ -531,8 +520,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/Java-to-Kotlin-Grammar-List/" rel="next" title="Java to Kotlin 语法清单">
-                <i class="fa fa-chevron-left"></i> Java to Kotlin 语法清单
+              <a href="/2017/06/24/Basic-knowledge-of-JVM/" rel="next" title="Java 虚拟机基础知识（一）">
+                <i class="fa fa-chevron-left"></i> Java 虚拟机基础知识（一）
               </a>
             
           </div>
@@ -540,10 +529,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/12/Design-Pattern-flyweight-pattern/" rel="prev" title="Design Pattern - flyweight pattern">
-                Design Pattern - flyweight pattern <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -589,6 +574,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -711,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number">1.</span> <span class="nav-text">观察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式结构"><span class="nav-number">1.1.</span> <span class="nav-text">模式结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式实现"><span class="nav-number">1.2.</span> <span class="nav-text">模式实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Subject"><span class="nav-number">1.2.1.</span> <span class="nav-text">Subject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcreteSubject"><span class="nav-number">1.2.2.</span> <span class="nav-text">ConcreteSubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Observer"><span class="nav-number">1.2.3.</span> <span class="nav-text">Observer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcreteObserver"><span class="nav-number">1.2.4.</span> <span class="nav-text">ConcreteObserver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample"><span class="nav-number">1.2.5.</span> <span class="nav-text">Sample</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式的优点和缺点"><span class="nav-number">1.3.</span> <span class="nav-text">观察者模式的优点和缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava-线程转换"><span class="nav-number">1.</span> <span class="nav-text">RxJava 线程转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义操作符"><span class="nav-number">2.</span> <span class="nav-text">自定义操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义序列操作符"><span class="nav-number">2.1.</span> <span class="nav-text">自定义序列操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义变换操作符"><span class="nav-number">2.2.</span> <span class="nav-text">自定义变换操作符</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -853,9 +849,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = '2017/06/04/Android-design-pattern-observer-pattern/';
+      var disqus_identifier = '2017/07/01/RxJava-to-Kotlin-Util-and-Operator/';
 
-      var disqus_title = "Android 设计模式之观察者模式";
+      var disqus_title = "RxJava for Kotlin 实践（三）";
 
 
       function run_disqus_script(disqus_script) {
@@ -868,6 +864,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
