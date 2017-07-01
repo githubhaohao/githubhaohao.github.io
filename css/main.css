@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 21px;
   }
 }
 h1,
@@ -1801,7 +1801,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff81e9;
+  background: #46537c;
 }
 .links-of-blogroll {
   font-size: 13px;

@@ -1369,13 +1369,13 @@
       <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
     
     
-      <category term="RxJava" scheme="https://githubhaohao.github.io/tags/RxJava/"/>
-    
       <category term="MVVM" scheme="https://githubhaohao.github.io/tags/MVVM/"/>
     
       <category term="MVP" scheme="https://githubhaohao.github.io/tags/MVP/"/>
     
       <category term="MVC" scheme="https://githubhaohao.github.io/tags/MVC/"/>
+    
+      <category term="RxJava" scheme="https://githubhaohao.github.io/tags/RxJava/"/>
     
       <category term="Retrofit" scheme="https://githubhaohao.github.io/tags/Retrofit/"/>
     
