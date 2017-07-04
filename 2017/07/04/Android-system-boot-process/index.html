@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android System," />
 
 
 
@@ -91,15 +91,40 @@
 
 
 
-<meta name="description" content="不忘初心">
-<meta property="og:type" content="website">
-<meta property="og:title" content="haohao">
-<meta property="og:url" content="https://githubhaohao.github.io/tags/Tinker/index.html">
+<meta name="description" content="凡事都往好的一面去想，这种习惯比收入千磅还好。
+
+
+对于 Android 系统的启动流程，每一位 Android Developer 都应该烂熟于心，它在某种程度上代表着 Android 开发的学习路线。本篇感性地介绍一下 Android 系统的启动流程。
+
+Android 系统启动流程示意图图片来自于网络
+
+启动过程： Loader -&amp;gt; Kernel -&amp;gt; Native -&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android system boot process">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/index.html">
 <meta property="og:site_name" content="haohao">
-<meta property="og:description" content="不忘初心">
+<meta property="og:description" content="凡事都往好的一面去想，这种习惯比收入千磅还好。
+
+
+对于 Android 系统的启动流程，每一位 Android Developer 都应该烂熟于心，它在某种程度上代表着 Android 开发的学习路线。本篇感性地介绍一下 Android 系统的启动流程。
+
+Android 系统启动流程示意图图片来自于网络
+
+启动过程： Loader -&amp;gt; Kernel -&amp;gt; Native -&amp;g">
+<meta property="og:image" content="http://i2.kiimg.com/588795/8cb3f10500429125.jpg">
+<meta property="og:image" content="http://i1.buimg.com/588795/5cfc8539a35b8eea.jpg">
+<meta property="og:updated_time" content="2017-07-04T14:04:43.657Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="haohao">
-<meta name="twitter:description" content="不忘初心">
+<meta name="twitter:title" content="Android system boot process">
+<meta name="twitter:description" content="凡事都往好的一面去想，这种习惯比收入千磅还好。
+
+
+对于 Android 系统的启动流程，每一位 Android Developer 都应该烂熟于心，它在某种程度上代表着 Android 开发的学习路线。本篇感性地介绍一下 Android 系统的启动流程。
+
+Android 系统启动流程示意图图片来自于网络
+
+启动过程： Loader -&amp;gt; Kernel -&amp;gt; Native -&amp;g">
+<meta name="twitter:image" content="http://i2.kiimg.com/588795/8cb3f10500429125.jpg">
 
 
 
@@ -127,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/tags/Tinker/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/"/>
 
 
 
 
 
-  <title> 标签: Tinker | haohao </title>
+  <title> Android system boot process | haohao </title>
   <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
 </head>
 
@@ -155,7 +180,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,46 +305,284 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Tinker
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android system boot process
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-04T20:39:40+08:00">
+                2017-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Android-系统/" itemprop="url" rel="index">
+                    <span itemprop="name">Android 系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/04/Android-system-boot-process/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/07/04/Android-system-boot-process/" class="leancloud_visitors" data-flag-title="Android system boot process">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p align="center"><img src="http://i2.kiimg.com/588795/8cb3f10500429125.jpg" alt="Markdown"></p>
 
-      <h1 class="post-title">
+<p align="center">凡事都往好的一面去想，这种习惯比收入千磅还好。</p>
+
+<blockquote>
+<p>对于 Android 系统的启动流程，每一位 Android Developer 都应该烂熟于心，它在某种程度上代表着 Android 开发的学习路线。本篇感性地介绍一下 Android 系统的启动流程。</p>
+</blockquote>
+<h1 id="Android-系统启动流程示意图"><a href="#Android-系统启动流程示意图" class="headerlink" title="Android 系统启动流程示意图"></a>Android 系统启动流程示意图</h1><p align="center"><img src="http://i1.buimg.com/588795/5cfc8539a35b8eea.jpg" alt="Markdown"></p><br><p align="center">图片来自于网络</p>
+
+<p>启动过程： Loader -&gt; Kernel -&gt; Native -&gt; Framework -&gt; App 。</p>
+<h1 id="Android-系统启动过程"><a href="#Android-系统启动过程" class="headerlink" title="Android 系统启动过程"></a>Android 系统启动过程</h1><h2 id="Loader"><a href="#Loader" class="headerlink" title="Loader"></a>Loader</h2><p>Loader 层执行过程分为两步：</p>
+<ol>
+<li>Android 设备上电以后，引导芯片执行固化在 Boot ROM 里的启动引导代码，加载 Boot Loader 代码到内存；</li>
+<li>Boot Loader 代码开始执行，检查 RAM ，完成硬件的初始化，加载Linux内核代码到内存。</li>
+</ol>
+<h2 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h2><p>Linux 内核开始启动，初始化各种软硬件环境，加载驱动程序，挂载根文件系统，执行init程序。</p>
+<h2 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h2><ul>
+<li>init 进程 fork 出 logd 、 healthd 、 installd 、 adbd 等用户守护进程；</li>
+<li>启动 ServiceManager 和 MediaServer（本地服务）；</li>
+<li>fork 出 Zygote 进程，<strong>Zygote 进程是所有 Java 进程的父进程</strong>。</li>
+</ul>
+<h2 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h2><p>Framework 层由 C++ Framework 层和 Java Framework 层组成。</p>
+<h3 id="C-Framework-层"><a href="#C-Framework-层" class="headerlink" title="C++ Framework 层"></a>C++ Framework 层</h3><p>C++ Framework 层主要运行本地服务，即 MediaServer 进程，它是由 init 进程 fork 而来，负责启动和管理整个 C++ framework ，包含 AudioFlinger ，Camera Service 等服务。</p>
+<h3 id="Java-Framework-层"><a href="#Java-Framework-层" class="headerlink" title="Java Framework 层"></a>Java Framework 层</h3><p>Java Framework 层主要运行 SystemServer 进程，SystemServer 进程是 Zygote 进程 fork 出的第一个 Java 进程，SystemServer 负责启动和管理 Java Framework ，主要管理 Android 服务，如 ActivityManagerService ，NotificationManagerService ，WindowManagerService 等，它们均以线程的方式运行在 SystemServer 进程中。</p>
+<h2 id="App"><a href="#App" class="headerlink" title="App"></a>App</h2><p>Zygote 进程 fork 出来的第一个 App 进程是 Launcher ，即桌面 App ，所有的 App 进程都是由 Zygote 进程 fork 生成的。</p>
+
+		﻿<div> 
+<h1><b>联系我</b></h1>
+<p align="center">Wechat ID</p>
+<p align="center"><img src="http://i4.buimg.com/588795/ba6ffe954d61203b.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+<p align="center">公众号</p>
+<p align="center"><img src="http://i2.muimg.com/588795/14b96669d7240b3f.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+
+</div>  
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/01/18/分分钟接入Tinker/" itemprop="url">
-              
-                <span itemprop="name">分分钟接入Tinker</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗与远方</div>
+	<br>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-18T09:23:38+08:00"
-              content="2017-01-18" >
-          01-18
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-System/" rel="tag"># Android System</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/" rel="next" title="RxJava for Kotlin 实践（三）">
+                <i class="fa fa-chevron-left"></i> RxJava for Kotlin 实践（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  
+      
+    </div>
+  </div>
 
           
           </div>
@@ -327,6 +590,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -346,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
@@ -430,6 +713,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-系统启动流程示意图"><span class="nav-number">1.</span> <span class="nav-text">Android 系统启动流程示意图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-系统启动过程"><span class="nav-number">2.</span> <span class="nav-text">Android 系统启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Loader"><span class="nav-number">2.1.</span> <span class="nav-text">Loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kernel"><span class="nav-number">2.2.</span> <span class="nav-text">Kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Native"><span class="nav-number">2.3.</span> <span class="nav-text">Native</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Framework"><span class="nav-number">2.4.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-Framework-层"><span class="nav-number">2.4.1.</span> <span class="nav-text">C++ Framework 层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-Framework-层"><span class="nav-number">2.4.2.</span> <span class="nav-text">Java Framework 层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App"><span class="nav-number">2.5.</span> <span class="nav-text">App</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -546,6 +845,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -562,9 +865,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = 'tags/Tinker/index.html';
+      var disqus_identifier = '2017/07/04/Android-system-boot-process/';
 
-      var disqus_title = "";
+      var disqus_title = "Android system boot process";
 
 
       function run_disqus_script(disqus_script) {
@@ -577,6 +880,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
