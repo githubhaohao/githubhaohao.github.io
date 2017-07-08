@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-07-08T00:39:53.598Z</updated>
+  <updated>2017-07-08T02:16:55.065Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/"/>
     <id>https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/</id>
     <published>2017-07-07T07:27:00.000Z</published>
-    <updated>2017-07-08T00:39:53.598Z</updated>
+    <updated>2017-07-08T02:16:55.065Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://i2.kiimg.com/588795/05ca033f4479e5df.jpg" alt="Markdown"></p><br><p align="center">生活中的很多烦恼都源于盲目的攀比，而忘了享受自己的生活</p>
 
@@ -40,7 +40,7 @@
 <h2 id="目标对象"><a href="#目标对象" class="headerlink" title="目标对象"></a>目标对象</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubjectObj</span> : <span class="type">CommonInterface &#123;</span></span></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">operate</span><span class="params">(str: <span class="type">String</span>)</span></span> &#123;</div><div class="line">        println(<span class="string">"目标对象 : <span class="subst">$str</span>"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="代理对象"><a href="#代理对象" class="headerlink" title="代理对象"></a>代理对象</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyObj</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> subjectObj: SubjectObj) : CommonInterface &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">operate</span><span class="params">(str: <span class="type">String</span>)</span></span> &#123;</div><div class="line">        println(<span class="string">"代理对象 : 调用目标对象"</span>)</div><div class="line">        subjectObj.operate(str)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="keyword">val</span> subjectObj = SubjectObj()</div><div class="line">    <span class="keyword">val</span> proxyObj = ProxyObj(subjectObj)</div><div class="line"></div><div class="line">    proxyObj.operate(<span class="string">"执行操作"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>RUnning<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">代理对象 : 调用目标对象</div><div class="line">目标对象 : 执行操作</div></pre></td></tr></table></figure></p>
+<p>Running<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">代理对象 : 调用目标对象</div><div class="line">目标对象 : 执行操作</div></pre></td></tr></table></figure></p>
 <h1 id="Android-中的代理模式"><a href="#Android-中的代理模式" class="headerlink" title="Android 中的代理模式"></a>Android 中的代理模式</h1><p>Android Binder 类是实现进程间通信的媒介，由于进程间通信贯穿四大组件使用的始末，所以在 Android 开发过程中进程间通信随处可见，而 Android Binder IPC 模型是基于代理模式。 </p>
 <p>Android Binder IPC 通信模型：</p>
 <ul>
