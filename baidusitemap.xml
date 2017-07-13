@@ -4,6 +4,57 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
+    <lastmod>2017-07-13T12:28:35.379Z</lastmod>
+    <data>
+        <display>
+        <title>Android Clean 架构浅析</title>
+        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
+        
+        <tag>Clean 架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="架构" url="https://githubhaohao.github.io/categories/Android/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2017-07-13T12:23:02.096Z</lastmod>
+    <data>
+        <display>
+        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
+        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
+        
+        <tag>MVVM</tag>
+         
+        <tag>MVP</tag>
+         
+        <tag>MVC</tag>
+         
+        <tag>RxJava</tag>
+         
+        <tag>Retrofit</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/</loc>
     <lastmod>2017-07-08T04:54:24.941Z</lastmod>
     <data>
@@ -241,34 +292,6 @@
 
     
   <url>
-    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2017-05-13T08:20:15.060Z</lastmod>
-    <data>
-        <display>
-        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
-        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
-        
-        <tag>MVVM</tag>
-         
-        <tag>MVP</tag>
-         
-        <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
-         
-        <tag>Retrofit</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://githubhaohao.github.io/2017/02/17/Android%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E5%92%8C%E5%A4%9A%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0/</loc>
     <lastmod>2017-05-13T08:19:35.108Z</lastmod>
     <data>
@@ -386,29 +409,6 @@
           
              
               <breadCrumb title="四大组件" url="https://githubhaohao.github.io/categories/Android/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
-    <lastmod>2017-05-13T08:10:52.547Z</lastmod>
-    <data>
-        <display>
-        <title>Android Clean 架构浅析</title>
-        <pubTime>2017-04-15T13:07:34.000Z</pubTime>
-        
-        <tag>Clean 架构</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="架构" url="https://githubhaohao.github.io/categories/Android/%E6%9E%B6%E6%9E%84/"/>
           
         </display>
     </data>
