@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
+    
+    <lastmod>2017-07-20T13:33:28.726Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/</loc>
     
     <lastmod>2017-07-13T12:28:35.379Z</lastmod>
