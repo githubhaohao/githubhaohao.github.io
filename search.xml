@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Java 线程的七种状态]]></title>
+      <url>%2F2017%2F07%2F21%2FJava-thread-7-kinds-of-state%2F</url>
+      <content type="text"><![CDATA[明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身 本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换 Java 线程状态转换图 Java 线程状态转换图 Java 线程状态在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（Waiting），限期等待（Timed Waiting），阻塞（Blocked），结束（Terminated）。 新建（New）状态新创建一个线程对象，尚未执行。 可运行（Runnable 或 Ready）状态新创建的线程调用 start 方法后便处于 Runnable 状态，刚刚结束等待（获取到锁）或阻塞状态的线程也会处于 Runnable 状态，处于该状态的线程位于可运行线程池中，等待获取 CPU 资源。 运行（Running）状态处于 Runnable 状态的线程获取到 CPU 资源，执行程序代码。 无限期等待（Waiting）状态synchronized 代码块内被锁住的对象调用了它的 wait() 方法或者在当前线程中调用了其他线程的 join() 方法，那么当前线程将会释放占有的锁，释放 CPU 资源，阻塞在等待队列里面，一直等待被 synchronized 修饰的对象调用 notify() 或 notifyAll() 方法唤醒或者 join 的其他线程执行结束（异常退出）。在并发时，处于无限期等待状态的线程被唤醒之后，还要去竞争对象的锁，如果竞争不到，线程将会被阻塞在对象的锁池中，竞争到锁之后，线程将会处于 Runnable 状态。 限期等待（Timed Waiting）状态与无限期等待（Waiting）状态不同之处在于，调用 wait 和 join 方法时传入了等待限定时间。另外，线程调用 sleep() 方法也会处于限期等待（Timed Waiting）状态，会释放 CPU 资源，但并不会释放锁，一直到休眠结束变成 Runnable 状态。 阻塞（Blocked）状态线程程序执行到 synchronized 代码块或 Reentrant.lock() 方法，对象的锁被其他线程占用时，当前线程将会被阻塞在对象的锁池中，处于阻塞（Blocked）状态。 结束（Terminated）状态线程 run 方法执行完毕或者异常退出，则该线程的生命周期终结，不能再次使用。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Basic knowledge of JVM - GC]]></title>
       <url>%2F2017%2F07%2F20%2FBasic-knowledge-of-JVM-GC%2F</url>
       <content type="text"></content>

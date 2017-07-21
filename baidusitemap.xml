@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
+    <lastmod>2017-07-21T07:07:45.366Z</lastmod>
+    <data>
+        <display>
+        <title>Java 线程的七种状态</title>
+        <pubTime>2017-07-21T02:54:16.000Z</pubTime>
+        
+        <tag>线程状态</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
     <lastmod>2017-07-20T13:33:28.726Z</lastmod>
     <data>

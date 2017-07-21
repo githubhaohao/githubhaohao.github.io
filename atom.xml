@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-07-20T13:33:28.726Z</updated>
+  <updated>2017-07-21T07:07:45.366Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 线程的七种状态</title>
+    <link href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
+    <id>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</id>
+    <published>2017-07-21T02:54:16.000Z</published>
+    <updated>2017-07-21T07:07:45.366Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
+<blockquote>
+<p>本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换</p>
+</blockquote>
+<h1 id="Java-线程状态转换图"><a href="#Java-线程状态转换图" class="headerlink" title="Java 线程状态转换图"></a>Java 线程状态转换图</h1><p></p><p align="center"><img src="http://i1.buimg.com/588795/9b63465fe1dfa0dd.png" alt="Markdown"></p><p></p>
+<p><div align="center">Java 线程状态转换图</div><br></p>
+<h1 id="Java-线程状态"><a href="#Java-线程状态" class="headerlink" title="Java 线程状态"></a>Java 线程状态</h1><p>在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（Waiting），限期等待（Timed Waiting），阻塞（Blocked），结束（Terminated）。</p>
+<h2 id="新建（New）状态"><a href="#新建（New）状态" class="headerlink" title="新建（New）状态"></a>新建（New）状态</h2><p>新创建一个线程对象，尚未执行。</p>
+<h2 id="可运行（Runnable-或-Ready）状态"><a href="#可运行（Runnable-或-Ready）状态" class="headerlink" title="可运行（Runnable 或 Ready）状态"></a>可运行（Runnable 或 Ready）状态</h2><p>新创建的线程调用 start 方法后便处于 Runnable 状态，刚刚结束等待（获取到锁）或阻塞状态的线程也会处于 Runnable 状态，处于该状态的线程位于可运行线程池中，等待获取 CPU 资源。</p>
+<h2 id="运行（Running）状态"><a href="#运行（Running）状态" class="headerlink" title="运行（Running）状态"></a>运行（Running）状态</h2><p>处于 Runnable 状态的线程获取到 CPU 资源，执行程序代码。</p>
+<h2 id="无限期等待（Waiting）状态"><a href="#无限期等待（Waiting）状态" class="headerlink" title="无限期等待（Waiting）状态"></a>无限期等待（Waiting）状态</h2><p>synchronized 代码块内被锁住的对象调用了它的 wait() 方法或者在当前线程中调用了其他线程的 join() 方法，那么当前线程将会释放占有的锁，释放 CPU 资源，阻塞在等待队列里面，一直等待被 synchronized 修饰的对象调用 notify() 或 notifyAll() 方法唤醒或者 join 的其他线程执行结束（异常退出）。在并发时，处于无限期等待状态的线程被唤醒之后，还要去竞争对象的锁，如果竞争不到，线程将会被阻塞在对象的锁池中，竞争到锁之后，线程将会处于 Runnable 状态。</p>
+<h2 id="限期等待（Timed-Waiting）状态"><a href="#限期等待（Timed-Waiting）状态" class="headerlink" title="限期等待（Timed Waiting）状态"></a>限期等待（Timed Waiting）状态</h2><p>与无限期等待（Waiting）状态不同之处在于，调用 wait 和 join 方法时传入了等待限定时间。另外，线程调用 sleep() 方法也会处于限期等待（Timed Waiting）状态，<strong>会释放 CPU 资源，但并不会释放锁</strong>，一直到休眠结束变成 Runnable 状态。</p>
+<h2 id="阻塞（Blocked）状态"><a href="#阻塞（Blocked）状态" class="headerlink" title="阻塞（Blocked）状态"></a>阻塞（Blocked）状态</h2><p>线程程序执行到 synchronized 代码块或 Reentrant.lock() 方法，对象的锁被其他线程占用时，当前线程将会被阻塞在对象的锁池中，处于阻塞（Blocked）状态。</p>
+<h2 id="结束（Terminated）状态"><a href="#结束（Terminated）状态" class="headerlink" title="结束（Terminated）状态"></a>结束（Terminated）状态</h2><p>线程 run 方法执行完毕或者异常退出，则该线程的生命周期终结，不能再次使用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;明知对要做的
+    
+    </summary>
+    
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
+    
+      <category term="线程" scheme="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+      <category term="线程状态" scheme="https://githubhaohao.github.io/tags/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Basic knowledge of JVM - GC</title>
@@ -1344,93 +1384,6 @@
     
     
       <category term="Activity" scheme="https://githubhaohao.github.io/tags/Activity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 主题切换和多主题实现</title>
-    <link href="https://githubhaohao.github.io/2017/02/17/Android%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E5%92%8C%E5%A4%9A%E4%B8%BB%E9%A2%98%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://githubhaohao.github.io/2017/02/17/Android主题切换和多主题实现/</id>
-    <published>2017-02-17T06:13:42.000Z</published>
-    <updated>2017-05-13T08:19:35.108Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true" alt="Cover"></p>
-<p align="center">又是一个周末</p>
-
-<h2 id="白天和夜间模式"><a href="#白天和夜间模式" class="headerlink" title="白天和夜间模式"></a>白天和夜间模式</h2><p>Android官方在Support包从23.2版本开始提供支持白天夜间模式的主题 Theme.AppCompat.DayNight，也就是 DayNight Mode ，轻松实现主体无缝切换。</p>
-<p>Theme.AppCompat.DayNight 可以根据系统时间切换 Theme.AppCompat (暗色) 和 Theme.AppCompat.Light ( 亮色 ) 两种主题。这将大大提高了阅读类应用的用户体验 同时还支持 Material Design。</p>
-<p><strong>需要注意的是</strong>，这个特性只支持 API v14 及以上的 Android 设备，在 API v14 以下的设备则会默认使用亮色的主题。</p>
-<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/multi_theme.gif?raw=true" alt="效果预览"></p>
-<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3><h4 id="1-引入-support-v7-23-2-版本的依赖"><a href="#1-引入-support-v7-23-2-版本的依赖" class="headerlink" title="1. 引入 support-v7:23.2+ 版本的依赖"></a>1. 引入 support-v7:23.2+ 版本的依赖</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.1.1'</span></div></pre></td></tr></table></figure>
-<p>为保证主题风格的统一，所有的 Activity 类应继承 AppCompatActivity 。</p>
-<h4 id="2-自定义实现-DayNight-主题"><a href="#2-自定义实现-DayNight-主题" class="headerlink" title="2. 自定义实现 DayNight 主题"></a>2. 自定义实现 DayNight 主题</h4><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/res-night.png?raw=true" alt="res-night"></p>
-<p>res 目录下新建 values-night 文件，拷贝修改 colors.xml 和 styles.xml 文件到 values-night，为 Night Model 下系统加载的 color资源，同样地也可以指定 Night Model 下加载的 drawable 资源在 drawable-night 文件夹中，同理 layout mipmap 资源加载也是如此。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"MyApp.DayNight.NoActionBar.Theme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.DayNight.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/colorPrimary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/colorPrimaryDark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;</span>@color/colorAccent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>具体位置颜色设置看图：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/screen.png?raw=true" alt="screen"></p>
-<p>在 AndroidManifest.xml 中声明，单个 Activity 的主题。 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>或者整个 App 的主题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".MyApplication"</span></div><div class="line">    <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/MyApp.DayNight.NoActionBar.Theme"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="3-设置-DayNight-主题"><a href="#3-设置-DayNight-主题" class="headerlink" title="3 设置 DayNight 主题"></a>3 设置 DayNight 主题</h4><p>初始化主题:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAppTheme</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (getThemeSharedPref().getBoolean(KEY_NIGHT_THEME, <span class="keyword">false</span>)) &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> SharedPreferences <span class="title">getThemeSharedPref</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getSharedPreferences(<span class="string">"APP_THEME"</span>, Context.MODE_PRIVATE);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>初始化主题应该在 <strong>super.onCreate() </strong> 之前执行，不然 Activity 会启动 2 次,下图为证：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/restart.png?raw=true" alt="restart"></p>
-<p>切换主题：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (id == R.id.set_day_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME,<span class="keyword">false</span>).apply();</div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (id == R.id.set_night_theme) &#123;</div><div class="line">    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">    getThemeSharedPref().edit().putBoolean(KEY_NIGHT_THEME, <span class="keyword">true</span>).apply();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>切换主题会重启 Activity。</strong></p>
-<p>DayNight Theme 有 4 种 Model ，分别是：</p>
-<ul>
-<li>MODE_NIGHT_NO. 使用 Day 主题</li>
-<li>MODE_NIGHT_YES. 使用暗色 Night 主题</li>
-<li>MODE_NIGHT_AUTO. 根据系统时间自动切换</li>
-<li>MODE_NIGHT_FOLLOW_SYSTEM(默认选项). 设置为跟随系统</li>
-</ul>
-<h2 id="多主题实现"><a href="#多主题实现" class="headerlink" title="多主题实现"></a>多主题实现</h2><p>介绍几种换肤的第三方库。</p>
-<h3 id="MultipleTheme"><a href="#MultipleTheme" class="headerlink" title="MultipleTheme"></a><a href="https://github.com/dersoncheng/MultipleTheme" target="_blank" rel="external">MultipleTheme</a></h3><blockquote>
-<p>真正的支持无缝换肤／夜间模式的Android框架，配合theme和换肤控件框架可以做到无缝切换换肤（无需重启应用和当前页面）。</p>
-<p>该应用框架可以实现无缝换肤／切换夜间模式的需求，需要在换肤／切换夜间模式的界面只需要使用框架里的自封装控件，其他界面的控件使用原生android控件即可。</p>
-</blockquote>
-<p><strong>缺陷</strong>：各种控件都需要重定义。<br><strong>优势</strong>：扩展性强，无需重启 Activity。</p>
-<h3 id="Colorful-推荐"><a href="#Colorful-推荐" class="headerlink" title="Colorful [推荐]"></a><a href="https://github.com/garretyoder/Colorful" target="_blank" rel="external">Colorful</a> [推荐]</h3><blockquote>
-<p>Colorful is a dynamic theme library allowing you to change your apps’ color schemes easily.</p>
-</blockquote>
-<p><strong>缺陷</strong>：主题颜色可定制性差，不支持 Material Design 风格。<br><strong>优势</strong>：使用方便。</p>
-<h3 id="Prism"><a href="#Prism" class="headerlink" title="Prism"></a><a href="https://github.com/StylingAndroid/Prism" target="_blank" rel="external">Prism</a></h3><p><img src="https://blog.leancloud.cn/wp-content/uploads/2015/09/Android_Rainbow_All720-e1441357130150.jpg" alt="Prism"></p>
-<p>Prism 下含有三个库：</p>
-<ul>
-<li>prsim 库含有一些核心功能；</li>
-<li>prism-viewpager 库实现了核心库与 ViewPager 的对接；</li>
-<li>prism-palette 库实现了核心库与 Palette 的对接。</li>
-</ul>
-<p>分成三个库是为了区分依赖条件：核心库不依赖外部条件，它能够很容易地添加到你的工程之中；但是 prism-viewpager 和 prism-palette 需要依赖相应的support库。所以当你的程序不使用这些依赖库时，你可以只使用 prism 库来省去不必要的依赖条件。不过当你的程序中使用了 ViewPager 时，即已经对相关的support库有了依赖，那么添加 prism-viewpager 库就不需要额外的依赖条件。</p>
-<p><strong>但是，作者已停止更新。</strong></p>
-<h3 id="Android-Skin-Loader-推荐"><a href="#Android-Skin-Loader-推荐" class="headerlink" title="Android-Skin-Loader [推荐]"></a><a href="https://github.com/fengjundev/Android-Skin-Loader" target="_blank" rel="external">Android-Skin-Loader</a> [推荐]</h3><p>看效果</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin_loader.gif?raw=true" alt="skin-loader"></p>
-<p>项目目录：</p>
-<p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/skin.png?raw=true" alt="项目目录"></p>
-<p>Android-Skin-Loader<br>├── android-skin-loader-lib      // 皮肤加载库<br>├── android-skin-loader-sample   // 皮肤库应用实例<br>├── android-skin-loader-skin     // 皮肤包生成demo<br>└── skin-package                 // 皮肤包输出目录</p>
-<p>可以将皮肤文件打包分离，支持在线换肤，皮肤共享，不会重启 Activity 或 Fragment 。皮肤包（ 后缀名为.skin ）的本质是一个apk文件，该apk文件不包含代码，只包含资源文件。 </p>
-<p><strong>缺陷</strong>：每个换肤的 View 都要设置 <code>skin:enable=&quot;true&quot;</code> 繁琐 ( 反正我感觉挺烦的 )，不支持 Material Design 风格。</p>
-<p>不过，还好 <a href="https://github.com/burgessjp/ThemeSkinning" target="_blank" rel="external">ThemeSkinning</a> 进行了优化，支持 Material Design 和字体的切换。</p>
-<p>示例：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/623504-0c8a0c72d3a173ed.gif?imageMogr2/auto-orient/strip" alt="sample"></p>
-<hr>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://github.com/githubhaohao/ImageRoom/blob/master/Images/multi-theme/giraffe-1959110__340.jpg?raw=true&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
-&lt;p
-    
-    </summary>
-    
-      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
-    
-      <category term="主题" scheme="https://githubhaohao.github.io/categories/Android/%E4%B8%BB%E9%A2%98/"/>
-    
-    
-      <category term="Android 主题切换" scheme="https://githubhaohao.github.io/tags/Android-%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/"/>
     
   </entry>
   

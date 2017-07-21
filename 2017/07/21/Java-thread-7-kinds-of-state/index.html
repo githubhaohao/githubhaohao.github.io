@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="线程状态," />
 
 
 
@@ -91,15 +91,37 @@
 
 
 
-<meta name="description" content="不忘初心">
-<meta property="og:type" content="website">
-<meta property="og:title" content="haohao">
-<meta property="og:url" content="https://githubhaohao.github.io/tags/多线程/index.html">
+<meta name="description" content="明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身
+
+本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换
+
+Java 线程状态转换图
+Java 线程状态转换图
+Java 线程状态在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 线程的七种状态">
+<meta property="og:url" content="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/index.html">
 <meta property="og:site_name" content="haohao">
-<meta property="og:description" content="不忘初心">
+<meta property="og:description" content="明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身
+
+本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换
+
+Java 线程状态转换图
+Java 线程状态转换图
+Java 线程状态在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（">
+<meta property="og:image" content="http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg">
+<meta property="og:image" content="http://i1.buimg.com/588795/9b63465fe1dfa0dd.png">
+<meta property="og:updated_time" content="2017-07-21T07:07:45.366Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="haohao">
-<meta name="twitter:description" content="不忘初心">
+<meta name="twitter:title" content="Java 线程的七种状态">
+<meta name="twitter:description" content="明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身
+
+本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换
+
+Java 线程状态转换图
+Java 线程状态转换图
+Java 线程状态在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（">
+<meta name="twitter:image" content="http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg">
 
 
 
@@ -127,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="https://githubhaohao.github.io/tags/多线程/"/>
+  <link rel="canonical" href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
 
 
 
 
 
-  <title> 标签: 多线程 | haohao </title>
+  <title> Java 线程的七种状态 | haohao </title>
   <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
 </head>
 
@@ -155,7 +177,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,46 +302,274 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        多线程
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java 线程的七种状态
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T10:54:16+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/线程/" itemprop="url" rel="index">
+                    <span itemprop="name">线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/21/Java-thread-7-kinds-of-state/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/07/21/Java-thread-7-kinds-of-state/" class="leancloud_visitors" data-flag-title="Java 线程的七种状态">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p></p><p align="center"><img src="http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
+<blockquote>
+<p>本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换</p>
+</blockquote>
+<h1 id="Java-线程状态转换图"><a href="#Java-线程状态转换图" class="headerlink" title="Java 线程状态转换图"></a>Java 线程状态转换图</h1><p></p><p align="center"><img src="http://i1.buimg.com/588795/9b63465fe1dfa0dd.png" alt="Markdown"></p><p></p>
+<p><div align="center">Java 线程状态转换图</div><br></p>
+<h1 id="Java-线程状态"><a href="#Java-线程状态" class="headerlink" title="Java 线程状态"></a>Java 线程状态</h1><p>在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（Waiting），限期等待（Timed Waiting），阻塞（Blocked），结束（Terminated）。</p>
+<h2 id="新建（New）状态"><a href="#新建（New）状态" class="headerlink" title="新建（New）状态"></a>新建（New）状态</h2><p>新创建一个线程对象，尚未执行。</p>
+<h2 id="可运行（Runnable-或-Ready）状态"><a href="#可运行（Runnable-或-Ready）状态" class="headerlink" title="可运行（Runnable 或 Ready）状态"></a>可运行（Runnable 或 Ready）状态</h2><p>新创建的线程调用 start 方法后便处于 Runnable 状态，刚刚结束等待（获取到锁）或阻塞状态的线程也会处于 Runnable 状态，处于该状态的线程位于可运行线程池中，等待获取 CPU 资源。</p>
+<h2 id="运行（Running）状态"><a href="#运行（Running）状态" class="headerlink" title="运行（Running）状态"></a>运行（Running）状态</h2><p>处于 Runnable 状态的线程获取到 CPU 资源，执行程序代码。</p>
+<h2 id="无限期等待（Waiting）状态"><a href="#无限期等待（Waiting）状态" class="headerlink" title="无限期等待（Waiting）状态"></a>无限期等待（Waiting）状态</h2><p>synchronized 代码块内被锁住的对象调用了它的 wait() 方法或者在当前线程中调用了其他线程的 join() 方法，那么当前线程将会释放占有的锁，释放 CPU 资源，阻塞在等待队列里面，一直等待被 synchronized 修饰的对象调用 notify() 或 notifyAll() 方法唤醒或者 join 的其他线程执行结束（异常退出）。在并发时，处于无限期等待状态的线程被唤醒之后，还要去竞争对象的锁，如果竞争不到，线程将会被阻塞在对象的锁池中，竞争到锁之后，线程将会处于 Runnable 状态。</p>
+<h2 id="限期等待（Timed-Waiting）状态"><a href="#限期等待（Timed-Waiting）状态" class="headerlink" title="限期等待（Timed Waiting）状态"></a>限期等待（Timed Waiting）状态</h2><p>与无限期等待（Waiting）状态不同之处在于，调用 wait 和 join 方法时传入了等待限定时间。另外，线程调用 sleep() 方法也会处于限期等待（Timed Waiting）状态，<strong>会释放 CPU 资源，但并不会释放锁</strong>，一直到休眠结束变成 Runnable 状态。</p>
+<h2 id="阻塞（Blocked）状态"><a href="#阻塞（Blocked）状态" class="headerlink" title="阻塞（Blocked）状态"></a>阻塞（Blocked）状态</h2><p>线程程序执行到 synchronized 代码块或 Reentrant.lock() 方法，对象的锁被其他线程占用时，当前线程将会被阻塞在对象的锁池中，处于阻塞（Blocked）状态。</p>
+<h2 id="结束（Terminated）状态"><a href="#结束（Terminated）状态" class="headerlink" title="结束（Terminated）状态"></a>结束（Terminated）状态</h2><p>线程 run 方法执行完毕或者异常退出，则该线程的生命周期终结，不能再次使用。</p>
 
-      <h1 class="post-title">
+		﻿<div> 
+<h1><b>联系我</b></h1>
+<p align="center">Wechat ID</p>
+<p align="center"><img src="http://i4.buimg.com/588795/ba6ffe954d61203b.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+<p align="center">公众号</p>
+<p align="center"><img src="http://i2.muimg.com/588795/14b96669d7240b3f.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+
+</div>  
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/04/22/Android-多线程实现方式/" itemprop="url">
-              
-                <span itemprop="name">Android 多线程实现方式</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗与远方</div>
+	<br>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-22T16:04:55+08:00"
-              content="2017-04-22" >
-          04-22
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/线程状态/" rel="tag"># 线程状态</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/20/Basic-knowledge-of-JVM-GC/" rel="next" title="Basic knowledge of JVM - GC">
+                <i class="fa fa-chevron-left"></i> Basic knowledge of JVM - GC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  
+      
+    </div>
+  </div>
 
           
           </div>
@@ -327,6 +577,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -346,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
@@ -430,6 +700,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-线程状态转换图"><span class="nav-number">1.</span> <span class="nav-text">Java 线程状态转换图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-线程状态"><span class="nav-number">2.</span> <span class="nav-text">Java 线程状态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建（New）状态"><span class="nav-number">2.1.</span> <span class="nav-text">新建（New）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可运行（Runnable-或-Ready）状态"><span class="nav-number">2.2.</span> <span class="nav-text">可运行（Runnable 或 Ready）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行（Running）状态"><span class="nav-number">2.3.</span> <span class="nav-text">运行（Running）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无限期等待（Waiting）状态"><span class="nav-number">2.4.</span> <span class="nav-text">无限期等待（Waiting）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限期等待（Timed-Waiting）状态"><span class="nav-number">2.5.</span> <span class="nav-text">限期等待（Timed Waiting）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞（Blocked）状态"><span class="nav-number">2.6.</span> <span class="nav-text">阻塞（Blocked）状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束（Terminated）状态"><span class="nav-number">2.7.</span> <span class="nav-text">结束（Terminated）状态</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -546,6 +832,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -562,9 +852,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'githubhaohao-github-io';
-      var disqus_identifier = 'tags/多线程/index.html';
+      var disqus_identifier = '2017/07/21/Java-thread-7-kinds-of-state/';
 
-      var disqus_title = "";
+      var disqus_title = "Java 线程的七种状态";
 
 
       function run_disqus_script(disqus_script) {
@@ -577,6 +867,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
