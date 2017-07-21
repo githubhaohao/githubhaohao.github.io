@@ -60,7 +60,7 @@
     <link href="https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/"/>
     <id>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</id>
     <published>2017-07-20T13:33:28.000Z</published>
-    <updated>2017-07-21T12:12:38.812Z</updated>
+    <updated>2017-07-21T12:15:09.382Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://i4.piimg.com/588795/fa2868bfc687952a.png" alt="Markdown"></p><p></p>
 <p><div align="center">一切努力都应该指向现实，给生活带来直接、可触碰的变化<div><br></div></div></p>
@@ -68,10 +68,10 @@
 <p>本篇是 Java 虚拟机系列的第二篇，主要介绍 Java 虚拟机垃圾回收机制。</p>
 </blockquote>
 <h1 id="JVM-垃圾回收机制"><a href="#JVM-垃圾回收机制" class="headerlink" title="JVM 垃圾回收机制"></a>JVM 垃圾回收机制</h1><p>理解 JVM 垃圾回收机制需要弄清楚两个问题：</p>
-<ul>
+<ol>
 <li>什么是垃圾，或者怎么判定垃圾？</li>
 <li>怎么回收，或者通过什么方式回收垃圾？</li>
-</ul>
+</ol>
 <h1 id="什么是垃圾，或者怎么判定垃圾？"><a href="#什么是垃圾，或者怎么判定垃圾？" class="headerlink" title="什么是垃圾，或者怎么判定垃圾？"></a>什么是垃圾，或者怎么判定垃圾？</h1><p>“垃圾”即不再存活的对象，判定对象是否存活，一般有两种方法：</p>
 <ul>
 <li>引用计数算法</li>
