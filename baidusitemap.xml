@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
+    <lastmod>2017-07-21T12:10:31.042Z</lastmod>
+    <data>
+        <display>
+        <title>Java 虚拟机基础知识（一）</title>
+        <pubTime>2017-07-20T13:33:28.000Z</pubTime>
+        
+        <tag>JVM</tag>
+         
+        <tag>GC</tag>
+         
+         
+           
+             
+              <breadCrumb title="JVM" url="https://githubhaohao.github.io/categories/JVM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
     <lastmod>2017-07-21T07:07:45.366Z</lastmod>
     <data>
@@ -21,21 +43,6 @@
              
               <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
-    <lastmod>2017-07-20T13:33:28.726Z</lastmod>
-    <data>
-        <display>
-        <title>Basic knowledge of JVM - GC</title>
-        <pubTime>2017-07-20T13:33:28.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
