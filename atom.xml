@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-09-06T13:42:13.175Z</updated>
+  <updated>2017-09-06T13:48:07.989Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/09/06/2017-study-plan/"/>
     <id>https://githubhaohao.github.io/2017/09/06/2017-study-plan/</id>
     <published>2017-09-06T13:11:16.000Z</published>
-    <updated>2017-09-06T13:42:13.175Z</updated>
+    <updated>2017-09-06T13:48:07.989Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/Woman-Gazing-Under-Large-Tree.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">种一棵树最好的时间是 10 年前，其次是现在。</div><br></p>
@@ -35,7 +35,8 @@
 <h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h3 id="Android-进阶书籍"><a href="#Android-进阶书籍" class="headerlink" title="Android 进阶书籍"></a>Android 进阶书籍</h3><p>反复学习 《Android开发艺术探索》 《Android源码设计模式》 专业书籍</p>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>熟悉常用的设计模式<br>六大原则 + 24 种设计模式</p>
 <h3 id="Android-架构"><a href="#Android-架构" class="headerlink" title="Android 架构"></a>Android 架构</h3><p>熟悉 MVP MVVM Clean 架构</p>
-<h3 id="开源库源码阅读"><a href="#开源库源码阅读" class="headerlink" title="开源库源码阅读"></a>开源库源码阅读</h3><h2 id="熟悉-RxJava-Retrofit-Glide-等常用开源库的原理和流程。"><a href="#熟悉-RxJava-Retrofit-Glide-等常用开源库的原理和流程。" class="headerlink" title="熟悉 RxJava Retrofit Glide 等常用开源库的原理和流程。"></a>熟悉 RxJava Retrofit Glide 等常用开源库的原理和流程。</h2><p>每天阅读优秀的开源库源码不少于半个小时。</p>
+<h3 id="开源库源码阅读"><a href="#开源库源码阅读" class="headerlink" title="开源库源码阅读"></a>开源库源码阅读</h3><p>熟悉 RxJava Retrofit Glide 等常用开源库的原理和流程。</p>
+<p>每天阅读优秀的开源库源码不少于半个小时。</p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>解决掉两本书：</p>
 <ol>
 <li>大话数据结构</li>
