@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-09-09T01:00:42.508Z</updated>
+  <updated>2017-09-09T06:13:19.335Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/09/06/2017-study-plan/"/>
     <id>https://githubhaohao.github.io/2017/09/06/2017-study-plan/</id>
     <published>2017-09-06T13:11:16.000Z</published>
-    <updated>2017-09-09T01:00:42.508Z</updated>
+    <updated>2017-09-09T06:13:19.335Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/Woman-Gazing-Under-Large-Tree.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">种一棵树最好的时间是 10 年前，其次是现在。</div><br></p>
@@ -42,7 +42,7 @@
 <li>大话数据结构</li>
 <li>程序员代码面试指南</li>
 </ol>
-<p><del>算法时间复杂度</del><br><del>线性表 顺序表</del><br><del>线性表 单链表</del></p>
+<p><del>算法时间复杂度</del><br><del>线性表 顺序表</del><br><del>线性表 单链表</del><br><del>线性表 循环单链表</del></p>
 <h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>计算机网路基础</p>
 <h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统原理</p>
 ]]></content>
@@ -66,9 +66,9 @@
     <link href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
     <id>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</id>
     <published>2017-07-21T02:54:16.000Z</published>
-    <updated>2017-07-21T07:07:45.366Z</updated>
+    <updated>2017-09-10T09:44:28.762Z</updated>
     
-    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg" alt="Markdown"></p><p></p>
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170721.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
 <blockquote>
 <p>本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换</p>
@@ -87,8 +87,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.kiimg.com/588795/0cd39acc71dfc741.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;&gt;明知对要做的
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170721.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;明知
     
     </summary>
     
@@ -106,9 +106,9 @@
     <link href="https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/"/>
     <id>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</id>
     <published>2017-07-20T13:33:28.000Z</published>
-    <updated>2017-07-21T12:18:33.322Z</updated>
+    <updated>2017-09-10T09:48:04.387Z</updated>
     
-    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://i4.piimg.com/588795/fa2868bfc687952a.png" alt="Markdown"></p><p></p>
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170720.png" alt="Markdown"></p><p></p>
 <p><div align="center">一切努力都应该指向现实，给生活带来直接、可触碰的变化<div><br></div></div></p>
 <blockquote>
 <p>本篇是 Java 虚拟机系列的第二篇，主要介绍 Java 虚拟机垃圾回收机制。</p>
@@ -159,8 +159,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.piimg.com/588795/fa2868bfc687952a.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;&gt;一切努力都应
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170720.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;一切
     
     </summary>
     
@@ -178,9 +178,9 @@
     <link href="https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/"/>
     <id>https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/</id>
     <published>2017-07-07T07:27:00.000Z</published>
-    <updated>2017-07-08T04:54:24.941Z</updated>
+    <updated>2017-09-10T09:48:40.143Z</updated>
     
-    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://i4.piimg.com/588795/34f77050f4ca445e.jpg" alt="Markdown"></p><p></p>
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170707.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">生活中的很多烦恼都源于盲目的攀比，而忘了享受自己的生活</div><br></p>
 <blockquote>
 <p>本文是 Android 设计模式的第五篇，接下来会陆续推出整个常用的设计模式系列。<br>本篇主要介绍一下在 Android 开发中无所不在的一种设计模式 – 代理模式。说它无所不在，主要是因为 Android 四大组件的创建和使用均会涉及与 Framework 层进行频繁的 IPC ，而 Binder IPC 模型使用的就是代理模式。</p>
@@ -225,8 +225,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.piimg.com/588795/34f77050f4ca445e.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;&gt;生活中的很多
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170707.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;生活
     
     </summary>
     
@@ -244,9 +244,9 @@
     <link href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/"/>
     <id>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</id>
     <published>2017-07-04T12:39:40.000Z</published>
-    <updated>2017-07-04T14:06:36.886Z</updated>
+    <updated>2017-09-10T09:49:27.909Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i2.kiimg.com/588795/8cb3f10500429125.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170704.jpg" alt="Markdown"></p>
 
 <p align="center">凡事都往好的一面去想，这种习惯比收入千磅还好</p>
 
@@ -275,9 +275,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.kiimg.com/588795/8cb3f10500429125.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170704.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;凡事都往好的一面去想，这种习惯比收入千磅还好&lt;/
+&lt;p align=&quot;center&quot;&gt;凡事都往好的一面去想，这种习惯比收入千磅
     
     </summary>
     
@@ -295,9 +295,9 @@
     <link href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/"/>
     <id>https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/</id>
     <published>2017-07-01T12:43:50.000Z</published>
-    <updated>2017-07-01T13:40:43.899Z</updated>
+    <updated>2017-09-10T09:50:15.115Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i2.kiimg.com/588795/b6f9215228073a9a.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170701.jpg" alt="Markdown"></p>
 
 <p align="center">我们很少想我们已经拥有的，而总是想我们所没有的</p>
 
@@ -323,9 +323,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.kiimg.com/588795/b6f9215228073a9a.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170701.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;我们很少想我们已经拥有的，而总是想我们所没有的&lt;
+&lt;p align=&quot;center&quot;&gt;我们很少想我们已经拥有的，而总是想我们所
     
     </summary>
     
@@ -343,9 +343,9 @@
     <link href="https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/"/>
     <id>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</id>
     <published>2017-06-24T06:24:38.000Z</published>
-    <updated>2017-07-01T12:11:55.261Z</updated>
+    <updated>2017-09-10T09:51:05.876Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.buimg.com/588795/03525bdedcadceeb.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170624.jpg" alt="Markdown"></p>
 
 <p align="center">唯有进入经常失败的未知空间，才能产生创造力</p>
 
@@ -385,9 +385,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.buimg.com/588795/03525bdedcadceeb.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170624.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;唯有进入经常失败的未知空间，才能产生创造力&lt;/p
+&lt;p align=&quot;center&quot;&gt;唯有进入经常失败的未知空间，才能产生创造
     
     </summary>
     
@@ -403,9 +403,9 @@
     <link href="https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/"/>
     <id>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</id>
     <published>2017-06-17T10:45:44.000Z</published>
-    <updated>2017-07-01T12:45:38.537Z</updated>
+    <updated>2017-09-10T09:52:06.704Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.buimg.com/588795/f8159a826beed646.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170617.jpg" alt="Markdown"></p>
 
 <p align="center">放下执着，却又成了新的执着</p>
 
@@ -462,11 +462,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.buimg.com/588795/f8159a826beed646.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170617.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;放下执着，却又成了新的执着&lt;/p&gt;
 
-&lt;bloc
+&lt;
     
     </summary>
     
@@ -484,9 +484,9 @@
     <link href="https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/"/>
     <id>https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/</id>
     <published>2017-06-13T01:34:03.000Z</published>
-    <updated>2017-06-13T03:33:47.571Z</updated>
+    <updated>2017-09-10T09:52:47.862Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/0840277c471983b5.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170613.jpg" alt="Markdown"></p>
 
 <p align="center">从 RxJava 开始拆轮子</p>
 
@@ -558,11 +558,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.muimg.com/588795/0840277c471983b5.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170613.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;从 RxJava 开始拆轮子&lt;/p&gt;
 
-&lt;blo
+
     
     </summary>
     
@@ -594,9 +594,9 @@
     <link href="https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/"/>
     <id>https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/</id>
     <published>2017-06-04T03:17:28.000Z</published>
-    <updated>2017-07-07T07:48:04.434Z</updated>
+    <updated>2017-09-10T09:53:42.049Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/256f9a0144b8b3e7.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170604.jpg" alt="Markdown"></p>
 
 <p align="center">2017 下半年，决定虐自己一把！</p>
 
@@ -638,11 +638,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.buimg.com/588795/256f9a0144b8b3e7.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170604.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;2017 下半年，决定虐自己一把！&lt;/p&gt;
-
-&lt;
+&lt;p align=&quot;center&quot;&gt;2017 下半年，决定虐自己一把！&lt;/p
     
     </summary>
     
@@ -660,9 +658,9 @@
     <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/"/>
     <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</id>
     <published>2017-05-25T07:25:36.000Z</published>
-    <updated>2017-06-08T01:18:46.045Z</updated>
+    <updated>2017-09-10T09:54:20.664Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/9c8514f7c56bb889.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170525.jpg" alt="Markdown"></p>
 
 <p align="center">时刻对新事物保持好奇心</p>
 
@@ -778,11 +776,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.piimg.com/588795/9c8514f7c56bb889.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170525.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;时刻对新事物保持好奇心&lt;/p&gt;
 
-&lt;blockq
+&lt;bl
     
     </summary>
     
@@ -798,9 +796,9 @@
     <link href="https://githubhaohao.github.io/2017/05/15/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/15/Android-设计模式之外观模式/</id>
     <published>2017-05-15T02:05:07.000Z</published>
-    <updated>2017-05-15T03:18:15.488Z</updated>
+    <updated>2017-09-10T09:59:22.120Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/f87081d597c610a1.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170515.jpg" alt="Markdown"></p>
 
 <p align="center">打造个人品牌是现代职业规划的趋势</p>
 
@@ -843,11 +841,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.piimg.com/588795/f87081d597c610a1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170515.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;打造个人品牌是现代职业规划的趋势&lt;/p&gt;
-
-&lt;b
     
     </summary>
     
@@ -865,9 +861,9 @@
     <link href="https://githubhaohao.github.io/2017/05/13/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B-Builder-%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/13/Android-设计模式之-Builder-模式/</id>
     <published>2017-05-13T05:28:00.000Z</published>
-    <updated>2017-05-13T08:56:06.815Z</updated>
+    <updated>2017-09-10T10:00:03.117Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/85663beb3ea340b0.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170513.jpg" alt="Markdown"></p>
 
 <p align="center">平坦的路往往只能带你到平凡的地方</p>
 
@@ -914,11 +910,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.piimg.com/588795/85663beb3ea340b0.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170513.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;平坦的路往往只能带你到平凡的地方&lt;/p&gt;
-
-&lt;b
     
     </summary>
     
@@ -936,9 +930,9 @@
     <link href="https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/06/Android-设计模式之单例模式/</id>
     <published>2017-05-06T05:53:52.000Z</published>
-    <updated>2017-05-13T08:09:15.382Z</updated>
+    <updated>2017-09-10T10:00:41.096Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/9d67959bff9222b9.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170506.jpg" alt="Markdown"></p>
 
 <p align="center">时刻尝试走出舒适区</p>
 
@@ -980,12 +974,12 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.buimg.com/588795/9d67959bff9222b9.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170506.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;时刻尝试走出舒适区&lt;/p&gt;
 
 
-&lt;blockqu
+&lt;blo
     
     </summary>
     
@@ -1003,9 +997,9 @@
     <link href="https://githubhaohao.github.io/2017/04/27/Android-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/04/27/Android-进程间通信方式/</id>
     <published>2017-04-27T11:05:29.000Z</published>
-    <updated>2017-05-06T09:13:23.781Z</updated>
+    <updated>2017-09-10T10:01:08.665Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/ecd70e1824f1dc35.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170427.jpg" alt="Markdown"></p>
 
 <p align="center">做好眼前的事，保持专注</p>
 
@@ -1091,11 +1085,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.buimg.com/588795/ecd70e1824f1dc35.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170427.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;做好眼前的事，保持专注&lt;/p&gt;
 
-&lt;blockq
+&lt;bl
     
     </summary>
     
@@ -1113,9 +1107,9 @@
     <link href="https://githubhaohao.github.io/2017/04/22/Android-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/04/22/Android-多线程实现方式/</id>
     <published>2017-04-22T08:04:55.000Z</published>
-    <updated>2017-05-11T12:54:31.208Z</updated>
+    <updated>2017-09-10T10:01:37.216Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170422.jpg" alt="Markdown"></p>
 
 <p align="center">只为初心</p>
 
@@ -1209,12 +1203,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.muimg.com/588795/ed7dfa64d5e57628.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170422.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;只为初心&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;
+&lt;blockquot
     
     </summary>
     
@@ -1232,9 +1225,9 @@
     <link href="https://githubhaohao.github.io/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/"/>
     <id>https://githubhaohao.github.io/2017/04/15/Android-Clean-架构浅析/</id>
     <published>2017-04-15T13:07:34.000Z</published>
-    <updated>2017-07-13T12:28:35.379Z</updated>
+    <updated>2017-09-10T10:02:36.531Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i1.piimg.com/588795/f96da96df4251851.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170415.jpg" alt="Cover"></p>
 
 <p align="center">死磕 Android 架构也是一种娱乐</p>
 
@@ -1284,11 +1277,9 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i1.piimg.com/588795/f96da96df4251851.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170415.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;死磕 Android 架构也是一种娱乐&lt;/p&gt;
-
-&lt;b
     
     </summary>
     
@@ -1306,9 +1297,9 @@
     <link href="https://githubhaohao.github.io/2017/04/13/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>https://githubhaohao.github.io/2017/04/13/RecyclerView-加载与刷新功能实现/</id>
     <published>2017-04-13T10:30:00.000Z</published>
-    <updated>2017-05-13T08:13:56.687Z</updated>
+    <updated>2017-09-10T10:03:02.829Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i2.muimg.com/588795/9485f3b972f5ed01.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170413.jpg" alt="Cover"></p>
 
 <p align="center">坚持就是进步</p>
 
@@ -1332,12 +1323,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i2.muimg.com/588795/9485f3b972f5ed01.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170413.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;坚持就是进步&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p
+&lt;blockquote
     
     </summary>
     
@@ -1355,9 +1345,9 @@
     <link href="https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/"/>
     <id>https://githubhaohao.github.io/2017/04/01/Android-jar-与-aar/</id>
     <published>2017-04-01T04:43:26.000Z</published>
-    <updated>2017-05-13T08:10:16.571Z</updated>
+    <updated>2017-09-10T10:04:00.799Z</updated>
     
-    <content type="html"><![CDATA[<p align="center"><img src="http://i4.buimg.com/588795/1372239da58c943a.jpg" alt="Cover"></p>
+    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170401.jpg" alt="Cover"></p>
 
 <p align="center">愚人节不愚人</p>
 
@@ -1389,12 +1379,11 @@
     
     <summary type="html">
     
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://i4.buimg.com/588795/1372239da58c943a.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
+      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170401.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;愚人节不愚人&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p
+&lt;blockquote
     
     </summary>
     
