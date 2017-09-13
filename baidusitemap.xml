@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
+    <lastmod>2017-09-13T01:57:41.856Z</lastmod>
+    <data>
+        <display>
+        <title>Java 线程的七种状态</title>
+        <pubTime>2017-07-21T02:54:16.000Z</pubTime>
+        
+        <tag>线程状态</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/</loc>
     <lastmod>2017-09-10T10:05:43.879Z</lastmod>
     <data>
@@ -398,29 +421,6 @@
            
              
               <breadCrumb title="JVM" url="https://githubhaohao.github.io/categories/JVM/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
-    <lastmod>2017-09-10T09:44:28.762Z</lastmod>
-    <data>
-        <display>
-        <title>Java 线程的七种状态</title>
-        <pubTime>2017-07-21T02:54:16.000Z</pubTime>
-        
-        <tag>线程状态</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="线程" url="https://githubhaohao.github.io/categories/Android/%E7%BA%BF%E7%A8%8B/"/>
           
         </display>
     </data>

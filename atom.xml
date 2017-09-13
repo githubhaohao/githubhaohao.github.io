@@ -66,14 +66,14 @@
     <link href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
     <id>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</id>
     <published>2017-07-21T02:54:16.000Z</published>
-    <updated>2017-09-10T09:44:28.762Z</updated>
+    <updated>2017-09-13T01:57:41.856Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170721.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
 <blockquote>
 <p>本篇感性地介绍一下 Java 线程的七种状态以及状态之间的转换</p>
 </blockquote>
-<h1 id="Java-线程状态转换图"><a href="#Java-线程状态转换图" class="headerlink" title="Java 线程状态转换图"></a>Java 线程状态转换图</h1><p></p><p align="center"><img src="http://i1.buimg.com/588795/9b63465fe1dfa0dd.png" alt="Markdown"></p><p></p>
+<h1 id="Java-线程状态转换图"><a href="#Java-线程状态转换图" class="headerlink" title="Java 线程状态转换图"></a>Java 线程状态转换图</h1><p></p><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/java-thread-state.png" alt="Markdown"></p><p></p>
 <p><div align="center">Java 线程状态转换图</div><br></p>
 <h1 id="Java-线程状态"><a href="#Java-线程状态" class="headerlink" title="Java 线程状态"></a>Java 线程状态</h1><p>在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（Waiting），限期等待（Timed Waiting），阻塞（Blocked），结束（Terminated）。</p>
 <h2 id="新建（New）状态"><a href="#新建（New）状态" class="headerlink" title="新建（New）状态"></a>新建（New）状态</h2><p>新创建一个线程对象，尚未执行。</p>

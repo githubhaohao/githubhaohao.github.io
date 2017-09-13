@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
+    
+    <lastmod>2017-09-13T01:57:41.856Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/03/01/Android-%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8B-Activity/</loc>
     
     <lastmod>2017-09-10T10:05:43.879Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
     
     <lastmod>2017-09-10T09:48:04.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
-    
-    <lastmod>2017-09-10T09:44:28.762Z</lastmod>
     
   </url>
   
