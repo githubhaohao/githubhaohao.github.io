@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</loc>
-    <lastmod>2017-09-13T01:57:41.856Z</lastmod>
+    <lastmod>2017-09-16T01:09:24.138Z</lastmod>
     <data>
         <display>
         <title>Java 线程的七种状态</title>
@@ -455,13 +455,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
+        <tag>RxJava</tag>
+         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          

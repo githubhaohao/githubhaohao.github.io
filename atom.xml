@@ -66,7 +66,7 @@
     <link href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
     <id>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</id>
     <published>2017-07-21T02:54:16.000Z</published>
-    <updated>2017-09-13T01:57:41.856Z</updated>
+    <updated>2017-09-16T01:09:24.138Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170721.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
@@ -77,9 +77,9 @@
 <p><div align="center">Java 线程状态转换图</div><br></p>
 <h1 id="Java-线程状态"><a href="#Java-线程状态" class="headerlink" title="Java 线程状态"></a>Java 线程状态</h1><p>在 Java 线程的生命周期中，按复杂的并发场景考虑，可将 Java 线程的状态分为七种，分别是：新建（New），可运行（Runnable 或 Ready），运行（Running），无限期等待（Waiting），限期等待（Timed Waiting），阻塞（Blocked），结束（Terminated）。</p>
 <h2 id="新建（New）状态"><a href="#新建（New）状态" class="headerlink" title="新建（New）状态"></a>新建（New）状态</h2><p>新创建一个线程对象，尚未执行。</p>
-<h2 id="可运行（Runnable-或-Ready）状态"><a href="#可运行（Runnable-或-Ready）状态" class="headerlink" title="可运行（Runnable 或 Ready）状态"></a>可运行（Runnable 或 Ready）状态</h2><p>新创建的线程调用 start 方法后便处于 Runnable 状态，刚刚结束等待（获取到锁）或阻塞状态的线程也会处于 Runnable 状态，处于该状态的线程位于可运行线程池中，等待获取 CPU 资源。</p>
+<h2 id="可运行（Runnable-或-Ready）状态"><a href="#可运行（Runnable-或-Ready）状态" class="headerlink" title="可运行（Runnable 或 Ready）状态"></a>可运行（Runnable 或 Ready）状态</h2><p>新创建的线程调用 start 方法后便处于 Runnable 状态，刚刚结束等待（获取到锁）或刚结束阻塞状态的线程也会处于 Runnable 状态，处于该状态的线程位于可运行线程池中，等待获取 CPU 资源。</p>
 <h2 id="运行（Running）状态"><a href="#运行（Running）状态" class="headerlink" title="运行（Running）状态"></a>运行（Running）状态</h2><p>处于 Runnable 状态的线程获取到 CPU 资源，执行程序代码。</p>
-<h2 id="无限期等待（Waiting）状态"><a href="#无限期等待（Waiting）状态" class="headerlink" title="无限期等待（Waiting）状态"></a>无限期等待（Waiting）状态</h2><p>synchronized 代码块内被锁住的对象调用了它的 wait() 方法或者在当前线程中调用了其他线程的 join() 方法，那么当前线程将会释放占有的锁，释放 CPU 资源，阻塞在等待队列里面，一直等待被 synchronized 修饰的对象调用 notify() 或 notifyAll() 方法唤醒或者 join 的其他线程执行结束（异常退出）。在并发时，处于无限期等待状态的线程被唤醒之后，还要去竞争对象的锁，如果竞争不到，线程将会被阻塞在对象的锁池中，竞争到锁之后，线程将会处于 Runnable 状态。</p>
+<h2 id="无限期等待（Waiting）状态"><a href="#无限期等待（Waiting）状态" class="headerlink" title="无限期等待（Waiting）状态"></a>无限期等待（Waiting）状态</h2><p>synchronized 代码块内被锁住的对象调用了它的 wait() 方法或者在当前线程中调用了其他线程的 join() 方法，那么当前线程将会释放占有的锁，<strong>释放 CPU 资源，阻塞在等待队列里面</strong>，一直等待被 synchronized 修饰的对象调用 notify() 或 notifyAll() 方法唤醒或者 join 的其他线程执行结束（异常退出）。在并发时，处于无限期等待状态的线程被唤醒之后，还要去竞争对象的锁，如果竞争不到，线程将会被阻塞在对象的锁池中，竞争到锁之后，线程将会处于 Runnable 状态。</p>
 <h2 id="限期等待（Timed-Waiting）状态"><a href="#限期等待（Timed-Waiting）状态" class="headerlink" title="限期等待（Timed Waiting）状态"></a>限期等待（Timed Waiting）状态</h2><p>与无限期等待（Waiting）状态不同之处在于，调用 wait 和 join 方法时传入了等待限定时间。另外，线程调用 sleep() 方法也会处于限期等待（Timed Waiting）状态，<strong>会释放 CPU 资源，但并不会释放锁</strong>，一直到休眠结束变成 Runnable 状态。</p>
 <h2 id="阻塞（Blocked）状态"><a href="#阻塞（Blocked）状态" class="headerlink" title="阻塞（Blocked）状态"></a>阻塞（Blocked）状态</h2><p>线程程序执行到 synchronized 代码块或 Reentrant.lock() 方法，对象的锁被其他线程占用时，当前线程将会被阻塞在对象的锁池中，处于阻塞（Blocked）状态。</p>
 <h2 id="结束（Terminated）状态"><a href="#结束（Terminated）状态" class="headerlink" title="结束（Terminated）状态"></a>结束（Terminated）状态</h2><p>线程 run 方法执行完毕或者异常退出，则该线程的生命周期终结，不能再次使用。</p>
