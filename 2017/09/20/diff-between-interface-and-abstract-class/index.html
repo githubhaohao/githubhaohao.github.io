@@ -95,7 +95,7 @@
 
 本篇从 8 个方面介绍一下，接口与抽象类的区别。
 
-抽象接口与抽象类具备抽象多类对象相同属性特征的功能，均可作为一种规范。
+抽象接口与抽象类具备抽象多类对象相同属性特征的特点，均可作为一种规范。
 属性（成员变量）抽象类中的成员变量与普通的 Java 类声明一样；接口中的成员变量只能是 public static final 类型的。
 方法实现抽象类可以有方法实现，也可以用 abst">
 <meta property="og:type" content="article">
@@ -106,18 +106,18 @@
 
 本篇从 8 个方面介绍一下，接口与抽象类的区别。
 
-抽象接口与抽象类具备抽象多类对象相同属性特征的功能，均可作为一种规范。
+抽象接口与抽象类具备抽象多类对象相同属性特征的特点，均可作为一种规范。
 属性（成员变量）抽象类中的成员变量与普通的 Java 类声明一样；接口中的成员变量只能是 public static final 类型的。
 方法实现抽象类可以有方法实现，也可以用 abst">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20170919.jpg">
-<meta property="og:updated_time" content="2017-09-20T02:30:00.810Z">
+<meta property="og:updated_time" content="2017-09-20T02:32:11.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="接口与抽象类的区别（Java 7版本）">
 <meta name="twitter:description" content="你看起来像什么地位，你就是什么地位，互联网时代也是一个看颜的时代，虽无奈，但是事实
 
 本篇从 8 个方面介绍一下，接口与抽象类的区别。
 
-抽象接口与抽象类具备抽象多类对象相同属性特征的功能，均可作为一种规范。
+抽象接口与抽象类具备抽象多类对象相同属性特征的特点，均可作为一种规范。
 属性（成员变量）抽象类中的成员变量与普通的 Java 类声明一样；接口中的成员变量只能是 public static final 类型的。
 方法实现抽象类可以有方法实现，也可以用 abst">
 <meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20170919.jpg">
@@ -439,13 +439,13 @@
 <blockquote>
 <p>本篇从 8 个方面介绍一下，接口与抽象类的区别。</p>
 </blockquote>
-<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p>接口与抽象类具备抽象多类对象相同属性特征的功能，均可作为一种规范。</p>
-<h2 id="属性（成员变量）"><a href="#属性（成员变量）" class="headerlink" title="属性（成员变量）"></a>属性（成员变量）</h2><p>抽象类中的成员变量与普通的 Java 类声明一样；<br>接口中的成员变量只能是 public static final 类型的。</p>
+<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p>接口与抽象类具备抽象多类对象相同属性特征的特点，均可作为一种规范。</p>
+<h2 id="属性（成员变量）"><a href="#属性（成员变量）" class="headerlink" title="属性（成员变量）"></a>属性（成员变量）</h2><p>抽象类中的成员变量与普通的 Java 类声明一样；<br>接口中的成员变量<strong>只能是</strong> public static final 类型的。</p>
 <h2 id="方法实现"><a href="#方法实现" class="headerlink" title="方法实现"></a>方法实现</h2><p>抽象类可以有方法实现，也可以用 abstract 关键字将其抽象化；<br>接口不存在方法实现，所有的方法均为 public 抽象方法。</p>
 <h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>抽象类有构造函数，但不能实例化，除了不能实例化之外，与普通的 Java 类没有区别；<br>接口没有实例化的概念，无构造函数。</p>
 <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>抽象类只能有一个父类，但可以实现多个接口；<br>一个接口可以继承多个接口。</p>
 <h2 id="子类实现"><a href="#子类实现" class="headerlink" title="子类实现"></a>子类实现</h2><p>子类通过 extends 关键字来继承抽象类，如果子类不是抽象类的话，它需要提供抽象类中所有抽象方法的实现；<br>子类通过 implements 关键字来实现接口，需要提供接口中所有声明方法的实现。</p>
-<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>抽象类中抽象方法可以有 public、 protected 和 default 这些修饰符；<br>接口方法默认修饰符是 public ，不可以使用其它修饰符。</p>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>抽象类中抽象方法可以有 public、 protected 和 default 这些修饰符；<br>接口方法默认修饰符是 public ，<strong>不可以使用其它修饰符</strong>。</p>
 <h2 id="访问速度"><a href="#访问速度" class="headerlink" title="访问速度"></a>访问速度</h2><p>同等条件下，对抽象类方法的访问速度快于接口，接口需要花时间寻找类中实现的方法。</p>
 
 		﻿<div> 
