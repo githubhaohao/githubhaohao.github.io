@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-09-09T06:13:19.335Z</updated>
+  <updated>2017-09-20T02:30:00.810Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接口与抽象类的区别（Java 7版本）</title>
+    <link href="https://githubhaohao.github.io/2017/09/20/diff-between-interface-and-abstract-class/"/>
+    <id>https://githubhaohao.github.io/2017/09/20/diff-between-interface-and-abstract-class/</id>
+    <published>2017-09-20T02:15:31.000Z</published>
+    <updated>2017-09-20T02:30:00.810Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170919.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">你看起来像什么地位，你就是什么地位，互联网时代也是一个看颜的时代，虽无奈，但是事实</div><br></p>
+<blockquote>
+<p>本篇从 8 个方面介绍一下，接口与抽象类的区别。</p>
+</blockquote>
+<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p>接口与抽象类具备抽象多类对象相同属性特征的功能，均可作为一种规范。</p>
+<h2 id="属性（成员变量）"><a href="#属性（成员变量）" class="headerlink" title="属性（成员变量）"></a>属性（成员变量）</h2><p>抽象类中的成员变量与普通的 Java 类声明一样；<br>接口中的成员变量只能是 public static final 类型的。</p>
+<h2 id="方法实现"><a href="#方法实现" class="headerlink" title="方法实现"></a>方法实现</h2><p>抽象类可以有方法实现，也可以用 abstract 关键字将其抽象化；<br>接口不存在方法实现，所有的方法均为 public 抽象方法。</p>
+<h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>抽象类有构造函数，但不能实例化，除了不能实例化之外，与普通的 Java 类没有区别；<br>接口没有实例化的概念，无构造函数。</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>抽象类只能有一个父类，但可以实现多个接口；<br>一个接口可以继承多个接口。</p>
+<h2 id="子类实现"><a href="#子类实现" class="headerlink" title="子类实现"></a>子类实现</h2><p>子类通过 extends 关键字来继承抽象类，如果子类不是抽象类的话，它需要提供抽象类中所有抽象方法的实现；<br>子类通过 implements 关键字来实现接口，需要提供接口中所有声明方法的实现。</p>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>抽象类中抽象方法可以有 public、 protected 和 default 这些修饰符；<br>接口方法默认修饰符是 public ，不可以使用其它修饰符。</p>
+<h2 id="访问速度"><a href="#访问速度" class="headerlink" title="访问速度"></a>访问速度</h2><p>同等条件下，对抽象类方法的访问速度快于接口，接口需要花时间寻找类中实现的方法。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170919.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;你看
+    
+    </summary>
+    
+      <category term="Java 基础" scheme="https://githubhaohao.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="抽象类" scheme="https://githubhaohao.github.io/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>2017 下半年学习规划</title>
@@ -1337,60 +1373,6 @@
     
     
       <category term="RecyclerView 加载与刷新" scheme="https://githubhaohao.github.io/tags/RecyclerView-%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%88%B7%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android jar 与 aar</title>
-    <link href="https://githubhaohao.github.io/2017/04/01/Android-jar-%E4%B8%8E-aar/"/>
-    <id>https://githubhaohao.github.io/2017/04/01/Android-jar-与-aar/</id>
-    <published>2017-04-01T04:43:26.000Z</published>
-    <updated>2017-09-10T10:04:00.799Z</updated>
-    
-    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170401.jpg" alt="Cover"></p>
-
-<p align="center">愚人节不愚人</p>
-
-<blockquote>
-<p>最近开始搞机器学习，同时项目也不停的维护着！嘿嘿，明天就是小长假了。</p>
-</blockquote>
-<h2 id="Android-jar-与-aar"><a href="#Android-jar-与-aar" class="headerlink" title="Android jar 与 aar"></a>Android jar 与 aar</h2><p><strong>jar</strong> (<strong>Java Application Resource</strong>) 是一种归档文件，以 ZIP 格式构建，以 .jar 为文件扩展名。用户可以使用JDK自带的 jar 命令创建或提取 JAR 文件。<strong>jar 文件只包含 class 文件和 配置文件。</strong></p>
-<p><strong>aar</strong> (<strong>Android Application Resource</strong>) 是 android 中特有的归档文件，<strong>既包含 class 文件也包含 android 的 res 资源文件</strong>。</p>
-<h2 id="Android-Studio-生成-jar-和-aar-文件"><a href="#Android-Studio-生成-jar-和-aar-文件" class="headerlink" title="Android Studio 生成 jar 和 aar 文件"></a>Android Studio 生成 jar 和 aar 文件</h2><h3 id="新建一个-Module"><a href="#新建一个-Module" class="headerlink" title="新建一个 Module"></a>新建一个 Module</h3><p>Android studio 菜单<strong> File -&gt; New -&gt; New Module -&gt; Android Module</strong> 。<br><img src="http://i4.buimg.com/588795/339c66823e3c881b.png" alt="new module"> </p>
-<p>创建名为 mylibrary 的 module。</p>
-<p><img src="http://i2.muimg.com/588795/afacc81c2031edea.png" alt="module"></p>
-<p>在 mylibrary 下新建一个类 <strong>Person</strong> ,等会在 app module 下访问它。</p>
-<p><img src="http://i4.buimg.com/588795/71501892d1d08bd4.png" alt="person"></p>
-<h3 id="生成-jar-和-aar-文件"><a href="#生成-jar-和-aar-文件" class="headerlink" title="生成 jar 和 aar 文件"></a>生成 jar 和 aar 文件</h3><p>直接 Rebuild 或者运行 mylibrary task 如下图：<br><img src="http://i4.buimg.com/588795/88c5a8a24aca2790.png" alt="task"></p>
-<p>Build Successful 之后可在下图的目录下找到 jar 和 arr 文件。<br><img src="http://i2.muimg.com/588795/76e1e131b84d17ec.png" alt="file"></p>
-<p><img src="http://i2.muimg.com/588795/951d7279602acaad.png" alt="aar"></p>
-<h3 id="引入-jar"><a href="#引入-jar" class="headerlink" title="引入 jar"></a>引入 jar</h3><ul>
-<li>将 jar 文件拷贝到 app 的 lib 文件夹下；</li>
-<li>右击 jar 文件，选择 <strong>Add As Library</strong> ，添加到 app module 下，然后 Android Studio 会自动编译。</li>
-</ul>
-<h3 id="引入-aar"><a href="#引入-aar" class="headerlink" title="引入 aar"></a>引入 aar</h3><ul>
-<li>将 aar 文件拷贝到 app 的 lib 文件夹下 (可以修改 aar 文件名字，本例中修改为 mylibrary )；</li>
-<li>修改 build.gradle 配置文件：<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  ......</div><div class="line">  <span class="keyword">repositories</span> &#123;</div><div class="line">     <span class="keyword">flatDir</span> &#123;</div><div class="line">         dirs <span class="string">'libs'</span></div><div class="line">     &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    ......</div><div class="line">    <span class="keyword">compile</span>(name: <span class="string">'mylibrary'</span>, ext: <span class="string">'aar'</span>)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>Async Project 大工告成。</p>
-<p>同样，你也可以在其他工程中引入 jar 或 aar 文件。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170401.jpg&quot; alt=&quot;Cover&quot;&gt;&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;愚人节不愚人&lt;/p&gt;
-
-&lt;blockquote
-    
-    </summary>
-    
-      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
-    
-    
-      <category term="jar aar" scheme="https://githubhaohao.github.io/tags/jar-aar/"/>
     
   </entry>
   
