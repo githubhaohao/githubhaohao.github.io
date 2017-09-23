@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/09/23/from-url-to-page-displaying/</loc>
+    <lastmod>2017-09-23T08:19:23.587Z</lastmod>
+    <data>
+        <display>
+        <title>浏览器从输入 Url 到展示出页面都经历了哪些过程</title>
+        <pubTime>2017-09-23T08:09:25.000Z</pubTime>
+        
+        <tag>网络请求</tag>
+         
+         
+           
+             
+              <breadCrumb title="计算机网络基础" url="https://githubhaohao.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/09/20/diff-between-interface-and-abstract-class/</loc>
     <lastmod>2017-09-20T02:32:11.036Z</lastmod>
     <data>
