@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20170923.jpg">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/dns.jpg">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/tcp.jpg">
-<meta property="og:updated_time" content="2017-09-23T08:19:23.587Z">
+<meta property="og:updated_time" content="2017-09-23T08:25:31.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器从输入 Url 到展示出页面都经历了哪些过程">
 <meta name="twitter:description" content="当你想完全准备好再做一件事的时候，不如先做起来，边做边准备&amp;gt; 本篇简单介绍一下，浏览器从输入 Url 到展示出页面都经历了哪些过程。## 输入域名在浏览器输入网址时，浏览器会根据历史记录、书签智能匹配补全域名或者 url 。例如 chrome 浏览器，甚至会根据匹配结果直接把网页加载出来。## 解析域名请求发起时，浏览器首先解析域名，一般会首先查看本地的 hosts 文件，查找相关域名与">
@@ -419,7 +419,21 @@
 
       
         <p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170923.jpg" alt="Markdown"></p><p></p>
-<div align="center">当你想完全准备好再做一件事的时候，不如先做起来，边做边准备</div><br><br><br>&gt; 本篇简单介绍一下，浏览器从输入 Url 到展示出页面都经历了哪些过程。<br><br>## 输入域名<br>在浏览器输入网址时，浏览器会根据历史记录、书签智能匹配补全域名或者 url 。<br>例如 chrome 浏览器，甚至会根据匹配结果直接把网页加载出来。<br>## 解析域名<br>请求发起时，浏览器首先解析域名，一般会首先查看本地的 hosts 文件，查找相关域名与 ip 地址的对应规则，若查找到的话，就直接使用 hosts 文件里面的 ip 地址。<br><br>若在本地 hosts 文件中，未找到目标域名与 ip 地址的对应关系，浏览器便会向本地 DNS 服务器发起一个 DNS 请求，本地 DNS 服务器收到请求之后，便会查询其缓存记录，若查询到此记录便直接返回结果。<br><br>若本地 DNS 服务器缓存中未查询到相关记录，便向 DNS 根服务器进行查询，根 DNS 服务器没有记录具体的域名与 ip 地址的映射关系，而是返回域服务器的地址。<br><br>本地 DNS 继续向域服务器发起请求，域服务器收到请求之后，返回域名解析服务器的地址。最后本地 DNS 服务器向域名解析服务器发送请求，域名解析服务器收到请求之后，返回域名与 ip 映射关系信息，然后本地 DNS 服务器将映射信息保存到其缓存中，同时也将 ip 地址返回给用户电脑。<br><br><img src="http://ow23qx875.bkt.clouddn.com/dns.jpg" alt="dns"><br><div align="center">图片来自网络</div><br>## 浏览器发起 http 请求<br>浏览器获取到域名对应的 ip 地址之后，便会以一个随机端口（1024&lt; port &lt; 65535）向服务端 web 程序 80 端口发起 TCP 连接请求。<br><br>浏览器与服务端经过 3 次 TCP 握手之后，建立 TCP 连接，然后浏览器发起一个 http 请求。一般的浏览器只能发起 GET 或者 POST 请求。<br><br>请求信格式包含四个部分：<br>1. 请求行（请求方法 URI 协议/版本）<br>2. 请求头(缓存、客户端身份信息等)<br>3. 空行<br>3. 消息体<br><br>http 请求格式示例：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GET <span class="regexp">/index.html HTTP/</span><span class="number">1.1</span></div><div class="line">Cache-<span class="string">Control:</span>max-age=<span class="number">0</span></div><div class="line"><span class="string">Cookie:</span>gsScrollPos=; _ga=GA1<span class="number">.2</span><span class="number">.329038035</span><span class="number">.1465891024</span>; _gat=<span class="number">1</span></div><div class="line">If-Modified-<span class="string">Since:</span>Sun, <span class="number">01</span> May <span class="number">2016</span> <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span> GMT</div><div class="line">User-<span class="string">Agent:</span>Mozilla<span class="regexp">/5.0 (Windows NT 10.0; WOW64) AppleWebKit/</span><span class="number">537.36</span> (KHTML, like Gecko) Chrome<span class="regexp">/51.0.2704.84 Safari/</span><span class="number">537.36</span></div><div class="line"></div><div class="line"><span class="comment">//消息体</span></div></pre></td></tr></table></figure><br><br>PS：<br>常用的请求方法有 GET/POST/DELETE/PUT/HEAD 。<br><br><img src="http://ow23qx875.bkt.clouddn.com/tcp.jpg" alt="tcp"><br><div align="center">三次握手四次挥手示意图</div>
+<div align="center">当你想完全准备好再做一件事的时候，不如先做起来，边做边准备</div><br><br><br>&gt; 本篇简单介绍一下，浏览器从输入 Url 到展示出页面都经历了哪些过程。<br><br>## 输入域名<br><br>在浏览器输入网址时，浏览器会根据历史记录、书签智能匹配补全域名或者 url 。<br>例如 chrome 浏览器，甚至会根据匹配结果直接把网页加载出来。<br><br>## 解析域名<br>请求发起时，浏览器首先解析域名，一般会首先查看本地的 hosts 文件，查找相关域名与 ip 地址的对应规则，若查找到的话，就直接使用 hosts 文件里面的 ip 地址。<br><br>若在本地 hosts 文件中，未找到目标域名与 ip 地址的对应关系，浏览器便会向本地 DNS 服务器发起一个 DNS 请求，本地 DNS 服务器收到请求之后，便会查询其缓存记录，若查询到此记录便直接返回结果。<br><br>若本地 DNS 服务器缓存中未查询到相关记录，便向 DNS 根服务器进行查询，根 DNS 服务器没有记录具体的域名与 ip 地址的映射关系，而是返回域服务器的地址。<br><br>本地 DNS 继续向域服务器发起请求，域服务器收到请求之后，返回域名解析服务器的地址。最后本地 DNS 服务器向域名解析服务器发送请求，域名解析服务器收到请求之后，返回域名与 ip 映射关系信息，然后本地 DNS 服务器将映射信息保存到其缓存中，同时也将 ip 地址返回给用户电脑。<br><br><img src="http://ow23qx875.bkt.clouddn.com/dns.jpg" alt="dns"><br><div align="center">图片来自网络</div>
+
+<h2 id="浏览器发起-http-请求"><a href="#浏览器发起-http-请求" class="headerlink" title="浏览器发起 http 请求"></a>浏览器发起 http 请求</h2><p>浏览器获取到域名对应的 ip 地址之后，便会以一个随机端口（1024&lt; port &lt; 65535）向服务端 web 程序 80 端口发起 TCP 连接请求。</p>
+<p>浏览器与服务端经过 3 次 TCP 握手之后，建立 TCP 连接，然后浏览器发起一个 http 请求。一般的浏览器只能发起 GET 或者 POST 请求。</p>
+<p>请求信格式包含四个部分：</p>
+<ol>
+<li><strong>请求行（请求方法 URI 协议/版本）</strong></li>
+<li><strong>请求头(缓存、客户端身份信息等)</strong></li>
+<li><strong>空行</strong></li>
+<li><strong>消息体</strong></li>
+</ol>
+<p>http 请求格式示例：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GET <span class="regexp">/index.html HTTP/</span><span class="number">1.1</span></div><div class="line">Cache-<span class="string">Control:</span>max-age=<span class="number">0</span></div><div class="line"><span class="string">Cookie:</span>gsScrollPos=; _ga=GA1<span class="number">.2</span><span class="number">.329038035</span><span class="number">.1465891024</span>; _gat=<span class="number">1</span></div><div class="line">If-Modified-<span class="string">Since:</span>Sun, <span class="number">01</span> May <span class="number">2016</span> <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span> GMT</div><div class="line">User-<span class="string">Agent:</span>Mozilla<span class="regexp">/5.0 (Windows NT 10.0; WOW64) AppleWebKit/</span><span class="number">537.36</span> (KHTML, like Gecko) Chrome<span class="regexp">/51.0.2704.84 Safari/</span><span class="number">537.36</span></div><div class="line"></div><div class="line"><span class="comment">//消息体</span></div></pre></td></tr></table></figure></p>
+<p>PS：<br>常用的请求方法有 GET/POST/DELETE/PUT/HEAD 。</p>
+<p><img src="http://ow23qx875.bkt.clouddn.com/tcp.jpg" alt="tcp"></p>
+<div align="center">三次握手四次挥手示意图</div>
 
 <p>TCP 三次握手的目的是：<strong>为了防止已经失效的连接请求报文发送到服务端，服务端因而产生不必要的响应开销</strong>。</p>
 <blockquote>
@@ -690,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器返回-http-响应"><span class="nav-number">1.</span> <span class="nav-text">服务器返回 http 响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器处理响应"><span class="nav-number">2.</span> <span class="nav-text">浏览器处理响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器发起-http-请求"><span class="nav-number">1.</span> <span class="nav-text">浏览器发起 http 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器返回-http-响应"><span class="nav-number">2.</span> <span class="nav-text">服务器返回 http 响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器处理响应"><span class="nav-number">3.</span> <span class="nav-text">浏览器处理响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
