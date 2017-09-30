@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-09-30T08:09:29.407Z</updated>
+  <updated>2017-09-30T08:13:06.838Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/"/>
     <id>https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/</id>
     <published>2017-09-30T07:33:45.000Z</published>
-    <updated>2017-09-30T08:09:29.407Z</updated>
+    <updated>2017-09-30T08:13:06.838Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170930.jpg" alt="Markdown"></p><p></p>
-<p><div align="center">你看起来像什么地位，你就是什么地位，互联网时代也是一个看颜的时代，虽无奈，但是事实</div><br></p>
+<p><div align="center">教育的目的从来都是精神的独立而不是给予苦头，除非有人不希望看到你太“自在”，需要通过制度展示权力的威严</div><br></p>
 <hr>
 <blockquote>
 <p>本篇从特征角度介绍一下，Socket、 Socket.io、 Websocket、 HTTP 之间的区别。</p>
@@ -49,7 +49,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170930.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;&gt;你看
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;教育
     
     </summary>
     
