@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-09-30T08:13:06.838Z</updated>
+  <updated>2017-09-30T08:27:24.352Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/"/>
     <id>https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/</id>
     <published>2017-09-30T07:33:45.000Z</published>
-    <updated>2017-09-30T08:13:06.838Z</updated>
+    <updated>2017-09-30T08:27:24.352Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170930.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">教育的目的从来都是精神的独立而不是给予苦头，除非有人不希望看到你太“自在”，需要通过制度展示权力的威严</div><br></p>
@@ -32,13 +32,7 @@
 <p>Socket 是操作系统提供的<strong>对于传输层（TCP / UDP）抽象的接口</strong>，是一个<strong>编程概念</strong>，而 Websocket 、Socket.io 与 HTTP 一样是一个<strong>成文的互联网协议</strong>。另外，Websocket 和 HTTP 都是基于 TCP 传输数据，Socket.io 可以看作是对 Websocket 和 HTTP 的又一次封装。</p>
 <p><img src="http://ox31eiczv.bkt.clouddn.com/http.png" alt="http"></p>
 <p>HTTP 是基于请求响应式的，即通信只能由客户端发起，服务端做出响应，无状态，无连接。<br><strong>无状态</strong>：每次连接只处理一个请求，请求结束后断开连接。<br><strong>无连接</strong>：对于事务处理没有记忆能力，服务器不知道客户端是什么状态。</p>
-<p>以往实现即时通讯的手段：</p>
-<ul>
-<li>轮询：客户端定时向服务器发送 Ajax 请求，服务器接到请求后马上返回响应信息并关闭连接。</li>
-<li>长轮询：客户端向服务器发送 Ajax 请求，<strong>服务器接到请求后 hold 住连接</strong>，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。</li>
-<li>长连接：在页面里嵌入一个隐蔵 iframe，将这个隐蔵 iframe 的 src 属性设为对一个长连接的请求，服务器端就能源源不断地往客户端输入数据。</li>
-<li>Flash Socket：在页面中内嵌入一个使用了 Socket 类的 Flash 程序 JavaScript 通过调用此 Flash 程序提供的 Socket 接口与服务器端的 Socket 接口进行通信，JavaScript 在收到服务器端传送的信息后控制页面的显示。</li>
-</ul>
+<p>以往实现即时通讯的手段：<br>轮询：客户端定时向服务器发送 Ajax 请求，服务器接到请求后马上返回响应信息并关闭连接。<br>长轮询：客户端向服务器发送 Ajax 请求，<strong>服务器接到请求后 hold 住连接</strong>，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。<br>长连接：在页面里嵌入一个隐蔵 iframe，将这个隐蔵 iframe 的 src 属性设为对一个长连接的请求，服务器端就能源源不断地往客户端输入数据。<br>Flash Socket：在页面中内嵌入一个使用了 Socket 类的 Flash 程序 JavaScript 通过调用此 Flash 程序提供的 Socket 接口与服务器端的 Socket 接口进行通信，JavaScript 在收到服务器端传送的信息后控制页面的显示。</p>
 <p><img src="http://ox31eiczv.bkt.clouddn.com/websocket-lifecycle.png" alt="websocket"></p>
 <p>Websocket 的出现就是为了解决 HTTP 在即时通信中存在的不足，HTTP 是通过 Polling 实现即时通信存在很大的资源开销。</p>
 <p>Webscoket 握手阶段采用 HTTP 协议，连接建立之后便与 HTTP 协议没有任何关系，Websocket 连接建立之后，client 与 server 可以同时收发数据，全双工通讯。</p>
@@ -65,13 +59,13 @@
     <link href="https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/"/>
     <id>https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/</id>
     <published>2017-09-26T13:43:22.000Z</published>
-    <updated>2017-09-26T14:09:15.969Z</updated>
+    <updated>2017-10-03T04:15:18.323Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170927.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。</div><br></p>
 <hr>
 <blockquote>
-<p>本篇简单介绍一下单链表，单循环链表。</p>
+<p>本篇简单介绍一下单链表，单循环链表。链表是线性表的核心内容，单链表可以很方便地构成栈和队列。</p>
 </blockquote>
 <h2 id="单链表节点"><a href="#单链表节点" class="headerlink" title="单链表节点"></a>单链表节点</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by HaohaoChang on 2017/9/9.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">    Object data; <span class="comment">// 数据元素</span></div><div class="line">    Node next;   <span class="comment">// 下一节点的对象引用</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Node nextval)</span> </span>&#123; <span class="comment">// 用于头结点的构造函数</span></div><div class="line">        next = nextval;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Object obj, Node nextval)</span> </span>&#123; <span class="comment">// 用于下一节点的构造函数</span></div><div class="line">        data = obj;</div><div class="line">        next = nextval;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getElement</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">getNext</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setElement</span><span class="params">(Object data)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.data = data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(Node next)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.next = next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="http://ovv1lq7pk.bkt.clouddn.com/single_linklist.PNG" alt="单链表"></p>

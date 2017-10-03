@@ -114,7 +114,7 @@ Socket 是操作系统提供的对于传输层（TCP / UDP）抽象的接口，�
 <meta property="og:image" content="http://ox31eiczv.bkt.clouddn.com/http.png">
 <meta property="og:image" content="http://ox31eiczv.bkt.clouddn.com/websocket-lifecycle.png">
 <meta property="og:image" content="http://ox31eiczv.bkt.clouddn.com/socket_io.png">
-<meta property="og:updated_time" content="2017-09-30T08:13:06.838Z">
+<meta property="og:updated_time" content="2017-09-30T08:27:24.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Socket 、 Socket.io 、 Websocket 、 HTTP 之间的区别">
 <meta name="twitter:description" content="教育的目的从来都是精神的独立而不是给予苦头，除非有人不希望看到你太“自在”，需要通过制度展示权力的威严
@@ -448,13 +448,7 @@ Socket 是操作系统提供的对于传输层（TCP / UDP）抽象的接口，�
 <p>Socket 是操作系统提供的<strong>对于传输层（TCP / UDP）抽象的接口</strong>，是一个<strong>编程概念</strong>，而 Websocket 、Socket.io 与 HTTP 一样是一个<strong>成文的互联网协议</strong>。另外，Websocket 和 HTTP 都是基于 TCP 传输数据，Socket.io 可以看作是对 Websocket 和 HTTP 的又一次封装。</p>
 <p><img src="http://ox31eiczv.bkt.clouddn.com/http.png" alt="http"></p>
 <p>HTTP 是基于请求响应式的，即通信只能由客户端发起，服务端做出响应，无状态，无连接。<br><strong>无状态</strong>：每次连接只处理一个请求，请求结束后断开连接。<br><strong>无连接</strong>：对于事务处理没有记忆能力，服务器不知道客户端是什么状态。</p>
-<p>以往实现即时通讯的手段：</p>
-<ul>
-<li>轮询：客户端定时向服务器发送 Ajax 请求，服务器接到请求后马上返回响应信息并关闭连接。</li>
-<li>长轮询：客户端向服务器发送 Ajax 请求，<strong>服务器接到请求后 hold 住连接</strong>，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。</li>
-<li>长连接：在页面里嵌入一个隐蔵 iframe，将这个隐蔵 iframe 的 src 属性设为对一个长连接的请求，服务器端就能源源不断地往客户端输入数据。</li>
-<li>Flash Socket：在页面中内嵌入一个使用了 Socket 类的 Flash 程序 JavaScript 通过调用此 Flash 程序提供的 Socket 接口与服务器端的 Socket 接口进行通信，JavaScript 在收到服务器端传送的信息后控制页面的显示。</li>
-</ul>
+<p>以往实现即时通讯的手段：<br>轮询：客户端定时向服务器发送 Ajax 请求，服务器接到请求后马上返回响应信息并关闭连接。<br>长轮询：客户端向服务器发送 Ajax 请求，<strong>服务器接到请求后 hold 住连接</strong>，直到有新消息才返回响应信息并关闭连接，客户端处理完响应信息后再向服务器发送新的请求。<br>长连接：在页面里嵌入一个隐蔵 iframe，将这个隐蔵 iframe 的 src 属性设为对一个长连接的请求，服务器端就能源源不断地往客户端输入数据。<br>Flash Socket：在页面中内嵌入一个使用了 Socket 类的 Flash 程序 JavaScript 通过调用此 Flash 程序提供的 Socket 接口与服务器端的 Socket 接口进行通信，JavaScript 在收到服务器端传送的信息后控制页面的显示。</p>
 <p><img src="http://ox31eiczv.bkt.clouddn.com/websocket-lifecycle.png" alt="websocket"></p>
 <p>Websocket 的出现就是为了解决 HTTP 在即时通信中存在的不足，HTTP 是通过 Polling 实现即时通信存在很大的资源开销。</p>
 <p>Webscoket 握手阶段采用 HTTP 协议，连接建立之后便与 HTTP 协议没有任何关系，Websocket 连接建立之后，client 与 server 可以同时收发数据，全双工通讯。</p>

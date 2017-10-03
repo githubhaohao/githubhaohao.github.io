@@ -94,9 +94,9 @@
 <meta name="description" content="因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。
 
 
-本篇简单介绍一下单链表，单循环链表。
+本篇简单介绍一下单链表，单循环链表。链表是线性表的核心内容，单链表可以很方便地构成栈和队列。
 
-单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */public class Node &amp;#123;    Obj">
+单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */pub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构与算法（Java 实现）之线性表（二）">
 <meta property="og:url" content="https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/index.html">
@@ -104,21 +104,21 @@
 <meta property="og:description" content="因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。
 
 
-本篇简单介绍一下单链表，单循环链表。
+本篇简单介绍一下单链表，单循环链表。链表是线性表的核心内容，单链表可以很方便地构成栈和队列。
 
-单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */public class Node &amp;#123;    Obj">
+单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */pub">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20170927.jpg">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/single_linklist.PNG">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/single_cir_linkedlist.PNG">
-<meta property="og:updated_time" content="2017-09-26T14:09:15.969Z">
+<meta property="og:updated_time" content="2017-10-03T04:15:18.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法（Java 实现）之线性表（二）">
 <meta name="twitter:description" content="因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。
 
 
-本篇简单介绍一下单链表，单循环链表。
+本篇简单介绍一下单链表，单循环链表。链表是线性表的核心内容，单链表可以很方便地构成栈和队列。
 
-单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */public class Node &amp;#123;    Obj">
+单链表节点12345678910111213141516171819202122232425262728293031323334353637/** * Created by HaohaoChang on 2017/9/9. */pub">
 <meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20170927.jpg">
 
 
@@ -437,7 +437,7 @@
 <p><div align="center">因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。</div><br></p>
 <hr>
 <blockquote>
-<p>本篇简单介绍一下单链表，单循环链表。</p>
+<p>本篇简单介绍一下单链表，单循环链表。链表是线性表的核心内容，单链表可以很方便地构成栈和队列。</p>
 </blockquote>
 <h2 id="单链表节点"><a href="#单链表节点" class="headerlink" title="单链表节点"></a>单链表节点</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by HaohaoChang on 2017/9/9.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">    Object data; <span class="comment">// 数据元素</span></div><div class="line">    Node next;   <span class="comment">// 下一节点的对象引用</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Node nextval)</span> </span>&#123; <span class="comment">// 用于头结点的构造函数</span></div><div class="line">        next = nextval;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(Object obj, Node nextval)</span> </span>&#123; <span class="comment">// 用于下一节点的构造函数</span></div><div class="line">        data = obj;</div><div class="line">        next = nextval;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getElement</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">getNext</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setElement</span><span class="params">(Object data)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.data = data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(Node next)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.next = next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><img src="http://ovv1lq7pk.bkt.clouddn.com/single_linklist.PNG" alt="单链表"></p>
