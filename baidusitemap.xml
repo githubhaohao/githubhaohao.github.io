@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/</loc>
+    <lastmod>2017-10-03T05:32:04.484Z</lastmod>
+    <data>
+        <display>
+        <title>Socket Socket.io Websocket 与 HTTP 之间的区别</title>
+        <pubTime>2017-09-30T07:33:45.000Z</pubTime>
+        
+        <tag>网络协议</tag>
+         
+         
+           
+             
+              <breadCrumb title="计算机网络基础" url="https://githubhaohao.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/</loc>
     <lastmod>2017-10-03T04:15:18.323Z</lastmod>
     <data>
@@ -19,26 +39,6 @@
            
              
               <breadCrumb title="数据结构与算法" url="https://githubhaohao.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/</loc>
-    <lastmod>2017-09-30T08:27:24.352Z</lastmod>
-    <data>
-        <display>
-        <title>Socket 、 Socket.io 、 Websocket 、 HTTP 之间的区别</title>
-        <pubTime>2017-09-30T07:33:45.000Z</pubTime>
-        
-        <tag>网络协议</tag>
-         
-         
-           
-             
-              <breadCrumb title="计算机网络基础" url="https://githubhaohao.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
           
         </display>
     </data>
