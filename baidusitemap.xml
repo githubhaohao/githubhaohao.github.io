@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
+    <lastmod>2017-10-06T03:25:37.586Z</lastmod>
+    <data>
+        <display>
+        <title>Android 系统启动流程</title>
+        <pubTime>2017-07-04T12:39:40.000Z</pubTime>
+        
+        <tag>Android System</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="Android 系统" url="https://githubhaohao.github.io/categories/Android/Android-%E7%B3%BB%E7%BB%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/</loc>
     <lastmod>2017-10-03T06:57:47.563Z</lastmod>
     <data>
@@ -477,29 +500,6 @@
            
              
               <breadCrumb title="RxJava" url="https://githubhaohao.github.io/categories/RxJava/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
-    <lastmod>2017-09-10T09:49:27.909Z</lastmod>
-    <data>
-        <display>
-        <title>Android 系统启动流程</title>
-        <pubTime>2017-07-04T12:39:40.000Z</pubTime>
-        
-        <tag>Android System</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="Android 系统" url="https://githubhaohao.github.io/categories/Android/Android-%E7%B3%BB%E7%BB%9F/"/>
           
         </display>
     </data>

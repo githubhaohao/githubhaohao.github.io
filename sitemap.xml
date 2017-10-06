@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
+    
+    <lastmod>2017-10-06T03:25:37.586Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/</loc>
     
     <lastmod>2017-10-03T06:57:47.563Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/</loc>
     
     <lastmod>2017-09-10T09:50:15.115Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
-    
-    <lastmod>2017-09-10T09:49:27.909Z</lastmod>
     
   </url>
   

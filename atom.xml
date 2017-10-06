@@ -468,7 +468,7 @@
     <link href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/"/>
     <id>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</id>
     <published>2017-07-04T12:39:40.000Z</published>
-    <updated>2017-09-10T09:49:27.909Z</updated>
+    <updated>2017-10-06T03:25:37.586Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170704.jpg" alt="Markdown"></p>
 
@@ -477,7 +477,7 @@
 <blockquote>
 <p>对于 Android 系统的启动流程，每一位 Android Developer 都应该烂熟于心，它在某种程度上代表着 Android 开发的学习路线。本篇感性地介绍一下 Android 系统的启动流程。</p>
 </blockquote>
-<h1 id="Android-系统启动流程示意图"><a href="#Android-系统启动流程示意图" class="headerlink" title="Android 系统启动流程示意图"></a>Android 系统启动流程示意图</h1><p align="center"><img src="http://i1.buimg.com/588795/5cfc8539a35b8eea.jpg" alt="Markdown"></p><br><p align="center">图片来自于网络</p>
+<h1 id="Android-系统启动流程示意图"><a href="#Android-系统启动流程示意图" class="headerlink" title="Android 系统启动流程示意图"></a>Android 系统启动流程示意图</h1><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/android_system_boot.jpg" alt="Markdown"></p><br><p align="center">图片来自于网络</p>
 
 <p>启动过程： Loader -&gt; Kernel -&gt; Native -&gt; Framework -&gt; App 。</p>
 <h1 id="Android-系统启动过程"><a href="#Android-系统启动过程" class="headerlink" title="Android 系统启动过程"></a>Android 系统启动过程</h1><h2 id="Loader"><a href="#Loader" class="headerlink" title="Loader"></a>Loader</h2><p>Loader 层执行过程分为两步：</p>
