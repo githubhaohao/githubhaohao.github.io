@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2017-10-09T12:23:18.706Z</lastmod>
+    <data>
+        <display>
+        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
+        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
+        
+        <tag>MVVM</tag>
+         
+        <tag>MVP</tag>
+         
+        <tag>MVC</tag>
+         
+        <tag>RxJava</tag>
+         
+        <tag>Retrofit</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
     <lastmod>2017-10-06T03:25:37.586Z</lastmod>
     <data>
@@ -545,34 +573,6 @@
            
              
               <breadCrumb title="JVM" url="https://githubhaohao.github.io/categories/JVM/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2017-07-13T12:23:02.096Z</lastmod>
-    <data>
-        <display>
-        <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
-        <pubTime>2017-02-12T06:21:25.000Z</pubTime>
-        
-        <tag>MVVM</tag>
-         
-        <tag>MVP</tag>
-         
-        <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
-         
-        <tag>Retrofit</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
           
         </display>
     </data>

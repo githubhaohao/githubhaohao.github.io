@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
+    
+    <lastmod>2017-10-09T12:23:18.706Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</loc>
     
     <lastmod>2017-10-06T03:25:37.586Z</lastmod>
@@ -173,13 +180,6 @@
     <loc>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</loc>
     
     <lastmod>2017-09-10T09:48:04.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
-    
-    <lastmod>2017-07-13T12:23:02.096Z</lastmod>
     
   </url>
   

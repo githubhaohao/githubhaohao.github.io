@@ -140,7 +140,7 @@ Controller 层完成业务逻辑">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/android-libs-retrofit-1-638.jpg?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/data_binding.png?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true">
-<meta property="og:updated_time" content="2017-07-13T12:23:02.096Z">
+<meta property="og:updated_time" content="2017-10-09T12:23:18.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM，RxJava 和 Retrofit 的一次实践">
 <meta name="twitter:description" content="春节后的第一篇博客
@@ -530,6 +530,7 @@ Controller 层完成业务逻辑">
 </blockquote>
 <h3 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a><a href="https://developer.android.com/topic/libraries/data-binding/index.html" target="_blank" rel="external">DataBinding</a></h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/data_binding.png?raw=true" alt="data-binding"></p>
 <p>在Google IO 2015 中，Google 在 support-v7 中新增了 Data Binding，使用 Data Binding可以直接在布局的 xml 中绑定布局与数据，从而简化代码，Android Data Binding是Android 的 MVVM 框架。因为 Data Binding 是包含在 support-v7 包里面的，所以可以向下兼容到最低 Android 2.1 (API level 7+).</p>
+<p>Data Binding 是实现 xml 文件与 java 代码交互的工具类库，通过观察者模式 Observable 变量集实现 ViewModel 层和 View 层的相互监听，自动交互。</p>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>直接上代码。</p>
 <h3 id="依赖的第三方类库"><a href="#依赖的第三方类库" class="headerlink" title="依赖的第三方类库"></a>依赖的第三方类库</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxjava:1.1.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'io.reactivex:rxandroid:1.1.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:converter-gson:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
 <h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><blockquote>
