@@ -140,7 +140,7 @@ Controller 层完成业务逻辑">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/android-libs-retrofit-1-638.jpg?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/data_binding.png?raw=true">
 <meta property="og:image" content="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/%E7%9B%AE%E5%BD%95.png?raw=true">
-<meta property="og:updated_time" content="2017-10-09T12:23:18.706Z">
+<meta property="og:updated_time" content="2017-10-09T12:42:30.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVVM，RxJava 和 Retrofit 的一次实践">
 <meta name="twitter:description" content="春节后的第一篇博客
@@ -504,8 +504,17 @@ Controller 层完成业务逻辑">
 <li>View 层与 Model 层不直接发生联系，都通过 Presenter 层进行间接通信。</li>
 <li>Model 层与 Presenter 层，Presenter 层与 View 层之间通过接口建立联系。</li>
 </ol>
-<p>采用 MVP 模式，Activity 与 Fragment 只位于 View 层。</p>
-<p><strong>MVP 的缺陷在于</strong>:由于我们使用了接口的方式去连接 View 层和  Presenter 层，这样就导致了特定场景下的一些问题，当你的页面逻辑很复杂的时候，你的 View 层实现的接口会有很多，如果你的 App 中有很多个这样复杂的页面，维护接口的成本就会变的非常的大。</p>
+<p>采用 MVP 架构，Activity，Fragment 以及自定义 View 只位于 View 层。<br>View 层：负责数据展示和用户交互；<br>Presenter 层：充当中间人的角色，用来隔离 Model 层和 View 层，负责将 View 层的请求分发给 Model 处理，将 Model 层的反馈传递给 View 层；<br>Model 层：封装数据来源，如网络数据，本地数据库数据。</p>
+<p><strong>MVP 的优势</strong>:</p>
+<ol>
+<li>易于维护，测试，功能扩展；</li>
+<li>易于分工协作编程；</li>
+</ol>
+<p><strong>MVP 的缺陷</strong>:</p>
+<ol>
+<li>由于我们使用了接口的方式去连接 View 层和  Presenter 层，这样就导致了特定场景下的一些问题，当你的页面逻辑很复杂的时候，你的 View 层实现的接口会有很多，如果你的 App 中有很多个这样复杂的页面，维护接口的成本就会变的非常的大。</li>
+<li>增加代码类的数量，可读性差。</li>
+</ol>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p><img src="https://github.com/githubhaohao/ImageRoom/blob/master/Images/mvvm/mvvp.PNG?raw=true" alt="MVVM"></p>
 <p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。<br><strong>区别在于</strong>: View 层与 ViewModel 层通过 DataBinding 相互绑定，View 层的变动，自动反映在 ViewModel 层，反之亦然。</p>
 <h3 id="Clean"><a href="#Clean" class="headerlink" title="Clean"></a>Clean</h3><p>本篇只着重讲基于 RxJava 和 Retrofit 框架实现 MVVM 架构设计，想要了解 Clean 架构的同学，移步<a href="http://haohaochang.cn/2017/04/15/Android-Clean-%E6%9E%B6%E6%9E%84%E6%B5%85%E6%9E%90/" target="_blank" rel="external">Android Clean 架构浅析</a>。</p>
