@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-10-03T05:32:04.484Z</updated>
+  <updated>2017-05-13T08:12:40.000Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="https://githubhaohao.github.io/2017/10/16/Hello-World/"/>
+    <id>https://githubhaohao.github.io/2017/10/16/Hello-World/</id>
+    <published>2017-10-16T05:41:56.083Z</published>
+    <updated>2017-05-13T08:12:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。</p>
+</blockquote>
+<p><div align="center"><br><img src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460" width="100" height="100" alt="logo"><br></div></p>
+<p align="center"><i>不忘初心，不惧未来。<i><br><br><b>haohao</b><br><br>2017/01/14<br></i></i></p>
+
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://avatars0.githubusercontent.com
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Socket Socket.io Websocket 与 HTTP 之间的区别</title>
     <link href="https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/"/>
     <id>https://githubhaohao.github.io/2017/09/30/diff-between-socket-websocket-socket-io-and-http/</id>
     <published>2017-09-30T07:33:45.000Z</published>
-    <updated>2017-10-03T05:32:04.484Z</updated>
+    <updated>2017-10-03T05:32:06.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170930.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">教育的目的从来都是精神的独立而不是给予苦头，除非有人不希望看到你太“自在”，需要通过制度展示权力的威严</div><br></p>
@@ -59,7 +86,7 @@
     <link href="https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/"/>
     <id>https://githubhaohao.github.io/2017/09/26/Java-data-structure-linkedlist/</id>
     <published>2017-09-26T13:43:22.000Z</published>
-    <updated>2017-10-03T06:57:47.563Z</updated>
+    <updated>2017-10-03T06:57:48.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170927.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">因为我们的言语表达了我们的想法，而我们的想法创造了我们的生活。</div><br></p>
@@ -99,7 +126,7 @@
     <link href="https://githubhaohao.github.io/2017/09/26/Java-data-structure-lineartable/"/>
     <id>https://githubhaohao.github.io/2017/09/26/Java-data-structure-lineartable/</id>
     <published>2017-09-26T12:51:58.000Z</published>
-    <updated>2017-09-26T13:45:39.146Z</updated>
+    <updated>2017-09-26T13:45:40.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170926.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">成年人学习的目的，应该是追求更好的思维模型，而不是更多的知识。</div><br></p>
@@ -136,7 +163,7 @@
     <link href="https://githubhaohao.github.io/2017/09/23/from-url-to-page-displaying/"/>
     <id>https://githubhaohao.github.io/2017/09/23/from-url-to-page-displaying/</id>
     <published>2017-09-23T08:09:25.000Z</published>
-    <updated>2017-09-23T08:33:03.654Z</updated>
+    <updated>2017-09-23T08:33:04.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170923.jpg" alt="Markdown"></p><p></p>
 <div align="center">当你想完全准备好再做一件事的时候，不如先做起来，边做边准备</div>
@@ -208,7 +235,7 @@
     <link href="https://githubhaohao.github.io/2017/09/20/diff-between-interface-and-abstract-class/"/>
     <id>https://githubhaohao.github.io/2017/09/20/diff-between-interface-and-abstract-class/</id>
     <published>2017-09-20T02:15:31.000Z</published>
-    <updated>2017-09-20T02:32:11.036Z</updated>
+    <updated>2017-09-20T02:32:12.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170919.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">你看起来像什么地位，你就是什么地位，互联网时代也是一个看颜的时代，虽无奈，但是事实</div><br></p>
@@ -244,7 +271,7 @@
     <link href="https://githubhaohao.github.io/2017/09/06/2017-study-plan/"/>
     <id>https://githubhaohao.github.io/2017/09/06/2017-study-plan/</id>
     <published>2017-09-06T13:11:16.000Z</published>
-    <updated>2017-09-26T12:54:39.615Z</updated>
+    <updated>2017-09-26T12:54:40.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/Woman-Gazing-Under-Large-Tree.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">种一棵树最好的时间是 10 年前，其次是现在。</div><br></p>
@@ -290,7 +317,7 @@
     <link href="https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/"/>
     <id>https://githubhaohao.github.io/2017/07/21/Java-thread-7-kinds-of-state/</id>
     <published>2017-07-21T02:54:16.000Z</published>
-    <updated>2017-09-16T01:09:24.138Z</updated>
+    <updated>2017-09-16T01:09:26.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170721.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
@@ -330,7 +357,7 @@
     <link href="https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/"/>
     <id>https://githubhaohao.github.io/2017/07/20/Basic-knowledge-of-JVM-GC/</id>
     <published>2017-07-20T13:33:28.000Z</published>
-    <updated>2017-09-10T09:48:04.387Z</updated>
+    <updated>2017-09-10T09:48:06.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170720.png" alt="Markdown"></p><p></p>
 <p><div align="center">一切努力都应该指向现实，给生活带来直接、可触碰的变化<div><br></div></div></p>
@@ -402,7 +429,7 @@
     <link href="https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/"/>
     <id>https://githubhaohao.github.io/2017/07/07/Android-design-pattern-Proxy-pattern/</id>
     <published>2017-07-07T07:27:00.000Z</published>
-    <updated>2017-09-10T09:48:40.143Z</updated>
+    <updated>2017-09-10T09:48:42.000Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170707.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">生活中的很多烦恼都源于盲目的攀比，而忘了享受自己的生活</div><br></p>
@@ -468,7 +495,7 @@
     <link href="https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/"/>
     <id>https://githubhaohao.github.io/2017/07/04/Android-system-boot-process/</id>
     <published>2017-07-04T12:39:40.000Z</published>
-    <updated>2017-10-06T03:25:37.586Z</updated>
+    <updated>2017-10-06T03:25:38.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170704.jpg" alt="Markdown"></p>
 
@@ -519,7 +546,7 @@
     <link href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/"/>
     <id>https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/</id>
     <published>2017-07-01T12:43:50.000Z</published>
-    <updated>2017-09-10T09:50:15.115Z</updated>
+    <updated>2017-09-10T09:50:16.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170701.jpg" alt="Markdown"></p>
 
@@ -567,7 +594,7 @@
     <link href="https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/"/>
     <id>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</id>
     <published>2017-06-24T06:24:38.000Z</published>
-    <updated>2017-09-10T09:51:05.876Z</updated>
+    <updated>2017-09-10T09:51:06.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170624.jpg" alt="Markdown"></p>
 
@@ -627,7 +654,7 @@
     <link href="https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/"/>
     <id>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</id>
     <published>2017-06-17T10:45:44.000Z</published>
-    <updated>2017-09-10T09:52:06.704Z</updated>
+    <updated>2017-09-10T09:52:08.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170617.jpg" alt="Markdown"></p>
 
@@ -708,7 +735,7 @@
     <link href="https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/"/>
     <id>https://githubhaohao.github.io/2017/06/13/RxJava-for-Kotlin-practice-Creating-Observable/</id>
     <published>2017-06-13T01:34:03.000Z</published>
-    <updated>2017-09-10T09:52:47.862Z</updated>
+    <updated>2017-09-10T09:52:48.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170613.jpg" alt="Markdown"></p>
 
@@ -804,7 +831,7 @@
     <link href="https://githubhaohao.github.io/2017/06/12/Design-Pattern-flyweight-pattern/"/>
     <id>https://githubhaohao.github.io/2017/06/12/Design-Pattern-flyweight-pattern/</id>
     <published>2017-06-12T00:55:12.000Z</published>
-    <updated>2017-06-12T00:55:12.344Z</updated>
+    <updated>2017-06-12T00:55:14.000Z</updated>
     
     <summary type="html">
     
@@ -818,7 +845,7 @@
     <link href="https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/"/>
     <id>https://githubhaohao.github.io/2017/06/04/Android-design-pattern-observer-pattern/</id>
     <published>2017-06-04T03:17:28.000Z</published>
-    <updated>2017-09-10T09:53:42.049Z</updated>
+    <updated>2017-09-10T09:53:44.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170604.jpg" alt="Markdown"></p>
 
@@ -882,7 +909,7 @@
     <link href="https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/"/>
     <id>https://githubhaohao.github.io/2017/05/25/Java-to-Kotlin-Grammar-List/</id>
     <published>2017-05-25T07:25:36.000Z</published>
-    <updated>2017-09-10T09:54:20.664Z</updated>
+    <updated>2017-09-10T09:54:22.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170525.jpg" alt="Markdown"></p>
 
@@ -1020,7 +1047,7 @@
     <link href="https://githubhaohao.github.io/2017/05/15/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/15/Android-设计模式之外观模式/</id>
     <published>2017-05-15T02:05:07.000Z</published>
-    <updated>2017-09-10T09:59:22.120Z</updated>
+    <updated>2017-09-10T09:59:24.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170515.jpg" alt="Markdown"></p>
 
@@ -1085,7 +1112,7 @@
     <link href="https://githubhaohao.github.io/2017/05/13/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B-Builder-%E6%A8%A1%E5%BC%8F/"/>
     <id>https://githubhaohao.github.io/2017/05/13/Android-设计模式之-Builder-模式/</id>
     <published>2017-05-13T05:28:00.000Z</published>
-    <updated>2017-09-10T10:00:03.117Z</updated>
+    <updated>2017-09-10T10:00:04.000Z</updated>
     
     <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170513.jpg" alt="Markdown"></p>
 
@@ -1146,73 +1173,6 @@
     
     
       <category term="Builder 模式" scheme="https://githubhaohao.github.io/tags/Builder-%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 设计模式之单例模式</title>
-    <link href="https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://githubhaohao.github.io/2017/05/06/Android-设计模式之单例模式/</id>
-    <published>2017-05-06T05:53:52.000Z</published>
-    <updated>2017-09-28T03:00:14.718Z</updated>
-    
-    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170506.jpg" alt="Markdown"></p>
-
-<p align="center">时刻尝试走出舒适区</p>
-
-
-<blockquote>
-<p>最近在培养自己的广泛阅读习惯，感觉阅读中最重要的是动脑思考，阅读是接受讯息，思考是消化讯息。<br>本文是 Android 设计模式的开篇，接下来会陆续推出整个常用的设计模式系列。</p>
-</blockquote>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>设计模式简而言之就是优秀的代码设计经验的总结。设计模式的产生是为了提高代码的可复用性，可扩展性，可靠性以及可读性。</p>
-<h2 id="设计模式原则"><a href="#设计模式原则" class="headerlink" title="设计模式原则"></a>设计模式原则</h2><ul>
-<li>单一职责原则: 一个类只负责一项职责;</li>
-<li>里氏替换原则: 子类可以扩展父类的功能，但不能改变父类原有的功能;</li>
-<li>依赖倒置原则: 面向接口编程，将依赖对象的共同特征抽象成接口；</li>
-<li>接口隔离原则: 一个类不应该实现它不需要的接口方法，即建立单一接口，细化接口，尽量减少接口中的方法;</li>
-<li>迪米特法则: 一个对象应该对其他对象保持最少的了解，即降低类与类之间的耦合；</li>
-<li>开闭原则: 一个类对扩展开放，对修改关闭。</li>
-</ul>
-<h2 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h2><h3 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="创建型设计模式"></a>创建型设计模式</h3><p>设计对象的实例化，避免用户用 new 运算符创建对象。例如单例模式，Builder 模式，原型模式等。</p>
-<h3 id="行为型设计模式"><a href="#行为型设计模式" class="headerlink" title="行为型设计模式"></a>行为型设计模式</h3><p>设计对象之间的通信交互。如观察者模式，迭代器模式，责任链模式等。</p>
-<h3 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a>结构型设计模式</h3><p>设计如何组合类和对象以形成更大的结构。如适配器模式，代理模式，桥接模式等。</p>
-<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>简单介绍常用的五种单例模式的写法。</p>
-<h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> INSTANCE = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">return</span> INSTANCE;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>优点：线程安全。<br>缺点：类加载的时候就进行初始化，对于初始化逻辑复杂的类，会导致类加载变慢。</p>
-<h3 id="DCL-懒汉式单例"><a href="#DCL-懒汉式单例" class="headerlink" title="(DCL) 懒汉式单例"></a>(DCL) 懒汉式单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> sInstance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">synchronized</span> (Person.class) &#123;</div><div class="line">                <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                    sInstance = <span class="keyword">new</span> Person();</div><div class="line">                  </div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> sInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>优点：volatile 声明单例引用，可以防止并发时初始化成员变量和对象实例化顺序可能会被打乱，双重校验锁定解决了多余的同步问题。<br>缺点：并发时存在极小的概率导致 DCL 失效，据说是百万分之一。</p>
-<h3 id="静态内部类单例"><a href="#静态内部类单例" class="headerlink" title="静态内部类单例"></a>静态内部类单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Person INSTANCE = <span class="keyword">new</span> Person();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Singleton.INSTANCE;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>优点：充分结合了懒汉式单例与饿汉式的优点，同时有效避开了它们的缺点，充分保证线程安全。<strong><em>推荐</em></strong><br>缺点：会有的！</p>
-<h3 id="枚举型单例"><a href="#枚举型单例" class="headerlink" title="枚举型单例"></a>枚举型单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> PersonEnum &#123;</div><div class="line">    INSTANCE;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">PersonEnum</span><span class="params">()</span> </span>&#123;</div><div class="line">      </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</div><div class="line">         <span class="comment">// do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PersonEnum.INSTANCE.fun();</div></pre></td></tr></table></figure></p>
-<p>优点：简洁，线程安全。<br>《Effective Java》的作者在书中是这样夸枚举型单例：</p>
-<blockquote>
-<p>这种写法在功能上与共有域方法相近，但是它更简洁，无偿地提供了序列化机制，绝对防止对此实例化，即使是在面对复杂的序列化或者反射攻击的时候。<br>虽然这中方法还没有广泛采用，但是单元素的枚举类型已经成为实现Singleton的最佳方法。</p>
-</blockquote>
-<p>缺点：Google 官方强烈建议尽量不要使用 enum ，它会增加额外的内存占用，同时增加可执行文件 .dex 的大小，也不适用继承场景。</p>
-<h3 id="容器型单例"><a href="#容器型单例" class="headerlink" title="容器型单例"></a>容器型单例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span> <span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonManager</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> KEY_SINGLETON = <span class="string">"singleton"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Object&gt; sInstanceMap = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">registerSingleton</span><span class="params">(String key, Object obj)</span> </span>&#123; </div><div class="line">        <span class="keyword">if</span> (!sInstanceMap.containsKey(key)) &#123;</div><div class="line">            sInstanceMap.put(key, obj);     </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Person <span class="title">getSingleton</span><span class="params">(String key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (Person) sInstanceMap.get(key);   </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SingletonManager.registerSingleton(KEY_SINGLETON, <span class="keyword">new</span> Person);</div><div class="line">Person person = SingletonManager.getSingleton();</div></pre></td></tr></table></figure></p>
-<p>优点：可以将不同单例注册到一个容器中统一管理，隐藏了类的具体实现，降低了耦合度。<strong><em>推荐</em></strong><br>缺点：会有的！</p>
-<h2 id="单例模式的优点与缺点"><a href="#单例模式的优点与缺点" class="headerlink" title="单例模式的优点与缺点"></a>单例模式的优点与缺点</h2><p>优点：减少内存开销，避免资源重用。<br>缺点：单例类的扩展性很差，持有外部引用时，非常容易造成内存泄漏。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170506.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;时刻尝试走出舒适区&lt;/p&gt;
-
-
-&lt;blo
-    
-    </summary>
-    
-      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
-    
-      <category term="设计模式" scheme="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="单例模式" scheme="https://githubhaohao.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
