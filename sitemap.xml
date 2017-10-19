@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2016/12/01/Hello-World/</loc>
+    
+    <lastmod>2017-10-19T13:03:34.227Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2017/02/12/MVVM%EF%BC%8CRxJava%E5%92%8CRetrofit%E7%9A%84%E4%B8%80%E6%AC%A1%E5%AE%9E%E8%B7%B5/</loc>
     
     <lastmod>2017-10-09T12:42:32.000Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>https://githubhaohao.github.io/2017/01/18/%E5%88%86%E5%88%86%E9%92%9F%E6%8E%A5%E5%85%A5Tinker/</loc>
     
     <lastmod>2017-05-13T08:13:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://githubhaohao.github.io/2017/10/16/Hello-World/</loc>
-    
-    <lastmod>2017-05-13T08:12:40.000Z</lastmod>
     
   </url>
   
