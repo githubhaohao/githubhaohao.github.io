@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-10-20T10:08:55.194Z</updated>
+  <updated>2017-10-20T10:11:24.635Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java data structure stack and queue</title>
+    <title>数据结构与算法（Java 实现）之线性表（三）</title>
     <link href="https://githubhaohao.github.io/2017/10/20/Java-data-structure-stack-and-queue/"/>
     <id>https://githubhaohao.github.io/2017/10/20/Java-data-structure-stack-and-queue/</id>
     <published>2017-10-20T00:20:42.000Z</published>
-    <updated>2017-10-20T10:08:55.194Z</updated>
+    <updated>2017-10-20T10:11:24.635Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20171020.jpg" alt="Markdown"></p><p></p>
 <h2 id="生活苟且的人，傻了吧唧的去诗和远方了；而鼓吹诗和远方的人，工作比谁都积极。"><a href="#生活苟且的人，傻了吧唧的去诗和远方了；而鼓吹诗和远方的人，工作比谁都积极。" class="headerlink" title="生活苟且的人，傻了吧唧的去诗和远方了；而鼓吹诗和远方的人，工作比谁都积极。"></a><div align="center">生活苟且的人，傻了吧唧的去诗和远方了；而鼓吹诗和远方的人，工作比谁都积极。</div><br></h2><blockquote>
