@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2017-10-27T06:26:12.842Z</updated>
+  <updated>2017-10-29T01:33:08.713Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2017/10/27/custom-android-system-service/"/>
     <id>https://githubhaohao.github.io/2017/10/27/custom-android-system-service/</id>
     <published>2017-10-27T05:52:04.000Z</published>
-    <updated>2017-10-27T06:26:12.842Z</updated>
+    <updated>2017-10-29T01:33:08.713Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20171027.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">明知对要做的事情进行拖延，它所消耗的心理能量会远远多于做事情本身</div><br></p>
@@ -55,7 +55,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">accessibility                             u:object_r:accessibility_service:s0</div><div class="line">account                                   u:object_r:account_service:s0</div><div class="line">activity                                  u:object_r:activity_service:s0</div><div class="line">alarm                                     u:object_r:alarm_service:s0</div><div class="line">haohao                                    u:object_r:haohao_service:s0</div><div class="line">android.security.keystore                 u:object_r:keystore_service:s0</div><div class="line">android.service.gatekeeper.IGateKeeperService    u:object_r:gatekeeper_service:s0</div></pre></td></tr></table></figure>
 <h2 id="Update-api-and-build"><a href="#Update-api-and-build" class="headerlink" title="Update api and build"></a>Update api and build</h2><p><code>~/aosp/android-6.0.1_r1$ make update-api -j8</code></p>
 <p><code>~/aosp/android-6.0.1_r1$ make -j8</code></p>
-<h2 id="Test-service-in-your-Activity"><a href="#Test-service-in-your-Activity" class="headerlink" title="Test service in your Activity"></a>Test service in your Activity</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate();</div><div class="line"></div><div class="line">    mHaoHaoServiceManager = (HaoHaoServiceManager)DaemonService.<span class="keyword">this</span>.getSystemService(Context.HAOHAO_SERVICE);</div><div class="line">    mHaoHaoServiceManager.setVal(<span class="string">"haohao"</span>, <span class="string">"Android Developer"</span>);</div></pre></td></tr></table></figure>
+<h2 id="Test-service-in-your-Activity"><a href="#Test-service-in-your-Activity" class="headerlink" title="Test service in your Activity"></a>Test service in your Activity</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate();</div><div class="line"></div><div class="line">    mHaoHaoServiceManager = (HaoHaoServiceManager)getSystemService(Context.HAOHAO_SERVICE);</div><div class="line">    mHaoHaoServiceManager.setVal(<span class="string">"haohao"</span>, <span class="string">"Android Developer"</span>);</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
