@@ -4,15 +4,23 @@
 
     
   <url>
-    <loc>https://githubhaohao.github.io/2017/12/16/NDK-compiled-three-ways/</loc>
-    <lastmod>2017-12-16T05:53:25.563Z</lastmod>
+    <loc>https://githubhaohao.github.io/2017/11/04/NDK-compiled-three-ways/</loc>
+    <lastmod>2017-12-16T08:03:55.112Z</lastmod>
     <data>
         <display>
-        <title>NDK compiled three ways</title>
-        <pubTime>2017-12-16T05:53:25.000Z</pubTime>
+        <title>NDK 编译的三种方式</title>
+        <pubTime>2017-11-04T05:53:25.000Z</pubTime>
         
+        <tag>NDK 编译</tag>
+         
          
            
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK 编译" url="https://githubhaohao.github.io/categories/Android/NDK-%E7%BC%96%E8%AF%91/"/>
+          
         </display>
     </data>
     </url>
@@ -20,7 +28,7 @@
     
   <url>
     <loc>https://githubhaohao.github.io/2017/10/27/custom-android-system-service/</loc>
-    <lastmod>2017-10-29T01:33:08.713Z</lastmod>
+    <lastmod>2017-12-16T06:09:15.631Z</lastmod>
     <data>
         <display>
         <title>在 Android 系统源码中自定义系统服务</title>
