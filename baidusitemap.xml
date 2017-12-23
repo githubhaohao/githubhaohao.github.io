@@ -5,10 +5,10 @@
     
   <url>
     <loc>https://githubhaohao.github.io/2017/12/18/NDK-packaging-thied-party-static-and-dynamic-lib/</loc>
-    <lastmod>2017-12-18T12:50:33.754Z</lastmod>
+    <lastmod>2017-12-23T08:43:40.800Z</lastmod>
     <data>
         <display>
-        <title>NDK 引入第三方静态库和动态库</title>
+        <title>在 NDK 开发中引入第三方静态库和动态库</title>
         <pubTime>2017-12-18T12:36:14.282Z</pubTime>
         
         <tag>NDK 第三方库</tag>
