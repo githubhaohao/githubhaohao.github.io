@@ -4,8 +4,31 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/12/18/NDK-packaging-thied-party-static-and-dynamic-lib/</loc>
+    <lastmod>2017-12-18T12:50:33.754Z</lastmod>
+    <data>
+        <display>
+        <title>NDK 引入第三方静态库和动态库</title>
+        <pubTime>2017-12-18T12:36:14.282Z</pubTime>
+        
+        <tag>NDK 第三方库</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/11/04/NDK-compiled-three-ways/</loc>
-    <lastmod>2017-12-18T01:42:04.102Z</lastmod>
+    <lastmod>2017-12-18T12:42:45.349Z</lastmod>
     <data>
         <display>
         <title>NDK 编译的三种方式</title>
@@ -19,7 +42,7 @@
               <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
           
              
-              <breadCrumb title="NDK 编译" url="https://githubhaohao.github.io/categories/Android/NDK-%E7%BC%96%E8%AF%91/"/>
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
           
         </display>
     </data>
@@ -114,13 +137,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
+        <tag>RxJava</tag>
+         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          

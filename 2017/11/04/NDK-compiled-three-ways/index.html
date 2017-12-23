@@ -95,11 +95,11 @@
 
 本篇以图文的方式介绍一下 Android NDK 编译的几种方式
 
-通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目
+通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目。
 
 
 
-生成与类名相关的 .h 文件进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; debu">
+生成与类名相关的 .h 文件。进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; de">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NDK 编译的三种方式">
 <meta property="og:url" content="https://githubhaohao.github.io/2017/11/04/NDK-compiled-three-ways/index.html">
@@ -108,11 +108,11 @@
 
 本篇以图文的方式介绍一下 Android NDK 编译的几种方式
 
-通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目
+通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目。
 
 
 
-生成与类名相关的 .h 文件进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; debu">
+生成与类名相关的 .h 文件。进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; de">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20171104.jpg">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-0.png">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-1.png">
@@ -135,18 +135,18 @@
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-17.png">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-18.png">
 <meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-19.png">
-<meta property="og:updated_time" content="2017-12-18T01:42:04.102Z">
+<meta property="og:updated_time" content="2017-12-18T12:42:45.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NDK 编译的三种方式">
 <meta name="twitter:description" content="做任何事都不可能有 100% 的准备，我们都是一边准备一边面对未知。
 
 本篇以图文的方式介绍一下 Android NDK 编译的几种方式
 
-通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目
+通过 Android Studio 默认的方式创建带有 native 方法的类，build 项目。
 
 
 
-生成与类名相关的 .h 文件进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; debu">
+生成与类名相关的 .h 文件。进入 app -&amp;gt; build -&amp;gt; intermediates -&amp;gt; classes -&amp;gt; de">
 <meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20171104.jpg">
 
 
@@ -411,8 +411,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/NDK-编译/" itemprop="url" rel="index">
-                    <span itemprop="name">NDK 编译</span>
+                  <a href="/categories/Android/NDK/" itemprop="url" rel="index">
+                    <span itemprop="name">NDK</span>
                   </a>
                 </span>
 
@@ -477,26 +477,29 @@
 <blockquote>
 <p>本篇以图文的方式介绍一下 Android NDK 编译的几种方式</p>
 </blockquote>
-<h1 id="通过-Android-Studio-默认的方式"><a href="#通过-Android-Studio-默认的方式" class="headerlink" title="通过 Android Studio 默认的方式"></a>通过 Android Studio 默认的方式</h1><h2 id="创建带有-native-方法的类，build-项目"><a href="#创建带有-native-方法的类，build-项目" class="headerlink" title="创建带有 native 方法的类，build 项目"></a>创建带有 native 方法的类，build 项目</h2><p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-0.png" alt="img"></p>
+<h1 id="通过-Android-Studio-默认的方式"><a href="#通过-Android-Studio-默认的方式" class="headerlink" title="通过 Android Studio 默认的方式"></a>通过 Android Studio 默认的方式</h1><p>创建带有 native 方法的类，build 项目。<br><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-0.png" alt="img"></p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-1.png" alt="img"></p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-2.png" alt="img"></p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-3.png" alt="img"></p>
-<h2 id="生成与类名相关的-h-文件"><a href="#生成与类名相关的-h-文件" class="headerlink" title="生成与类名相关的 .h 文件"></a>生成与类名相关的 .h 文件</h2><h3 id="进入-app-gt-build-gt-intermediates-gt-classes-gt-debug-目录下"><a href="#进入-app-gt-build-gt-intermediates-gt-classes-gt-debug-目录下" class="headerlink" title="进入 app -&gt; build -&gt; intermediates -&gt; classes -&gt; debug 目录下"></a>进入 app -&gt; build -&gt; intermediates -&gt; classes -&gt; debug 目录下</h3><h3 id="执行：-javah-com-haohao-hellojni-MyJNI-class-（先配置好-JDK-的环境变量）-生成-com-haohao-hellojni-MyJNI-h-文件"><a href="#执行：-javah-com-haohao-hellojni-MyJNI-class-（先配置好-JDK-的环境变量）-生成-com-haohao-hellojni-MyJNI-h-文件" class="headerlink" title="执行： javah com.haohao.hellojni.MyJNI.class （先配置好 JDK 的环境变量）,生成 com_haohao_hellojni_MyJNI.h 文件"></a>执行： <code>javah com.haohao.hellojni.MyJNI.class</code> （先配置好 JDK 的环境变量）,生成 com_haohao_hellojni_MyJNI.h 文件</h3><p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-4.png" alt="img"></p>
-<h2 id="创建-cpp-文件"><a href="#创建-cpp-文件" class="headerlink" title="创建 cpp 文件"></a>创建 cpp 文件</h2><h3 id="在-main-文件夹下，新建-jni-目录，剪切-h-文件到-jni-目录下，创建-hello-cpp-文件"><a href="#在-main-文件夹下，新建-jni-目录，剪切-h-文件到-jni-目录下，创建-hello-cpp-文件" class="headerlink" title="在 main 文件夹下，新建 jni 目录，剪切 .h 文件到 jni 目录下，创建 hello.cpp 文件"></a>在 main 文件夹下，新建 jni 目录，剪切 .h 文件到 jni 目录下，创建 hello.cpp 文件</h3><p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-5.png" alt="img"></p>
+<p>生成与类名相关的 .h 文件。<br>进入 app -&gt; build -&gt; intermediates -&gt; classes -&gt; debug 目录下<br>执行： <code>javah com.haohao.hellojni.MyJNI.class</code> （先配置好 JDK 的环境变量）,生成 com_haohao_hellojni_MyJNI.h 文件</p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-4.png" alt="img"></p>
+<p>创建 cpp 文件。<br>在 main 文件夹下，新建 jni 目录，剪切 .h 文件到 jni 目录下，创建 hello.cpp 文件</p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-5.png" alt="img"></p>
 <p>hello.cpp</p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-6.png" alt=""></p>
-<h2 id="配置-build-gradle-文件"><a href="#配置-build-gradle-文件" class="headerlink" title="配置 build.gradle 文件"></a>配置 build.gradle 文件</h2><h3 id="修改-app-build-gradle-文件，-muduleName-为引入的-so-name-直接运行项目，安装-apk-，运行就-OK-了"><a href="#修改-app-build-gradle-文件，-muduleName-为引入的-so-name-直接运行项目，安装-apk-，运行就-OK-了" class="headerlink" title="修改 app/build.gradle 文件， muduleName 为引入的 .so name , 直接运行项目，安装 apk ，运行就 OK 了"></a>修改 app/build.gradle 文件， muduleName 为引入的 .so name , 直接运行项目，安装 apk ，运行就 OK 了</h3><p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-7.png" alt=""></p>
-<p>生成的 .so 文件位置</p>
+<p>配置 build.gradle 文件。<br>修改 app/build.gradle 文件， muduleName 为引入的 .so name , 直接运行项目，安装 apk ，运行就 OK 了</p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-7.png" alt=""></p>
+<p>生成的 .so 文件位置。</p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-8.png" alt=""></p>
 <p>PS： 未指定 CPU 框架时，AS 会生成支持所有 CPU 框架的 .so 文件。</p>
-<h1 id="通过-ndk-build"><a href="#通过-ndk-build" class="headerlink" title="通过 ndk-build"></a>通过 ndk-build</h1><h2 id="创建-Android-mk-和-Application-mk-文件"><a href="#创建-Android-mk-和-Application-mk-文件" class="headerlink" title="创建 Android.mk 和 Application.mk 文件"></a>创建 Android.mk 和 Application.mk 文件</h2><p>新建一个项目，在 app 目录下（任目录下都可以）新建 jni 文件，添加 Android.mk 和 Application.mk 文件，以及 com_haohao_hellojni_MyJNI.h 文件（运用上一小节的方法生成）。<br>Android.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := $(call my-dir)</div><div class="line">include $(CLEAR_VARS)</div><div class="line"></div><div class="line"># 要生成的.so库名称。java代码System.loadLibrary(&quot;hello&quot;);加载的就是它</div><div class="line">LOCAL_MODULE := hello</div><div class="line"></div><div class="line"># C++文件</div><div class="line">LOCAL_SRC_FILES := hello.cpp</div><div class="line"></div><div class="line">include $(BUILD_SHARED_LIBRARY)</div></pre></td></tr></table></figure></p>
+<h1 id="通过-ndk-build"><a href="#通过-ndk-build" class="headerlink" title="通过 ndk-build"></a>通过 ndk-build</h1><p>创建 Android.mk 和 Application.mk 文件。<br>新建一个项目，在 app 目录下（任目录下都可以）新建 jni 文件，添加 Android.mk 和 Application.mk 文件，以及 com_haohao_hellojni_MyJNI.h 文件（运用上一小节的方法生成）。<br>Android.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := $(call my-dir)</div><div class="line">include $(CLEAR_VARS)</div><div class="line"></div><div class="line"># 要生成的.so库名称。java代码System.loadLibrary(&quot;hello&quot;);加载的就是它</div><div class="line">LOCAL_MODULE := hello</div><div class="line"></div><div class="line"># C++文件</div><div class="line">LOCAL_SRC_FILES := hello.cpp</div><div class="line"></div><div class="line">include $(BUILD_SHARED_LIBRARY)</div></pre></td></tr></table></figure></p>
 <p>Application.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 不写 APP_ABI 会生成全部支持的平台,目前支持：armeabi arm64-v8a armeabi-v7a</div><div class="line"># APP_ABI := armeabi arm64-v8a armeabi-v7a mips mips64 x86 x86_64</div><div class="line">APP_ABI := armeabi arm64-v8a armeabi-v7a</div></pre></td></tr></table></figure></p>
-<h2 id="生成-so-文件"><a href="#生成-so-文件" class="headerlink" title="生成 .so 文件"></a>生成 .so 文件</h2><p>在 jni 目录下（配置好NDK环境变量）直接执行 ndk-build ， 生成 .so 文件。</p>
+<p>生成 .so 文件。<br>在 jni 目录下（配置好NDK环境变量）直接执行 ndk-build ， 生成 .so 文件。</p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-9.png" alt=""></p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-10.png" alt=""></p>
-<h2 id="配置项目工程"><a href="#配置项目工程" class="headerlink" title="配置项目工程"></a>配置项目工程</h2><p>在 main 目录下新建 jniLibs 目录，并拷贝 armeabi arm64-v8a armeabi-v7a 文件夹，运行 proj 。</p>
+<p>配置项目工程。<br>在 main 目录下新建 jniLibs 目录，并拷贝 armeabi arm64-v8a armeabi-v7a 文件夹，运行 proj 。</p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-11.png" alt=""></p>
-<h1 id="通过-CMake-工具"><a href="#通过-CMake-工具" class="headerlink" title="通过 CMake 工具"></a>通过 CMake 工具</h1><p>从 Android Studio 2.2 开始，就默认使用 CMake 工具构建 NDK 项目，请确保你的 AS 版本大于 2.2 。</p>
+<h1 id="通过-CMake-工具。"><a href="#通过-CMake-工具。" class="headerlink" title="通过 CMake 工具。"></a>通过 CMake 工具。</h1><p>从 Android Studio 2.2 开始，就默认使用 CMake 工具构建 NDK 项目，请确保你的 AS 版本大于 2.2 。</p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-11-1.png" alt=""></p>
 <h2 id="通过-IDE-自动构建"><a href="#通过-IDE-自动构建" class="headerlink" title="通过 IDE 自动构建"></a>通过 IDE 自动构建</h2><p>创建项目时，勾选 <code>Include C++ support</code> </p>
 <p><img src="http://ovv1lq7pk.bkt.clouddn.com/ndk-compiledndk-12.png" alt=""></p>
@@ -588,6 +591,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/18/NDK-packaging-thied-party-static-and-dynamic-lib/" rel="prev" title="NDK 引入第三方静态库和动态库">
+                NDK 引入第三方静态库和动态库 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -686,7 +693,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -704,7 +711,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -766,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-Android-Studio-默认的方式"><span class="nav-number">1.</span> <span class="nav-text">通过 Android Studio 默认的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建带有-native-方法的类，build-项目"><span class="nav-number">1.1.</span> <span class="nav-text">创建带有 native 方法的类，build 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成与类名相关的-h-文件"><span class="nav-number">1.2.</span> <span class="nav-text">生成与类名相关的 .h 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入-app-gt-build-gt-intermediates-gt-classes-gt-debug-目录下"><span class="nav-number">1.2.1.</span> <span class="nav-text">进入 app -> build -> intermediates -> classes -> debug 目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行：-javah-com-haohao-hellojni-MyJNI-class-（先配置好-JDK-的环境变量）-生成-com-haohao-hellojni-MyJNI-h-文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">执行： javah com.haohao.hellojni.MyJNI.class （先配置好 JDK 的环境变量）,生成 com_haohao_hellojni_MyJNI.h 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-cpp-文件"><span class="nav-number">1.3.</span> <span class="nav-text">创建 cpp 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-main-文件夹下，新建-jni-目录，剪切-h-文件到-jni-目录下，创建-hello-cpp-文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">在 main 文件夹下，新建 jni 目录，剪切 .h 文件到 jni 目录下，创建 hello.cpp 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-build-gradle-文件"><span class="nav-number">1.4.</span> <span class="nav-text">配置 build.gradle 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-app-build-gradle-文件，-muduleName-为引入的-so-name-直接运行项目，安装-apk-，运行就-OK-了"><span class="nav-number">1.4.1.</span> <span class="nav-text">修改 app/build.gradle 文件， muduleName 为引入的 .so name , 直接运行项目，安装 apk ，运行就 OK 了</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-ndk-build"><span class="nav-number">2.</span> <span class="nav-text">通过 ndk-build</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-Android-mk-和-Application-mk-文件"><span class="nav-number">2.1.</span> <span class="nav-text">创建 Android.mk 和 Application.mk 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成-so-文件"><span class="nav-number">2.2.</span> <span class="nav-text">生成 .so 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置项目工程"><span class="nav-number">2.3.</span> <span class="nav-text">配置项目工程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-CMake-工具"><span class="nav-number">3.</span> <span class="nav-text">通过 CMake 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-IDE-自动构建"><span class="nav-number">3.1.</span> <span class="nav-text">通过 IDE 自动构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动构建"><span class="nav-number">3.2.</span> <span class="nav-text">手动构建</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-Android-Studio-默认的方式"><span class="nav-number">1.</span> <span class="nav-text">通过 Android Studio 默认的方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-ndk-build"><span class="nav-number">2.</span> <span class="nav-text">通过 ndk-build</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过-CMake-工具。"><span class="nav-number">3.</span> <span class="nav-text">通过 CMake 工具。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-IDE-自动构建"><span class="nav-number">3.1.</span> <span class="nav-text">通过 IDE 自动构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动构建"><span class="nav-number">3.2.</span> <span class="nav-text">手动构建</span></a></li></ol></li></ol></div>
             
 
           </div>
