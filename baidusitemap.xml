@@ -4,12 +4,32 @@
 
     
   <url>
-    <loc>https://githubhaohao.github.io/2017/12/18/NDK-packaging-thied-party-static-and-dynamic-lib/</loc>
-    <lastmod>2017-12-23T09:21:56.467Z</lastmod>
+    <loc>https://githubhaohao.github.io/2017/12/31/recommended-2-Google-access-tools/</loc>
+    <lastmod>2018-01-02T01:43:53.334Z</lastmod>
+    <data>
+        <display>
+        <title>推荐 2 款 Google 访问工具</title>
+        <pubTime>2017-12-31T07:33:25.000Z</pubTime>
+        
+        <tag>科学上网</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="https://githubhaohao.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://githubhaohao.github.io/2017/11/11/NDK-packaging-third-party-static-and-dynamic-lib/</loc>
+    <lastmod>2018-01-02T01:37:03.017Z</lastmod>
     <data>
         <display>
         <title>在 NDK 开发中引入第三方静态库和动态库</title>
-        <pubTime>2017-12-18T12:36:14.282Z</pubTime>
+        <pubTime>2017-11-11T04:33:25.000Z</pubTime>
         
         <tag>NDK 第三方库</tag>
          
@@ -137,13 +157,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
-        <tag>RxJava</tag>
-         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
+         
+        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          
