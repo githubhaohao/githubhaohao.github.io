@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-01-02T01:43:53.334Z</updated>
+  <updated>2018-01-03T14:01:38.128Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你好 2018</title>
+    <link href="https://githubhaohao.github.io/2018/01/01/hello-2018/"/>
+    <id>https://githubhaohao.github.io/2018/01/01/hello-2018/</id>
+    <published>2018-01-01T12:42:13.000Z</published>
+    <updated>2018-01-03T14:01:38.128Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20180101.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">为 2018 立几个 FLAG </div><br></p>
+<h1 id="回看-2017"><a href="#回看-2017" class="headerlink" title="回看 2017"></a>回看 2017</h1><p>2017 是极其平淡的一年，也是孕育希望的一年。2017 我还在读研，2017 我还在租房。如果非要用几个字来形容 2017 年，那就是“学习”、“美食”、“电影”。</p>
+<p>整个 2017 年，我和媳妇儿，看了很多场电影，吃了很多顿大餐（直接的后果就是导致我的体重增加 10 斤），这也许是我们最大的共同爱好。2017 年主要靠媳妇儿的工作收入和我研究生的微薄补足，支撑着我们的“电影”、“美食”和房租，另外我们还喜欢到处走走。</p>
+<p>接下来主要总结一下，2017 年在技术方面的一些收获。除了搞项目之外，上半年主要掌握了 RN 和 React 前端开发技术，下半年以完成论文为目的学习了 Python 和 TensorFlow 开发，再来后来，系统地学习了 Kotlin Android 开发。以上技术学习都是基于个人兴趣，自己做了几个小项目，并没有运用的生产环境中。总体来说，对常规开发中的技术栈有了一定的了解，并没有深入，这也是兴趣太广泛的缺点。</p>
+<p>回望 2017 ，非常感谢导师和同学在生活和学习上给予我的帮助，感谢我的家人给予我的陪伴和支持。</p>
+<h1 id="展望-2018"><a href="#展望-2018" class="headerlink" title="展望 2018"></a>展望 2018</h1><p>不得不说，时间过得真的是太快了，大一的生活还历历在目，可是那已经是 7 年前的事了。正如，上帝悄悄偷走了我们的纯真，却神圣地说是成长的代价。</p>
+<p>马上就要毕业了，接下来必须要独当一面，给我的 2018 立几个 FLAG （希望明年再看这篇文章的时候不会脸疼）。</p>
+<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>继续培养我和媳妇儿共同爱好，“电影”、“美食”，在追加一个“到处走走”。<br>继续培养我的新技能–烹饪，具体一点就是精通媳妇儿最喜欢吃的那几道菜的做法。等未来什么时候人工智能也淘汰了，那我就当厨师咯，人类总要吃饭的，哈哈。</p>
+<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><p>熟练掌握移动端音视频编解码技术，至少搞一个开源项目；<br>掌握基于移动端的 TensorFlow 开发。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>继续打理自己的公众号、博客，保证周期性更新。</p>
+<h2 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h2><p>2017 年由于实验室制度等各种原因（其实主要是懒），周期运动都没坚持下来。<br>2018 年量化目标，确保体重比现在下降 10 斤。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20180101.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;为 
+    
+    </summary>
+    
+      <category term="生活" scheme="https://githubhaohao.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="规划" scheme="https://githubhaohao.github.io/tags/%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐 2 款 Google 访问工具</title>
@@ -1075,20 +1110,6 @@
       <category term="RxJava" scheme="https://githubhaohao.github.io/tags/RxJava/"/>
     
       <category term="Kotlin" scheme="https://githubhaohao.github.io/tags/Kotlin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Design Pattern - flyweight pattern</title>
-    <link href="https://githubhaohao.github.io/2017/06/12/Design-Pattern-flyweight-pattern/"/>
-    <id>https://githubhaohao.github.io/2017/06/12/Design-Pattern-flyweight-pattern/</id>
-    <published>2017-06-12T00:55:12.000Z</published>
-    <updated>2017-06-12T00:55:14.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
