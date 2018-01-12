@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/11/04/NDK-compiled-three-ways/</loc>
+    <lastmod>2018-01-12T12:00:39.143Z</lastmod>
+    <data>
+        <display>
+        <title>NDK 编译的三种方式</title>
+        <pubTime>2017-11-04T05:53:25.000Z</pubTime>
+        
+        <tag>NDK 编译</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/01/09/NDK-posix-multi-thread/</loc>
     <lastmod>2018-01-11T02:16:00.932Z</lastmod>
     <data>
@@ -98,29 +121,6 @@
         <pubTime>2017-11-11T04:33:25.000Z</pubTime>
         
         <tag>NDK 第三方库</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/11/04/NDK-compiled-three-ways/</loc>
-    <lastmod>2017-12-18T12:42:45.349Z</lastmod>
-    <data>
-        <display>
-        <title>NDK 编译的三种方式</title>
-        <pubTime>2017-11-04T05:53:25.000Z</pubTime>
-        
-        <tag>NDK 编译</tag>
          
          
            
