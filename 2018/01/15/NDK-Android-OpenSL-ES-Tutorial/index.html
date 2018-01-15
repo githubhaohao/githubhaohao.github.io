@@ -1,0 +1,1159 @@
+<!doctype html>
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+
+  
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OpenSL ES," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="haohao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="不要用战术上的勤奋掩盖战略上的懒惰。
+
+本篇详细介绍一下基于 Android OpenSL ES 实现音频的采集与播放。
+
+本博客 NDK 开发系列文章：
+
+NDK 编译的三种方式
+在 NDK 开发中引入第三方静态库和动态库
+NDK 开发中 Native 与 Java 交互
+NDK POSIX 多线程编程
+
+OpenSL ES 是什么？OpenSL ES 是一个针对嵌入式系统的开放硬件音频加速库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NDK Android OpenSL ES 音频采集与播放">
+<meta property="og:url" content="https://githubhaohao.github.io/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/index.html">
+<meta property="og:site_name" content="haohao">
+<meta property="og:description" content="不要用战术上的勤奋掩盖战略上的懒惰。
+
+本篇详细介绍一下基于 Android OpenSL ES 实现音频的采集与播放。
+
+本博客 NDK 开发系列文章：
+
+NDK 编译的三种方式
+在 NDK 开发中引入第三方静态库和动态库
+NDK 开发中 Native 与 Java 交互
+NDK POSIX 多线程编程
+
+OpenSL ES 是什么？OpenSL ES 是一个针对嵌入式系统的开放硬件音频加速库">
+<meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20171202.jpg">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/opensles_recorder.png">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/opensles_player.png">
+<meta property="og:updated_time" content="2018-01-15T07:31:11.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NDK Android OpenSL ES 音频采集与播放">
+<meta name="twitter:description" content="不要用战术上的勤奋掩盖战略上的懒惰。
+
+本篇详细介绍一下基于 Android OpenSL ES 实现音频的采集与播放。
+
+本博客 NDK 开发系列文章：
+
+NDK 编译的三种方式
+在 NDK 开发中引入第三方静态库和动态库
+NDK 开发中 Native 与 Java 交互
+NDK POSIX 多线程编程
+
+OpenSL ES 是什么？OpenSL ES 是一个针对嵌入式系统的开放硬件音频加速库">
+<meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20171202.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://githubhaohao.github.io/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/"/>
+
+
+
+
+
+  <title> NDK Android OpenSL ES 音频采集与播放 | haohao </title>
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">haohao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">不忘初心</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/githubhaohao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NDK Android OpenSL ES 音频采集与播放
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T10:16:29+08:00">
+                2018-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/NDK/" itemprop="url" rel="index">
+                    <span itemprop="name">NDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/" class="leancloud_visitors" data-flag-title="NDK Android OpenSL ES 音频采集与播放">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20171202.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">不要用战术上的勤奋掩盖战略上的懒惰。</div><br></p>
+<blockquote>
+<p>本篇详细介绍一下基于 Android OpenSL ES 实现音频的采集与播放。</p>
+</blockquote>
+<p>本博客 NDK 开发系列文章：</p>
+<ul>
+<li><a href="http://haohaochang.cn/2017/11/04/NDK-compiled-three-ways/" title="NDK 编译的三种方式" target="_blank" rel="external">NDK 编译的三种方式</a></li>
+<li><a href="http://haohaochang.cn/2017/11/11/NDK-packaging-third-party-static-and-dynamic-lib/" title="在 NDK 开发中引入第三方静态库和动态库" target="_blank" rel="external">在 NDK 开发中引入第三方静态库和动态库</a></li>
+<li><a href="http://haohaochang.cn/2018/01/06/NDK-native-call-java-method/" title="NDK 开发中 Native 与 Java 交互" target="_blank" rel="external">NDK 开发中 Native 与 Java 交互</a></li>
+<li><a href="http://haohaochang.cn/2018/01/09/NDK-posix-multi-thread/" target="_blank" rel="external">NDK POSIX 多线程编程</a></li>
+</ul>
+<h1 id="OpenSL-ES-是什么？"><a href="#OpenSL-ES-是什么？" class="headerlink" title="OpenSL ES 是什么？"></a>OpenSL ES 是什么？</h1><p>OpenSL ES 是一个针对嵌入式系统的开放硬件音频加速库，也可以将其视为一套针对嵌入式平台的音频标准，全称为： Open Sound Library for Embedded Systems ，它提供了一套高性能、 低延迟的音频功能实现方法，并且实现了软硬件音频性能的跨平台部署，大大降低了上层处理音频应用的开发难度。</p>
+<p>在 Android 开发中，Google 官方从 Android 2.3 （API 9）开始，便支持了 OpenSL ES 标准 ，并且对其进行了扩展。本文介绍的 OpenSL ES 是针对 Android NDK 开发来说。</p>
+<h1 id="OpenSL-ES-的一些基本概念"><a href="#OpenSL-ES-的一些基本概念" class="headerlink" title="OpenSL ES 的一些基本概念"></a>OpenSL ES 的一些基本概念</h1><h2 id="基于-c-语言的面向对象接口"><a href="#基于-c-语言的面向对象接口" class="headerlink" title="基于 c 语言的面向对象接口"></a>基于 c 语言的面向对象接口</h2><p>OpenSL ES 是基于 c 语言实现的，但其提供的接口是采用面向对象的方式实现，OpenSL ES 的大多数 API 是通过对象来调用的。例如，以下代码片段，主要的逻辑是实例化引擎对象和获取引擎对象接口：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">SLresult result;</div><div class="line"></div><div class="line"><span class="comment">// realize the engine</span></div><div class="line">result = (*engineObject)-&gt;Realize(engineObject, SL_BOOLEAN_FALSE);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div><div class="line"></div><div class="line">result = (*engineObject)-&gt;GetInterface(engineObject, SL_IID_ENGINE, &amp;engineEngine);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div></pre></td></tr></table></figure></p>
+<h2 id="对象和接口概念"><a href="#对象和接口概念" class="headerlink" title="对象和接口概念"></a>对象和接口概念</h2><p>Object 和 Interface OpenSL ES 中的两大基本概念，可以类比为 Java 中的对象和接口。在 OpenSL ES 中， 每个 Object 可以存在一系列的 Interface ，并且为每个对象都提供了一系列的基本操作，如 Realize，GetState，Destroy 等。重要的一点，只有通过 GetInterface 方法拿到 Object 的 Interface ，才能使用 Object 提供的功能。</p>
+<h2 id="对象的生命周期"><a href="#对象的生命周期" class="headerlink" title="对象的生命周期"></a>对象的生命周期</h2><p>OpenSL ES 的 Object 一般有三种状态，分别是： SL_OBJECT_STATE_UNREALIZED （不可用），SL_OBJECT_STATE_REALIZED（可用），SL_OBJECT_STATE_SUSPENDED（挂起）。</p>
+<p>Object 处于 SL_OBJECT_STATE_UNREALIZED （不可用）状态时，系统不会为其分配资源；调用 Realize 方法后便进入 SL_OBJECT_STATE_REALIZED（可用）状态，此时对象的各个功能和资源可以正常访问；当系统音频相关的硬件设备被其他进程占用时，OpenSL ES Object 便会进入 SL_OBJECT_STATE_SUSPENDED （挂起）状态，随后调用 Resume 方法可使对象重回 SL_OBJECT_STATE_REALIZED（可用）状态；当 Object 使用结束后，调用 Destroy 方法释放资源，是对象重回 SL_OBJECT_STATE_UNREALIZED （不可用）状态。</p>
+<h1 id="OpenSL-ES-常用的-Object-和-Interface"><a href="#OpenSL-ES-常用的-Object-和-Interface" class="headerlink" title="OpenSL ES 常用的 Object 和 Interface"></a>OpenSL ES 常用的 Object 和 Interface</h1><h2 id="Audio-引擎对象和接口"><a href="#Audio-引擎对象和接口" class="headerlink" title="Audio 引擎对象和接口"></a>Audio 引擎对象和接口</h2><p>Audio 引擎对象和接口，即 Engine Object 和 SLEngineItf Interface 。Engine Object 的主要功能是管理 Audio Engine 的生命周期，提供引擎对象的管理接口。引擎对象的使用方法如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">SLresult result;</div><div class="line"><span class="comment">// 创建引擎对象</span></div><div class="line">result = slCreateEngine(&amp;engineObject, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div><div class="line"></div><div class="line"><span class="comment">// 实例化</span></div><div class="line">result = (*engineObject)-&gt;Realize(engineObject, SL_BOOLEAN_FALSE);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div><div class="line"></div><div class="line"><span class="comment">// 获取引擎对象接口</span></div><div class="line">result = (*engineObject)-&gt;GetInterface(engineObject, SL_IID_ENGINE, &amp;engineEngine);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div><div class="line"></div><div class="line"><span class="comment">// 释放引擎对象的资源</span></div><div class="line">result = (*engineObject)-&gt;Destroy(engineObject, SL_BOOLEAN_FALSE);</div><div class="line">assert(SL_RESULT_SUCCESS == result);</div><div class="line">(<span class="keyword">void</span>)result;</div></pre></td></tr></table></figure></p>
+<h2 id="SLRecordItf-和-SLPlayItf"><a href="#SLRecordItf-和-SLPlayItf" class="headerlink" title="SLRecordItf 和 SLPlayItf"></a>SLRecordItf 和 SLPlayItf</h2><p>SLRecordItf 和 SLPlayItf 分别抽象多媒体功能 recorder 和 player ，通过 SLEngineItf 的 CreateAudioPlayer 和 CreateAudioRecorder 方法分别创建 player 和 recorder 对象实例。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建 audio recorder 对象</span></div><div class="line">result = (*engineEngine)-&gt;CreateAudioRecorder(engineEngine, &amp;recorderObject , &amp;recSource, &amp;dataSink,</div><div class="line">                                                  NUM_RECORDER_EXPLICIT_INTERFACES, iids, required);</div><div class="line"></div><div class="line"><span class="comment">// 创建 audio player 对象</span></div><div class="line">SLresult result = (*engineEngine)-&gt;CreateAudioPlayer(</div><div class="line">        engineEngine,</div><div class="line">        &amp;audioPlayerObject,</div><div class="line">        &amp;dataSource,</div><div class="line">        &amp;dataSink,</div><div class="line">        <span class="number">1</span>,</div><div class="line">        interfaceIDs,</div><div class="line">        requiredInterfaces</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h2 id="SLDataSource-和-SLDataSink"><a href="#SLDataSource-和-SLDataSink" class="headerlink" title="SLDataSource 和 SLDataSink"></a>SLDataSource 和 SLDataSink</h2><p>OpenSL ES 中的 SLDataSource 和 SLDataSink 结构体，主要用于构建 audio player 和 recorder 对象，其中 SLDataSource 表示音频数据来源的信息，SLDataSink 表示音频数据输出信息。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数据源简单缓冲队列定位器</span></div><div class="line">SLDataLocator_AndroidSimpleBufferQueue dataSou</div><div class="line">        SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEU</div><div class="line">        <span class="number">1</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// PCM 数据源格式</span></div><div class="line">SLDataFormat_PCM dataSourceFormat = &#123;</div><div class="line">        SL_DATAFORMAT_PCM, <span class="comment">// 格式类型</span></div><div class="line">        wav_get_channels(wav), <span class="comment">// 通道数</span></div><div class="line">        wav_get_rate(wav) * <span class="number">1000</span>, <span class="comment">//采样率</span></div><div class="line">        wav_get_bits(wav), <span class="comment">// 位宽</span></div><div class="line">        wav_get_bits(wav),</div><div class="line">        SL_SPEAKER_FRONT_CENTER, <span class="comment">// 通道屏蔽</span></div><div class="line">        SL_BYTEORDER_LITTLEENDIAN <span class="comment">// 字节顺序</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 数据源</span></div><div class="line">SLDataSource dataSource = &#123;</div><div class="line">        &amp;dataSourceLocator,</div><div class="line">        &amp;dataSourceFormat</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 针对数据接收器的输出混合定位器(混音器)</span></div><div class="line">SLDataLocator_OutputMix dataSinkLocator = &#123;</div><div class="line">        SL_DATALOCATOR_OUTPUTMIX, <span class="comment">// 定位器类型</span></div><div class="line">        outputMixObject <span class="comment">// 输出混合</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// 输出</span></div><div class="line">SLDataSink dataSink = &#123;</div><div class="line">        &amp;dataSinkLocator, <span class="comment">// 定位器</span></div><div class="line">        <span class="number">0</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h1 id="OpenSL-ES-Recorder-和-Player-功能构建"><a href="#OpenSL-ES-Recorder-和-Player-功能构建" class="headerlink" title="OpenSL ES Recorder 和 Player 功能构建"></a>OpenSL ES Recorder 和 Player 功能构建</h1><p>Audio Recorder<br><img src="http://ovv1lq7pk.bkt.clouddn.com/opensles_recorder.png" alt="opensles_recorder"><br>Audio Player<br><img src="http://ovv1lq7pk.bkt.clouddn.com/opensles_player.png" alt="opensles_player"></p>
+<p>PS： Audio Player 的 Data Source 也可以是本地存储或缓存的音频数据，以上图片来自于 Jhuster 的博客。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>以下代码主要实现音频数据的采集、保存和播放。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// Created by haohao on 2018/1/12.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SLES/OpenSLES.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SLES/OpenSLES_Android.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android/log.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> AUDIO_SRC_PATH <span class="meta-string">"/sdcard/audio.pcm"</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LOGI(FORMAT, ...) __android_log_print(ANDROID_LOG_INFO,<span class="meta-string">"haohao"</span>,FORMAT,##__VA_ARGS__);</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,<span class="meta-string">"haohao"</span>,FORMAT,##__VA_ARGS__);</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NUM_RECORDER_EXPLICIT_INTERFACES 2</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NUM_BUFFER_QUEUE 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SAMPLE_RATE 44100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PERIOD_TIME 20  <span class="comment">// 20ms</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FRAME_SIZE SAMPLE_RATE * PERIOD_TIME / 1000</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CHANNELS 2</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFFER_SIZE   (FRAME_SIZE * CHANNELS)</span></div><div class="line"></div><div class="line"><span class="comment">// engine interfaces</span></div><div class="line"><span class="keyword">static</span> SLObjectItf engineObject = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLEngineItf engineEngine = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line"><span class="comment">// audio recorder interfaces</span></div><div class="line"><span class="keyword">static</span> SLObjectItf recorderObject = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLRecordItf recorderRecord = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLAndroidSimpleBufferQueueItf recorderBuffQueueItf = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLAndroidConfigurationItf configItf = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line"><span class="comment">// pcm audio player interfaces</span></div><div class="line"><span class="keyword">static</span> SLObjectItf playerObject = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLPlayItf playerPlay = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">static</span> SLObjectItf outputMixObjext = <span class="literal">NULL</span>; <span class="comment">// 混音器</span></div><div class="line"><span class="keyword">static</span> SLAndroidSimpleBufferQueueItf playerBufferQueueItf = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createEngine</span><span class="params">()</span></span>&#123;</div><div class="line">    SLEngineOption EngineOption[] = &#123;</div><div class="line">            &#123;(SLuint32) SL_ENGINEOPTION_THREADSAFE, (SLuint32) SL_BOOLEAN_TRUE&#125;</div><div class="line">    &#125;;</div><div class="line">    SLresult result;</div><div class="line">    result = slCreateEngine(&amp;engineObject, <span class="number">1</span>, EngineOption, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">/* Realizing the SL Engine in synchronous mode. */</span></div><div class="line">    result = (*engineObject)-&gt;Realize(engineObject, SL_BOOLEAN_FALSE);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">// get the engine interface, which is needed in order to create other objects</span></div><div class="line">    result = (*engineObject)-&gt;GetInterface(engineObject, SL_IID_ENGINE, &amp;engineEngine);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> AudioContext &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    FILE *pfile;</div><div class="line">    <span class="keyword">uint8_t</span> *buffer;</div><div class="line">    <span class="keyword">size_t</span> bufferSize;</div><div class="line"></div><div class="line">    AudioContext(FILE *pfile, <span class="keyword">uint8_t</span> *buffer, <span class="keyword">size_t</span> bufferSize)&#123;</div><div class="line">        <span class="keyword">this</span>-&gt;pfile = pfile;</div><div class="line">        <span class="keyword">this</span>-&gt;buffer = buffer;</div><div class="line">        <span class="keyword">this</span>-&gt;bufferSize = bufferSize;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">static</span> AudioContext *recorderContext = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AudioRecorderCallback</span><span class="params">(SLAndroidSimpleBufferQueueItf bufferQueueItf, <span class="keyword">void</span> *context)</span></span>&#123;</div><div class="line">    AudioContext *recorderContext = (AudioContext*)context;</div><div class="line">    assert(recorderContext != <span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">if</span> (recorderContext-&gt;buffer != <span class="literal">NULL</span>) &#123;</div><div class="line">        fwrite(recorderContext-&gt;buffer, recorderContext-&gt;bufferSize, <span class="number">1</span>, recorderContext-&gt;pfile);</div><div class="line">        LOGI(<span class="string">"save a frame audio data."</span>);</div><div class="line">        SLresult result;</div><div class="line">        SLuint32 state;</div><div class="line">        result = (*recorderRecord)-&gt;GetRecordState(recorderRecord, &amp;state);</div><div class="line">        assert(SL_RESULT_SUCCESS == result);</div><div class="line">        (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (state == SL_RECORDSTATE_RECORDING) &#123;</div><div class="line">            result = (*bufferQueueItf)-&gt;Enqueue(bufferQueueItf, recorderContext-&gt;buffer, recorderContext-&gt;bufferSize);</div><div class="line">            assert(SL_RESULT_SUCCESS == result);</div><div class="line">            (<span class="keyword">void</span>) result;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">AudioPlayerCallback</span><span class="params">(SLAndroidSimpleBufferQueueItf bufferQueueItf, <span class="keyword">void</span> *context)</span></span>&#123;</div><div class="line">    AudioContext *playerContext = (AudioContext*)context;</div><div class="line">    <span class="keyword">if</span> (!feof(playerContext-&gt;pfile)) &#123;</div><div class="line">        fread(playerContext-&gt;buffer, playerContext-&gt;bufferSize, <span class="number">1</span>, playerContext-&gt;pfile);</div><div class="line">        LOGI(<span class="string">"read a frame audio data."</span>);</div><div class="line">        (*bufferQueueItf)-&gt;Enqueue(bufferQueueItf, playerContext-&gt;buffer, playerContext-&gt;bufferSize);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        fclose(playerContext-&gt;pfile);</div><div class="line">        <span class="keyword">delete</span> playerContext-&gt;buffer;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">createAudioPlayer</span><span class="params">(SLEngineItf engineEngine, SLObjectItf outputMixObject, SLObjectItf &amp;audioPlayerObject)</span></span>&#123;</div><div class="line">    SLDataLocator_AndroidSimpleBufferQueue dataSourceLocator = &#123;</div><div class="line">            SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE,</div><div class="line">            <span class="number">1</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// PCM 数据源格式</span></div><div class="line">    SLDataFormat_PCM dataSourceFormat = &#123;</div><div class="line">            SL_DATAFORMAT_PCM,</div><div class="line">            <span class="number">2</span>,</div><div class="line">            SL_SAMPLINGRATE_44_1,</div><div class="line">            SL_PCMSAMPLEFORMAT_FIXED_16,</div><div class="line">            <span class="number">16</span>,</div><div class="line">            SL_SPEAKER_FRONT_LEFT| SL_SPEAKER_FRONT_RIGHT,</div><div class="line">            SL_BYTEORDER_LITTLEENDIAN</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataSource dataSource = &#123;</div><div class="line">            &amp;dataSourceLocator,</div><div class="line">            &amp;dataSourceFormat</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataLocator_OutputMix dataSinkLocator = &#123;</div><div class="line">            SL_DATALOCATOR_OUTPUTMIX, <span class="comment">// 定位器类型</span></div><div class="line">            outputMixObject <span class="comment">// 输出混合</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataSink dataSink = &#123;</div><div class="line">            &amp;dataSinkLocator, <span class="comment">// 定位器</span></div><div class="line">            <span class="number">0</span>,</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 需要的接口</span></div><div class="line">    SLInterfaceID interfaceIDs[] = &#123;</div><div class="line">            SL_IID_BUFFERQUEUE</div><div class="line">    &#125;;</div><div class="line">    SLboolean requiredInterfaces[] = &#123;</div><div class="line">            SL_BOOLEAN_TRUE</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 创建音频播放对象</span></div><div class="line">    SLresult result = (*engineEngine)-&gt;CreateAudioPlayer(</div><div class="line">            engineEngine,</div><div class="line">            &amp;audioPlayerObject,</div><div class="line">            &amp;dataSource,</div><div class="line">            &amp;dataSink,</div><div class="line">            <span class="number">1</span>,</div><div class="line">            interfaceIDs,</div><div class="line">            requiredInterfaces</div><div class="line">    );</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_opensl_1es_AudioRecorder_startPlay</span><span class="params">(JNIEnv *env, jobject instance)</span> &#123;</div><div class="line">    <span class="comment">// 创建引擎</span></div><div class="line">    <span class="keyword">if</span> (engineEngine == <span class="literal">NULL</span>) &#123;</div><div class="line">        createEngine();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 创建混音器</span></div><div class="line">    SLresult result;</div><div class="line">    result = (*engineEngine)-&gt;CreateOutputMix(engineEngine, &amp;outputMixObjext, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    result = (*outputMixObjext)-&gt;Realize(outputMixObjext, SL_BOOLEAN_FALSE);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    FILE *p_file = fopen(AUDIO_SRC_PATH, <span class="string">"r"</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 创建播放器</span></div><div class="line">    createAudioPlayer(engineEngine, outputMixObjext, playerObject);</div><div class="line"></div><div class="line">    result = (*playerObject)-&gt;Realize(playerObject, SL_BOOLEAN_FALSE);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    result = (*playerObject)-&gt;GetInterface(playerObject, SL_IID_BUFFERQUEUE,</div><div class="line">                                                &amp;playerBufferQueueItf);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    <span class="keyword">uint8_t</span> *buffer = <span class="keyword">new</span> <span class="keyword">uint8_t</span>[BUFFER_SIZE];</div><div class="line">    AudioContext *playerContext = <span class="keyword">new</span> AudioContext(p_file, buffer, BUFFER_SIZE);</div><div class="line">    result = (*playerBufferQueueItf)-&gt;RegisterCallback(playerBufferQueueItf, AudioPlayerCallback,</div><div class="line">                                                    playerContext);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    result = (*playerObject)-&gt;GetInterface(playerObject, SL_IID_PLAY, &amp;playerPlay);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    (<span class="keyword">void</span>) result;</div><div class="line"></div><div class="line">    result = (*playerPlay)-&gt;SetPlayState(playerPlay, SL_PLAYSTATE_PLAYING);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    AudioPlayerCallback(playerBufferQueueItf, playerContext);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_opensl_1es_AudioRecorder_stopPlay</span><span class="params">(JNIEnv *env, jobject instance)</span> &#123;</div><div class="line">    <span class="keyword">if</span> (playerPlay != <span class="literal">NULL</span>) &#123;</div><div class="line">        SLresult result;</div><div class="line">        result = (*playerPlay)-&gt;SetPlayState(playerPlay, SL_PLAYSTATE_STOPPED);</div><div class="line">        assert(SL_RESULT_SUCCESS == result);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_opensl_1es_AudioRecorder_startRecord</span><span class="params">(JNIEnv *env, jobject instance)</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (engineEngine == <span class="literal">NULL</span>) &#123;</div><div class="line">        createEngine();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (recorderObject != <span class="literal">NULL</span>) &#123;</div><div class="line">        LOGI(<span class="string">"Audio recorder already has been created."</span>);</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    FILE *p_file = fopen(AUDIO_SRC_PATH, <span class="string">"w"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (p_file == <span class="literal">NULL</span>) &#123;</div><div class="line">        LOGI(<span class="string">"Fail to open file."</span>);</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    SLresult result;</div><div class="line"></div><div class="line">    <span class="comment">/* setup the data source*/</span></div><div class="line">    SLDataLocator_IODevice ioDevice = &#123;</div><div class="line">            SL_DATALOCATOR_IODEVICE,</div><div class="line">            SL_IODEVICE_AUDIOINPUT,</div><div class="line">            SL_DEFAULTDEVICEID_AUDIOINPUT,</div><div class="line">            <span class="literal">NULL</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataSource recSource = &#123;&amp;ioDevice, <span class="literal">NULL</span>&#125;;</div><div class="line"></div><div class="line">    SLDataLocator_AndroidSimpleBufferQueue recBufferQueue = &#123;</div><div class="line">            SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE,</div><div class="line">            NUM_BUFFER_QUEUE</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataFormat_PCM pcm = &#123;</div><div class="line">            SL_DATAFORMAT_PCM, <span class="comment">// pcm 格式的数据</span></div><div class="line">            <span class="number">2</span>,  <span class="comment">// 2 个声道（立体声）</span></div><div class="line">            SL_SAMPLINGRATE_44_1, <span class="comment">// 44100hz 的采样频率</span></div><div class="line">            SL_PCMSAMPLEFORMAT_FIXED_16,</div><div class="line">            SL_PCMSAMPLEFORMAT_FIXED_16,</div><div class="line">            SL_SPEAKER_FRONT_LEFT| SL_SPEAKER_FRONT_RIGHT,</div><div class="line">            SL_BYTEORDER_LITTLEENDIAN</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    SLDataSink dataSink = &#123; &amp;recBufferQueue, &amp;pcm &#125;;</div><div class="line">    SLInterfaceID iids[NUM_RECORDER_EXPLICIT_INTERFACES] = &#123;SL_IID_ANDROIDSIMPLEBUFFERQUEUE, SL_IID_ANDROIDCONFIGURATION&#125;;</div><div class="line">    SLboolean required[NUM_RECORDER_EXPLICIT_INTERFACES] = &#123;SL_BOOLEAN_TRUE, SL_BOOLEAN_TRUE&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/* Create the audio recorder */</span></div><div class="line">    result = (*engineEngine)-&gt;CreateAudioRecorder(engineEngine, &amp;recorderObject , &amp;recSource, &amp;dataSink,</div><div class="line">                                                  NUM_RECORDER_EXPLICIT_INTERFACES, iids, required);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* get the android configuration interface*/</span></div><div class="line">    result = (*recorderObject)-&gt;GetInterface(recorderObject, SL_IID_ANDROIDCONFIGURATION, &amp;configItf);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">/* Realize the recorder in synchronous mode. */</span></div><div class="line">    result = (*recorderObject)-&gt;Realize(recorderObject, SL_BOOLEAN_FALSE);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">/* Get the buffer queue interface which was explicitly requested */</span></div><div class="line">    result = (*recorderObject)-&gt;GetInterface(recorderObject, SL_IID_ANDROIDSIMPLEBUFFERQUEUE, (<span class="keyword">void</span>*) &amp;recorderBuffQueueItf);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/* get the record interface */</span></div><div class="line">    result = (*recorderObject)-&gt;GetInterface(recorderObject, SL_IID_RECORD, &amp;recorderRecord);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="keyword">uint8_t</span> *buffer = <span class="keyword">new</span> <span class="keyword">uint8_t</span>[BUFFER_SIZE];</div><div class="line">    recorderContext = <span class="keyword">new</span> AudioContext(p_file, buffer, BUFFER_SIZE);</div><div class="line">    result = (*recorderBuffQueueItf)-&gt;RegisterCallback(recorderBuffQueueItf, AudioRecorderCallback, recorderContext);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">/* Enqueue buffers to map the region of memory allocated to store the recorded data */</span></div><div class="line">    result = (*recorderBuffQueueItf)-&gt;Enqueue(recorderBuffQueueItf, recorderContext-&gt;buffer, BUFFER_SIZE);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">    <span class="comment">/* Start recording */</span></div><div class="line">    <span class="comment">// 开始录制音频</span></div><div class="line">    result = (*recorderRecord)-&gt;SetRecordState(recorderRecord, SL_RECORDSTATE_RECORDING);</div><div class="line">    assert(SL_RESULT_SUCCESS == result);</div><div class="line">    LOGI(<span class="string">"Starting recording"</span>);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_opensl_1es_AudioRecorder_stopRecord</span><span class="params">(JNIEnv *env, jobject instance)</span> &#123;</div><div class="line">    <span class="keyword">if</span> (recorderRecord != <span class="literal">NULL</span>) &#123;</div><div class="line">        SLresult result = (*recorderRecord)-&gt;SetRecordState(recorderRecord, SL_RECORDSTATE_STOPPED);</div><div class="line">        assert(SL_RESULT_SUCCESS == result);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (recorderContext != <span class="literal">NULL</span>) &#123;</div><div class="line">            fclose(recorderContext-&gt;pfile);</div><div class="line">            <span class="keyword">delete</span> recorderContext-&gt;buffer;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_opensl_1es_AudioRecorder_release</span><span class="params">(JNIEnv *env, jobject instance)</span> &#123;</div><div class="line">    <span class="keyword">if</span> (recorderObject != <span class="literal">NULL</span>) &#123;</div><div class="line">        (*recorderObject)-&gt;Destroy(recorderObject);</div><div class="line">        recorderObject = <span class="literal">NULL</span>;</div><div class="line">        recorderRecord = <span class="literal">NULL</span>;</div><div class="line">        recorderBuffQueueItf = <span class="literal">NULL</span>;</div><div class="line">        configItf = <span class="literal">NULL</span>;</div><div class="line">        recorderContext = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (playerObject != <span class="literal">NULL</span>) &#123;</div><div class="line">        (*playerObject)-&gt;Destroy(playerObject);</div><div class="line">        playerObject = <span class="literal">NULL</span>;</div><div class="line">        playerPlay = <span class="literal">NULL</span>;</div><div class="line">        playerBufferQueueItf = <span class="literal">NULL</span>;</div><div class="line">        outputMixObjext = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// destroy engine object, and invalidate all associated interfaces</span></div><div class="line">    <span class="keyword">if</span> (engineObject != <span class="literal">NULL</span>) &#123;</div><div class="line">        (*engineObject)-&gt;Destroy(engineObject);</div><div class="line">        engineObject = <span class="literal">NULL</span>;</div><div class="line">        engineEngine = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+		﻿<div> 
+<h1><b>联系我</b></h1>
+<p align="center">Wechat ID</p>
+<p align="center"><img src="/images/wechat_contact.png"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+<p align="center">公众号</p>
+<p align="center"><img src="/images/wx_account.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+
+</div>  
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗与远方</div>
+	<br>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenSL-ES/" rel="tag"># OpenSL ES</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/NDK-posix-multi-thread/" rel="next" title="NDK POSIX 多线程编程">
+                <i class="fa fa-chevron-left"></i> NDK POSIX 多线程编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
+               alt="haohao" />
+          <p class="site-author-name" itemprop="name">haohao</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/githubhaohao" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzIwNTIwMzAzNg==&hid=3&sn=e44bb74d37b8a867862a60741b6e4c4f&scene=18&uin=&key=&devicetype=Windows+7&version=62060028&lang=zh_CN&ascene=7&winzoom=1" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenSL-ES-是什么？"><span class="nav-number">1.</span> <span class="nav-text">OpenSL ES 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenSL-ES-的一些基本概念"><span class="nav-number">2.</span> <span class="nav-text">OpenSL ES 的一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于-c-语言的面向对象接口"><span class="nav-number">2.1.</span> <span class="nav-text">基于 c 语言的面向对象接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象和接口概念"><span class="nav-number">2.2.</span> <span class="nav-text">对象和接口概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的生命周期"><span class="nav-number">2.3.</span> <span class="nav-text">对象的生命周期</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenSL-ES-常用的-Object-和-Interface"><span class="nav-number">3.</span> <span class="nav-text">OpenSL ES 常用的 Object 和 Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Audio-引擎对象和接口"><span class="nav-number">3.1.</span> <span class="nav-text">Audio 引擎对象和接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLRecordItf-和-SLPlayItf"><span class="nav-number">3.2.</span> <span class="nav-text">SLRecordItf 和 SLPlayItf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLDataSource-和-SLDataSink"><span class="nav-number">3.3.</span> <span class="nav-text">SLDataSource 和 SLDataSink</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenSL-ES-Recorder-和-Player-功能构建"><span class="nav-number">4.</span> <span class="nav-text">OpenSL ES Recorder 和 Player 功能构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    Powered by
+  </span>
+  <a class="theme-link" href="http://haohaochang.cn/">
+    haohao
+  </a>
+</div>
+
+        
+
+<div class="theme-info" align="center">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'githubhaohao-github-io';
+      var disqus_identifier = '2018/01/15/NDK-Android-OpenSL-ES-Tutorial/';
+
+      var disqus_title = "NDK Android OpenSL ES 音频采集与播放";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("p6dxCQ5K1YJq8tmDcWCGbodE-gzGzoHsz", "HWiui0v5fOotru1XABNOYgVt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
