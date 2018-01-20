@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-01-15T10:46:29.213Z</updated>
+  <updated>2018-01-20T08:44:36.117Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NDK FFmpeg 编译</title>
+    <link href="https://githubhaohao.github.io/2018/01/20/NDK-FFmpeg-compile/"/>
+    <id>https://githubhaohao.github.io/2018/01/20/NDK-FFmpeg-compile/</id>
+    <published>2018-01-20T01:35:06.000Z</published>
+    <updated>2018-01-20T08:44:36.117Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20180120.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">互联网时代限制个人发展的不再是掌握知识和信息的多少，而是个人的认知水平。</div><br></p>
+<blockquote>
+<p>本篇介绍一下 Linux 环境下 FFmpeg 的编译。</p>
+</blockquote>
+<p>本博客 NDK 开发系列文章：                                                                                                                                                                                          </p>
+<ul>
+<li><a href="http://haohaochang.cn/2017/11/04/NDK-compiled-three-ways/" title="NDK 编译的三种方式" target="_blank" rel="external">NDK 编译的三种方式</a></li>
+<li><a href="http://haohaochang.cn/2017/11/11/NDK-packaging-third-party-static-and-dynamic-lib/" title="在 NDK 开发中引入第三方静态库和动态库" target="_blank" rel="external">在 NDK 开发中引入第三方静态库和动态库</a></li>
+<li><a href="http://haohaochang.cn/2018/01/06/NDK-native-call-java-method/" title="NDK 开发中 Native 与 Java 交互" target="_blank" rel="external">NDK 开发中 Native 与 Java 交互</a></li>
+<li><a href="http://haohaochang.cn/2018/01/09/NDK-posix-multi-thread/" target="_blank" rel="external">NDK POSIX 多线程编程</a></li>
+<li><a href="http://haohaochang.cn/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/" target="_blank" rel="external">NDK Android OpenSL ES 音频采集与播放</a></li>
+</ul>
+<h1 id="FFmpeg-是什么？"><a href="#FFmpeg-是什么？" class="headerlink" title="FFmpeg 是什么？"></a>FFmpeg 是什么？</h1><p>FFmpeg 全称（First Forward MPEG），是一款领先的开源多媒体框架，采用 LGPL 或 GPL 许可证，除了具有音视频编解码功能外，还有视频格式转换、视频抓图、视频水印、推流等功能。 FFmpeg 在 Linux 平台下开发，但它同样也可以在其它操作系统环境中编译运行，包括 Windows 、Mac OS X 等。</p>
+<p>FFmpeg的官方网站是：<a href="http://ffmpeg.org/" target="_blank" rel="external">http://ffmpeg.org/</a></p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ffmpeg/TIM%E6%88%AA%E5%9B%BE20180120153405.png" alt=""></p>
+<p>Windows 平台下，编译好的可用版本一般有三个： Static ，Shared ，Dev 。Static 里面有 3 个应用程序：ffmpeg.exe ，ffplay.exe ，ffprobe.exe ，动态链接库都被编译在 exe 文件中，每个 exe 的体积都很大，可直接运行，如播放一段视频，命令行下执行：<code>ffmpeg video.mp4</code>。Shared 里面除了 3 个应用程序：ffmpeg.exe ，ffplay.exe ，ffprobe.exe 之外，还有一些动态链接库，如 avcodec-54.dll 之类的，Shared 里面的 exe 体积较小。Dev 版本主要用于开发的，里面包含了一些库文件 xxx.lib 和文件 xxx.h 。</p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ffmpeg/TIM%E6%88%AA%E5%9B%BE20180120154626.png" alt=""></p>
+<p>Linux 平台下，本文选择的版本是 2.6.9 ，地址：<a href="http://ffmpeg.org/olddownload.html" target="_blank" rel="external">http://ffmpeg.org/olddownload.html</a> </p>
+<h1 id="编译-FFmpeg"><a href="#编译-FFmpeg" class="headerlink" title="编译 FFmpeg"></a>编译 FFmpeg</h1><p>搭建 Linux 开发环境，安装 Ubuntu 虚拟机或者电脑装成双系统，或者购买一个低配的阿里云主机，文件传输工具推荐 FileZilla 或 XFTP 。</p>
+<h2 id="Linux-环境下配置-NDK"><a href="#Linux-环境下配置-NDK" class="headerlink" title="Linux 环境下配置 NDK"></a>Linux 环境下配置 NDK</h2><p>首先下载 Linux 环境下的 NDK （注意科学上网），如 <code>android-ndk-r11c-linux-x86_64.bin</code> 。<br>执行如下命令进行解压缩：<br><code>./android-ndk-r11c-linux-x86_64.bin</code><br>配置环境变量，首先编辑 .bashrc 文件。<br><code>vim ~/.bashrc</code><br>在文件结尾添加两行代码：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> NDKROOT=( NDK 解压的根目录）如 、/usr/workspace/ndk/android-ndk-r11c</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$NDKROOT</span>:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<p>更新环境变量：<br><code>source ~/.bashrc</code></p>
+<h2 id="编译准备"><a href="#编译准备" class="headerlink" title="编译准备"></a>编译准备</h2><p>首先下载 FFmpeg ，地址：<a href="http://ffmpeg.org/olddownload.html" target="_blank" rel="external">http://ffmpeg.org/olddownload.html</a>。<br>解压：<code>uzip ffmpeg-2.6.9.zip</code><br>然后编写用于编译的 Shell 脚本，在 ffmpeg-2.6.9 根目录下执行：<code>vim build_android.sh</code><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">make clean</div><div class="line"><span class="built_in">export</span> NDK=/home/wuhuannan/Android/Sdk/ndk-bundle</div><div class="line"><span class="built_in">export</span> SYSROOT=<span class="variable">$NDK</span>/platforms/android-14/arch-arm/</div><div class="line"><span class="built_in">export</span> TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64</div><div class="line"><span class="built_in">export</span> CPU=arm</div><div class="line"><span class="built_in">export</span> PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></div><div class="line"><span class="built_in">export</span> ADDI_CFLAGS=<span class="string">"-marm"</span></div><div class="line"></div><div class="line">./configure --target-os=linux \</div><div class="line">--prefix=<span class="variable">$PREFIX</span> --arch=arm \</div><div class="line">--disable-doc \</div><div class="line">--enable-shared \</div><div class="line">--disable-static \</div><div class="line">--disable-yasm \</div><div class="line">--disable-symver \</div><div class="line">--enable-gpl \</div><div class="line">--disable-ffmpeg \</div><div class="line">--disable-ffplay \</div><div class="line">--disable-ffprobe \</div><div class="line">--disable-ffserver \</div><div class="line">--disable-doc \</div><div class="line">--disable-symver \</div><div class="line">--cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</div><div class="line">--enable-cross-compile \</div><div class="line">--sysroot=<span class="variable">$SYSROOT</span> \</div><div class="line">--extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</div><div class="line">--extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</div><div class="line"><span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></div><div class="line">make clean</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
+<p>然后修改根目录下的 configure 文件。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#找到并注释以下代码</span></div><div class="line"><span class="comment">#SLIBNAME_WITH_MAJOR='$(SLIBNAME).$(LIBMAJOR)'</span></div><div class="line"><span class="comment">#LIB_INSTALL_EXTRA_CMD='$$(RANLIB) "$(LIBDIR)/$(LIBNAME)"'</span></div><div class="line"><span class="comment">#SLIB_INSTALL_NAME='$(SLIBNAME_WITH_VERSION)'</span></div><div class="line"><span class="comment">#SLIB_INSTALL_LINKS='$(SLIBNAME_WITH_MAJOR) $(SLIBNAME)'</span></div><div class="line"></div><div class="line"><span class="comment">#在上述代码下添加以下代码</span></div><div class="line">SLIBNAME_WITH_MAJOR=<span class="string">'$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)'</span></div><div class="line">LIB_INSTALL_EXTRA_CMD=<span class="string">'$$(RANLIB)"$(LIBDIR)/$(LIBNAME)"'</span></div><div class="line">SLIB_INSTALL_NAME=<span class="string">'$(SLIBNAME_WITH_MAJOR)'</span></div><div class="line">SLIB_INSTALL_LINKS=<span class="string">'$(SLIBNAME)'</span></div></pre></td></tr></table></figure></p>
+<p>修改文件权限：</p>
+<p><code>chmod +x build_android.sh configure</code></p>
+<p>执行一下脚本开始编译：</p>
+<p><code>./build_android.sh</code></p>
+<p>约几分钟后，编译生成的动态库文件如下：</p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/ffmpeg/TIM%E6%88%AA%E5%9B%BE20171219183959.png" alt=""></p>
+<p>后续我们将在 Android 环境下的音视频编解码中使用这个动态库。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20180120.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;互联
+    
+    </summary>
+    
+      <category term="Android" scheme="https://githubhaohao.github.io/categories/Android/"/>
+    
+      <category term="NDK" scheme="https://githubhaohao.github.io/categories/Android/NDK/"/>
+    
+    
+      <category term="FFmpeg" scheme="https://githubhaohao.github.io/tags/FFmpeg/"/>
+    
+  </entry>
   
   <entry>
     <title>NDK Android OpenSL ES 音频采集与播放</title>
@@ -1096,54 +1152,6 @@
     
     
       <category term="Android System" scheme="https://githubhaohao.github.io/tags/Android-System/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RxJava for Kotlin 实践（三）</title>
-    <link href="https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/"/>
-    <id>https://githubhaohao.github.io/2017/07/01/RxJava-to-Kotlin-Util-and-Operator/</id>
-    <published>2017-07-01T12:43:50.000Z</published>
-    <updated>2017-09-10T09:50:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20170701.jpg" alt="Markdown"></p>
-
-<p align="center">我们很少想我们已经拥有的，而总是想我们所没有的</p>
-
-<blockquote>
-<p>本篇是 RxJava for Kotlin 系列的第三篇，本系列从可观察系列的创建、组合变换以及监听的实践入手，最后一直到 RxJava 的实现原理分析。</p>
-<p><a href="http://haohaochang.cn/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/" target="_blank" rel="external">上一篇主要介绍了 RxJava 可观察序列常用的组合和变换方式，</a>本篇主要简单介绍可观察序列在生产和消费时线程的转换方式以及如何自定义 RxJava 操作符。</p>
-</blockquote>
-<h1 id="RxJava-线程转换"><a href="#RxJava-线程转换" class="headerlink" title="RxJava 线程转换"></a>RxJava 线程转换</h1><p>RxJava 的精髓在于它的异步处理，可以轻松实现线程切换。</p>
-<p>RxJava 常用线程切换操作符： <code>subscribeOn</code> ，<code>observeOn</code> 。</p>
-<ul>
-<li><code>subscribeOn</code> : 指定 Observable 自身在哪个调度器上执行，即<strong>指定生产者所在的线程</strong>。</li>
-<li><code>observeOn</code> : 指定一个观察者在哪个调度器上观察这个 Observable 即<strong>指定消费者所在的线程</strong>.</li>
-</ul>
-<p>另外还有一个常用的操作符 <code>doOnNext</code> ，事件序列被消费之前，注册一个回调，接收 Observable 发射的每一项数据，但是不消费事件。通常在事件被消费之前做一些保存操作，例如，在进行网络请求时，对响应数据做一下缓存操作。</p>
-<p>一个简单的线程切换例子：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    * observeOn 指定一个观察者在哪个调度器上观察这个 Observable 即指定消费者所在的线程。</div><div class="line">    *</div><div class="line">    * subscribeOn 指定 Observable 自身在哪个调度器上执行，即指定生产者所在的线程。</div><div class="line">    *</div><div class="line">    * doOnNext 事件序列被消费之前，注册一个回调，接收 Observable 发射的每一项数据，但是不消费事件。</div><div class="line">    * */</div><div class="line">    Observable.from(arrayOf(<span class="string">"Hello Kotlin"</span>, <span class="string">"Hello RxJava"</span>, <span class="string">"Hello Android"</span>))</div><div class="line">            .doOnNext &#123; println(<span class="string">"<span class="subst">$&#123;Thread.currentThread().name&#125;</span> : <span class="subst">$it</span>"</span>) &#125;</div><div class="line">            .subscribeOn(Schedulers.io())</div><div class="line">            .observeOn(Schedulers.newThread())</div><div class="line">            .subscribe&#123; p -&gt;</div><div class="line">                println(<span class="string">"<span class="subst">$&#123;Thread.currentThread().name&#125;</span> : <span class="subst">$p</span>"</span>)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">RxIoScheduler-<span class="number">2</span> : Hello Kotlin</div><div class="line">RxIoScheduler-<span class="number">2</span> : Hello RxJava</div><div class="line">RxIoScheduler-<span class="number">2</span> : Hello Android</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello Kotlin</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello RxJava</div><div class="line">RxNewThreadScheduler-<span class="number">1</span> : Hello Android</div></pre></td></tr></table></figure></p>
-<h1 id="自定义操作符"><a href="#自定义操作符" class="headerlink" title="自定义操作符"></a>自定义操作符</h1><p>RxJava 提供了接口 Operator 和 Transformer 接口用于轻松实现自定义操作符。</p>
-<h2 id="自定义序列操作符"><a href="#自定义序列操作符" class="headerlink" title="自定义序列操作符"></a>自定义序列操作符</h2><p>这里需要说一下 <code>lift</code> 操作符，它可以将我们自定义的操作符和其它的操作符一起做链式调用。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//序列操作符</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyOperator</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> name: String) : Observable.Operator&lt;String, String&gt; &#123;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">call</span><span class="params">(p0: <span class="type">Subscriber</span>&lt;<span class="type">in</span> <span class="type">String</span>&gt;)</span></span>: Subscriber&lt;<span class="keyword">in</span> String&gt; &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">object</span> : Subscriber&lt;String&gt;(p0) &#123;</div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onError</span><span class="params">(t: <span class="type">Throwable</span>?)</span></span> &#123;</div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    p0.onError(t)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCompleted</span><span class="params">()</span></span> &#123;</div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    p0.onCompleted()</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onNext</span><span class="params">(t: <span class="type">String</span>?)</span></span> &#123;</div><div class="line">                <span class="comment">// 对每一项进行简单的标记打印操作</span></div><div class="line">                <span class="keyword">if</span> (!p0.isUnsubscribed) &#123;</div><div class="line">                    println(<span class="string">"<span class="subst">$name</span> : <span class="subst">$t</span>"</span>)</div><div class="line">                    p0.onNext(t)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    Observable.from(arrayOf(<span class="string">"Hello Kotlin"</span>, <span class="string">"Hello RxJava"</span>, <span class="string">"Hello Android"</span>))</div><div class="line">            .lift(MyOperator(<span class="string">"Opt-1"</span>))</div><div class="line">            .lift(MyOperator(<span class="string">"Opt-2"</span>))</div><div class="line">            .subscribe&#123;</div><div class="line">                println(it)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">MyOperator : Hello Kotlin</div><div class="line">Hello Kotlin</div><div class="line">MyOperator : Hello RxJava</div><div class="line">Hello RxJava</div><div class="line">MyOperator : Hello Android</div><div class="line">Hello Android</div></pre></td></tr></table></figure></p>
-<h2 id="自定义变换操作符"><a href="#自定义变换操作符" class="headerlink" title="自定义变换操作符"></a>自定义变换操作符</h2><p>这里需要说一下 <code>compose</code> 操作符，它同 <code>lift</code> 操作符类似，可以将自定义操作符与标准的 RxJava 操作符一起使用。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 变换操作符</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTransformer</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> name: String) : Observable.Transformer&lt;<span class="built_in">Int</span>, String&gt; &#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">call</span><span class="params">(p0: <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;)</span></span>: Observable&lt;String&gt;  = p0.map &#123;</div><div class="line">        <span class="string">"<span class="subst">$name</span> : <span class="subst">$it</span>"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">    Observable.from(arrayOf(<span class="number">123</span>, <span class="number">456</span>, <span class="number">789</span>))</div><div class="line">            .compose(MyTransformer(<span class="string">"Transformer-1"</span>))</div><div class="line">            .subscribe&#123;</div><div class="line">                println(it)</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Transformer-<span class="number">1</span> : <span class="number">123</span></div><div class="line">Transformer-<span class="number">1</span> : <span class="number">456</span></div><div class="line">Transformer-<span class="number">1</span> : <span class="number">789</span></div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20170701.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;我们很少想我们已经拥有的，而总是想我们所
-    
-    </summary>
-    
-      <category term="RxJava" scheme="https://githubhaohao.github.io/categories/RxJava/"/>
-    
-    
-      <category term="RxJava" scheme="https://githubhaohao.github.io/tags/RxJava/"/>
-    
-      <category term="Kotlin" scheme="https://githubhaohao.github.io/tags/Kotlin/"/>
     
   </entry>
   
