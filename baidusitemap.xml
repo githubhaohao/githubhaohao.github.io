@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2018/01/24/NDK-FFmpeg-video-decoding/</loc>
+    <lastmod>2018-01-27T07:07:06.431Z</lastmod>
+    <data>
+        <display>
+        <title>NDK FFmpeg 音视频解码</title>
+        <pubTime>2018-01-24T13:36:08.000Z</pubTime>
+        
+        <tag>FFmpeg</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/01/20/NDK-FFmpeg-compile/</loc>
     <lastmod>2018-01-20T08:44:36.117Z</lastmod>
     <data>
