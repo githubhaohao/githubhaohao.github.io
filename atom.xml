@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-01-27T08:06:56.097Z</updated>
+  <updated>2018-01-29T07:12:19.149Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2018/01/24/NDK-FFmpeg-video-decoding/"/>
     <id>https://githubhaohao.github.io/2018/01/24/NDK-FFmpeg-video-decoding/</id>
     <published>2018-01-24T13:36:08.000Z</published>
-    <updated>2018-01-27T08:06:56.097Z</updated>
+    <updated>2018-01-29T07:12:19.149Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20180204.jpeg" alt="Markdown"></p><p></p>
 <p><div align="center">诸葛亮躬耕隆中的时候，与好友石广元、徐庶、孟公威在一起求学，其他三人读书都是一定要滚瓜烂熟，只有诸葛亮只观其大略。</div><br></p>
@@ -235,8 +235,9 @@
 <p>PS：</p>
 <ol>
 <li>注意添加文件读写权限。</li>
-<li>关注公众号 <code>AndroidGeeks</code> ，并在后台回复 <code>ffmpeglib</code> 获取相应的函数库。<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><a href="http://blog.csdn.net/leixiaohua1020/article/details/15811977" title="雷霄骅" target="_blank" rel="external">雷霄骅博客 http://blog.csdn.net/leixiaohua1020/article/details/15811977</a><br>Jason 的 NDK 开发高级教程</li>
+<li>关注公众号 <code>AndroidGeeks</code> ，并在后台回复 <code>ffmpeglib</code> 获取相应的函数库。</li>
 </ol>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://blog.csdn.net/leixiaohua1020/article/details/15811977" title="雷霄骅" target="_blank" rel="external">雷霄骅博客 http://blog.csdn.net/leixiaohua1020/article/details/15811977</a><br>Jason 的 NDK 开发高级教程</p>
 ]]></content>
     
     <summary type="html">
