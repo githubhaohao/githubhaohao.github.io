@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2018/02/03/NDK-set-up-streaming-media-server/</loc>
+    <lastmod>2018-02-03T07:56:44.009Z</lastmod>
+    <data>
+        <display>
+        <title>NDK 直播搭建流媒体服务器</title>
+        <pubTime>2018-02-03T05:42:32.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/01/24/NDK-FFmpeg-video-decoding/</loc>
     <lastmod>2018-01-29T07:12:19.149Z</lastmod>
     <data>
