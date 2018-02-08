@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
+    <lastmod>2018-02-08T06:31:37.073Z</lastmod>
+    <data>
+        <display>
+        <title>Java 虚拟机基础知识（一）</title>
+        <pubTime>2017-06-24T06:24:38.000Z</pubTime>
+        
+        <tag>JVM</tag>
+         
+         
+           
+             
+              <breadCrumb title="JVM" url="https://githubhaohao.github.io/categories/JVM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/02/03/NDK-set-up-streaming-media-server/</loc>
     <lastmod>2018-02-03T08:22:12.720Z</lastmod>
     <data>
@@ -770,26 +790,6 @@
            
              
               <breadCrumb title="RxJava" url="https://githubhaohao.github.io/categories/RxJava/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
-    <lastmod>2017-09-10T09:51:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java 虚拟机基础知识（一）</title>
-        <pubTime>2017-06-24T06:24:38.000Z</pubTime>
-        
-        <tag>JVM</tag>
-         
-         
-           
-             
-              <breadCrumb title="JVM" url="https://githubhaohao.github.io/categories/JVM/"/>
           
         </display>
     </data>

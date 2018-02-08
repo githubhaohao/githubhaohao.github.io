@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
+    
+    <lastmod>2018-02-08T06:31:37.073Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://githubhaohao.github.io/2018/02/03/NDK-set-up-streaming-media-server/</loc>
     
     <lastmod>2018-02-03T08:22:12.720Z</lastmod>
@@ -243,13 +250,6 @@
     <loc>https://githubhaohao.github.io/2017/06/17/RxJava-for-Kotlin-practice-transforming-and-combining/</loc>
     
     <lastmod>2017-09-10T09:52:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
-    
-    <lastmod>2017-09-10T09:51:06.000Z</lastmod>
     
   </url>
   
