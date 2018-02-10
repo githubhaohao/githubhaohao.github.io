@@ -1,0 +1,1158 @@
+<!doctype html>
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+
+  
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="直播," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="haohao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最好的年终奖是拥有随时可以跳槽的能力。
+
+本篇介绍一下直播技术中推流与引流的简单实现。
+
+本博客 NDK 开发系列文章：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NDK 直播推流与引流">
+<meta property="og:url" content="https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/index.html">
+<meta property="og:site_name" content="haohao">
+<meta property="og:description" content="最好的年终奖是拥有随时可以跳槽的能力。
+
+本篇介绍一下直播技术中推流与引流的简单实现。
+
+本博客 NDK 开发系列文章：">
+<meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20180229.jpeg">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/live/qlive_push.jpg">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/live/qlive_play.jpg">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/live/live_test.png">
+<meta property="og:image" content="http://ovv1lq7pk.bkt.clouddn.com/live/project_structure.png">
+<meta property="og:updated_time" content="2018-02-10T07:11:48.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NDK 直播推流与引流">
+<meta name="twitter:description" content="最好的年终奖是拥有随时可以跳槽的能力。
+
+本篇介绍一下直播技术中推流与引流的简单实现。
+
+本博客 NDK 开发系列文章：">
+<meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20180229.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/"/>
+
+
+
+
+
+  <title> NDK 直播推流与引流 | haohao </title>
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">haohao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">不忘初心</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/githubhaohao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NDK 直播推流与引流
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-10T13:28:00+08:00">
+                2018-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/NDK/" itemprop="url" rel="index">
+                    <span itemprop="name">NDK</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/10/NDK-live-streaming-push-and-pull/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/10/NDK-live-streaming-push-and-pull/" class="leancloud_visitors" data-flag-title="NDK 直播推流与引流">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20180229.jpeg" alt="Markdown"></p><p></p>
+<p><div align="center">最好的年终奖是拥有随时可以跳槽的能力。</div><br></p>
+<blockquote>
+<p>本篇介绍一下直播技术中推流与引流的简单实现。</p>
+</blockquote>
+<p>本博客 NDK 开发系列文章：                                                                                                                                                                                          </p>
+<ul>
+<li><a href="http://haohaochang.cn/2017/11/04/NDK-compiled-three-ways/" title="NDK 编译的三种方式" target="_blank" rel="external">NDK 编译的三种方式</a></li>
+<li><a href="http://haohaochang.cn/2017/11/11/NDK-packaging-third-party-static-and-dynamic-lib/" title="在 NDK 开发中引入第三方静态库和动态库" target="_blank" rel="external">在 NDK 开发中引入第三方静态库和动态库</a></li>
+<li><a href="http://haohaochang.cn/2018/01/06/NDK-native-call-java-method/" title="NDK 开发中 Native 与 Java 交互" target="_blank" rel="external">NDK 开发中 Native 与 Java 交互</a></li>
+<li><a href="http://haohaochang.cn/2018/01/09/NDK-posix-multi-thread/" target="_blank" rel="external">NDK POSIX 多线程编程</a></li>
+<li><a href="http://haohaochang.cn/2018/01/15/NDK-Android-OpenSL-ES-Tutorial/" target="_blank" rel="external">NDK Android OpenSL ES 音频采集与播放</a></li>
+<li><a href="http://haohaochang.cn/2018/01/20/NDK-FFmpeg-compile/" target="_blank" rel="external">NDK FFmpeg 编译</a></li>
+<li><a href="http://haohaochang.cn/2018/01/24/NDK-FFmpeg-video-decoding/" target="_blank" rel="external">NDK FFmpeg 音视频解码</a></li>
+<li><a href="http://haohaochang.cn/2018/02/03/NDK-set-up-streaming-media-server/" target="_blank" rel="external">NDK 直播流媒体服务器搭建</a></li>
+</ul>
+<h1 id="流媒体服务器测试"><a href="#流媒体服务器测试" class="headerlink" title="流媒体服务器测试"></a>流媒体服务器测试</h1><p>首先利用<a href="https://apkpure.biz/cn.nodemedia.qlive/%E5%BF%AB%E7%9B%B4%E6%92%AD" target="_blank" rel="external">快直播 app</a>（其他支持 RTMP 推流与引流的 app 亦可）和 ffplay.exe 对流媒体服务器进行测试。</p>
+<p>快直播的推流界面和引流界面<br><img src="http://ovv1lq7pk.bkt.clouddn.com/live/qlive_push.jpg" alt=""></p>
+<p><img src="http://ovv1lq7pk.bkt.clouddn.com/live/qlive_play.jpg" alt=""></p>
+<p>Windows 下利用 ffplay 进行引流，执行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ffplay rtmp://192.168.0.0/live/<span class="built_in">test</span>  </div><div class="line"><span class="comment"># ip 地址换成流媒体服务器的地址， test 表示直播房间号</span></div></pre></td></tr></table></figure></p>
+<p>测试结果：<br><img src="http://ovv1lq7pk.bkt.clouddn.com/live/live_test.png" alt=""></p>
+<h1 id="推流"><a href="#推流" class="headerlink" title="推流"></a>推流</h1><p>本文直播推流步骤：</p>
+<ul>
+<li>使用 AudioRecord 采集音频，使用 Camera API 采集视频数据</li>
+<li>分别使用 faac 和 xh264 第三方库在 Native 层对音频和视频进行编码</li>
+<li>利用 rtmp-dump 第三方库进行打包和推流</li>
+</ul>
+<p>工程目录：<br><img src="http://ovv1lq7pk.bkt.clouddn.com/live/project_structure.png" alt=""></p>
+<p>主要的 JNI 方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NativePush</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">startPush</span><span class="params">(String url)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">stopPush</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置视频参数</div><div class="line">     * <span class="doctag">@param</span> width</div><div class="line">     * <span class="doctag">@param</span> height</div><div class="line">     * <span class="doctag">@param</span> bitrate</div><div class="line">     * <span class="doctag">@param</span> fps</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">setVideoOptions</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span> bitrate, <span class="keyword">int</span> fps)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置音频参数</div><div class="line">     * <span class="doctag">@param</span> sampleRateInHz</div><div class="line">     * <span class="doctag">@param</span> channel</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">setAudioOptions</span><span class="params">(<span class="keyword">int</span> sampleRateInHz, <span class="keyword">int</span> channel)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 发送视频数据</div><div class="line">     * <span class="doctag">@param</span> data</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">fireVideo</span><span class="params">(<span class="keyword">byte</span>[] data)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 发送音频数据</div><div class="line">     * <span class="doctag">@param</span> data</div><div class="line">     * <span class="doctag">@param</span> len</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">fireAudio</span><span class="params">(<span class="keyword">byte</span>[] data, <span class="keyword">int</span> len)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="视频采集"><a href="#视频采集" class="headerlink" title="视频采集"></a>视频采集</h2><p>视频采集主要基于 Camera 相关 API ，利用 SurfaceView 进行预览，通过 PreviewCallback 获取相机预览数据。</p>
+<p>视频预览主要代码实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startPreview</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         mCamera = Camera.open(mVideoParams.getCameraId());</div><div class="line">         Camera.Parameters param = mCamera.getParameters();</div><div class="line"></div><div class="line">         List&lt;Camera.Size&gt; previewSizes = param.getSupportedPreviewSizes();</div><div class="line">         <span class="keyword">int</span> length = previewSizes.size();</div><div class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">             Log.i(TAG, <span class="string">"SupportedPreviewSizes : "</span> + previewSizes.get(i).width + <span class="string">"x"</span> + previewSizes.get(i).height);</div><div class="line">         &#125;</div><div class="line"></div><div class="line">         mVideoParams.setWidth(previewSizes.get(<span class="number">0</span>).width);</div><div class="line">         mVideoParams.setHeight(previewSizes.get(<span class="number">0</span>).height);</div><div class="line"></div><div class="line">         param.setPreviewFormat(ImageFormat.NV21);</div><div class="line">         param.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());</div><div class="line"></div><div class="line">         mCamera.setParameters(param);</div><div class="line">         <span class="comment">//mCamera.setDisplayOrientation(90); // 竖屏</span></div><div class="line">         mCamera.setPreviewDisplay(mSurfaceHolder);</div><div class="line"></div><div class="line">         buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[mVideoParams.getWidth() * mVideoParams.getHeight() * <span class="number">4</span>];</div><div class="line">         mCamera.addCallbackBuffer(buffer);</div><div class="line">         mCamera.setPreviewCallbackWithBuffer(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">         mCamera.startPreview();</div><div class="line">     &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">         e.printStackTrace();</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>利用 FrameCallback 获取预览数据传入 Native 层，然后进行编码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPreviewFrame</span><span class="params">(<span class="keyword">byte</span>[] bytes, Camera camera)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mCamera != <span class="keyword">null</span>) &#123;</div><div class="line">        mCamera.addCallbackBuffer(buffer);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (mIsPushing) &#123;</div><div class="line">        mNativePush.fireVideo(bytes);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="音频采集"><a href="#音频采集" class="headerlink" title="音频采集"></a>音频采集</h2><p>音频采集基于 AudioRecord 实现，在一个子线程采集音频 PCM 数据，并将数据不断传入 Native 层进行编码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioRecordRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        mAudioRecord.startRecording();</div><div class="line">        <span class="keyword">while</span> (mIsPushing) &#123;</div><div class="line">            <span class="comment">//通过AudioRecord不断读取音频数据</span></div><div class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[mMinBufferSize];</div><div class="line">            <span class="keyword">int</span> length = mAudioRecord.read(buffer, <span class="number">0</span>, buffer.length);</div><div class="line">            <span class="keyword">if</span> (length &gt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="comment">//传递给 Native 代码，进行音频编码</span></div><div class="line">                mNativePush.fireAudio(buffer, length);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="编码和推流"><a href="#编码和推流" class="headerlink" title="编码和推流"></a>编码和推流</h2><p>音视频数据编码和推流在 Native 层实现，首先添加 faac ， xh264 ， librtmp 第三方库到 AS 工程，然后初始化相关设置，基于生产者与消费者模式，将编码后的音视频数据，在生产者线程中打包 RTMPPacket 放入双向链表，在消费者线程中从链表中取 RTMPPacket ，通过 RTMP_SendPacket 方法发送出去。</p>
+<p>xh264 初始化：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_live_jni_NativePush_setVideoOptions</span><span class="params">(JNIEnv *env, jobject instance, jint width,</span></div><div class="line">                                                    jint height, jint bitRate, jint fps) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">x264_param_t</span> param;</div><div class="line">    <span class="comment">//x264_param_default_preset 设置</span></div><div class="line">    x264_param_default_preset(&amp;param, <span class="string">"ultrafast"</span>, <span class="string">"zerolatency"</span>);</div><div class="line">    <span class="comment">//编码输入的像素格式YUV420P</span></div><div class="line">    param.i_csp = X264_CSP_I420;</div><div class="line">    param.i_width = width;</div><div class="line">    param.i_height = height;</div><div class="line"></div><div class="line">    y_len = width * height;</div><div class="line">    u_len = y_len / <span class="number">4</span>;</div><div class="line">    v_len = u_len;</div><div class="line"></div><div class="line">    <span class="comment">//参数i_rc_method表示码率控制，CQP(恒定质量)，CRF(恒定码率)，ABR(平均码率)</span></div><div class="line">    <span class="comment">//恒定码率，会尽量控制在固定码率</span></div><div class="line">    param.rc.i_rc_method = X264_RC_CRF;</div><div class="line">    param.rc.i_bitrate = bitRate / <span class="number">1000</span>; <span class="comment">//* 码率(比特率,单位Kbps)</span></div><div class="line">    param.rc.i_vbv_max_bitrate = bitRate / <span class="number">1000</span> * <span class="number">1.2</span>; <span class="comment">//瞬时最大码率</span></div><div class="line"></div><div class="line">    <span class="comment">//码率控制不通过timebase和timestamp，而是fps</span></div><div class="line">    param.b_vfr_input = <span class="number">0</span>;</div><div class="line">    param.i_fps_num = fps; <span class="comment">//* 帧率分子</span></div><div class="line">    param.i_fps_den = <span class="number">1</span>; <span class="comment">//* 帧率分母</span></div><div class="line">    param.i_timebase_den = param.i_fps_num;</div><div class="line">    param.i_timebase_num = param.i_fps_den;</div><div class="line">    param.i_threads = <span class="number">1</span>;<span class="comment">//并行编码线程数量，0默认为多线程</span></div><div class="line"></div><div class="line">    <span class="comment">//是否把SPS和PPS放入每一个关键帧</span></div><div class="line">    <span class="comment">//SPS Sequence Parameter Set 序列参数集，PPS Picture Parameter Set 图像参数集</span></div><div class="line">    <span class="comment">//为了提高图像的纠错能力</span></div><div class="line">    param.b_repeat_headers = <span class="number">1</span>;</div><div class="line">    <span class="comment">//设置Level级别</span></div><div class="line">    param.i_level_idc = <span class="number">51</span>;</div><div class="line">    <span class="comment">//设置Profile档次</span></div><div class="line">    <span class="comment">//baseline级别，没有B帧,只有 I 帧和 P 帧</span></div><div class="line">    x264_param_apply_profile(&amp;param, <span class="string">"baseline"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//x264_picture_t（输入图像）初始化</span></div><div class="line">    x264_picture_alloc(&amp;pic_in, param.i_csp, param.i_width, param.i_height);</div><div class="line">    pic_in.i_pts = <span class="number">0</span>;</div><div class="line">    <span class="comment">//打开编码器</span></div><div class="line">    video_encode_handle = x264_encoder_open(&amp;param);</div><div class="line">    <span class="keyword">if</span> (video_encode_handle) &#123;</div><div class="line">        LOGI(<span class="string">"打开视频编码器成功"</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        throwNativeError(env, INIT_FAILED);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>faac 初始化：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_live_jni_NativePush_setAudioOptions</span><span class="params">(JNIEnv *env, jobject instance,</span></div><div class="line">                                                    jint sampleRateInHz, jint channel) &#123;</div><div class="line">    audio_encode_handle = faacEncOpen(sampleRateInHz, channel, &amp;nInputSamples,</div><div class="line">                                      &amp;nMaxOutputBytes);</div><div class="line">    <span class="keyword">if</span> (!audio_encode_handle) &#123;</div><div class="line">        LOGE(<span class="string">"音频编码器打开失败"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//设置音频编码参数</span></div><div class="line">    faacEncConfigurationPtr p_config = faacEncGetCurrentConfiguration(audio_encode_handle);</div><div class="line">    p_config-&gt;mpegVersion = MPEG4;</div><div class="line">    p_config-&gt;allowMidside = <span class="number">1</span>;</div><div class="line">    p_config-&gt;aacObjectType = LOW;</div><div class="line">    p_config-&gt;outputFormat = <span class="number">0</span>; <span class="comment">//输出是否包含ADTS头</span></div><div class="line">    p_config-&gt;useTns = <span class="number">1</span>; <span class="comment">//时域噪音控制,大概就是消爆音</span></div><div class="line">    p_config-&gt;useLfe = <span class="number">0</span>;</div><div class="line"><span class="comment">//	p_config-&gt;inputFormat = FAAC_INPUT_16BIT;</span></div><div class="line">    p_config-&gt;quantqual = <span class="number">100</span>;</div><div class="line">    p_config-&gt;bandWidth = <span class="number">0</span>; <span class="comment">//频宽</span></div><div class="line">    p_config-&gt;shortctl = SHORTCTL_NORMAL;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!faacEncSetConfiguration(audio_encode_handle, p_config)) &#123;</div><div class="line">        LOGE(<span class="string">"%s"</span>, <span class="string">"音频编码器配置失败.."</span>);</div><div class="line">        throwNativeError(env, INIT_FAILED);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    LOGI(<span class="string">"%s"</span>, <span class="string">"音频编码器配置成功"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对视频数据进行编码打包，通过 add_rtmp_packet 放入链表：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_live_jni_NativePush_fireVideo</span><span class="params">(JNIEnv *env, jobject instance, jbyteArray buffer_)</span> &#123;</div><div class="line">    <span class="comment">//视频数据转为YUV420P</span></div><div class="line">    <span class="comment">//NV21-&gt;YUV420P</span></div><div class="line">    jbyte *nv21_buffer = (*env)-&gt;GetByteArrayElements(env, buffer_, <span class="literal">NULL</span>);</div><div class="line">    jbyte *u = pic_in.img.plane[<span class="number">1</span>];</div><div class="line">    jbyte *v = pic_in.img.plane[<span class="number">2</span>];</div><div class="line">    <span class="comment">//nv21 4:2:0 Formats, 12 Bits per Pixel</span></div><div class="line">    <span class="comment">//nv21与yuv420p，y个数一致，uv位置对调</span></div><div class="line">    <span class="comment">//nv21转yuv420p  y = w*h,u/v=w*h/4</span></div><div class="line">    <span class="comment">//nv21 = yvu yuv420p=yuv y=y u=y+1+1 v=y+1</span></div><div class="line">    <span class="comment">//如果要进行图像处理（美颜），可以再转换为RGB</span></div><div class="line">    <span class="comment">//还可以结合OpenCV识别人脸等等</span></div><div class="line">    <span class="built_in">memcpy</span>(pic_in.img.plane[<span class="number">0</span>], nv21_buffer, y_len);</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; u_len; i++) &#123;</div><div class="line">        *(u + i) = *(nv21_buffer + y_len + i * <span class="number">2</span> + <span class="number">1</span>);</div><div class="line">        *(v + i) = *(nv21_buffer + y_len + i * <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//h264编码得到NALU数组</span></div><div class="line">    <span class="keyword">x264_nal_t</span> *nal = <span class="literal">NULL</span>; <span class="comment">//NAL</span></div><div class="line">    <span class="keyword">int</span> n_nal = <span class="number">-1</span>; <span class="comment">//NALU的个数</span></div><div class="line">    <span class="comment">//进行h264编码</span></div><div class="line">    <span class="keyword">if</span> (x264_encoder_encode(video_encode_handle, &amp;nal, &amp;n_nal, &amp;pic_in, &amp;pic_out) &lt; <span class="number">0</span>) &#123;</div><div class="line">        LOGE(<span class="string">"%s"</span>, <span class="string">"编码失败"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//使用rtmp协议将h264编码的视频数据发送给流媒体服务器</span></div><div class="line">    <span class="comment">//帧分为关键帧和普通帧，为了提高画面的纠错率，关键帧应包含SPS和PPS数据</span></div><div class="line">    <span class="keyword">int</span> sps_len, pps_len;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sps[<span class="number">100</span>];</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> pps[<span class="number">100</span>];</div><div class="line">    <span class="built_in">memset</span>(sps, <span class="number">0</span>, <span class="number">100</span>);</div><div class="line">    <span class="built_in">memset</span>(pps, <span class="number">0</span>, <span class="number">100</span>);</div><div class="line">    pic_in.i_pts += <span class="number">1</span>; <span class="comment">//顺序累加</span></div><div class="line">    <span class="comment">//遍历NALU数组，根据NALU的类型判断</span></div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n_nal; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (nal[i].i_type == NAL_SPS) &#123;</div><div class="line">            <span class="comment">//复制SPS数据，序列参数集(Sequence parameter set)</span></div><div class="line">            sps_len = nal[i].i_payload - <span class="number">4</span>;</div><div class="line">            <span class="built_in">memcpy</span>(sps, nal[i].p_payload + <span class="number">4</span>, sps_len); <span class="comment">//不复制四字节起始码</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nal[i].i_type == NAL_PPS) &#123;</div><div class="line">            <span class="comment">//复制PPS数据，图像参数集（Picture parameter set）</span></div><div class="line">            pps_len = nal[i].i_payload - <span class="number">4</span>;</div><div class="line">            <span class="built_in">memcpy</span>(pps, nal[i].p_payload + <span class="number">4</span>, pps_len); <span class="comment">//不复制四字节起始码</span></div><div class="line"></div><div class="line">            <span class="comment">//发送序列信息</span></div><div class="line">            <span class="comment">//h264关键帧会包含SPS和PPS数据</span></div><div class="line">            add_264_sequence_header(pps, sps, pps_len, sps_len);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//发送帧信息</span></div><div class="line">            add_264_body(nal[i].p_payload, nal[i].i_payload);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    (*env)-&gt;ReleaseByteArrayElements(env, buffer_, nv21_buffer, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同样，对音频数据进行编码打包放入链表：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL</span></div><div class="line"><span class="title">Java_com_haohao_live_jni_NativePush_fireAudio</span><span class="params">(JNIEnv *env, jobject instance, jbyteArray buffer_,</span></div><div class="line">                                              jint length) &#123;</div><div class="line">    <span class="keyword">int</span> *pcmbuf;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> *bitbuf;</div><div class="line">    jbyte *b_buffer = (*env)-&gt;GetByteArrayElements(env, buffer_, <span class="number">0</span>);</div><div class="line">    pcmbuf = (<span class="keyword">short</span> *) <span class="built_in">malloc</span>(nInputSamples * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line">    bitbuf = (<span class="keyword">unsigned</span> <span class="keyword">char</span> *) <span class="built_in">malloc</span>(nMaxOutputBytes * <span class="keyword">sizeof</span>(<span class="keyword">unsigned</span> <span class="keyword">char</span>));</div><div class="line">    <span class="keyword">int</span> nByteCount = <span class="number">0</span>;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> nBufferSize = (<span class="keyword">unsigned</span> <span class="keyword">int</span>) length / <span class="number">2</span>;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> *buf = (<span class="keyword">unsigned</span> <span class="keyword">short</span> *) b_buffer;</div><div class="line">    <span class="keyword">while</span> (nByteCount &lt; nBufferSize) &#123;</div><div class="line">        <span class="keyword">int</span> audioLength = nInputSamples;</div><div class="line">        <span class="keyword">if</span> ((nByteCount + nInputSamples) &gt;= nBufferSize) &#123;</div><div class="line">            audioLength = nBufferSize - nByteCount;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; audioLength; i++) &#123;<span class="comment">//每次从实时的pcm音频队列中读出量化位数为8的pcm数据。</span></div><div class="line">            <span class="keyword">int</span> s = ((<span class="keyword">int16_t</span> *) buf + nByteCount)[i];</div><div class="line">            pcmbuf[i] = s &lt;&lt; <span class="number">8</span>;<span class="comment">//用8个二进制位来表示一个采样量化点（模数转换）</span></div><div class="line">        &#125;</div><div class="line">        nByteCount += nInputSamples;</div><div class="line">        <span class="comment">//利用FAAC进行编码，pcmbuf为转换后的pcm流数据，audioLength为调用faacEncOpen时得到的输入采样数，bitbuf为编码后的数据buff，nMaxOutputBytes为调用faacEncOpen时得到的最大输出字节数</span></div><div class="line">        <span class="keyword">int</span> byteslen = faacEncEncode(audio_encode_handle, pcmbuf, audioLength,</div><div class="line">                                     bitbuf, nMaxOutputBytes);</div><div class="line">        <span class="keyword">if</span> (byteslen &lt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        add_aac_body(bitbuf, byteslen);<span class="comment">//从bitbuf中得到编码后的aac数据流，放到数据队列</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (bitbuf)</div><div class="line">        <span class="built_in">free</span>(bitbuf);</div><div class="line">    <span class="keyword">if</span> (pcmbuf)</div><div class="line">        <span class="built_in">free</span>(pcmbuf);</div><div class="line"></div><div class="line">    (*env)-&gt;ReleaseByteArrayElements(env, buffer_, b_buffer, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>消费者线程不断从链表中取 RTMPPacket 发送给服务器：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">push_thread</span><span class="params">(<span class="keyword">void</span> *arg)</span> </span>&#123;</div><div class="line">    JNIEnv *env;<span class="comment">//获取当前线程JNIEnv</span></div><div class="line">    (*javaVM)-&gt;AttachCurrentThread(javaVM, &amp;env, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//建立RTMP连接</span></div><div class="line">    RTMP *rtmp = RTMP_Alloc();</div><div class="line">    <span class="keyword">if</span> (!rtmp) &#123;</div><div class="line">        LOGE(<span class="string">"rtmp初始化失败"</span>);</div><div class="line">        <span class="keyword">goto</span> end;</div><div class="line">    &#125;</div><div class="line">    RTMP_Init(rtmp);</div><div class="line">    rtmp-&gt;Link.timeout = <span class="number">5</span>; <span class="comment">//连接超时的时间</span></div><div class="line">    <span class="comment">//设置流媒体地址</span></div><div class="line">    RTMP_SetupURL(rtmp, rtmp_path);</div><div class="line">    <span class="comment">//发布rtmp数据流</span></div><div class="line">    RTMP_EnableWrite(rtmp);</div><div class="line">    <span class="comment">//建立连接</span></div><div class="line">    <span class="keyword">if</span> (!RTMP_Connect(rtmp, <span class="literal">NULL</span>)) &#123;</div><div class="line">        LOGE(<span class="string">"%s"</span>, <span class="string">"RTMP 连接失败"</span>);</div><div class="line">        throwNativeError(env, CONNECT_FAILED);</div><div class="line">        <span class="keyword">goto</span> end;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//计时</span></div><div class="line">    start_time = RTMP_GetTime();</div><div class="line">    <span class="keyword">if</span> (!RTMP_ConnectStream(rtmp, <span class="number">0</span>)) &#123; <span class="comment">//连接流</span></div><div class="line">        LOGE(<span class="string">"%s"</span>, <span class="string">"RTMP ConnectStream failed"</span>);</div><div class="line">        throwNativeError(env, CONNECT_FAILED);</div><div class="line">        <span class="keyword">goto</span> end;</div><div class="line">    &#125;</div><div class="line">    is_pushing = TRUE;</div><div class="line">    <span class="comment">//发送AAC头信息</span></div><div class="line">    add_aac_sequence_header();</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (is_pushing) &#123;</div><div class="line">        <span class="comment">//发送</span></div><div class="line">        pthread_mutex_lock(&amp;mutex);</div><div class="line">        pthread_cond_wait(&amp;cond, &amp;mutex);</div><div class="line">        <span class="comment">//取出队列中的RTMPPacket</span></div><div class="line">        RTMPPacket *packet = queue_get_first();</div><div class="line">        <span class="keyword">if</span> (packet) &#123;</div><div class="line">            queue_delete_first(); <span class="comment">//移除</span></div><div class="line">            packet-&gt;m_nInfoField2 = rtmp-&gt;m_stream_id; <span class="comment">//RTMP协议，stream_id数据</span></div><div class="line">            <span class="keyword">int</span> i = RTMP_SendPacket(rtmp, packet, TRUE); <span class="comment">//TRUE放入librtmp队列中，并不是立即发送</span></div><div class="line">            <span class="keyword">if</span> (!i) &#123;</div><div class="line">                LOGE(<span class="string">"RTMP 断开"</span>);</div><div class="line">                RTMPPacket_Free(packet);</div><div class="line">                pthread_mutex_unlock(&amp;mutex);</div><div class="line">                <span class="keyword">goto</span> end;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                LOGI(<span class="string">"%s"</span>, <span class="string">"rtmp send packet"</span>);</div><div class="line">            &#125;</div><div class="line">            RTMPPacket_Free(packet);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        pthread_mutex_unlock(&amp;mutex);</div><div class="line">    &#125;</div><div class="line">    end:</div><div class="line">    LOGI(<span class="string">"%s"</span>, <span class="string">"释放资源"</span>);</div><div class="line">    <span class="built_in">free</span>(rtmp_path);</div><div class="line">    RTMP_Close(rtmp);</div><div class="line">    RTMP_Free(rtmp);</div><div class="line">    (*javaVM)-&gt;DetachCurrentThread(javaVM);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="引流"><a href="#引流" class="headerlink" title="引流"></a>引流</h1><p>这里引流就不做展开讲，可以通过 QLive 的 SDK 或者 vitamio （小楠总）等第三方库实现。</p>
+<p>基于 vitamio 实现引流：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</div><div class="line">    mVideoView = (VideoView) findViewById(R.id.live_player_view);</div><div class="line">    mVideoView.setVideoPath(SPUtils.getInstance(<span class="keyword">this</span>).getString(SPUtils.KEY_NGINX_SER_URI));</div><div class="line">    mVideoView.setMediaController(<span class="keyword">new</span> MediaController(<span class="keyword">this</span>));</div><div class="line">    mVideoView.requestFocus();</div><div class="line"></div><div class="line">    mVideoView.setOnPreparedListener(<span class="keyword">new</span> MediaPlayer.OnPreparedListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPrepared</span><span class="params">(MediaPlayer mp)</span> </span>&#123;</div><div class="line">            mp.setPlaybackSpeed(<span class="number">1.0f</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>PS：源码地址：<a href="https://github.com/githubhaohao/NDKLive" target="_blank" rel="external">https://github.com/githubhaohao/NDKLive</a></p>
+
+		﻿<div> 
+<h1><b>联系我</b></h1>
+<p align="center">Wechat ID</p>
+<p align="center"><img src="/images/wechat_contact.png"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+<p align="center">公众号</p>
+<p align="center"><img src="/images/wx_account.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+
+</div>  
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗与远方</div>
+	<br>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/直播/" rel="tag"># 直播</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/03/NDK-set-up-streaming-media-server/" rel="next" title="NDK 直播流媒体服务器搭建">
+                <i class="fa fa-chevron-left"></i> NDK 直播流媒体服务器搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
+               alt="haohao" />
+          <p class="site-author-name" itemprop="name">haohao</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/githubhaohao" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzIwNTIwMzAzNg==&hid=3&sn=e44bb74d37b8a867862a60741b6e4c4f&scene=18&uin=&key=&devicetype=Windows+7&version=62060028&lang=zh_CN&ascene=7&winzoom=1" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#流媒体服务器测试"><span class="nav-number">1.</span> <span class="nav-text">流媒体服务器测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推流"><span class="nav-number">2.</span> <span class="nav-text">推流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频采集"><span class="nav-number">2.1.</span> <span class="nav-text">视频采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音频采集"><span class="nav-number">2.2.</span> <span class="nav-text">音频采集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码和推流"><span class="nav-number">2.3.</span> <span class="nav-text">编码和推流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引流"><span class="nav-number">3.</span> <span class="nav-text">引流</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    Powered by
+  </span>
+  <a class="theme-link" href="http://haohaochang.cn/">
+    haohao
+  </a>
+</div>
+
+        
+
+<div class="theme-info" align="center">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'githubhaohao-github-io';
+      var disqus_identifier = '2018/02/10/NDK-live-streaming-push-and-pull/';
+
+      var disqus_title = "NDK 直播推流与引流";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("p6dxCQ5K1YJq8tmDcWCGbodE-gzGzoHsz", "HWiui0v5fOotru1XABNOYgVt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

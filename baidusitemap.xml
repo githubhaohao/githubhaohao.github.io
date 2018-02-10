@@ -4,8 +4,31 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/</loc>
+    <lastmod>2018-02-10T07:11:48.118Z</lastmod>
+    <data>
+        <display>
+        <title>NDK 直播推流与引流</title>
+        <pubTime>2018-02-10T05:28:00.000Z</pubTime>
+        
+        <tag>直播</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/Android/NDK/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2017/06/24/Basic-knowledge-of-JVM/</loc>
-    <lastmod>2018-02-08T06:31:37.073Z</lastmod>
+    <lastmod>2018-02-08T08:52:55.587Z</lastmod>
     <data>
         <display>
         <title>Java 虚拟机基础知识（一）</title>
@@ -335,13 +358,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
+        <tag>RxJava</tag>
+         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          
