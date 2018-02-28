@@ -4,8 +4,31 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2018-02-28T03:09:14.151Z</lastmod>
+    <data>
+        <display>
+        <title>Android 设计模式之单例模式</title>
+        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
+        
+        <tag>单例模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
+          
+             
+              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/02/10/NDK-live-streaming-push-and-pull/</loc>
-    <lastmod>2018-02-10T07:11:48.118Z</lastmod>
+    <lastmod>2018-02-10T07:57:47.222Z</lastmod>
     <data>
         <display>
         <title>NDK 直播推流与引流</title>
@@ -437,29 +460,6 @@
            
              
               <breadCrumb title="计算机网络基础" url="https://githubhaohao.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://githubhaohao.github.io/2017/05/06/Android-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-09-28T03:00:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android 设计模式之单例模式</title>
-        <pubTime>2017-05-06T05:53:52.000Z</pubTime>
-        
-        <tag>单例模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://githubhaohao.github.io/categories/Android/"/>
-          
-             
-              <breadCrumb title="设计模式" url="https://githubhaohao.github.io/categories/Android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
