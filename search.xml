@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[half a year after graduation]]></title>
+      <url>%2F2018%2F09%2F09%2Fhalf-a-year-after-graduation%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[两个常见的 NDK 编译错误]]></title>
       <url>%2F2018%2F06%2F16%2FTwo-common-ndk-compilation-errors%2F</url>
       <content type="text"><![CDATA[NDK 编译中经常出现的两个问题 本篇介绍一下 NDK 编译中经常出现的两个问题的解决办法。 常见错误一123error: undefined reference to &apos;omp_set_num_threads&apos;error: undefined reference to &apos;omp_get_num_threads&apos;error: undefined reference to &apos;GOMP_parallel&apos; 原因：未提供支持 OpenMP OpenMP（Open Multi-Processing）是由 OpenMP Architecture Review Board 提出的，并已被广泛接受的，用于共享内存并行系统多线程程序设计的一套指导性注释。OpenMP 支持的编程语言包括 C 语言、C++ 等。OpenMP 提供了对并行算法的高层的抽象描述，程序员通过在源代码中加入专用的 pragma 来指明自己的意图，由此编译器可以自动将程序进行并行化，并在必要之处加入同步互斥以及通信。当选择忽略这些 pragma ，或者编译器不支持 OpenMP 时，程序又可退化为通常的程序（一般为串行），代码仍然可以正常运作，只是不能利用多线程来加速程序执行。 在 local_ldlibs 添加支持 OpenMP1LOCAL_LDLIBS := -llog -fopenmp 常见错误二123error: undefined reference to &apos;std::ios_base::Init::Init()&apos;error: undefined reference to &apos;std::ios_base::Init::~Init()&apos;error: undefined reference to &apos;std::__throw_length_error(char const*)&apos; 原因：未提供支持 GNU STL Android NDK 默认支持的是最小系统 C++ 运行时库（libstdc++） NDK 运行时库 详细见：https://developer.android.com/ndk/guides/cpp-support?hl=zh-cn 在 Android.mk 文件中设置 123456#STL path and libsGNU_STL_PATH :=$(NDK_ROOT)/sources/cxx-stl/gnu-libstdc++/$(NDK_TOOLCHAIN_VERSION)/libs/$(TARGET_ARCH_ABI)GNU_STL_LIB_NAME :=gnustl_static#link system libs and stlLOCAL_LDLIBS := -llog -L$(GNU_STL_PATH) -l$(GNU_STL_LIB_NAME) 在 Application.mk 文件中设置1APP_STL := gnustl_static]]></content>

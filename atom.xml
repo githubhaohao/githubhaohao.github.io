@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-06-16T09:34:49.531Z</updated>
+  <updated>2018-09-09T06:39:23.571Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>half a year after graduation</title>
+    <link href="https://githubhaohao.github.io/2018/09/09/half-a-year-after-graduation/"/>
+    <id>https://githubhaohao.github.io/2018/09/09/half-a-year-after-graduation/</id>
+    <published>2018-09-09T06:39:23.000Z</published>
+    <updated>2018-09-09T06:39:23.571Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>两个常见的 NDK 编译错误</title>
@@ -1287,52 +1301,6 @@
     
     
       <category term="抽象类" scheme="https://githubhaohao.github.io/tags/%E6%8A%BD%E8%B1%A1%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2017 下半年学习规划</title>
-    <link href="https://githubhaohao.github.io/2017/09/06/2017-study-plan/"/>
-    <id>https://githubhaohao.github.io/2017/09/06/2017-study-plan/</id>
-    <published>2017-09-06T13:11:16.000Z</published>
-    <updated>2017-10-20T10:29:13.581Z</updated>
-    
-    <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ovv1lq7pk.bkt.clouddn.com/Woman-Gazing-Under-Large-Tree.jpg" alt="Markdown"></p><p></p>
-<p><div align="center">种一棵树最好的时间是 10 年前，其次是现在。</div><br></p>
-<blockquote>
-<p>最近差不多解决了小论文的问题，心理负担一下子减轻一大半。上个月花了 20  多天时间在外地维护项目，坑啊，哪是维护项目，其实就是现场开发调试测试新功能。这一搞不要紧，彻底打乱了个人计划，本来论文是九月初完成，一直拖到现在，搞得现在计划很混乱，自己很头疼，更特么头疼的是自己的博客和公众号也有将近一个月没维护了，又一次被“啪啪”打脸。</p>
-<p>我习惯于未来的生活有一个大致的安排，中间可以有点小插曲，但是不要打乱节奏就好。</p>
-<p>接下来就是毕业季找工作，压力山大，所以目前必须要有一个明确的规划。主要应对接下来的面试、论文。</p>
-<p>接下来每天解决掉的知识点都会在上面做记录。</p>
-</blockquote>
-<h1 id="2017-下学年学习规划"><a href="#2017-下学年学习规划" class="headerlink" title="2017 下学年学习规划"></a>2017 下学年学习规划</h1><h2 id="大论文"><a href="#大论文" class="headerlink" title="大论文"></a>大论文</h2><p>10 月份之前完成论文框架，其他 TBD</p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>按照 Java 工程师的标准储备 Java 基础知识</p>
-<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h3 id="Android-进阶书籍"><a href="#Android-进阶书籍" class="headerlink" title="Android 进阶书籍"></a>Android 进阶书籍</h3><p>反复学习 《Android开发艺术探索》《Android源码设计模式》 专业书籍</p>
-<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>熟悉常用的设计模式<br>六大原则 + 24 种设计模式</p>
-<h3 id="Android-架构"><a href="#Android-架构" class="headerlink" title="Android 架构"></a>Android 架构</h3><p>熟悉 MVP MVVM Clean 架构</p>
-<h3 id="开源库源码阅读"><a href="#开源库源码阅读" class="headerlink" title="开源库源码阅读"></a>开源库源码阅读</h3><p>熟悉 RxJava Retrofit Glide 等常用开源库的原理和流程。</p>
-<p>每天阅读优秀的开源库源码不少于半个小时。</p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>解决掉两本书：</p>
-<ol>
-<li>大话数据结构</li>
-<li>程序员代码面试指南</li>
-</ol>
-<p><del>算法时间复杂度</del><br><del>线性表 顺序表</del><br><del>线性表 单链表</del><br><del>线性表 循环单链表</del><br><del>线性表 循环双链表</del><br><del>栈 顺序栈</del><br><del>栈 链栈</del><br><del>队列 顺序循环队列</del><br><del>队列 链队列</del><br><del>二叉树，树</del><br><del>图</del></p>
-<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>计算机网路基础<br><del>物理层</del><br><del>数据链路层</del><br><del>网络层</del><br><del>运输层</del></p>
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>操作系统原理</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ovv1lq7pk.bkt.clouddn.com/Woman-Gazing-Under-Large-Tree.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div al
-    
-    </summary>
-    
-      <category term="生活" scheme="https://githubhaohao.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="规划" scheme="https://githubhaohao.github.io/tags/%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
