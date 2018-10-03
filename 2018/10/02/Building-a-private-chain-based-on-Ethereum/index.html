@@ -1,0 +1,1170 @@
+<!doctype html>
+
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+
+  
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="区块链,以太坊," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="haohao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="玩玩区块链
+区块链目前业界关于区块链尚无权威统一的定义。区块链简单来说，是一种链式的数据结构，区块之间按照时间顺序连接，利用密码学方式保证数据不易串改和不易伪造，并在网络所有节点进行分布式存储的共享账本。
+
+谈到区块链就不得不提及最近价格经历过山车的比特币（BTC），比特币对社会的贡献和价值主要在于，通过实践验证了背后支撑其运作的区块链技术。了解比特币的基本原理，请移步一个故事告诉你比特币的原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于以太坊搭建私有链">
+<meta property="og:url" content="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/index.html">
+<meta property="og:site_name" content="haohao">
+<meta property="og:description" content="玩玩区块链
+区块链目前业界关于区块链尚无权威统一的定义。区块链简单来说，是一种链式的数据结构，区块之间按照时间顺序连接，利用密码学方式保证数据不易串改和不易伪造，并在网络所有节点进行分布式存储的共享账本。
+
+谈到区块链就不得不提及最近价格经历过山车的比特币（BTC），比特币对社会的贡献和价值主要在于，通过实践验证了背后支撑其运作的区块链技术。了解比特币的基本原理，请移步一个故事告诉你比特币的原理">
+<meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20181003.jpg">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/btc_trend.jpg">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/god_v.jpg">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/geth_client.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/bolckchain_init.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_start.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_newaccount.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_start.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_stop.png">
+<meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/mist_account.png">
+<meta property="og:updated_time" content="2018-10-03T15:06:17.769Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于以太坊搭建私有链">
+<meta name="twitter:description" content="玩玩区块链
+区块链目前业界关于区块链尚无权威统一的定义。区块链简单来说，是一种链式的数据结构，区块之间按照时间顺序连接，利用密码学方式保证数据不易串改和不易伪造，并在网络所有节点进行分布式存储的共享账本。
+
+谈到区块链就不得不提及最近价格经历过山车的比特币（BTC），比特币对社会的贡献和价值主要在于，通过实践验证了背后支撑其运作的区块链技术。了解比特币的基本原理，请移步一个故事告诉你比特币的原理">
+<meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20181003.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/"/>
+
+
+
+
+
+  <title> 基于以太坊搭建私有链 | haohao </title>
+  <meta name="google-site-verification" content="JpX3qo5AV2fwlwZIIykIel2sN9ZNCBtbcaGICxVbmsk" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">haohao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">不忘初心</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/githubhaohao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="haohao">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="haohao">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="haohao" src="https://avatars2.githubusercontent.com/u/17926884?v=3&s=40">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于以太坊搭建私有链
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-02T21:49:47+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/区块链/" itemprop="url" rel="index">
+                    <span itemprop="name">区块链</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/02/Building-a-private-chain-based-on-Ethereum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/10/02/Building-a-private-chain-based-on-Ethereum/" class="leancloud_visitors" data-flag-title="基于以太坊搭建私有链">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20181003.jpg" alt="Markdown"></p><p></p>
+<p><div align="center">玩玩区块链</div><br></p>
+<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>目前业界关于区块链尚无权威统一的定义。区块链简单来说，是一种链式的数据结构，区块之间按照时间顺序连接，利用密码学方式保证数据不易串改和不易伪造，并在网络所有节点进行<strong>分布式存储的共享账本</strong>。</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/btc_trend.jpg" alt="BTC价格"></p>
+<p>谈到区块链就不得不提及最近价格经历过山车的比特币（BTC），比特币对社会的贡献和价值主要在于，通过实践验证了背后支撑其运作的区块链技术。了解比特币的基本原理，请移步<a href="http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html" target="_blank" rel="external">一个故事告诉你比特币的原理及运作机制</a></p>
+<p>目前互联网主要作为“信息”传递的平台，而区块链技术的发展和完善将赋予互联网传递“信任”和“价值”的能力，就目前的环境而言，区块链技术的炒作可能要多于技术本身的落地和创新。区块链技术作为互联网传递“信任”和价值的解决方案，本身也有其相应的缺点和适用场景。由于区块链基于 P2P 网络，要求全网节点保存同一份数据，以效率来换取安全性（执行大量的本质上毫无意义的计算，浪费大量的电力），因此对效率要求很高的场景并不适合区块链技术。</p>
+<h2 id="以太坊"><a href="#以太坊" class="headerlink" title="以太坊"></a>以太坊</h2><blockquote>
+<p>以太坊（英语：Ethereum）是一个开源的有智能合约功能的公共区块链平台。通过其专用加密货币以太币（ Ether ，又称“以太币”）提供去中心化的虚拟机（称为“以太虚拟机” Ethereum Virtual Machine ）来处理点对点合约。</p>
+</blockquote>
+<p>简而言之，以太坊就是<strong>一个建立在区块链技术之上的支持去中心化应用开发的基础平台</strong>。以太坊与去中心化 App 之间的关系相当于操作系统与运行在该操作系统之上 App 之间的关系。</p>
+<blockquote>
+<p>在以太坊出现之前，区块链应用是这样玩的：拷贝一份比特币代码，然后去改底层代码如加密算法，共识机制，网络协议等等（很多山寨币就是这样诞生的，改改就出来一个新币，然后去 ICO 割韭菜，俗称“空气币”）。以太坊平台对底层区块链技术进行了封装，让区块链应用开发者可以直接基于以太坊平台进行开发，开发者只要专注于应用本身的开发，从而大大降低了难度。</p>
+</blockquote>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/god_v.jpg" alt="Vitalik Buterin"></p>
+<p>下面扒一扒以太坊的创始人。以太坊最初由 Vitalik Buterin 在 2013 年提出，Vitalik Buterin 何许人也，业内称之为 V 神，1994 年生于俄罗斯，黑客背景。</p>
+<ul>
+<li>17 岁开始研究比特币，创《比特币杂志》；</li>
+<li>19 岁自加拿大滑铁卢大学休学，并在该年 11 月，公布《以太坊白皮书》初版，开始募集开发者；</li>
+<li>20 岁获得提尔奖学金、成立非营利组织以太坊基金会，在迈阿密的比特币会议公开发表以太坊计画，该年 7 月，启动以太坊计画众售募资，募得 3.1 万枚比特币（当时约合 1840 万美元）；</li>
+<li>21 岁以太坊最初版本 Frontier 问世、以太币开始在世界各地交易所公开交易；</li>
+<li>22 岁被《财星》杂志评选为 2016 年 40 岁以下的 40 大杰出人物。</li>
+</ul>
+<h2 id="搭建私有链"><a href="#搭建私有链" class="headerlink" title="搭建私有链"></a>搭建私有链</h2><h3 id="安装以太坊客户端"><a href="#安装以太坊客户端" class="headerlink" title="安装以太坊客户端"></a>安装以太坊客户端</h3><p><img src="http://pg12w9eve.bkt.clouddn.com/geth_client.png" alt="以太坊客户端"></p>
+<p>移步<a href="https://github.com/ethereum/mist/releases" target="_blank" rel="external">https://github.com/ethereum/mist/releases</a> 下载对应操作系统的以太坊钱包和 Mist（去中心化应用浏览器）。</p>
+<p>以太坊钱包启动后会自动下载以太坊客户端（Go-ethereum）Geth ，安装后的路径 C:\Users\haohao\AppData\Roaming\Ethereum Wallet\binaries\Geth\unpacked ，将该路径配置为环境变量。可以通过 <code>geth --help</code> 查看 Geth 是否安装成功。</p>
+<h3 id="定义创世区块"><a href="#定义创世区块" class="headerlink" title="定义创世区块"></a>定义创世区块</h3><p>区块链的第一个区块称为创世区块，它是区块链里面所有区块的共同祖先，这意味着你从任一区块，循链向后回溯，最终都将到达创世区块。以太坊支持自定义创世区块，要运行私有链，首先需要定义自己的创世区块，一般用一个 JSON 文件表示创世区块的信息。</p>
+<p>在 C 盘创建目录 <code>C:\MyChains\T1</code> ，在该目录下创建 MyGenesis.json 文件，文件内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"config"</span>: &#123;</div><div class="line">        <span class="attr">"chainId"</span>: <span class="number">2048</span>, </div><div class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></div><div class="line">    &#125;,</div><div class="line">  <span class="attr">"alloc"</span>      : &#123;&#125;,</div><div class="line">  <span class="attr">"coinbase"</span>   : <span class="string">"0x0000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"difficulty"</span> : <span class="string">"0x10"</span>,</div><div class="line">  <span class="attr">"extraData"</span>  : <span class="string">""</span>,</div><div class="line">  <span class="attr">"gasLimit"</span>   : <span class="string">"0x222222"</span>,</div><div class="line">  <span class="attr">"nonce"</span>      : <span class="string">"0x000000000000001"</span>,</div><div class="line">  <span class="attr">"mixhash"</span>    : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"parentHash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"timestamp"</span>  : <span class="string">"0x00"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="初始化区块链"><a href="#初始化区块链" class="headerlink" title="初始化区块链"></a>初始化区块链</h3><p>命令行在 <code>C:\MyChains\T1</code> 路径下，关闭以太坊钱包和 Mist ，初始化区块链执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --identity <span class="string">"dev"</span> --rpc --rpccorsdomain <span class="string">"*"</span> --datadir <span class="string">"C:\MyChains\T1"</span> --rpcapi <span class="string">"db,eth,net,web3"</span> --networkid 100 init <span class="string">"./MyGenesis.json"</span></div></pre></td></tr></table></figure>
+<p>执行成功后显示：</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/bolckchain_init.png" alt="blockchain_init"></p>
+<h3 id="启动私有链"><a href="#启动私有链" class="headerlink" title="启动私有链"></a>启动私有链</h3><p>命令行在 <code>C:\MyChains\T1</code> 路径下，关闭以太坊钱包和 Mist ，启动私有链链执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --datadir <span class="string">"C:\MyChains\T1"</span> --identity <span class="string">"dev"</span> --rpccorsdomain <span class="string">"*"</span> --networkid 100 console</div></pre></td></tr></table></figure>
+<p>执行成功后显示：</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_start.png" alt="blockchain_start"></p>
+<h3 id="创建以太坊账户"><a href="#创建以太坊账户" class="headerlink" title="创建以太坊账户"></a>创建以太坊账户</h3><p>私有链启动成功后，便会进入以太坊 Console 控制台，以 <code>&gt;</code> 符号开始。查看私有链上的账户（目前还没有创建任何账户）。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts</div><div class="line">[]</div></pre></td></tr></table></figure>
+<p>通过 <code>personal.newAccount()</code> 指令（输入两次密码）创建 2 个新账户。</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_newaccount.png" alt="newaccount"></p>
+<p>查看账户余额(目前两个账户余额均为 0 )：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBalance(eth.accounts[0])</div><div class="line">0</div><div class="line">&gt; eth.getBalance(eth.accounts[1])</div><div class="line">0</div></pre></td></tr></table></figure>
+<p>要使账户有余额，可以通过转账或者挖矿来获取以太币（ETH）。</p>
+<h3 id="挖矿"><a href="#挖矿" class="headerlink" title="挖矿"></a>挖矿</h3><p>以太坊通过命令 <code>miner.start([线程数])</code> 来启动挖矿，这里启动 5 个线程进行挖矿：</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_start.png" alt="miner_start"></p>
+<p>当 percentage=100 后，通过命令 <code>miner.stop()</code> 终止挖矿。停止挖矿后，查看账户余额：</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_stop.png" alt="miner_stop"></p>
+<p>PS: <code>getBalance()</code> 返回值的单位是 wei ， wei 是以太币的最小单位，1 个以太币 = 10 的 18 次方个 wei 。查看账户有多少个以太币，可以通过命令 <code>web3.fromWei()</code> 将 Wei 换算成以太币。</p>
+<h3 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h3><p>目前我们有两个账户，账户 0 有 105 个以太币， 账户 1 有 0 个以太币。现在通过操作账户 0 向账户 1 转 10 个以太币。</p>
+<p>首先通过账户 0 的密码对账户 0 进行解锁：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[0])</div><div class="line">Unlock account 0x33213084015dab454fee16eb369fa2a8e6e65eee</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>操作账户 0 向账户 1 转 10 个以太币:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; count = web3.toWei(10,<span class="string">'ether'</span>)</div><div class="line"><span class="string">"10000000000000000000"</span></div><div class="line">&gt; eth.sendTransaction(&#123;from:eth.accounts[0],to:eth.accounts[1],value:count&#125;)</div><div class="line">INFO [10-02|21:28:11.870] Setting new <span class="built_in">local</span> account                address=0x33213084015DAB454fEe16eb369FA2a8E6E65eEE</div><div class="line">INFO [10-02|21:28:11.885] Submitted transaction                    fullhash=0xa7adb20<span class="built_in">cd</span>2665d888b64bbccbf29ad5a5a1feb461ffb940</div><div class="line"><span class="string">"0xa7adb20cd2665d888b64bbccbf29ad5a5a1feb461ffb9407447c8dc608886a7e"</span></div></pre></td></tr></table></figure>
+<p>交易发送后，查看账户 1 的余额，发现还是 0 。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; eth.getBalance(eth.accounts[1])</div><div class="line">0</div><div class="line">&gt; txpool.status</div><div class="line">&#123;</div><div class="line">  pending: 1,</div><div class="line">  queued: 0</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>账户 0 转给账户 1 的以太币还未到账，通过 <code>txpool.status</code> 命令查看，有一笔交易未处理，pending 字段表示交易已提交但还未被处理的交易。为什么交易未被处理呢？因为当前链上没有矿工在挖矿，即该区块链没有算力来处理交易。通过命令 <code>miner.start(1);admin.sleepBlocks(1);miner.stop();</code> 启动挖矿，并在挖到一个区块后停止挖矿。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">&gt; miner.start(1);admin.sleepBlocks(1);miner.stop();</div><div class="line">INFO [10-02|21:29:01.378] Updated mining threads                   threads=1</div><div class="line">INFO [10-02|21:29:01.390] Transaction pool price threshold updated price=1000000000</div><div class="line">INFO [10-02|21:29:01.396] Commit new mining work                   number=22 sealhash=ee23d4…78362e uncles=0 txs=0</div><div class="line">INFO [10-02|21:29:01.434] Commit new mining work                   number=22 sealhash=3ca4dd…c456e1 uncles=0 txs=1</div><div class="line">INFO [10-02|21:29:04.772] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=0 elapsed=2.123s</div><div class="line">INFO [10-02|21:29:06.896] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=1 elapsed=4.246s</div><div class="line">INFO [10-02|21:29:08.924] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=2 elapsed=6.274s</div><div class="line">INFO [10-02|21:29:10.851] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=3 elapsed=8.201s</div><div class="line">INFO [10-02|21:29:12.717] Successfully sealed new block            number=22 sealhash=3ca4dd…c456e1 <span class="built_in">hash</span>=0d293a…f</div><div class="line">INFO [10-02|21:29:12.881] 🔨 mined potential block                  number=22 <span class="built_in">hash</span>=0d293a…fa74a1</div><div class="line">INFO [10-02|21:29:12.892] Commit new mining work                   number=23 sealhash=e1b40b…1b3631 uncles=0 txs=0</div><div class="line">INFO [10-02|21:29:13.023] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=4 elapsed=10.373s</div><div class="line">null</div><div class="line">&gt; INFO [10-02|21:29:14.682] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=5 elapsed=12.032s</div><div class="line">INFO [10-02|21:29:16.528] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=6 elapsed=13.878s</div><div class="line">INFO [10-02|21:29:18.519] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=7 elapsed=15.869s</div><div class="line">INFO [10-02|21:29:20.207] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=8 elapsed=17.558s</div><div class="line">INFO [10-02|21:29:22.042] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=9 elapsed=19.393s</div><div class="line">INFO [10-02|21:29:23.899] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=10 elapsed=21.249s</div><div class="line">INFO [10-02|21:29:25.817] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=11 elapsed=23.167s</div><div class="line">INFO [10-02|21:29:27.605] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=12 elapsed=24.955s</div><div class="line">INFO [10-02|21:29:29.529] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=13 elapsed=26.879s</div><div class="line">INFO [10-02|21:29:31.255] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=14 elapsed=28.605s</div><div class="line">INFO [10-02|21:29:33.227] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=15 elapsed=30.577s</div><div class="line">INFO [10-02|21:29:35.041] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=16 elapsed=32.391s</div><div class="line">INFO [10-02|21:29:36.542] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=17 elapsed=33.892s</div><div class="line">INFO [10-02|21:29:38.093] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=18 elapsed=35.444s</div><div class="line">INFO [10-02|21:29:39.928] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=19 elapsed=37.279s</div><div class="line">INFO [10-02|21:29:41.835] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=20 elapsed=39.185s</div><div class="line">INFO [10-02|21:29:43.817] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=21 elapsed=41.167s</div><div class="line">INFO [10-02|21:29:45.506] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=22 elapsed=42.856s</div><div class="line">INFO [10-02|21:29:47.383] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=23 elapsed=44.733s</div><div class="line">INFO [10-02|21:29:49.006] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=24 elapsed=46.356s</div><div class="line">INFO [10-02|21:29:51.061] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=25 elapsed=48.411s</div><div class="line">INFO [10-02|21:29:52.928] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=26 elapsed=50.278s</div><div class="line">INFO [10-02|21:29:54.690] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=27 elapsed=52.040s</div><div class="line">INFO [10-02|21:29:56.612] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=28 elapsed=53.963s</div><div class="line">INFO [10-02|21:29:58.547] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=29 elapsed=55.897s</div><div class="line">INFO [10-02|21:30:00.662] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=30 elapsed=58.012s</div><div class="line">INFO [10-02|21:30:02.853] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=31 elapsed=1m0.203s</div><div class="line">INFO [10-02|21:30:04.967] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=32 elapsed=1m2.317s</div><div class="line">INFO [10-02|21:30:07.100] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=33 elapsed=1m4.450s</div><div class="line">INFO [10-02|21:30:09.305] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=34 elapsed=1m6.655s</div><div class="line">INFO [10-02|21:30:12.027] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=35 elapsed=1m9.377s</div><div class="line">INFO [10-02|21:30:15.647] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=36 elapsed=1m12.997s</div><div class="line">INFO [10-02|21:30:18.841] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=37 elapsed=1m16.191s</div><div class="line">INFO [10-02|21:30:21.048] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=38 elapsed=1m18.398s</div><div class="line">INFO [10-02|21:30:22.907] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=39 elapsed=1m20.257s</div><div class="line">INFO [10-02|21:30:25.220] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=40 elapsed=1m22.570s</div><div class="line">ERROR[10-02|21:30:25.367] The pipe is being closed.</div><div class="line"></div><div class="line">INFO [10-02|21:30:27.847] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=41 elapsed=1m25.197s</div><div class="line">INFO [10-02|21:30:30.042] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=42 elapsed=1m27.392s</div><div class="line">INFO [10-02|21:30:32.096] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=43 elapsed=1m29.447s</div><div class="line">INFO [10-02|21:30:34.722] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=44 elapsed=1m32.072s</div><div class="line">INFO [10-02|21:30:36.573] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=45 elapsed=1m33.923s</div><div class="line">INFO [10-02|21:30:38.233] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=46 elapsed=1m35.583s</div><div class="line">INFO [10-02|21:30:40.176] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=47 elapsed=1m37.526s</div><div class="line">INFO [10-02|21:30:41.973] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=48 elapsed=1m39.323s</div><div class="line">INFO [10-02|21:30:43.541] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=49 elapsed=1m40.891s</div><div class="line">ERROR[10-02|21:30:45.251] The pipe is being closed.</div><div class="line"></div><div class="line">INFO [10-02|21:30:45.603] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=50 elapsed=1m42.953s</div><div class="line">INFO [10-02|21:30:47.923] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=51 elapsed=1m45.274s</div><div class="line">INFO [10-02|21:30:49.805] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=52 elapsed=1m47.156s</div><div class="line">INFO [10-02|21:30:51.919] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=53 elapsed=1m49.269s</div><div class="line">INFO [10-02|21:30:53.608] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=54 elapsed=1m50.958s</div><div class="line">INFO [10-02|21:30:55.495] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=55 elapsed=1m52.845s</div><div class="line">INFO [10-02|21:30:57.525] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=56 elapsed=1m54.875s</div><div class="line">INFO [10-02|21:30:59.282] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=57 elapsed=1m56.632s</div><div class="line">INFO [10-02|21:31:01.103] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=58 elapsed=1m58.453s</div><div class="line">INFO [10-02|21:31:02.786] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=59 elapsed=2m0.136s</div><div class="line">INFO [10-02|21:31:04.432] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=60 elapsed=2m1.782s</div><div class="line">INFO [10-02|21:31:06.310] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=61 elapsed=2m3.661s</div><div class="line">INFO [10-02|21:31:08.257] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=62 elapsed=2m5.607s</div><div class="line">INFO [10-02|21:31:10.020] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=63 elapsed=2m7.370s</div><div class="line">INFO [10-02|21:31:11.977] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=64 elapsed=2m9.327s</div><div class="line">INFO [10-02|21:31:13.658] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=65 elapsed=2m11.008s</div><div class="line">INFO [10-02|21:31:15.305] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=66 elapsed=2m12.655s</div><div class="line">INFO [10-02|21:31:17.153] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=67 elapsed=2m14.503s</div><div class="line">INFO [10-02|21:31:19.010] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=68 elapsed=2m16.360s</div><div class="line">INFO [10-02|21:31:20.714] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=69 elapsed=2m18.064s</div><div class="line">INFO [10-02|21:31:22.771] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=70 elapsed=2m20.122s</div><div class="line">INFO [10-02|21:31:24.663] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=71 elapsed=2m22.014s</div><div class="line">INFO [10-02|21:31:26.595] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=72 elapsed=2m23.945s</div><div class="line">INFO [10-02|21:31:28.383] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=73 elapsed=2m25.733s</div><div class="line">INFO [10-02|21:31:30.136] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=74 elapsed=2m27.486s</div><div class="line">INFO [10-02|21:31:31.953] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=75 elapsed=2m29.303s</div><div class="line">INFO [10-02|21:31:33.914] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=76 elapsed=2m31.264s</div><div class="line">INFO [10-02|21:31:35.726] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=77 elapsed=2m33.076s</div><div class="line">INFO [10-02|21:31:37.357] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=78 elapsed=2m34.707s</div><div class="line">INFO [10-02|21:31:39.145] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=79 elapsed=2m36.495s</div><div class="line">INFO [10-02|21:31:40.857] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=80 elapsed=2m38.208s</div><div class="line">INFO [10-02|21:31:42.481] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=81 elapsed=2m39.832s</div><div class="line">INFO [10-02|21:31:44.210] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=82 elapsed=2m41.560s</div><div class="line">INFO [10-02|21:31:46.065] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=83 elapsed=2m43.415s</div><div class="line">INFO [10-02|21:31:48.009] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=84 elapsed=2m45.359s</div><div class="line">INFO [10-02|21:31:49.535] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=85 elapsed=2m46.885s</div><div class="line">INFO [10-02|21:31:51.370] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=86 elapsed=2m48.720s</div><div class="line">INFO [10-02|21:31:53.217] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=87 elapsed=2m50.567s</div><div class="line">INFO [10-02|21:31:55.001] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=88 elapsed=2m52.351s</div><div class="line">INFO [10-02|21:31:56.863] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=89 elapsed=2m54.213s</div><div class="line">INFO [10-02|21:31:58.758] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=90 elapsed=2m56.109s</div><div class="line">INFO [10-02|21:32:01.015] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=91 elapsed=2m58.365s</div><div class="line">INFO [10-02|21:32:02.656] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=92 elapsed=3m0.006s</div><div class="line">INFO [10-02|21:32:04.260] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=93 elapsed=3m1.610s</div><div class="line">INFO [10-02|21:32:06.299] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=94 elapsed=3m3.649s</div><div class="line">INFO [10-02|21:32:08.470] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=95 elapsed=3m5.820s</div><div class="line">INFO [10-02|21:32:10.052] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=96 elapsed=3m7.402s</div><div class="line">INFO [10-02|21:32:12.307] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=97 elapsed=3m9.657s</div><div class="line">INFO [10-02|21:32:15.145] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=98 elapsed=3m12.496s</div><div class="line">INFO [10-02|21:32:19.571] Generating DAG <span class="keyword">in</span> progress               epoch=1 percentage=99 elapsed=3m16.921s</div><div class="line">INFO [10-02|21:32:19.586] Generated ethash verification cache      epoch=1 elapsed=3m16.936s</div></pre></td></tr></table></figure>
+<p>在查看未处理的交易数及两个账户的余额：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> txpool.status</div><div class="line">&#123;</div><div class="line">  pending: 0,</div><div class="line">  queued: 0</div><div class="line">&#125;</div><div class="line">&gt;</div><div class="line">&gt; web3.fromWei(eth.getBalance(eth.accounts[1]),<span class="string">'ether'</span>)</div><div class="line">10</div><div class="line">&gt; web3.fromWei(eth.getBalance(eth.accounts[0]),<span class="string">'ether'</span>)</div><div class="line">95</div></pre></td></tr></table></figure>
+<p>可以看到未处理交易数为 0 ，账户 0 余额为 10 个以太币。也可以打开以太坊钱包或 Mist 查看账户及余额。</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/mist_account.png" alt="mist_account"></p>
+
+		﻿<div> 
+<h1><b>联系我</b></h1>
+<p align="center">Wechat ID</p>
+<p align="center"><img src="/images/wechat_contact.png"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+<p align="center">公众号</p>
+<p align="center"><img src="/images/wx_account.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/></p>
+
+</div>  
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>生活不止于眼前的苟且, 还有诗和远方的田野</div>
+	<br>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_collect_qrcode.png" alt="haohao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="haohao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/区块链/" rel="tag"># 区块链</a>
+          
+            <a href="/tags/以太坊/" rel="tag"># 以太坊</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/09/half-a-year-after-graduation/" rel="next" title="毕业后的这半年">
+                <i class="fa fa-chevron-left"></i> 毕业后的这半年
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/17926884?v=3&s=460"
+               alt="haohao" />
+          <p class="site-author-name" itemprop="name">haohao</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/githubhaohao" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://mp.weixin.qq.com/mp/homepage?__biz=MzIwNTIwMzAzNg==&hid=3&sn=e44bb74d37b8a867862a60741b6e4c4f&scene=18&uin=&key=&devicetype=Windows+7&version=62060028&lang=zh_CN&ascene=7&winzoom=1" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区块链"><span class="nav-number">1.</span> <span class="nav-text">区块链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以太坊"><span class="nav-number">2.</span> <span class="nav-text">以太坊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建私有链"><span class="nav-number">3.</span> <span class="nav-text">搭建私有链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装以太坊客户端"><span class="nav-number">3.1.</span> <span class="nav-text">安装以太坊客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义创世区块"><span class="nav-number">3.2.</span> <span class="nav-text">定义创世区块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化区块链"><span class="nav-number">3.3.</span> <span class="nav-text">初始化区块链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动私有链"><span class="nav-number">3.4.</span> <span class="nav-text">启动私有链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建以太坊账户"><span class="nav-number">3.5.</span> <span class="nav-text">创建以太坊账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挖矿"><span class="nav-number">3.6.</span> <span class="nav-text">挖矿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转账"><span class="nav-number">3.7.</span> <span class="nav-text">转账</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    Powered by
+  </span>
+  <a class="theme-link" href="http://haohaochang.cn/">
+    haohao
+  </a>
+</div>
+
+        
+
+<div class="theme-info" align="center">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'githubhaohao-github-io';
+      var disqus_identifier = '2018/10/02/Building-a-private-chain-based-on-Ethereum/';
+
+      var disqus_title = "基于以太坊搭建私有链";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("p6dxCQ5K1YJq8tmDcWCGbodE-gzGzoHsz", "HWiui0v5fOotru1XABNOYgVt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
