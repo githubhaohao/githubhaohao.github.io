@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-10-05T03:15:07.843Z</updated>
+  <updated>2018-10-05T03:18:23.748Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/"/>
     <id>https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/</id>
     <published>2018-10-02T13:49:47.000Z</published>
-    <updated>2018-10-05T03:15:07.843Z</updated>
+    <updated>2018-10-05T03:18:23.748Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20181003.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">玩玩区块链</div><br></p>
@@ -54,7 +54,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --identity <span class="string">"dev"</span> --rpc --rpccorsdomain <span class="string">"*"</span> --datadir <span class="string">"C:\MyChains\T1"</span> --rpcapi <span class="string">"db,eth,net,web3"</span> --networkid 100 init <span class="string">"./MyGenesis.json"</span></div></pre></td></tr></table></figure>
 <p>执行成功后显示：</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/bolckchain_init.png" alt="blockchain_init"></p>
-<h3 id="启动私有链"><a href="#启动私有链" class="headerlink" title="启动私有链"></a>启动私有链</h3><p>命令行在 <code>C:\MyChains\T1</code> 路径下，关闭以太坊钱包和 Mist ，启动私有链链执行命令：</p>
+<h3 id="启动私有链"><a href="#启动私有链" class="headerlink" title="启动私有链"></a>启动私有链</h3><p>命令行在 <code>C:\MyChains\T1</code> 路径下，关闭以太坊钱包和 Mist ，启动私有链执行命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --datadir <span class="string">"C:\MyChains\T1"</span> --identity <span class="string">"dev"</span> --rpccorsdomain <span class="string">"*"</span> --networkid 100 console</div></pre></td></tr></table></figure>
 <p>执行成功后显示：</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_start.png" alt="blockchain_start"></p>
