@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://githubhaohao.github.io/"/>
-  <updated>2018-10-05T06:43:18.565Z</updated>
+  <updated>2018-10-05T06:43:52.379Z</updated>
   <id>https://githubhaohao.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/"/>
     <id>https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/</id>
     <published>2018-10-02T13:49:47.000Z</published>
-    <updated>2018-10-05T06:43:18.565Z</updated>
+    <updated>2018-10-05T06:43:52.379Z</updated>
     
     <content type="html"><![CDATA[<p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20181005.jpg" alt="Markdown"></p><p></p>
-<p><div align="center">玩玩区块链</div><br></p>
+<p><div align="center">在自己的私有链上挖矿和交易</div><br></p>
 <h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>目前业界关于区块链尚无权威统一的定义。区块链简单来说，是一种链式的数据结构，区块之间按照时间顺序连接，利用密码学方式保证数据不易串改和不易伪造，并在网络所有节点进行<strong>分布式存储的共享账本</strong>。</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/btc_trend.jpg" alt="BTC价格"></p>
 <p>谈到区块链就不得不提及最近价格经历过山车的比特币（BTC），比特币对社会的贡献和价值主要在于，通过实践验证了背后支撑其运作的区块链技术。了解比特币的基本原理，请移步<a href="http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html" target="_blank" rel="external">一个故事告诉你比特币的原理及运作机制</a></p>
@@ -88,7 +88,7 @@
     <summary type="html">
     
       &lt;p&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;http://ow23qx875.bkt.clouddn.com/cover_20181005.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div align=&quot;center&quot;&gt;玩玩
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;在自
     
     </summary>
     
