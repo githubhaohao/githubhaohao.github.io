@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_start.png">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_stop.png">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/mist_account.png">
-<meta property="og:updated_time" content="2018-10-03T15:06:17.769Z">
+<meta property="og:updated_time" content="2018-10-05T03:06:02.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于以太坊搭建私有链">
 <meta name="twitter:description" content="玩玩区块链
@@ -458,9 +458,9 @@
 </ul>
 <h2 id="搭建私有链"><a href="#搭建私有链" class="headerlink" title="搭建私有链"></a>搭建私有链</h2><h3 id="安装以太坊客户端"><a href="#安装以太坊客户端" class="headerlink" title="安装以太坊客户端"></a>安装以太坊客户端</h3><p><img src="http://pg12w9eve.bkt.clouddn.com/geth_client.png" alt="以太坊客户端"></p>
 <p>移步<a href="https://github.com/ethereum/mist/releases" target="_blank" rel="external">https://github.com/ethereum/mist/releases</a> 下载对应操作系统的以太坊钱包和 Mist（去中心化应用浏览器）。</p>
-<p>以太坊钱包启动后会自动下载以太坊客户端（Go-ethereum）Geth ，安装后的路径 C:\Users\haohao\AppData\Roaming\Ethereum Wallet\binaries\Geth\unpacked ，将该路径配置为环境变量。可以通过 <code>geth --help</code> 查看 Geth 是否安装成功。</p>
+<p>以太坊钱包启动后会自动下载以太坊命令行客户端 Geth ，Geth 目前使用非常广泛，基于 GO 语言开发。安装后的路径 C:\Users\haohao\AppData\Roaming\Ethereum Wallet\binaries\Geth\unpacked ，将该路径配置为环境变量（注意英文分号）。可以通过 <code>geth --help</code> 查看 Geth 是否安装成功。</p>
 <h3 id="定义创世区块"><a href="#定义创世区块" class="headerlink" title="定义创世区块"></a>定义创世区块</h3><p>区块链的第一个区块称为创世区块，它是区块链里面所有区块的共同祖先，这意味着你从任一区块，循链向后回溯，最终都将到达创世区块。以太坊支持自定义创世区块，要运行私有链，首先需要定义自己的创世区块，一般用一个 JSON 文件表示创世区块的信息。</p>
-<p>在 C 盘创建目录 <code>C:\MyChains\T1</code> ，在该目录下创建 MyGenesis.json 文件，文件内容：</p>
+<p>在 C 盘创建目录 <code>C:\MyChains\T1</code> ，该目录主要用于存储私有链数据，在该目录下创建 MyGenesis.json 文件，文件内容：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"config"</span>: &#123;</div><div class="line">        <span class="attr">"chainId"</span>: <span class="number">2048</span>, </div><div class="line">        <span class="attr">"homesteadBlock"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip155Block"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"eip158Block"</span>: <span class="number">0</span></div><div class="line">    &#125;,</div><div class="line">  <span class="attr">"alloc"</span>      : &#123;&#125;,</div><div class="line">  <span class="attr">"coinbase"</span>   : <span class="string">"0x0000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"difficulty"</span> : <span class="string">"0x10"</span>,</div><div class="line">  <span class="attr">"extraData"</span>  : <span class="string">""</span>,</div><div class="line">  <span class="attr">"gasLimit"</span>   : <span class="string">"0x222222"</span>,</div><div class="line">  <span class="attr">"nonce"</span>      : <span class="string">"0x000000000000001"</span>,</div><div class="line">  <span class="attr">"mixhash"</span>    : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"parentHash"</span> : <span class="string">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,</div><div class="line">  <span class="attr">"timestamp"</span>  : <span class="string">"0x00"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="初始化区块链"><a href="#初始化区块链" class="headerlink" title="初始化区块链"></a>初始化区块链</h3><p>命令行在 <code>C:\MyChains\T1</code> 路径下，关闭以太坊钱包和 Mist ，初始化区块链执行命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --identity <span class="string">"dev"</span> --rpc --rpccorsdomain <span class="string">"*"</span> --datadir <span class="string">"C:\MyChains\T1"</span> --rpcapi <span class="string">"db,eth,net,web3"</span> --networkid 100 init <span class="string">"./MyGenesis.json"</span></div></pre></td></tr></table></figure>
@@ -470,7 +470,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">geth --datadir <span class="string">"C:\MyChains\T1"</span> --identity <span class="string">"dev"</span> --rpccorsdomain <span class="string">"*"</span> --networkid 100 console</div></pre></td></tr></table></figure>
 <p>执行成功后显示：</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_start.png" alt="blockchain_start"></p>
-<h3 id="创建以太坊账户"><a href="#创建以太坊账户" class="headerlink" title="创建以太坊账户"></a>创建以太坊账户</h3><p>私有链启动成功后，便会进入以太坊 Console 控制台，以 <code>&gt;</code> 符号开始。查看私有链上的账户（目前还没有创建任何账户）。</p>
+<h3 id="创建以太坊账户"><a href="#创建以太坊账户" class="headerlink" title="创建以太坊账户"></a>创建以太坊账户</h3><p>私有链启动成功后，便会进入以太坊 Geth Console 控制台，以 <code>&gt;</code> 符号开始。查看私有链上的账户（目前还没有创建任何账户）。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; eth.accounts</div><div class="line">[]</div></pre></td></tr></table></figure>
 <p>通过 <code>personal.newAccount()</code> 指令（输入两次密码）创建 2 个新账户。</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_newaccount.png" alt="newaccount"></p>
@@ -481,7 +481,7 @@
 <p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_start.png" alt="miner_start"></p>
 <p>当 percentage=100 后，通过命令 <code>miner.stop()</code> 终止挖矿。停止挖矿后，查看账户余额：</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/blockchain_miner_stop.png" alt="miner_stop"></p>
-<p>PS: <code>getBalance()</code> 返回值的单位是 wei ， wei 是以太币的最小单位，1 个以太币 = 10 的 18 次方个 wei 。查看账户有多少个以太币，可以通过命令 <code>web3.fromWei()</code> 将 Wei 换算成以太币。</p>
+<p>PS: <code>getBalance()</code> 返回值的单位是 wei ， wei 是以太币的最小单位，1 个以太币 = 10 的 18 次方个 wei 。查看账户有多少个以太币，可以通过命令 <code>web3.fromWei()</code> 将 wei 换算成以太币。</p>
 <h3 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h3><p>目前我们有两个账户，账户 0 有 105 个以太币， 账户 1 有 0 个以太币。现在通过操作账户 0 向账户 1 转 10 个以太币。</p>
 <p>首先通过账户 0 的密码对账户 0 进行解锁：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; personal.unlockAccount(eth.accounts[0])</div><div class="line">Unlock account 0x33213084015dab454fee16eb369fa2a8e6e65eee</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div></pre></td></tr></table></figure>
