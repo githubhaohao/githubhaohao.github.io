@@ -92,15 +92,21 @@
 
 
 <meta name="description" content="在自己的私有链上部署智能合约
+
+该文章首发于微信公众号“字节流动”
+
 上节简单介绍了基于以太坊搭建私有链以及挖矿和交易，在部署智能合约之前请确保私有链上的账户有余额，因为部署智能合约需要消耗 Gas ，而 Gas 需要 ether 币来兑换。
-智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM）字节码的形式存在，由以太坊虚拟机解释执">
+智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在以太坊私有链上部署智能合约">
 <meta property="og:url" content="https://githubhaohao.github.io/2018/10/07/Deploy-smart-contracts-on-the-Ethereum-private-chain/index.html">
 <meta property="og:site_name" content="haohao">
 <meta property="og:description" content="在自己的私有链上部署智能合约
+
+该文章首发于微信公众号“字节流动”
+
 上节简单介绍了基于以太坊搭建私有链以及挖矿和交易，在部署智能合约之前请确保私有链上的账户有余额，因为部署智能合约需要消耗 Gas ，而 Gas 需要 ether 币来兑换。
-智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM）字节码的形式存在，由以太坊虚拟机解释执">
+智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM">
 <meta property="og:image" content="http://ow23qx875.bkt.clouddn.com/cover_20181006.jpg">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/contract_browser.png">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/contract_bytecode.png">
@@ -109,12 +115,15 @@
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/mist_deping_2.png">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/mist_dep_success.png">
 <meta property="og:image" content="http://pg12w9eve.bkt.clouddn.com/mist_mint.png">
-<meta property="og:updated_time" content="2018-10-07T09:25:00.577Z">
+<meta property="og:updated_time" content="2019-01-13T07:43:23.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在以太坊私有链上部署智能合约">
 <meta name="twitter:description" content="在自己的私有链上部署智能合约
+
+该文章首发于微信公众号“字节流动”
+
 上节简单介绍了基于以太坊搭建私有链以及挖矿和交易，在部署智能合约之前请确保私有链上的账户有余额，因为部署智能合约需要消耗 Gas ，而 Gas 需要 ether 币来兑换。
-智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM）字节码的形式存在，由以太坊虚拟机解释执">
+智能合约什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM">
 <meta name="twitter:image" content="http://ow23qx875.bkt.clouddn.com/cover_20181006.jpg">
 
 
@@ -431,6 +440,9 @@
       
         <p></p><p align="center"><img src="http://ow23qx875.bkt.clouddn.com/cover_20181006.jpg" alt="Markdown"></p><p></p>
 <p><div align="center">在自己的私有链上部署智能合约</div><br></p>
+<blockquote>
+<p>该文章首发于微信公众号“字节流动”</p>
+</blockquote>
 <p>上节简单介绍了<a href="http://haohaochang.cn/2018/10/02/Building-a-private-chain-based-on-Ethereum/" target="_blank" rel="external">基于以太坊搭建私有链以及挖矿和交易</a>，在部署智能合约之前请确保私有链上的账户有余额，因为部署智能合约需要消耗 Gas ，而 Gas 需要 ether 币来兑换。</p>
 <h2 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h2><p>什么是智能合约（Smart Contract）？智能合约是存储在以太坊网络特定地址的一组代码和数据集。在以太坊网络中智能合约以以太坊虚拟机（EVM）字节码的形式存在，由以太坊虚拟机解释执行。用于编写智能合约常用的语言有 Solidity 、Serpent 以及 LLL ，其中最著名的就是 Solidity 。智能合约的部署和执行都需要费用（Gas）,一旦部署便不能修改。</p>
 <h2 id="部署智能合约"><a href="#部署智能合约" class="headerlink" title="部署智能合约"></a>部署智能合约</h2><p>部署智能合约可以使用以太坊命令行客户端（Geth Console）和 Mist 。</p>
@@ -449,7 +461,8 @@
 <p>通过 Geth Console 创建合约对象。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">// 声明合约 coin</div><div class="line">&gt; var abi = JSON.parse(<span class="string">'[&#123;\"constant\":false,\"inputs\":[&#123;\"name\":\"receiver\",\"type\":\"address\"&#125;,&#123;\"name\":\"amount\",\"type\":\"uint256\"&#125;],\"name\":\"mint\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"&#125;,&#123;\"constant\":false,\"inputs\":[&#123;\"name\":\"receiver\",\"type\":\"address\"&#125;,&#123;\"name\":\"amount\",\"type\":\"uint256\"&#125;],\"name\":\"send\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"&#125;,&#123;\"anonymous\":false,\"inputs\":[&#123;\"indexed\":false,\"name\":\"from\",\"type\":\"address\"&#125;,&#123;\"indexed\":false,\"name\":\"to\",\"type\":\"address\"&#125;,&#123;\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"&#125;],\"name\":\"Sent\",\"type\":\"event\"&#125;,&#123;\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"&#125;,&#123;\"constant\":true,\"inputs\":[&#123;\"name\":\"\",\"type\":\"address\"&#125;],\"name\":\"balances\",\"outputs\":[&#123;\"name\":\"\",\"type\":\"uint256\"&#125;],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"&#125;,&#123;\"constant\":true,\"inputs\":[],\"name\":\"minter\",\"outputs\":[&#123;\"name\":\"\",\"type\":\"address\"&#125;],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"&#125;]'</span>)</div><div class="line">&gt; coin = web3.eth.contract(abi)</div><div class="line"></div><div class="line">// 需要为字节码添加，<span class="string">'0x'</span> 前缀。</div><div class="line">&gt; byteCode = <span class="string">"0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506104df80610060600039</span></div><div class="line">6000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063075461721461006757806327e235e3146100be57806340c10f1914610115578063d0679d34146101</div><div class="line">..."</div><div class="line"></div><div class="line"><span class="string">"0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506104df806100606000396000f30060806</span></div><div class="line">0405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063075461721461006757806327e235e3146100be57806340c10f19146101..."</div><div class="line">// 就是部署智能合约需要的燃料（Gas）值。</div><div class="line">&gt; eth.estimateGas(&#123;data: byteCode&#125;)</div><div class="line">406661</div><div class="line">// 我们输入的燃料值需要大于 406661 </div><div class="line">&gt;</div><div class="line">// 解锁 coinbase 账户</div><div class="line">&gt; personal.unlockAccount(eth.coinbase)</div><div class="line">Unlock account 0x33213084015dab454fee16eb369fa2a8e6e65eee</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div><div class="line"></div><div class="line">// 创建 coin 合约对象，部署合约</div><div class="line">&gt; coinContractIns = coin.new(&#123;data: byteCode gas: 410000, from: eth.coinbase&#125;, <span class="keyword">function</span>(e, contract)&#123;</div><div class="line">  <span class="keyword">if</span>(!e)&#123;</div><div class="line">    <span class="keyword">if</span>(!contract.address)&#123;</div><div class="line">      console.log(<span class="string">"Contract transaction send: Transaction Hash: "</span>+contract.transactionHash+<span class="string">" waiting to be mined..."</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      console.log(<span class="string">"Contract mined! Address: "</span> + contract.address);</div><div class="line">      console.log(contract);</div><div class="line">    &#125;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    console.log(e)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">INFO [10-07|12:19:00.077] Submitted contract creation              fullhash=0x114e241d2a62064b0d41ec143c595768f648306595a931563a3add4cee3c2d77 contract=0x7227255a42b167061B4260A0b1827e3E6F737905</div><div class="line">Contract transaction send: Transaction Hash: 0x114e241d2a62064b0d41ec143c595768f648306595a931563a3add4cee3c2d77 waiting to be mined...</div><div class="line">&#123;</div><div class="line">  abi: [&#123;</div><div class="line">      constant: <span class="literal">false</span>,</div><div class="line">      inputs: [&#123;...&#125;, &#123;...&#125;],</div><div class="line">      name: <span class="string">"mint"</span>,</div><div class="line">      outputs: [],</div><div class="line">      payable: <span class="literal">false</span>,</div><div class="line">      stateMutability: <span class="string">"nonpayable"</span>,</div><div class="line">      <span class="built_in">type</span>: <span class="string">"function"</span></div><div class="line">  &#125;, &#123;</div><div class="line">      constant: <span class="literal">false</span>,</div><div class="line">      inputs: [&#123;...&#125;, &#123;...&#125;],</div><div class="line">      name: <span class="string">"send"</span>,</div><div class="line">      outputs: [],</div><div class="line">      payable: <span class="literal">false</span>,</div><div class="line">      stateMutability: <span class="string">"nonpayable"</span>,</div><div class="line">      <span class="built_in">type</span>: <span class="string">"function"</span></div><div class="line">  &#125;, &#123;</div><div class="line">      anonymous: <span class="literal">false</span>,</div><div class="line">      inputs: [&#123;...&#125;, &#123;...&#125;, &#123;...&#125;],</div><div class="line">      name: <span class="string">"Sent"</span>,</div><div class="line">      <span class="built_in">type</span>: <span class="string">"event"</span></div><div class="line">  &#125;, &#123;</div><div class="line">      inputs: [],</div><div class="line">      payable: <span class="literal">false</span>,</div><div class="line">      stateMutability: <span class="string">"nonpayable"</span>,</div><div class="line">      <span class="built_in">type</span>: <span class="string">"constructor"</span></div><div class="line">  &#125;, &#123;</div><div class="line">      constant: <span class="literal">true</span>,</div><div class="line">      inputs: [&#123;...&#125;],</div><div class="line">      name: <span class="string">"balances"</span>,</div><div class="line"></div><div class="line">// coin 合约并没有部署成功，需要启动挖矿</div><div class="line">&gt; miner.start();</div><div class="line">&gt; // 等待约 12 以上区块生成，停止挖矿</div><div class="line">&gt; miner.stop();</div><div class="line"></div><div class="line">// 查看合约是否部署成功</div><div class="line">&gt; eth.getCode(coinContractIns.address)</div><div class="line"><span class="string">"0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063075461721461006757806327e235e31461</span></div><div class="line">b600080fd5b34801561007357600080fd5b5061007c6101af565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff</div><div class="line">00080fd5b506100ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101d4565b6040518082815260200191505060405180</div><div class="line">..."</div><div class="line">// 合约部署成功</div><div class="line"></div><div class="line"></div><div class="line">//解锁账户</div><div class="line">&gt; eth.defaultAccount=eth.coinbase</div><div class="line"><span class="string">"0x33213084015dab454fee16eb369fa2a8e6e65eee"</span> // coinbase 账户</div><div class="line">&gt; personal.unlockAccount(eth.coinbase)</div><div class="line">Unlock account 0x33213084015dab454fee16eb369fa2a8e6e65eee</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div><div class="line"></div><div class="line">// 查看账户在合约中的余额</div><div class="line">&gt; coinContractIns.balances(<span class="string">"0x33213084015DAB454fEe16eb369FA2a8E6E65eEE"</span>) //替换成自己的 coinbase 账户</div><div class="line">0</div><div class="line">// 由于合约没有被执行，合约中的余额为 0</div><div class="line"></div><div class="line">// 通过合约中的 mint 接口设置 coinbase 账户在合约中的 coin 数目为 30000 。</div><div class="line">&gt; coinContractIns.mint(<span class="string">"0x33213084015DAB454fEe16eb369FA2a8E6E65eEE"</span>, 30000);</div><div class="line">INFO [10-07|12:37:31.191] Submitted transaction                    fullhash=0x788857480e7c33d59f5893e7287c697d33e5ad29a52817e19930ec26178e62b3 recipient=0x7227255a42b1</div><div class="line"><span class="string">"0x788857480e7c33d59f5893e7287c697d33e5ad29a52817e19930ec26178e62b3"</span></div><div class="line"></div><div class="line">// 上述操作并未执行，需要启动挖矿</div><div class="line">&gt; miner.start();</div><div class="line">&gt; // 等待约 12 以上区块生成，停止挖矿</div><div class="line">&gt; miner.stop();</div><div class="line"></div><div class="line">// 挖矿结束，查看 coinbase 账户 coin 数量</div><div class="line">&gt; coinContractIns.balances(<span class="string">"0x33213084015DAB454fEe16eb369FA2a8E6E65eEE"</span>)</div><div class="line">30000</div><div class="line"></div><div class="line">//解锁 coinbase 账户，进行交易</div><div class="line">&gt; personal.unlockAccount(eth.coinbase)</div><div class="line">Unlock account 0x33213084015dab454fee16eb369fa2a8e6e65eee</div><div class="line">Passphrase:</div><div class="line"><span class="literal">true</span></div><div class="line">// 发送给账户 0x55213084015DAB454fEe16eb369FA2a8E6E65ebb（这个账户可以随意填写，保证 20 Byte）10000 个 coin</div><div class="line">&gt; coinContractIns.send(<span class="string">"0x55213084015DAB454fEe16eb369FA2a8E6E65ebb"</span>, 10000);</div><div class="line">INFO [10-07|12:47:17.161] Submitted transaction                    fullhash=0xf0ec8dc4daf6d85cf55be8289a37fbd271437658b2a02<span class="built_in">fc</span>330272403192d863e recipient=0x7227255a42</div><div class="line"><span class="string">"0xf0ec8dc4daf6d85cf55be8289a37fbd271437658b2a02fc330272403192d863e"</span></div><div class="line">// 交易还未执行，这个账户余额还是 0 </div><div class="line">&gt; coinContractIns.balances(<span class="string">"0x55213084015DAB454fEe16eb369FA2a8E6E65ebb"</span>)</div><div class="line">0</div><div class="line">// 上述操作并未执行，需要启动挖矿</div><div class="line">&gt; miner.start();</div><div class="line">&gt; // 等待约 12 以上区块生成，停止挖矿</div><div class="line">&gt; miner.stop();</div><div class="line"></div><div class="line">// 挖矿结束，查看账户的 coin 余额，合约执行成功。</div><div class="line">&gt; coinContractIns.balances(<span class="string">"0x55213084015DAB454fEe16eb369FA2a8E6E65ebb"</span>)</div><div class="line">10000</div><div class="line">&gt; coinContractIns.balances(<span class="string">"0x33213084015DAB454fEe16eb369FA2a8E6E65eEE"</span>)</div><div class="line">20000</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <h3 id="Mist-部署"><a href="#Mist-部署" class="headerlink" title="Mist 部署"></a>Mist 部署</h3><p>通过 Mist 部署智能合约非常简单方便。打开 Mist ，选择【CONTRACT】-&gt;【DEPLOY NEW CONTRACT】，在 【SOLIDITY CONTRACT SOURCE CODE】 中，将 coin 例子代码粘贴进来，将合约改为 LTCCoin 。</p>
-<p><img src="http://pg12w9eve.bkt.clouddn.com/mist_dep_code.png" alt="mist_depo_code"><br><a href="https://github.com/EthFans/wiki/wiki/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6" target="_blank" rel="external">https://github.com/EthFans/wiki/wiki/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6</a><br>点击【DEPLOY】输入账户密码创建合约（这里创建账户选择 Account1）。</p>
+<p><img src="http://pg12w9eve.bkt.clouddn.com/mist_dep_code.png" alt="mist_depo_code"></p>
+<p>点击【DEPLOY】输入账户密码创建合约（这里创建账户选择 Account1）。</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/mist_deping.png" alt="mist_depoing"></p>
 <p>点击【WALLETS】在下面的【Latest Transaction】可以看到合约正在创建中，这里需要在 Geth Console 启动挖矿，合约才能创建成功，当然进行任何交易操作都需要挖矿来完成。</p>
 <p><img src="http://pg12w9eve.bkt.clouddn.com/mist_deping_2.png" alt="mist_depoing2"></p>
@@ -533,6 +546,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/13/Quickly-locate-Crash-issues-in-NDK-development/" rel="prev" title="NDK 开发中快速定位 Crash 问题">
+                NDK 开发中快速定位 Crash 问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -631,7 +648,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -640,7 +657,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -649,7 +666,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -732,7 +749,7 @@
         <div class="copyright" >
   
   &copy;  2017 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     Powered by
   </span>

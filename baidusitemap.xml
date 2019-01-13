@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/</loc>
+    <lastmod>2019-01-13T07:44:11.601Z</lastmod>
+    <data>
+        <display>
+        <title>基于以太坊搭建私有链</title>
+        <pubTime>2018-10-02T13:49:47.000Z</pubTime>
+        
+        <tag>区块链</tag>
+         
+        <tag>以太坊</tag>
+         
+         
+           
+             
+              <breadCrumb title="区块链" url="https://githubhaohao.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://githubhaohao.github.io/2018/10/07/Deploy-smart-contracts-on-the-Ethereum-private-chain/</loc>
-    <lastmod>2018-10-07T09:25:00.577Z</lastmod>
+    <lastmod>2019-01-13T07:43:23.501Z</lastmod>
     <data>
         <display>
         <title>在以太坊私有链上部署智能合约</title>
@@ -28,21 +50,27 @@
 
     
   <url>
-    <loc>https://githubhaohao.github.io/2018/10/02/Building-a-private-chain-based-on-Ethereum/</loc>
-    <lastmod>2018-10-05T06:43:52.379Z</lastmod>
+    <loc>https://githubhaohao.github.io/2019/01/13/Quickly-locate-Crash-issues-in-NDK-development/</loc>
+    <lastmod>2019-01-13T07:37:00.078Z</lastmod>
     <data>
         <display>
-        <title>基于以太坊搭建私有链</title>
-        <pubTime>2018-10-02T13:49:47.000Z</pubTime>
+        <title>NDK 开发中快速定位 Crash 问题</title>
+        <pubTime>2019-01-13T07:35:22.000Z</pubTime>
         
-        <tag>区块链</tag>
+        <tag>NDK</tag>
          
-        <tag>以太坊</tag>
+        <tag>Android</tag>
+         
+        <tag>backtrace</tag>
+         
+        <tag>crash</tag>
+         
+        <tag>addr2line</tag>
          
          
            
              
-              <breadCrumb title="区块链" url="https://githubhaohao.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+              <breadCrumb title="NDK" url="https://githubhaohao.github.io/categories/NDK/"/>
           
         </display>
     </data>
@@ -470,13 +498,13 @@
         <title>MVVM，RxJava 和 Retrofit 的一次实践</title>
         <pubTime>2017-02-12T06:21:25.000Z</pubTime>
         
+        <tag>RxJava</tag>
+         
         <tag>MVVM</tag>
          
         <tag>MVP</tag>
          
         <tag>MVC</tag>
-         
-        <tag>RxJava</tag>
          
         <tag>Retrofit</tag>
          
